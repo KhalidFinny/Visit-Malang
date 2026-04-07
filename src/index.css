@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --color-heritage-sage: #A3B18A;
+  --color-colonial-cream: #F2E9E4;
+  --color-midnight-steel: #4A5759;
+  --color-petal-blush: #D6ADAD;
+}
+
 body {
   margin: 0;
   background: #000;
