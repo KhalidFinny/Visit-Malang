@@ -3,9 +3,14 @@ import { useRef } from "react";
 
 export default function HeroStage() {
   const containerRef = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   
-  // Track scroll inside this specific container
-  const { scrollYProgress } = useScroll({ container: containerRef });
+  // Track scroll specifically targeting the hero block's lifecycle inside the container
+  const { scrollYProgress } = useScroll({ 
+    container: containerRef,
+    target: heroRef,
+    offset: ["start start", "end end"]
+  });
   
   // Apply a spring physics smoothing over the raw scroll progress
   const smoothScroll = useSpring(scrollYProgress, {
@@ -34,7 +39,7 @@ export default function HeroStage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
     >
-      <div className="relative w-full h-[400vh]">
+      <div ref={heroRef} className="relative w-full h-[200vh]">
         <div className="sticky top-0 w-full h-screen overflow-hidden">
           {/* Parallax Sky Background */}
           <motion.img
@@ -42,7 +47,7 @@ export default function HeroStage() {
             loading="lazy"
             alt="Malang overcast sky background"
             style={{ scale: skyScale }}
-            className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none origin-top"
           />
           
           {/* Color Grading Overlay to integrate sky with color palette */}

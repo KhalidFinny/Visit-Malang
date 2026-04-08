@@ -29,31 +29,35 @@ export default function FlightBackground({
             transform: "translateZ(0)",
           }}
         >
+          {/* Deep cooling filters via DOM blending (High Performance) */}
+          <div className="absolute inset-0 bg-blue-900/60 mix-blend-color pointer-events-none z-10" />
+          <div className="absolute inset-0 bg-slate-900/30 mix-blend-multiply pointer-events-none z-10" />
+          
           {[1, 2].map((block) => (
-            <div key={block} className="flex h-full w-1/2 relative">
-              <div className="w-1/2 h-full relative overflow-hidden">
+            <div key={block} className="flex h-full w-1/2 relative" style={{ marginLeft: "-1px" }}>
+              {/* Left Side: Right-Half of the Image */}
+              <div className="w-1/2 h-full relative overflow-hidden" style={{ marginRight: "-1px" }}>
                 <img
                   src={bgGolden}
                   alt=""
-                  className="absolute inset-y-0 right-0 h-full w-[200%] max-w-none object-cover"
+                  className="absolute inset-y-0 right-[-1px] h-full w-[calc(200%+2px)] max-w-none object-cover"
                 />
               </div>
+              
+              {/* Right Side: Mirrored Right-Half of the Image */}
               <div
                 className="w-1/2 h-full relative overflow-hidden ml-px"
                 style={{
-                  maskImage: "linear-gradient(to right, transparent, black 15%)",
-                  WebkitMaskImage: "linear-gradient(to right, transparent, black 15%)",
+                  maskImage: "linear-gradient(to right, transparent 2%, black 15%)",
+                  WebkitMaskImage: "linear-gradient(to right, transparent 2%, black 15%)",
                 }}
               >
                 <img
                   src={bgGolden}
                   alt=""
-                  className="absolute inset-y-0 left-0 h-full w-[200%] max-w-none object-cover scale-x-[-1]"
+                  className="absolute inset-y-0 left-[-1px] h-full w-[calc(200%+2px)] max-w-none object-cover scale-x-[-1]"
                 />
               </div>
-
-              {/* Center Seam */}
-              <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-32 bg-gradient-to-r from-transparent via-[#ffb300]/5 to-transparent pointer-events-none" />
             </div>
           ))}
         </motion.div>

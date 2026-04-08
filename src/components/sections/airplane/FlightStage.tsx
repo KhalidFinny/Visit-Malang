@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import FlightBackground from "./FlightBackground";
 import CabinInterior from "./CabinInterior";
 import UIOverlay from "../../shared/UIOverlay";
@@ -10,6 +11,13 @@ export default function FlightStage({
   onDescend,
   mousePos,
 }: FlightStageProps) {
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <motion.div
       key="flight"
@@ -18,7 +26,7 @@ export default function FlightStage({
       animate={{ opacity: 1 }}
       exit={{
         scale: 1.08,
-        y: 60,
+        y: -100,
         opacity: 0,
         filter: "blur(20px) brightness(1.2)",
       }}
@@ -27,6 +35,30 @@ export default function FlightStage({
       <FlightBackground bgGolden={bgGolden} mousePos={mousePos} />
       <CabinInterior chairSilhouette={chairSilhouette} mousePos={mousePos} />
       <UIOverlay onDescend={onDescend} mousePos={mousePos} />
+      
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            key="splash"
+            className="absolute inset-0 bg-[#050508] z-100 flex flex-col items-center justify-center space-y-6"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="w-48 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
+              <motion.div 
+                className="absolute inset-y-0 left-0 bg-white/80"
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1.1, ease: "easeInOut" }}
+              />
+            </div>
+            <p className="text-white/40 text-[0.8rem] uppercase tracking-[0.4em] font-sans">
+              Traveling
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

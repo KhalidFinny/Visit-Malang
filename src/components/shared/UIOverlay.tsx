@@ -31,7 +31,15 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
       <div className="ui-overlay absolute top-[45%] -translate-y-1/2 left-0 right-0 flex flex-col items-center">
         <motion.div
           className="question-text flex gap-[0.2em]"
-          style={{ x: driftX, y: driftY, fontFamily: '"Sue Ellen Francisco", cursive', fontSize: "3.5rem" }} // Strong follow drift
+          style={{ 
+            x: driftX, 
+            y: driftY, 
+            fontFamily: '"Sue Ellen Francisco", cursive', 
+            fontSize: "4rem", 
+            fontWeight: "normal",
+            letterSpacing: "0.2em",
+            textShadow: "0 10px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5)" 
+          }}
           initial="hidden"
           animate="visible"
           transition={{ type: "spring", stiffness: 40, damping: 25 }}
@@ -53,8 +61,8 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
               <motion.span
                 key={index}
                 variants={{
-                  hidden: { opacity: 0, y: 10, filter: "blur(5px)" },
-                  visible: { opacity: 0.85, y: 0, filter: "blur(0px)" },
+                  hidden: { opacity: 0, y: 15, filter: "blur(8px)" },
+                  visible: { opacity: 0.95, y: 0, filter: "blur(0px)" },
                 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               >
@@ -73,23 +81,13 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
             opacity: { delay: 2, duration: 1.5 }
           }}
         >
-          <motion.p
-            className="click-cta text-[1.4rem] tracking-[0.4rem]! opacity-40 font-light"
-            animate={{ 
-              opacity: isHovered ? [0.6, 1, 0.6] : [0.3, 0.6, 0.3],
-              scale: isHovered ? 1.05 : 1
-            }}
-            transition={{ duration: isHovered ? 1.5 : 5, repeat: Infinity, ease: "easeInOut" }}
+          <div
+            className="click-cta flex items-center justify-center gap-3 px-6 py-3 transition-all duration-500 ease-out"
+            style={{ opacity: isHovered ? 1 : 0.6, transform: isHovered ? "scale(1.05)" : "scale(1)" }}
           >
-            TAP THE WINDOW
-          </motion.p>
-          <div className="w-48 h-px bg-white/20 mt-4 relative overflow-hidden">
-            <motion.div
-              className="absolute inset-0 bg-linear-to-r from-transparent via-white/50 to-transparent"
-              animate={{ x: ["-100%", "100%"] }}
-              transition={{ duration: isHovered ? 1.2 : 4, repeat: Infinity, ease: "linear" }}
-            />
+            <span className="text-[1rem] tracking-[0.3em] font-medium text-white/90">TAP THE WINDOW</span>
           </div>
+          <div className="w-40 h-px bg-white/20 mt-2 transition-all duration-500 ease-out" style={{ width: isHovered ? "12rem" : "6rem", opacity: isHovered ? 0.8 : 0.3 }} />
         </motion.div>
       </div>
 

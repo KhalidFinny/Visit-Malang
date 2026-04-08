@@ -33,22 +33,9 @@ export default function CabinInterior({ chairSilhouette, mousePos }: CabinInteri
             xmlns="http://www.w3.org/2000/svg"
           >
           <defs>
-            <radialGradient
-              id="sunsetGlowSoft"
-              cx="50%"
-              cy="50%"
-              r="80%"
-              fx="50%"
-              fy="50%"
-            >
-              <stop offset="0%" stopColor="#ffb300" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#ff7b00" stopOpacity="0" />
-            </radialGradient>
-
-            <mask id="seatMask">
-              <rect x="0" y="0" width="1920" height="1080" fill="white" />
-              <path d={getWindowPath(false, true)} fill="black" />
-            </mask>
+            <clipPath id="windowClipInner">
+              <path d={getWindowPath(false, true)} />
+            </clipPath>
 
             <linearGradient id="premiumWall" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#050508" />
@@ -62,27 +49,7 @@ export default function CabinInterior({ chairSilhouette, mousePos }: CabinInteri
               <stop offset="100%" stopColor="#a599ff" stopOpacity="0" />
             </linearGradient>
 
-            <filter id="ultraSoftBlur">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="90" />
-            </filter>
 
-            <filter id="glassBlur">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="30" />
-            </filter>
-
-            <linearGradient
-              id="premiumGlassReflect"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" stopColor="rgba(255,255,255,0)" />
-              <stop offset="48%" stopColor="rgba(255,255,255,0.01)" />
-              <stop offset="50%" stopColor="rgba(255,255,255,0.18)" />
-              <stop offset="52%" stopColor="rgba(255,255,255,0.01)" />
-              <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-            </linearGradient>
           </defs>
 
           {/* 1. The Single Window Cutout */}
@@ -111,23 +78,9 @@ export default function CabinInterior({ chairSilhouette, mousePos }: CabinInteri
             fillRule="evenodd"
           />
 
-          {/* 5. Volumetric Glow Reflection */}
-          <rect
-            x="0"
-            y="0"
-            width="1920"
-            height="1080"
-            fill="transparent"
-            pointerEvents="none"
-          />
 
-          {/* 6. Subtle Glass Highlights (Center Only) */}
-          <motion.g
-            animate={{ transform: ["translateX(-250px)", "translateX(250px)"] }}
-            transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <rect x="785" y="130" width="350" height="820" fill="url(#premiumGlassReflect)" />
-          </motion.g>
+
+
         </svg>
         </motion.div>
       </motion.div>
