@@ -12,14 +12,13 @@ body {
   background: #000;
   font-family: 'Outfit', sans-serif;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .experience-root {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   background: #000;
 }
 

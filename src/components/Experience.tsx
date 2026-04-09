@@ -6,7 +6,8 @@ import FlightStage from "./sections/airplane/FlightStage";
 import HeroStage from "./sections/hero/HeroStage";
 import { useCameraPhysics } from "./hooks/useCameraPhysics";
 
-import DiscoverStage from "./sections/about/DiscoverStage";
+import WeatherStage from "./sections/weather/WeatherStage";
+import PlaceholderStage from "./sections/top5/PlaceholderStage";
 
 export default function Experience() {
   const [phase, setPhase] = useState<"flight" | "landing">(() => {
@@ -18,34 +19,27 @@ export default function Experience() {
     sessionStorage.setItem("malangPhase", phase);
   }, [phase]);
   
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const { mouseX, mouseY, springX, springY, pOrigin } = useCameraPhysics();
 
   const handleDescend = () => {
-    setIsTransitioning(true);
-    // When curtain is fully up, swap the components
-    setTimeout(() => {
-      setPhase("landing");
-      sessionStorage.setItem("malangPhase", "landing");
-    }, 500); 
-    // Wait a brief moment, then slide the curtain away to reveal Hero
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 800);
+    setPhase("landing");
+    sessionStorage.setItem("malangPhase", "landing");
   };
 
   return (
-    <div className="experience-root bg-black overflow-hidden relative w-full h-full">
-      {/* Heavy stages swapped instantaneously behind the curtain */}
-      {phase === "flight" ? (
+    <div className="experience-root bg-black relative w-full min-h-screen">
+      <AnimatePresence>
+        {phase === "flight" ? (
           <motion.div
             key="flight"
             onMouseMove={(e) => {
               mouseX.set(Math.max(0, Math.min(1, e.clientX / window.innerWidth)));
               mouseY.set(Math.max(0, Math.min(1, e.clientY / window.innerHeight)));
             }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, scale: 1.15 }} // Deep immersion bleed
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
             style={{ 
               perspective: "1200px", 
               transformStyle: "preserve-3d",
@@ -54,7 +48,7 @@ export default function Experience() {
               height: "100%",
               translateZ: 0 
             }}
-            className="w-full h-full"
+            className="w-full h-screen fixed inset-0 z-10 overflow-hidden"
           >
             <FlightStage
               bgGolden={bgGolden}
@@ -64,23 +58,17 @@ export default function Experience() {
             />
           </motion.div>
         ) : (
-          <div className="w-full h-full overflow-y-auto overflow-x-hidden scroll-smooth">
+          <motion.div 
+            key="landing"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="w-full relative z-0"
+          >
             <HeroStage />
-            <DiscoverStage />
-          </div>
-      )}
-
-      {/* Ultra high-performance curtain transition */}
-      <AnimatePresence>
-        {isTransitioning && (
-          <motion.div
-            key="curtain"
-            className="absolute inset-0 z-50 bg-heritage-sage pointer-events-none"
-            initial={{ y: "100%" }}
-            animate={{ y: "0%" }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.5, ease: [0.64, 0, 0.16, 1] }}
-          />
+            <WeatherStage />
+            <PlaceholderStage />
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

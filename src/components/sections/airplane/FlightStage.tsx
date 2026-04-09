@@ -21,16 +21,11 @@ export default function FlightStage({
   return (
     <motion.div
       key="flight"
-      className="plane-stage w-full h-full relative"
+      className="plane-stage w-full h-screen fixed inset-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{
-        scale: 1.08,
-        y: -100,
-        opacity: 0,
-        filter: "blur(20px) brightness(1.2)",
-      }}
-      transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.2, ease: "easeInOut" }}
     >
       <FlightBackground bgGolden={bgGolden} mousePos={mousePos} />
       <CabinInterior chairSilhouette={chairSilhouette} mousePos={mousePos} />

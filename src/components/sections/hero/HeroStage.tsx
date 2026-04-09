@@ -1,46 +1,31 @@
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export default function HeroStage() {
-  const containerRef = useRef<HTMLElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
   
-  // Track scroll specifically targeting the hero block's lifecycle inside the container
   const { scrollYProgress } = useScroll({ 
-    container: containerRef,
     target: heroRef,
     offset: ["start start", "end end"]
   });
   
-  // Apply a spring physics smoothing over the raw scroll progress
-  const smoothScroll = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const tuguScale = useTransform(scrollYProgress, [0, 1], [1.3, 1.05]);
   
-  // Animate the tugu from zoomed slightly (1.3) to (1.05) using the smoothed scroll
-  const tuguScale = useTransform(smoothScroll, [0, 1], [1.3, 1.05]);
-  
-  // Pan the tugu up further so we traverse deeper into the image (revealing the pedestal)
-  const tuguY = useTransform(smoothScroll, [0, 1], ["60vh", "0vh"]);
+  const tuguY = useTransform(scrollYProgress, [0, 1], ["60vh", "0vh"]);
 
-  // Fade only appears at the very end of the scroll (when base is exposed)
-  const fadeOpacity = useTransform(smoothScroll, [0.85, 1], [0, 1]);
+  const fadeOpacity = useTransform(scrollYProgress, [0.85, 1], [0, 1]);
 
-  // Animate the sky to give a subtle parallax depth effect (scales up slightly as you scroll)
-  const skyScale = useTransform(smoothScroll, [0, 1], [1.0, 1.15]);
+  const skyScale = useTransform(scrollYProgress, [0, 1], [1.0, 1.15]);
 
   return (
     <motion.section 
-      ref={containerRef}
-      className="relative w-full h-full overflow-y-auto overflow-x-hidden bg-midnight-steel"
+      ref={heroRef}
+      className="relative w-full h-[200vh] bg-midnight-steel"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
     >
-      <div ref={heroRef} className="relative w-full h-[200vh]">
-        <div className="sticky top-0 w-full h-screen overflow-hidden">
+      <div className="sticky top-0 w-full h-screen overflow-hidden">
           {/* Parallax Sky Background */}
           <motion.img
             src="/sky.webp"
@@ -100,10 +85,9 @@ export default function HeroStage() {
           {/* Base fade transition */}
           <motion.div 
             style={{ opacity: fadeOpacity }}
-            className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-heritage-sage to-transparent z-30 pointer-events-none" 
+            className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-midnight-steel to-transparent z-30 pointer-events-none" 
           />
         </div>
-      </div>
     </motion.section>
   );
 }
