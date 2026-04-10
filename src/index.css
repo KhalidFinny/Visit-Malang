@@ -7,6 +7,15 @@
   --color-petal-blush: #D6ADAD;
 }
 
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
   background: #000;

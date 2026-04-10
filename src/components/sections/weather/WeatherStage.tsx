@@ -1,98 +1,176 @@
 import { motion } from "framer-motion";
+import { useState, useCallback } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCloudSun, faThermometerHalf, faWind, faDroplet, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { malangRecommendations } from "./weatherData";
 import RecommendationCard from "./RecommendationCard";
 
 export default function WeatherStage() {
-  const date = new Intl.DateTimeFormat('id-ID', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date());
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const date = new Intl.DateTimeFormat("id-ID", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  }).format(new Date());
+
+  const next = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % malangRecommendations.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + malangRecommendations.length) % malangRecommendations.length);
+  }, []);
+
+  // Weather meta chips
+  const weatherChips = [
+    { icon: faThermometerHalf, label: "22°C" },
+    { icon: faWind, label: "12 km/h" },
+    { icon: faDroplet, label: "72%" },
+  ];
 
   return (
-    <section className="relative w-full min-h-screen bg-midnight-steel py-24 md:py-32 flex flex-col justify-center overflow-hidden">
-      {/* Background Subtle Gradient */}
-      <div className="absolute inset-0 bg-radial-at-t from-white/5 to-transparent pointer-events-none" />
+    <section className="relative w-full h-screen bg-midnight-steel flex flex-col overflow-hidden">
+      <div className="absolute top-0 inset-x-0 h-px bg-white/10" />
 
-      <div className="max-w-7xl mx-auto px-8 w-full flex flex-col gap-16 md:gap-24 relative z-10">
-        
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-          
-          <div className="flex flex-col items-start">
-            <motion.h2 
+      <div className="relative z-10 flex flex-col flex-1 gap-4 pt-8 pb-6 px-8 max-w-7xl mx-auto w-full">
+
+        {/* ── Header Row ── */}
+        <div className="grid grid-cols-[1fr_auto] items-end gap-8">
+          {/* Left: Label + Title + Subtitle */}
+          <div>
+            <motion.p
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="font-['Urbanist'] text-[10px] tracking-[0.45em] text-white/30 uppercase mb-2"
+            >
+              02 — Daily Conditions
+            </motion.p>
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="font-['Vina_Sans'] text-6xl md:text-9xl text-white leading-[0.85] lowercase"
+              className="font-['Urbanist'] font-black text-[clamp(2.8rem,6vw,5.5rem)] text-white leading-[0.9] uppercase tracking-tight"
             >
-              today's <br/> weather
+              Today's<br />Weather
             </motion.h2>
-            <motion.span 
+
+            <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-['Outfit'] text-2xl md:text-4xl text-white/50 lowercase mt-4"
+              className="font-['Urbanist'] text-sm text-white/35 lowercase mt-2 tracking-wide"
             >
-              perfect for
-            </motion.span>
+              perfect conditions for exploring Malang.
+            </motion.p>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
+          {/* Right: Temp + Icon + Chips */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex items-center gap-6 md:gap-12"
+            className="flex flex-col items-end gap-3"
           >
-            <div className="text-right">
-              <div className="font-['Outfit'] text-6xl md:text-8xl text-white font-medium leading-none">22°</div>
-              <div className="font-['Outfit'] text-md md:text-xl text-white/40 lowercase mt-2">{date}</div>
+            <div className="flex items-center gap-4">
+              <div className="text-right">
+                <div className="font-['Urbanist'] font-thin text-[clamp(3rem,6vw,5rem)] text-white leading-none tabular-nums">
+                  22°
+                </div>
+                <div className="font-['Urbanist'] text-[11px] text-white/30 lowercase tracking-widest mt-1">{date}</div>
+              </div>
+              <div className="h-14 w-px bg-white/15" />
+              <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="text-white/80">
+                <FontAwesomeIcon icon={faCloudSun} className="text-5xl" />
+              </motion.div>
             </div>
-            
-            {/* Vertical Divider */}
-            <div className="h-16 md:h-24 w-px bg-white/20" />
-
-            {/* Weather Icon (Cloudy Sun) */}
-            <div className="relative">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="md:w-24 md:h-24 text-white">
-                {/* Sun */}
-                <motion.circle 
-                  cx="12" cy="7" r="4" 
-                  stroke="currentColor" strokeWidth="1"
-                  animate={{ scale: [1, 1.1, 1], rotate: 360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                />
-                {/* Rays */}
-                <path d="M12 2v1m0 8v1M7 7h-1m10 0h-1M8.5 3.5l.5.5m6 0-.5.5m0 6 .5.5m-6 0-.5.5" stroke="currentColor" strokeWidth="1" />
-                
-                {/* Cloud Overlay */}
-                <motion.path 
-                  d="M17.5 19c2.5 0 4.5-2 4.5-4.5S20 10 17.5 10c-.2 0-.4 0-.6.1C16 7.6 13.7 6 11 6c-3.3 0-6 2.7-6 6 0 .3 0 .6.1.9C3.1 13.5 2 15.1 2 17c0 2.2 1.8 4 4 4h11.5c.2 0 .4-.1.6-.2"
-                  fill="rgb(74, 87, 89)"
-                  stroke="currentColor" 
-                  strokeWidth="1.5"
-                  initial={{ x: -2 }}
-                  animate={{ x: [0, 2, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                />
-              </svg>
+            <div className="flex items-center gap-2">
+              {weatherChips.map(({ icon, label }) => (
+                <div key={label} className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-[10px] font-['Urbanist'] tracking-wider">
+                  <FontAwesomeIcon icon={icon} className="text-[9px]" />
+                  <span>{label}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
-
         </div>
 
-        {/* Recommendations Grid/Scroll */}
-        <div className="w-screen relative -mx-8">
-          <div className="overflow-x-auto overflow-y-hidden no-scrollbar flex gap-6 px-8 pb-12">
-            {malangRecommendations.map((rec, index) => (
-              <RecommendationCard key={rec.id} recommendation={rec} index={index} />
-            ))}
+        {/* ── Divider ── */}
+        <div className="h-px bg-white/8" />
+
+        {/* ── Stacked Carousel ── */}
+        <div className="relative flex-1 flex items-center justify-center min-h-0">
+          <div className="relative w-full h-full flex items-center justify-center">
+
+            {/* Navigation Buttons */}
+            <div className="absolute left-0 z-50 flex items-center justify-center">
+              <button
+                onClick={prev}
+                className="w-10 h-10 rounded-full border border-white/10 bg-white/5 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center backdrop-blur-md group"
+              >
+                <FontAwesomeIcon icon={faChevronLeft} className="text-sm group-hover:-translate-x-0.5 transition-transform" />
+              </button>
+            </div>
+
+            <div className="absolute right-0 z-50 flex items-center justify-center">
+              <button
+                onClick={next}
+                className="w-10 h-10 rounded-full border border-white/10 bg-white/5 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center backdrop-blur-md group"
+              >
+                <FontAwesomeIcon icon={faChevronRight} className="text-sm group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
+
+            {/* The Cards Stack */}
+            <div className="relative w-full h-full flex items-center justify-center perspective-distant">
+              {malangRecommendations.map((rec, index) => {
+                let relativeIndex = index - activeIndex;
+                if (relativeIndex > malangRecommendations.length / 2) relativeIndex -= malangRecommendations.length;
+                if (relativeIndex < -malangRecommendations.length / 2) relativeIndex += malangRecommendations.length;
+
+                return (
+                  <RecommendationCard
+                    key={rec.id}
+                    recommendation={rec}
+                    index={index}
+                    activeIndex={activeIndex}
+                    relativeIndex={relativeIndex}
+                    onClick={() => setActiveIndex(index)}
+                  />
+                );
+              })}
+            </div>
           </div>
-          
-          {/* Subtle scroll progress indicators or gradient masks could go here */}
-          <div className="absolute top-0 right-0 h-full w-32 bg-linear-to-l from-midnight-steel to-transparent pointer-events-none" />
         </div>
 
+        {/* ── Pagination Indicator ── */}
+        <div className="flex justify-between items-center">
+          <div className="flex gap-3 items-center">
+            <span className="font-['Urbanist'] text-[10px] tracking-[0.35em] text-white/50 uppercase italic">
+              Experience {String(activeIndex + 1).padStart(2, '0')}
+            </span>
+            <div className="flex gap-1.5">
+              {malangRecommendations.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-[3px] transition-all duration-500 rounded-full ${i === activeIndex ? 'w-7 bg-white' : 'w-1.5 bg-white/10'}`}
+                />
+              ))}
+            </div>
+            <span className="font-['Urbanist'] text-[10px] tracking-[0.35em] text-white/20 uppercase">
+              / {String(malangRecommendations.length).padStart(2, '0')}
+            </span>
+          </div>
+          <span className="font-['Urbanist'] text-[10px] tracking-[0.35em] text-white/20 uppercase">
+            click to explore
+          </span>
+        </div>
       </div>
+
+      <div className="absolute bottom-0 inset-x-0 h-px bg-white/10" />
     </section>
   );
 }
+
