@@ -5,15 +5,31 @@
   --color-colonial-cream: #F2E9E4;
   --color-midnight-steel: #4A5759;
   --color-petal-blush: #D6ADAD;
+  
+  --spacing-swiss-xs: 0.5rem;   /* 8px */
+  --spacing-swiss-sm: 1rem;     /* 16px */
+  --spacing-swiss-md: 2rem;     /* 32px */
+  --spacing-swiss-lg: 4rem;     /* 64px */
+  --spacing-swiss-xl: 8rem;     /* 128px */
+  --spacing-swiss-huge: 12rem;   /* 192px */
 }
 
 html {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
 body {
@@ -22,6 +38,39 @@ body {
   font-family: 'Outfit', sans-serif;
   color: white;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* -- SWISS FOUNDATIONS -- */
+.swiss-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(var(--spacing-swiss-sm), 3vw, var(--spacing-swiss-md));
+  width: 100%;
+}
+
+.swiss-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-swiss-md);
+}
+
+.bg-colonial-cream {
+  background-color: var(--color-colonial-cream);
+  color: var(--color-midnight-steel);
+}
+
+.text-editorial {
+  font-family: 'Vina Sans', sans-serif;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.text-swiss {
+  font-family: 'Urbanist', sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .experience-root {
@@ -118,11 +167,11 @@ body {
 }
 
 .click-cta {
-  font-size: 0.65rem;
-  font-weight: 300;
-  letter-spacing: 1em;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.8em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
   margin-top: 1rem;
   text-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
@@ -132,13 +181,15 @@ body {
   top: 3rem;
   right: 3rem;
   z-index: 30;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.75);
   cursor: pointer;
   pointer-events: auto;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 600;
 }
 
 .skip-btn:hover {

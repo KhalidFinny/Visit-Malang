@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
+import { useMotionValue, useSpring, useTransform } from "framer-motion";
 
 export function useCameraPhysics() {
   const mouseX = useMotionValue(0.5);

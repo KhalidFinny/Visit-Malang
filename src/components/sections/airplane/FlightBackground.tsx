@@ -1,13 +1,12 @@
-import { motion, useTransform } from "framer-motion";
-import type { FlightBackgroundProps } from "../../types";
+import { motion } from "framer-motion";
+import { useBackgroundParallax } from "./hook/useBackgroundParallax";
+import type { FlightBackgroundProps } from "./types";
 
 export default function FlightBackground({
   bgGolden,
   mousePos,
-}: FlightBackgroundProps & { mousePos: any }) {
-  // Far-field parallax (Inverted for logical look-around)
-  const bgX = useTransform(mousePos.x, [0, 1], [10, -10]);
-  const bgY = useTransform(mousePos.y, [0, 1], [-4, 4]);
+}: FlightBackgroundProps) {
+  const { bgX, bgY } = useBackgroundParallax(mousePos);
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -32,30 +31,39 @@ export default function FlightBackground({
           {/* Deep cooling filters via DOM blending (High Performance) */}
           <div className="absolute inset-0 bg-blue-900/60 mix-blend-color pointer-events-none z-10" />
           <div className="absolute inset-0 bg-slate-900/30 mix-blend-multiply pointer-events-none z-10" />
-          
+
           {[1, 2].map((block) => (
-            <div key={block} className="flex h-full w-1/2 relative" style={{ marginLeft: "-1px" }}>
+            <div
+              key={block}
+              className="flex h-full w-1/2 relative"
+              style={{ marginLeft: "-1px" }}
+            >
               {/* Left Side: Right-Half of the Image */}
-              <div className="w-1/2 h-full relative overflow-hidden" style={{ marginRight: "-1px" }}>
+              <div
+                className="w-1/2 h-full relative overflow-hidden"
+                style={{ marginRight: "-1px" }}
+              >
                 <img
                   src={bgGolden}
                   alt=""
-                  className="absolute inset-y-0 right-[-1px] h-full w-[calc(200%+2px)] max-w-none object-cover"
+                  className="absolute inset-y-0 -right-px h-full w-[calc(200%+2px)] max-w-none object-cover"
                 />
               </div>
-              
+
               {/* Right Side: Mirrored Right-Half of the Image */}
               <div
                 className="w-1/2 h-full relative overflow-hidden ml-px"
                 style={{
-                  maskImage: "linear-gradient(to right, transparent 2%, black 15%)",
-                  WebkitMaskImage: "linear-gradient(to right, transparent 2%, black 15%)",
+                  maskImage:
+                    "linear-gradient(to right, transparent 2%, black 15%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to right, transparent 2%, black 15%)",
                 }}
               >
                 <img
                   src={bgGolden}
                   alt=""
-                  className="absolute inset-y-0 left-[-1px] h-full w-[calc(200%+2px)] max-w-none object-cover scale-x-[-1]"
+                  className="absolute inset-y-0 -left-px h-full w-[calc(200%+2px)] max-w-none object-cover scale-x-[-1]"
                 />
               </div>
             </div>

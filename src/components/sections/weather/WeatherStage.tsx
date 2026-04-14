@@ -1,176 +1,80 @@
-import { motion } from "framer-motion";
-import { useState, useCallback } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudSun, faThermometerHalf, faWind, faDroplet, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { malangRecommendations } from "./weatherData";
-import RecommendationCard from "./RecommendationCard";
+import { useWeatherState } from "./hooks/useWeatherState";
+import WeatherSidebar from "./parts/WeatherSidebar";
+import WeatherCarousel from "./parts/WeatherCarousel";
+import WeatherFooter from "./parts/WeatherFooter";
 
 export default function WeatherStage() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const date = new Intl.DateTimeFormat("id-ID", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  }).format(new Date());
-
-  const next = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % malangRecommendations.length);
-  }, []);
-
-  const prev = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + malangRecommendations.length) % malangRecommendations.length);
-  }, []);
-
-  // Weather meta chips
-  const weatherChips = [
-    { icon: faThermometerHalf, label: "22°C" },
-    { icon: faWind, label: "12 km/h" },
-    { icon: faDroplet, label: "72%" },
-  ];
+  const {
+    activeIndex,
+    setActiveIndex,
+    date,
+    next,
+    prev,
+    currentInfo,
+    predictionText,
+    weatherChips,
+    recommendations,
+    todayWeather,
+    loading,
+    timeOfDay
+  } = useWeatherState();
 
   return (
-    <section className="relative w-full h-screen bg-midnight-steel flex flex-col overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-px bg-white/10" />
-
-      <div className="relative z-10 flex flex-col flex-1 gap-4 pt-8 pb-6 px-8 max-w-7xl mx-auto w-full">
-
-        {/* ── Header Row ── */}
-        <div className="grid grid-cols-[1fr_auto] items-end gap-8">
-          {/* Left: Label + Title + Subtitle */}
-          <div>
-            <motion.p
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="font-['Urbanist'] text-[10px] tracking-[0.45em] text-white/30 uppercase mb-2"
-            >
-              02 — Daily Conditions
-            </motion.p>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="font-['Urbanist'] font-black text-[clamp(2.8rem,6vw,5.5rem)] text-white leading-[0.9] uppercase tracking-tight"
-            >
-              Today's<br />Weather
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="font-['Urbanist'] text-sm text-white/35 lowercase mt-2 tracking-wide"
-            >
-              perfect conditions for exploring Malang.
-            </motion.p>
-          </div>
-
-          {/* Right: Temp + Icon + Chips */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-end gap-3"
-          >
-            <div className="flex items-center gap-4">
-              <div className="text-right">
-                <div className="font-['Urbanist'] font-thin text-[clamp(3rem,6vw,5rem)] text-white leading-none tabular-nums">
-                  22°
-                </div>
-                <div className="font-['Urbanist'] text-[11px] text-white/30 lowercase tracking-widest mt-1">{date}</div>
-              </div>
-              <div className="h-14 w-px bg-white/15" />
-              <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="text-white/80">
-                <FontAwesomeIcon icon={faCloudSun} className="text-5xl" />
-              </motion.div>
-            </div>
-            <div className="flex items-center gap-2">
-              {weatherChips.map(({ icon, label }) => (
-                <div key={label} className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-[10px] font-['Urbanist'] tracking-wider">
-                  <FontAwesomeIcon icon={icon} className="text-[9px]" />
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* ── Divider ── */}
-        <div className="h-px bg-white/8" />
-
-        {/* ── Stacked Carousel ── */}
-        <div className="relative flex-1 flex items-center justify-center min-h-0">
-          <div className="relative w-full h-full flex items-center justify-center">
-
-            {/* Navigation Buttons */}
-            <div className="absolute left-0 z-50 flex items-center justify-center">
-              <button
-                onClick={prev}
-                className="w-10 h-10 rounded-full border border-white/10 bg-white/5 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center backdrop-blur-md group"
-              >
-                <FontAwesomeIcon icon={faChevronLeft} className="text-sm group-hover:-translate-x-0.5 transition-transform" />
-              </button>
-            </div>
-
-            <div className="absolute right-0 z-50 flex items-center justify-center">
-              <button
-                onClick={next}
-                className="w-10 h-10 rounded-full border border-white/10 bg-white/5 hover:bg-white hover:text-black text-white transition-all flex items-center justify-center backdrop-blur-md group"
-              >
-                <FontAwesomeIcon icon={faChevronRight} className="text-sm group-hover:translate-x-0.5 transition-transform" />
-              </button>
-            </div>
-
-            {/* The Cards Stack */}
-            <div className="relative w-full h-full flex items-center justify-center perspective-distant">
-              {malangRecommendations.map((rec, index) => {
-                let relativeIndex = index - activeIndex;
-                if (relativeIndex > malangRecommendations.length / 2) relativeIndex -= malangRecommendations.length;
-                if (relativeIndex < -malangRecommendations.length / 2) relativeIndex += malangRecommendations.length;
-
-                return (
-                  <RecommendationCard
-                    key={rec.id}
-                    recommendation={rec}
-                    index={index}
-                    activeIndex={activeIndex}
-                    relativeIndex={relativeIndex}
-                    onClick={() => setActiveIndex(index)}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* ── Pagination Indicator ── */}
-        <div className="flex justify-between items-center">
-          <div className="flex gap-3 items-center">
-            <span className="font-['Urbanist'] text-[10px] tracking-[0.35em] text-white/50 uppercase italic">
-              Experience {String(activeIndex + 1).padStart(2, '0')}
-            </span>
-            <div className="flex gap-1.5">
-              {malangRecommendations.map((_, i) => (
-                <div
-                  key={i}
-                  className={`h-[3px] transition-all duration-500 rounded-full ${i === activeIndex ? 'w-7 bg-white' : 'w-1.5 bg-white/10'}`}
-                />
-              ))}
-            </div>
-            <span className="font-['Urbanist'] text-[10px] tracking-[0.35em] text-white/20 uppercase">
-              / {String(malangRecommendations.length).padStart(2, '0')}
-            </span>
-          </div>
-          <span className="font-['Urbanist'] text-[10px] tracking-[0.35em] text-white/20 uppercase">
-            click to explore
+    <section className={`relative w-full bg-colonial-cream transition-opacity duration-700 ${loading ? 'opacity-50' : 'opacity-100'}`}>
+      <div className="swiss-container">
+        {/* Top Label Bar */}
+        <div className="flex items-center justify-between py-10 border-b-2 border-midnight-steel/20 mb-0">
+          <span className="text-swiss text-lg font-black tracking-[0.2em] text-midnight-steel uppercase">
+            02 / Daily Conditions
           </span>
+          <time className="text-swiss text-lg tracking-widest text-midnight-steel uppercase font-black">
+            {date}
+          </time>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 inset-x-0 h-px bg-white/10" />
+        {/* Two-column layout: Sidebar + Carousel */}
+        <div className="flex flex-col lg:flex-row items-stretch gap-0">
+          {/* Left: Editorial Sidebar */}
+          <div className="lg:w-[380px] xl:w-[440px] shrink-0 border-r border-midnight-steel/10 py-16 pr-12">
+            {loading ? (
+              <div className="animate-pulse space-y-4">
+                <div className="h-8 bg-midnight-steel/10 rounded w-3/4"></div>
+                <div className="h-4 bg-midnight-steel/10 rounded w-full"></div>
+                <div className="h-4 bg-midnight-steel/10 rounded w-5/6"></div>
+              </div>
+            ) : (
+              <WeatherSidebar
+                predictionText={predictionText}
+                temp={todayWeather.temp}
+                condition={todayWeather.condition}
+                currentIcon={currentInfo.icon}
+                weatherChips={weatherChips}
+              />
+            )}
+          </div>
+
+          {/* Right: Carousel */}
+          <div className="flex-1 py-12 pl-0 lg:pl-8 flex flex-col">
+            {loading ? (
+              <div className="animate-pulse h-64 bg-midnight-steel/5 rounded-xl"></div>
+            ) : (
+              <WeatherCarousel
+                recommendations={recommendations}
+                activeIndex={activeIndex}
+                setActiveIndex={setActiveIndex}
+                next={next}
+                prev={prev}
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Footer Pagination */}
+        <WeatherFooter
+          activeIndex={activeIndex}
+          totalItems={recommendations.length}
+        />
+      </div>
     </section>
   );
 }
-

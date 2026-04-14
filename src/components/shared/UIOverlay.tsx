@@ -1,16 +1,19 @@
 import { motion } from "framer-motion";
 import type { UIOverlayProps } from "../types";
-import { useUIOverlay } from "../hooks/useUIOverlay";
+import { useUIOverlayState } from "./hook/useUIOverlayState";
+import { overlayTextContainer, overlayCharacter } from "./animations";
 
 export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
-  const sentence = "WHERE SHOULD WE GO NOW?";
-  const characters = sentence.split("");
-  
-  const { isHovered, setIsHovered, driftX, driftY, ctaDriftX, ctaDriftY } = useUIOverlay(mousePos);
-
-  const handleInteraction = () => {
-    onDescend();
-  };
+  const {
+    isHovered,
+    setIsHovered,
+    driftX,
+    driftY,
+    ctaDriftX,
+    ctaDriftY,
+    handleInteraction,
+    characters,
+  } = useUIOverlayState(onDescend, mousePos);
 
   return (
     <div className="absolute inset-0 z-50 pointer-events-none overflow-hidden">
@@ -31,15 +34,18 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
       <div className="ui-overlay absolute top-[45%] -translate-y-1/2 left-0 right-0 flex flex-col items-center">
         <motion.div
           className="question-text flex gap-[0.2em]"
-          style={{ 
-            x: driftX, 
-            y: driftY, 
-            fontFamily: '"Sue Ellen Francisco", cursive', 
-            fontSize: "4rem", 
-            fontWeight: "normal",
-            letterSpacing: "0.2em",
-            textShadow: "0 10px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5)" 
-          }}
+          style={
+            {
+              x: driftX,
+              y: driftY,
+              fontFamily: '"Sue Ellen Francisco", cursive',
+              fontSize: "4rem",
+              fontWeight: "normal",
+              letterSpacing: "0.2em",
+              textShadow:
+                "0 10px 30px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5)",
+            } as any
+          }
           initial="hidden"
           animate="visible"
           transition={{ type: "spring", stiffness: 40, damping: 25 }}
@@ -48,24 +54,10 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
             className="flex gap-[0.2em]"
             initial="hidden"
             animate="visible"
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.05,
-                  delayChildren: 0.5,
-                },
-              },
-            }}
+            variants={overlayTextContainer}
           >
             {characters.map((char, index) => (
-              <motion.span
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, y: 15, filter: "blur(8px)" },
-                  visible: { opacity: 0.95, y: 0, filter: "blur(0px)" },
-                }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              >
+              <motion.span key={index} variants={overlayCharacter}>
                 {char === " " ? "\u00A0" : char}
               </motion.span>
             ))}
@@ -75,19 +67,36 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
         <motion.div
           className="flex flex-col items-center mt-12"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }} 
-          style={{ x: ctaDriftX, y: ctaDriftY, fontFamily: '"Urbanist", sans-serif' }} // Faster drift for CTA
-          transition={{ 
-            opacity: { delay: 2, duration: 1.5 }
+          animate={{ opacity: 1 }}
+          style={
+            {
+              x: ctaDriftX,
+              y: ctaDriftY,
+              fontFamily: '"Urbanist", sans-serif',
+            } as any
+          } // Faster drift for CTA
+          transition={{
+            opacity: { delay: 2, duration: 1.5 },
           }}
         >
           <div
             className="click-cta flex items-center justify-center gap-3 px-6 py-3 transition-all duration-500 ease-out"
-            style={{ opacity: isHovered ? 1 : 0.6, transform: isHovered ? "scale(1.05)" : "scale(1)" }}
+            style={{
+              opacity: isHovered ? 1 : 0.6,
+              transform: isHovered ? "scale(1.05)" : "scale(1)",
+            }}
           >
-            <span className="text-[1rem] tracking-[0.3em] font-medium text-white/90">TAP THE WINDOW</span>
+            <span className="text-[1rem] tracking-[0.3em] font-medium text-white/90">
+              TAP THE WINDOW
+            </span>
           </div>
-          <div className="w-40 h-px bg-white/20 mt-2 transition-all duration-500 ease-out" style={{ width: isHovered ? "12rem" : "6rem", opacity: isHovered ? 0.8 : 0.3 }} />
+          <div
+            className="w-40 h-px bg-white/20 mt-2 transition-all duration-500 ease-out"
+            style={{
+              width: isHovered ? "12rem" : "6rem",
+              opacity: isHovered ? 0.8 : 0.3,
+            }}
+          />
         </motion.div>
       </div>
 
