@@ -40,15 +40,24 @@ export const useRecommendations = (weather: string, timeOfDay: string, forecast:
       preferredCategories = ['Nature', 'Attraction', 'Historical', 'Culinary', 'Indoor'];
     }
 
-    // Grab top matches from preferred categories
+    // Grab matches from preferred categories
     preferredCategories.forEach(cat => {
-      const items = categories[cat].sort((a, b) => b.popularity - a.popularity);
+      const items = categories[cat];
       if (items.length > 0) {
-        // Pick top popularity for this context
-        result.push(items[0]);
-        // If it's a top preferred category, maybe pick another
-        if (items.length > 1 && result.length < 5) {
-          result.push(items[1]);
+        // Sort by popularity but introduce a slight shuffle for items with same/similar popularity
+        // or just shuffle the top 3 and pick from them to keep it fresh
+        const sorted = [...items].sort((a, b) => b.popularity - a.popularity);
+        
+        // Take top 3 most popular and shuffle them to provide variety
+        const topPool = sorted.slice(0, 4);
+        const shuffled = topPool.sort(() => Math.random() - 0.5);
+        
+        if (shuffled.length > 0) {
+          result.push(shuffled[0]);
+          // If it's a top preferred category, maybe pick another from the shuffled pool
+          if (shuffled.length > 1 && result.length < 6) {
+            result.push(shuffled[1]);
+          }
         }
       }
     });

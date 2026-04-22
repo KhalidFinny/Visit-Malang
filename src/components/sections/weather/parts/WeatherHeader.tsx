@@ -9,6 +9,7 @@ export default function WeatherHeader({
   date,
   currentIcon,
   weatherChips,
+  hourlyForecast,
 }: WeatherHeaderProps) {
   return (
     <header className="swiss-grid gap-y-12 mb-20">

@@ -40,7 +40,7 @@ export default function WeatherStage() {
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="absolute inset-0"
           >
             <img 
@@ -68,7 +68,7 @@ export default function WeatherStage() {
         {/* Two-column layout: Sidebar + Carousel */}
         <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-20">
           {/* Left: Editorial Sidebar */}
-          <div className="lg:w-[400px] xl:w-[460px] shrink-0 border-r border-white/5 py-10 pr-12 lg:pr-20">
+          <div className="lg:w-[400px] xl:w-[460px] shrink-0 border-r border-white/5 py-10 pr-6 lg:pr-10 min-w-0">
             {loading ? (
               <div className="animate-pulse space-y-4">
                 <div className="h-8 bg-white/10 rounded w-3/4"></div>

@@ -35,10 +35,10 @@ export default function WeatherSidebar({
           </div>
         </div>
 
-        {/* 5-Hour Forecast Bar */}
-        <div className="flex gap-4 mb-10 overflow-x-auto pb-6 scrollbar-hide">
+        {/* Forecast Bar — Support horizontal scroll without clipping */}
+        <div className="w-full flex gap-4 mb-4 overflow-x-auto pb-4 scroll-smooth">
           {hourlyForecast?.map((h, i) => (
-            <div key={i} className="flex flex-col items-center p-5 border-2 border-white/10 bg-white/5 backdrop-blur-xl rounded-2xl min-w-[90px]">
+            <div key={i} className="flex flex-col items-center p-5 border-2 border-white/10 bg-white/5 backdrop-blur-xl rounded-2xl min-w-[100px] shrink-0">
               <span className="text-[11px] font-black text-white uppercase mb-3">{h.time}</span>
               <FontAwesomeIcon icon={h.icon} className="text-white text-xl mb-3" />
               <span className="text-lg font-bold text-white">{h.temp}°</span>

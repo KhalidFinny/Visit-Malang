@@ -7,23 +7,44 @@ import PlannerAdviceCard from "./parts/PlannerAdviceCard.tsx";
 import PlannerTeaser from "./parts/PlannerTeaser.tsx";
 import PlannerModal from "./parts/PlannerModal.tsx";
 
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
 export default function RegionalPlanner() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [budget, setBudget] = useState<BudgetTier>("balanced");
   const [origin, setOrigin] = useState<EconomyOrigin>(ECONOMIES[0]);
   const [hasRecommendation, setHasRecommendation] = useState(false);
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+  const [refreshSeed, setRefreshSeed] = useState(42);
 
-  const weather = "Overcast";
-  const timeOfDay = "Afternoon";
+  const seasonInfo = useMemo(() => {
+    const month = selectedMonth + 1;
+    const isWet = [11, 12, 1, 2, 3, 4].includes(month);
+    return {
+      type: isWet ? "wet" as const : "dry" as const,
+      label: isWet ? "Wet Season" : "Dry Season",
+      status: isWet ? "Rainy & Lush" : "Sunny & Clear"
+    };
+  }, [selectedMonth]);
 
   const advice = useMemo(() =>
-    generateAdvice(budget, origin, weather, timeOfDay),
-    [budget, origin, weather, timeOfDay]
+    generateAdvice(
+      budget, 
+      origin, 
+      seasonInfo.type === "wet" ? "Rainy" : "Clear", 
+      "Day", 
+      refreshSeed
+    ),
+    [budget, origin, seasonInfo, refreshSeed]
   );
 
   function handleClose() {
     setIsModalOpen(false);
     setHasRecommendation(false);
+    setRefreshSeed(42); // Reset seed on full close
   }
 
   return (
@@ -33,92 +54,101 @@ export default function RegionalPlanner() {
       <PlannerModal isOpen={isModalOpen} onClose={handleClose}>
         <AnimatePresence mode="wait">
           {!hasRecommendation ? (
-            /* ── STATE 1: Setup ── */
+            /* ── SETUP VIEW ── */
             <motion.div
               key="setup"
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.28 }}
-              className="flex flex-col h-full px-8 py-8 gap-8"
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col h-full"
             >
-              {/* Heading */}
-              <div>
-                <h2 className="text-editorial text-6xl text-white leading-none tracking-tighter mb-2">
-                  Plan<br />Your Trip
-                </h2>
-                <p className="text-swiss text-xs text-white/25 uppercase tracking-[0.25em]">
-                  Set your context below
-                </p>
-              </div>
-
-              {/* Live context pills */}
-              <div className="flex gap-2">
-                <div className="px-3 py-2 rounded-md bg-white/5 border border-white/[0.08]">
-                  <span className="text-[9px] font-black text-white/25 uppercase block">Weather</span>
-                  <span className="text-white text-sm font-semibold">{weather}</span>
-                </div>
-                <div className="px-3 py-2 rounded-md bg-white/5 border border-white/[0.08]">
-                  <span className="text-[9px] font-black text-white/25 uppercase block">Time</span>
-                  <span className="text-white text-sm font-semibold">{timeOfDay}</span>
+              {/* Setup header strip */}
+              <div className="px-8 pt-8 pb-6 border-b border-white/6">
+                <div className="flex items-end justify-between gap-6">
+                  <div>
+                    <h2 className="text-3xl font-black text-white uppercase tracking-tight leading-none">
+                      Plan Your Visit
+                    </h2>
+                    <p className="text-sm text-white/40 font-medium mt-1.5">
+                      Personalised counsel based on your travel profile
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 px-4 py-2.5 rounded-lg shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-heritage-sage animate-pulse" />
+                    <span className="text-sm font-bold text-white/70 uppercase tracking-wide">
+                      {seasonInfo.label}
+                    </span>
+                  </div>
                 </div>
               </div>
 
               {/* Inputs */}
-              <PlannerInputs
-                budget={budget}
-                setBudget={setBudget}
-                origin={origin}
-                setOrigin={setOrigin}
-              />
-
-              {/* CTA */}
-              <button
-                onClick={() => setHasRecommendation(true)}
-                className="mt-auto w-full py-4 bg-white text-black font-black text-xs uppercase tracking-[0.35em] hover:bg-white/90 active:scale-[0.98] transition-all"
-              >
-                Generate Counsel →
-              </button>
-            </motion.div>
-          ) : (
-            /* ── STATE 2: Result ── */
-            <motion.div
-              key="result"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.28 }}
-              className="flex flex-col h-full"
-            >
-              {/* Advice area */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`${budget}-${origin.code}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.25 }}
-                  className="flex-1"
-                >
-                  <PlannerAdviceCard advice={advice} origin={origin} />
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Bottom strip: adjustments */}
-              <div className="px-8 py-5 border-t border-white/[0.06] shrink-0 flex items-center justify-between gap-6">
+              <div className="flex-1 px-8 py-8">
                 <PlannerInputs
                   budget={budget}
                   setBudget={setBudget}
                   origin={origin}
                   setOrigin={setOrigin}
+                  selectedMonth={selectedMonth}
+                  setSelectedMonth={setSelectedMonth}
+                  monthsList={MONTHS}
+                />
+              </div>
+
+              {/* Generate CTA */}
+              <div className="shrink-0 px-8 pb-8">
+                <button
+                  onClick={() => setHasRecommendation(true)}
+                  className="w-full py-5 bg-white text-premium-black text-sm font-bold uppercase tracking-[0.3em] rounded-xl hover:bg-heritage-sage hover:text-white active:scale-[0.99] transition-all"
+                >
+                  Generate Counsel
+                </button>
+              </div>
+            </motion.div>
+
+          ) : (
+            /* ── RESULTS VIEW ── */
+            <motion.div
+              key="results"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col h-full"
+            >
+              {/* Results scrollable body */}
+              <div className="flex-1 overflow-y-auto scrollbar-hide">
+                <PlannerAdviceCard advice={advice} origin={origin} />
+              </div>
+
+              {/* Compact controls bar at bottom */}
+              <div className="shrink-0 px-8 py-5 border-t border-white/6 flex items-center justify-between gap-8">
+                <PlannerInputs
+                  budget={budget}
+                  setBudget={setBudget}
+                  origin={origin}
+                  setOrigin={setOrigin}
+                  selectedMonth={selectedMonth}
+                  setSelectedMonth={setSelectedMonth}
+                  monthsList={MONTHS}
                   compact
                 />
-                <button
-                  onClick={() => setHasRecommendation(false)}
-                  className="shrink-0 text-[10px] text-white/25 uppercase tracking-widest hover:text-white/50 transition-colors whitespace-nowrap"
-                >
-                  ← Reset
-                </button>
+                
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => setRefreshSeed(prev => prev + 1)}
+                    className="shrink-0 text-sm font-bold uppercase tracking-[0.15em] text-heritage-sage border border-heritage-sage/30 px-6 py-3 rounded-lg hover:bg-heritage-sage/10 transition-all whitespace-nowrap"
+                  >
+                    Refresh Counsel
+                  </button>
+                  <button
+                    onClick={() => setHasRecommendation(false)}
+                    className="shrink-0 text-sm font-bold uppercase tracking-[0.15em] text-white/60 border border-white/15 px-6 py-3 rounded-lg hover:text-white hover:border-white/30 transition-all whitespace-nowrap"
+                  >
+                    Edit Plan
+                  </button>
+                </div>
               </div>
             </motion.div>
           )}

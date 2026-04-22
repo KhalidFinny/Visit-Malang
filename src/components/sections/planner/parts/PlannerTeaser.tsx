@@ -56,31 +56,6 @@ export default function PlannerTeaser({ onOpen }: PlannerTeaserProps) {
               <br />
               MY TRIP
             </h3>
-            
-            {/* The Custom Bent Arrow SVG */}
-            <div className="absolute -left-12 bottom-6 md:-left-20 md:bottom-12">
-              <svg 
-                width="80" 
-                height="80" 
-                viewBox="0 0 100 100" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-white opacity-80 md:w-32 md:h-32"
-              >
-                <path 
-                  d="M20 20V70H75" 
-                  stroke="currentColor" 
-                  strokeWidth="3" 
-                  strokeLinecap="square"
-                />
-                <path 
-                  d="M60 55L75 70L60 85" 
-                  stroke="currentColor" 
-                  strokeWidth="3" 
-                  strokeLinecap="square"
-                />
-              </svg>
-            </div>
           </div>
         </motion.div>
       </div>

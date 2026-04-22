@@ -78,10 +78,6 @@ export default function HeritageStage() {
 
   return (
     <motion.section 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 1.2 }}
       className="relative w-full bg-colonial-cream py-40 min-h-[800px] flex items-center overflow-hidden"
     >
       <div className="swiss-container">

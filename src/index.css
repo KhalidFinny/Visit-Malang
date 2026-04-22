@@ -5,10 +5,10 @@
   --color-colonial-cream: #F2E9E4;
   --color-midnight-steel: #4A5759;
   --color-petal-blush: #D6ADAD;
-  --color-premium-black: #1A1A1A;
+  --color-premium-black: #0A0A0A;
 
   /* Typography Variables */
-  --font-editorial: 'Vina Sans', sans-serif;
+  --font-editorial: 'Antonio', sans-serif;
   --font-swiss: 'Urbanist', sans-serif;
   --font-script: 'Sue Ellen Francisco', cursive;
   --font-main: 'Outfit', sans-serif;
@@ -65,9 +65,10 @@ body {
 
 .text-editorial {
   font-family: var(--font-editorial);
-  line-height: 0.85;
-  letter-spacing: -0.04em;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  font-weight: 700;
 }
 
 .text-swiss {
@@ -254,4 +255,14 @@ body {
   letter-spacing: 0.6em;
   text-transform: uppercase;
   color: #333;
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

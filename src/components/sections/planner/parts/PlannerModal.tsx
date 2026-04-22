@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode, useEffect } from "react";
+import { type ReactNode, useEffect } from "react";
 
 interface PlannerModalProps {
   isOpen: boolean;
@@ -8,13 +8,8 @@ interface PlannerModalProps {
 }
 
 export default function PlannerModal({ isOpen, onClose, children }: PlannerModalProps) {
-  // Lock body scroll when open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
@@ -26,39 +21,37 @@ export default function PlannerModal({ isOpen, onClose, children }: PlannerModal
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-[200] flex"
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-[200] flex items-center justify-center p-6 md:p-10"
         >
-          {/* Full-screen backdrop — click to close */}
-          <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-xl"
-            onClick={onClose}
-          />
+          <div className="absolute inset-0 bg-premium-black/70 backdrop-blur-sm" onClick={onClose} />
 
-          {/* Panel slides in from right */}
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 32, stiffness: 280 }}
-            className="relative ml-auto w-full max-w-2xl h-full bg-[#0e0e0e] flex flex-col overflow-hidden"
+            initial={{ scale: 0.97, opacity: 0, y: 12 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.97, opacity: 0, y: 12 }}
+            transition={{ type: "spring", damping: 28, stiffness: 300 }}
+            className="relative w-full max-w-[1400px] max-h-[92vh] bg-[#111] border border-white/8 rounded-2xl flex flex-col overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Top bar */}
-            <div className="flex items-center justify-between px-8 pt-8 pb-6 border-b border-white/[0.06] shrink-0">
-              <span className="text-swiss text-[10px] font-black uppercase tracking-[0.3em] text-white/25">
-                Regional Counsel
-              </span>
+            {/* Header bar */}
+            <div className="shrink-0 flex items-center justify-between px-8 py-5 bg-[#0d0d0d] border-b border-white/6">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-heritage-sage" />
+                <span className="font-sans text-xs font-bold uppercase tracking-[0.25em] text-white/60">
+                  Regional Counsel
+                </span>
+              </div>
               <button
                 onClick={onClose}
-                className="text-white/30 hover:text-white transition-colors text-xs font-black uppercase tracking-widest"
+                className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 hover:text-white border border-white/10 hover:border-white/25 px-5 py-2.5 rounded-lg transition-all"
               >
                 Close
               </button>
             </div>
 
-            {/* Scrollable content */}
-            <div className="flex-1 overflow-y-auto">
+            {/* Content */}
+            <div className="flex-1 overflow-y-auto scrollbar-hide">
               {children}
             </div>
           </motion.div>

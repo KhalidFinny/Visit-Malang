@@ -7,7 +7,7 @@
     "description": "The crown jewel of East Java. Witness a surreal sunrise over the Sea of Sand and the active crater, a breathtaking drive from Malang.",
     "idealWeather": "Sunny",
     "idealTime": ["Morning"],
-    "imageUrl": "https://images.unsplash.com/photo-1588666249557-074092994447?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "type": "outdoor",
     "popularity": 0.98
   },
@@ -19,7 +19,7 @@
     "description": "Indonesia's 'Little Niagara'. A massive, curtain-like waterfall tucked deep in the lush tropical highlands.",
     "idealWeather": "Sunny",
     "idealTime": ["Morning", "Afternoon"],
-    "imageUrl": "https://images.unsplash.com/photo-1596396829141-8608e017366d?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "type": "outdoor",
     "popularity": 0.95
   },
@@ -31,7 +31,7 @@
     "description": "Rolling green hills of tea leaves on the slopes of Mt. Arjuno. Breath clean air and enjoy sweeping panoramic views from Bukit Kuneer.",
     "idealWeather": "Any",
     "idealTime": ["Morning"],
-    "imageUrl": "https://images.unsplash.com/photo-1543160732-dd38b1629857?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG87oZGmu6rHEeZxv1MPs6sd4QpR7QFNjqdD8aLFC9u6RDDYWWOgnYJlCdD7hCzV2ic0jCn4XqPvcy4m0l3XOgo1tJXsHGQnpKa4FUKQBUzPQdeGv4uwxfWoSGJqF9PpGBQcSKY=s1360-w1360-h1020-rw",
     "type": "outdoor",
     "popularity": 0.88
   },

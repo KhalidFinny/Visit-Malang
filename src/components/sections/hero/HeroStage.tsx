@@ -1,25 +1,74 @@
-import { motion } from "framer-motion";
-import { useHeroParallax } from "./hooks/useHeroParallax";
-import HeroSky from "./parts/HeroSky";
-import HeroContent from "./parts/HeroContent";
-import HeroTugu from "./parts/HeroTugu";
+import { useState, lazy, Suspense } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import HeroIntro from './parts/HeroIntro';
+import HeroCategories from './parts/HeroCategories';
+import type { MapCategory } from '../../../data/mapPlaces';
+
+// Lazy-load the map so Leaflet CSS doesn't affect initial paint
+const HeroMap = lazy(() => import('./parts/HeroMap'));
+
+type HeroState = 'intro' | 'categories' | 'map';
 
 export default function HeroStage() {
-  const { heroRef, skyScale, tuguScale, tuguY } = useHeroParallax();
+  const [state, setState] = useState<HeroState>('intro');
+  const [selectedCategory, setSelectedCategory] = useState<MapCategory | null>(null);
+
+  function handleCategorySelect(cat: MapCategory) {
+    setSelectedCategory(cat);
+    setState('map');
+  }
 
   return (
-    <motion.section
-      ref={heroRef}
-      className="relative w-full h-[150vh] bg-colonial-cream"
-    >
-      <div className="sticky top-0 w-full h-screen overflow-hidden">
-        <HeroSky skyScale={skyScale} />
-        <HeroContent />
-        <HeroTugu tuguScale={tuguScale} tuguY={tuguY} />
-      </div>
+    <section className="relative w-full">
+      <AnimatePresence mode="wait">
+        {state === 'intro' && (
+          <motion.div
+            key="intro"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+          >
+            <HeroIntro onExplore={() => setState('categories')} />
+          </motion.div>
+        )}
 
-      {/* Section-level Static Overlay */}
-      <div className="absolute bottom-0 inset-x-0 h-[40vh] bg-linear-to-t from-colonial-cream via-colonial-cream/70 to-transparent z-50 pointer-events-none" />
-    </motion.section>
+        {state === 'categories' && (
+          <motion.div
+            key="categories"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+          >
+            <HeroCategories onSelect={handleCategorySelect} />
+          </motion.div>
+        )}
+
+        {state === 'map' && selectedCategory && (
+          <motion.div
+            key="map"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Suspense
+              fallback={
+                <div className="w-full h-screen bg-[#f0ebe3] flex items-center justify-center">
+                  <span className="text-premium-black/30 text-xs font-bold uppercase tracking-widest animate-pulse">
+                    Loading map…
+                  </span>
+                </div>
+              }
+            >
+              <HeroMap
+                category={selectedCategory}
+                onBack={() => setState('categories')}
+              />
+            </Suspense>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
 }

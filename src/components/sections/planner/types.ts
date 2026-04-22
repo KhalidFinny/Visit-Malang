@@ -1,3 +1,5 @@
+import type { Recommendation } from '../weather/types';
+
 export type BudgetTier = 'backpacker' | 'balanced' | 'luxury';
 
 export interface EconomyOrigin {
@@ -10,7 +12,16 @@ export interface EconomyOrigin {
 export interface PlannerAdvice {
   headline: string;
   counsel: string;
-  highlights: string[];
+  places: Recommendation[];
+  foods: Recommendation[];
+  budgetEstimation: {
+    origin: string;
+    level: string;
+    strength: string;
+    suggestion: string;
+    dailyEstimate: string;
+    totalEstimate: string;
+  };
 }
 
 export interface ActivityOption {
