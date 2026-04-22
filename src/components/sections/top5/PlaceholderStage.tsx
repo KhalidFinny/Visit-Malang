@@ -11,7 +11,7 @@ export default function PlaceholderStage() {
           transition={{ duration: 0.8 }}
           className="text-editorial text-5xl md:text-7xl text-midnight-steel tracking-wider mb-8"
         >
-          Section 3 Placeholder
+          Section 04 Placeholder
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}

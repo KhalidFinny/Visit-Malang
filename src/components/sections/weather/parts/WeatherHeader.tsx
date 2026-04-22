@@ -32,7 +32,7 @@ export default function WeatherHeader({
         </motion.p>
       </article>
 
-      {/* Right Area: Meteorological Stats */}
+      {/* Right Area: Meteorological Stats & 5-Hour Forecast */}
       <aside className="col-span-12 lg:col-span-5 flex flex-col lg:items-end justify-end border-l lg:border-l-0 lg:border-r border-midnight-steel/10 lg:pr-12 pl-8 lg:pl-0">
         <div className="flex items-center gap-8 mb-6">
           <data
@@ -47,6 +47,17 @@ export default function WeatherHeader({
               className="text-6xl lg:text-7xl"
             />
           </div>
+        </div>
+
+        {/* 5-Hour Forecast Bar */}
+        <div className="flex gap-4 mb-4 overflow-x-auto pb-2 scrollbar-hide">
+          {hourlyForecast.map((h, i) => (
+            <div key={i} className="flex flex-col items-center p-3 border border-midnight-steel/5 bg-white shadow-sm min-w-[70px]">
+              <span className="text-[10px] font-black text-midnight-steel/40 uppercase mb-2">{h.time}</span>
+              <FontAwesomeIcon icon={h.icon} className="text-midnight-steel/60 text-lg mb-2" />
+              <span className="text-sm font-black text-midnight-steel">{h.temp}°</span>
+            </div>
+          ))}
         </div>
 
         <div className="text-left lg:text-right">

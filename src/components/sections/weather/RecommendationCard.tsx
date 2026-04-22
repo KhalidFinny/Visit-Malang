@@ -28,12 +28,14 @@ export default function RecommendationCard({
       onClick={onClick}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className={`absolute w-[240px] md:w-[340px] lg:w-[380px] rounded-2xl overflow-hidden cursor-pointer select-none shadow-2xl ${
-        isActive ? "ring-1 ring-midnight-steel/20" : ""
+      className={`absolute w-[95%] max-w-[700px] h-[480px] lg:h-[550px] rounded-[3rem] overflow-hidden cursor-pointer select-none border border-white/10 ${
+        isActive ? "ring-1 ring-white/20" : ""
       }`}
       style={{
-        aspectRatio: "3 / 4",
-        maxHeight: "520px",
+        left: "50%",
+        top: "50%",
+        x: "-50%",
+        y: "-50%",
         transformStyle: "preserve-3d",
       }}
     >
@@ -41,25 +43,24 @@ export default function RecommendationCard({
       <motion.img
         src={recommendation.imageUrl}
         alt={recommendation.name}
-        animate={{ scale: hovered ? 1.1 : 1 }}
+        animate={{ scale: hovered ? 1.05 : 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+        className="absolute inset-0 w-full h-full object-cover grayscale-[0.1] opacity-90 transition-all duration-700"
       />
 
-      {/* Heavy vignette for editorial legibility */}
-      <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-black/10" />
+      {/* Ultra-light vignette for editorial legibility */}
+      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/20" />
 
-      {/* Content wrapper with perspective shift on hover */}
+      {/* Content wrapper */}
       <motion.div
-        className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10"
-        animate={{ translateZ: hovered ? 30 : 0 }}
+        className="absolute inset-0 p-10 md:p-14 lg:p-16 flex flex-col justify-between z-10"
       >
         {/* Top row: number + category */}
         <div className="flex items-start justify-between">
-          <span className="text-swiss text-8xl font-black text-white/20 leading-none">
+          <span className="text-swiss text-8xl font-thin text-white/10 leading-none">
             {num}
           </span>
-          <span className="text-swiss text-sm tracking-[0.2em] text-white uppercase bg-black/60 backdrop-blur-lg px-6 py-2 border border-white/30 font-black rounded-lg">
+          <span className="text-swiss text-[10px] tracking-[0.4em] text-white/60 uppercase bg-black/20 backdrop-blur-md px-5 py-2 border border-white/10 font-black rounded-lg">
             {recommendation.category}
           </span>
         </div>
@@ -67,32 +68,23 @@ export default function RecommendationCard({
         {/* Bottom content */}
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
-            <h3 className="text-editorial text-4xl md:text-6xl text-white drop-shadow-lg">
+            <h3 className="text-editorial text-4xl md:text-6xl text-white leading-[0.9]">
               {recommendation.name}
             </h3>
-            <span className="text-swiss text-white text-sm tracking-[0.2em] uppercase font-black">
-              IDEAL: {recommendation.idealWeather}
+            <span className="text-swiss text-white/40 text-[9px] tracking-[0.4em] uppercase font-black">
+              Optimal Conditions: {recommendation.idealWeather}
             </span>
           </div>
 
-          <motion.p
-            animate={{
-              opacity: 1,
-            }}
-            className="text-swiss text-white text-lg md:text-xl font-bold leading-relaxed line-clamp-3"
-          >
+          <p className="text-swiss text-white/80 text-base md:text-lg font-medium leading-relaxed max-w-xl line-clamp-2">
             {recommendation.description}
-          </motion.p>
+          </p>
 
-          <div className="flex items-center justify-between mt-1">
+          <div className="flex items-center mt-2">
             <motion.div
-              animate={{
-                opacity: 1,
-                x: hovered ? 5 : 0,
-              }}
-              className="px-10 py-4 bg-white text-black text-sm tracking-[0.2em] uppercase font-black flex items-center gap-4 group shadow-xl"
+              className="px-8 py-3 bg-white text-premium-black text-[10px] tracking-[0.3em] uppercase font-black flex items-center gap-3 group border border-transparent"
             >
-              Discover
+              Explore
               <FontAwesomeIcon
                 icon={faArrowRight}
                 className="group-hover:translate-x-1 transition-transform"
@@ -101,9 +93,6 @@ export default function RecommendationCard({
           </div>
         </div>
       </motion.div>
-
-      {/* Glass Border */}
-      <div className="absolute inset-0 border-2 border-white/20 pointer-events-none" />
     </motion.div>
   );
 }

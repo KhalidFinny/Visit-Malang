@@ -5,13 +5,15 @@
   --color-colonial-cream: #F2E9E4;
   --color-midnight-steel: #4A5759;
   --color-petal-blush: #D6ADAD;
+  --color-premium-black: #1A1A1A;
+
+  /* Typography Variables */
+  --font-editorial: 'Vina Sans', sans-serif;
+  --font-swiss: 'Urbanist', sans-serif;
+  --font-script: 'Sue Ellen Francisco', cursive;
+  --font-main: 'Outfit', sans-serif;
   
   --spacing-swiss-xs: 0.5rem;   /* 8px */
-  --spacing-swiss-sm: 1rem;     /* 16px */
-  --spacing-swiss-md: 2rem;     /* 32px */
-  --spacing-swiss-lg: 4rem;     /* 64px */
-  --spacing-swiss-xl: 8rem;     /* 128px */
-  --spacing-swiss-huge: 12rem;   /* 192px */
 }
 
 html {
@@ -62,15 +64,19 @@ body {
 }
 
 .text-editorial {
-  font-family: 'Vina Sans', sans-serif;
+  font-family: var(--font-editorial);
   line-height: 0.85;
   letter-spacing: -0.04em;
   text-transform: uppercase;
 }
 
 .text-swiss {
-  font-family: 'Urbanist', sans-serif;
+  font-family: var(--font-swiss);
   letter-spacing: -0.01em;
+}
+
+.text-script {
+  font-family: var(--font-script);
 }
 
 .experience-root {

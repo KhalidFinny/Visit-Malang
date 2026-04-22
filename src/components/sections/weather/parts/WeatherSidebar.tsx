@@ -7,56 +7,59 @@ export default function WeatherSidebar({
   condition,
   currentIcon,
   weatherChips,
+  hourlyForecast,
 }: WeatherSidebarProps) {
   return (
-    <aside className="flex flex-col h-full justify-between gap-10">
+    <aside className="flex flex-col h-full justify-between gap-12">
       {/* Editorial Title */}
       <div>
-        <h2 className="text-editorial text-[clamp(3.5rem,6vw,6rem)] text-midnight-steel leading-[0.85] tracking-tight mb-8">
-          Today's
+        <h2 className="text-editorial text-[clamp(2.5rem,4.5vw,4.5rem)] text-white leading-[0.9] tracking-tight mb-8">
+          Local
           <br />
-          Weather
+          Conditions
         </h2>
 
         {/* Temperature + Condition */}
-        <div className="flex items-end gap-6 mb-10">
-          <span className="text-swiss font-thin text-[6rem] leading-none text-midnight-steel tabular-nums tracking-tighter">
+        <div className="flex items-end gap-8 mb-10">
+          <span className="text-swiss font-thin text-[7rem] leading-none text-white tabular-nums tracking-tighter">
             {temp}°
           </span>
           <div className="pb-4">
             <FontAwesomeIcon
               icon={currentIcon}
-              className="text-5xl text-midnight-steel mb-3 block"
+              className="text-5xl text-white mb-4 block"
             />
-            <span className="text-swiss text-xl font-black uppercase tracking-[0.1em] text-midnight-steel">
+            <span className="text-swiss text-2xl font-bold uppercase tracking-[0.2em] text-white">
               {condition}
             </span>
           </div>
         </div>
 
-        {/* Prediction Text */}
-        <div className="border-l-4 border-midnight-steel/30 pl-6">
-          <span className="text-swiss text-lg font-black tracking-[0.1em] uppercase text-midnight-steel block mb-2">
-            Local Forecast —
-          </span>
-          <p className="text-swiss text-xl text-midnight-steel font-medium leading-relaxed">
-            {predictionText}
-          </p>
+        {/* 5-Hour Forecast Bar */}
+        <div className="flex gap-4 mb-10 overflow-x-auto pb-6 scrollbar-hide">
+          {hourlyForecast?.map((h, i) => (
+            <div key={i} className="flex flex-col items-center p-5 border-2 border-white/10 bg-white/5 backdrop-blur-xl rounded-2xl min-w-[90px]">
+              <span className="text-[11px] font-black text-white uppercase mb-3">{h.time}</span>
+              <FontAwesomeIcon icon={h.icon} className="text-white text-xl mb-3" />
+              <span className="text-lg font-bold text-white">{h.temp}°</span>
+            </div>
+          ))}
         </div>
+
       </div>
 
       {/* Weather Chips */}
-      <div className="flex flex-col gap-4 border-t-2 border-midnight-steel/20 pt-10">
+      <div className="flex flex-col gap-8 border-t-2 border-white/10 pt-10">
         {weatherChips.map(({ icon, label, title }) => (
-          <div key={title} className="flex items-center gap-6">
-            <div className="w-12 h-12 flex items-center justify-center border-2 border-midnight-steel/30 bg-midnight-steel/5 shrink-0 rounded-xl">
-              <FontAwesomeIcon icon={icon} className="text-xl text-midnight-steel" />
+          <div key={title} className="flex items-center gap-8">
+            <div className="w-14 h-14 flex items-center justify-center border-2 border-white/20 bg-white/5 shrink-0 rounded-xl">
+              <FontAwesomeIcon icon={icon} className="text-xl text-white" />
             </div>
             <div className="flex items-center justify-between flex-1">
-              <span className="text-swiss text-lg font-black tracking-[0.1em] uppercase text-midnight-steel/70">
+              <span className="text-swiss text-sm font-black tracking-[0.2em] uppercase text-white/70">
                 {title}
               </span>
-              <span className="text-swiss text-2xl font-black text-midnight-steel">
+              <span className="text-2xl font-bold text-white">
                 {label}
               </span>
             </div>

@@ -4,7 +4,7 @@ export interface Recommendation {
   id: string;
   name: string;
   category: string;
-  semanticCategory: "Culinary" | "Nature" | "Culture" | "Attraction";
+  semanticCategory: "Culinary" | "Nature" | "Historical" | "Attraction" | "Indoor";
   description: string;
   idealWeather: "Sunny" | "Overcast" | "Rainy" | "Any";
   idealTime: ("Morning" | "Afternoon" | "Evening" | "Night")[];
@@ -26,6 +26,12 @@ export interface WeatherChip {
   title: string;
 }
 
+export interface ForecastItem {
+  time: string;
+  temp: number;
+  icon: IconDefinition;
+}
+
 export interface WeatherHeaderProps {
   predictionText: string;
   temp: number;
@@ -33,6 +39,7 @@ export interface WeatherHeaderProps {
   date: string;
   currentIcon: IconDefinition;
   weatherChips: WeatherChip[];
+  hourlyForecast: ForecastItem[];
 }
 
 export interface WeatherSidebarProps {
@@ -41,6 +48,7 @@ export interface WeatherSidebarProps {
   condition: string;
   currentIcon: IconDefinition;
   weatherChips: WeatherChip[];
+  hourlyForecast: ForecastItem[];
 }
 
 export interface WeatherCarouselProps {

@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import {
   faCloudSun,
   faSun,
@@ -6,6 +6,10 @@ import {
   faThermometerHalf,
   faWind,
   faDroplet,
+  faSmog,
+  faCloud,
+  faCloudShowersHeavy,
+  faCloudBolt,
 } from "@fortawesome/free-solid-svg-icons";
 import { useWeather } from "./useWeather";
 import { useRecommendations } from "./useRecommendations";
@@ -34,12 +38,26 @@ export function useWeatherState() {
   // 3. Assemble CurrentWeather object for legacy support and UI
   const todayWeather: CurrentWeather = useMemo(() => ({
     condition: currentCondition,
-    temp: weatherData?.temp ?? 24,
+    temp: Math.round(weatherData?.temp ?? 24),
     humidity: weatherData?.humidity ?? 70,
     windSpeed: weatherData?.windSpeed ?? 5,
   }), [currentCondition, weatherData]);
 
-  // 4. Get Dynamic Recommendations
+  // 4. Map Detailed Forecast for next 5 hours
+  const hourlyForecast = useMemo(() => {
+    if (!weatherData?.hourly) return [];
+    return weatherData.hourly.map((h) => {
+      const date = new Date(h.time);
+      const hourStr = date.getHours().toString().padStart(2, '0') + ':00';
+      
+      return {
+        time: hourStr,
+        temp: Math.round(h.temp),
+        icon: getDetailedIcon(h.weatherCode)
+      };
+    });
+  }, [weatherData]);
+
   const recommendations = useRecommendations(currentCondition, timeOfDay, forecastCondition);
 
   const date = new Intl.DateTimeFormat("id-ID", {
@@ -49,16 +67,20 @@ export function useWeatherState() {
   }).format(new Date());
 
   const next = useCallback(() => {
+    if (recommendations.length === 0) return;
     setActiveIndex((prev) => (prev + 1) % recommendations.length);
   }, [recommendations.length]);
 
   const prev = useCallback(() => {
+    if (recommendations.length === 0) return;
     setActiveIndex(
       (prev) =>
         (prev - 1 + recommendations.length) %
         recommendations.length,
     );
   }, [recommendations.length]);
+
+  // Handle Auto-play — REMOVED per user request for manual navigation
 
   // Weather condition mapping
   const weatherInfo = {
@@ -97,6 +119,23 @@ export function useWeatherState() {
     recommendations,
     todayWeather,
     loading,
-    timeOfDay
+    timeOfDay,
+    hourlyForecast
   };
+}
+
+/**
+ * Detailed weather code mapping for icons
+ */
+function getDetailedIcon(code: number) {
+  if (code === 0) return faSun;
+  if (code >= 1 && code <= 2) return faCloudSun;
+  if (code === 3) return faCloud;
+  if (code >= 45 && code <= 48) return faSmog;
+  if (code >= 51 && code <= 55) return faCloudRain; // Drizzle
+  if (code >= 61 && code <= 63) return faCloudRain; // Slight/Mod rain
+  if (code >= 65 && code <= 67) return faCloudShowersHeavy; // Heavy/Freezing rain
+  if (code >= 80 && code <= 82) return faCloudRain; // Showers
+  if (code >= 95) return faCloudBolt; // Thunderstorm
+  return faSun;
 }

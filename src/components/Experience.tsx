@@ -3,8 +3,9 @@ import bgGolden from "/this.jpg";
 import chairSilhouette from "/seat.svg";
 import FlightStage from "./sections/airplane/FlightStage";
 import HeroStage from "./sections/hero/HeroStage";
+import HeritageStage from "./sections/heritage/HeritageStage";
 import WeatherStage from "./sections/weather/WeatherStage";
-import PlaceholderStage from "./sections/top5/PlaceholderStage";
+import RegionalPlanner from "./sections/planner/RegionalPlanner";
 import { useExperienceState } from "./hooks/useExperienceState";
 
 export default function Experience() {
@@ -40,8 +41,9 @@ export default function Experience() {
         ) : (
           <motion.div key="landing" className="w-full relative z-0">
             <HeroStage />
+            <HeritageStage />
             <WeatherStage />
-            <PlaceholderStage />
+            <RegionalPlanner />
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,2418 +1,722 @@
 [
   {
-    "id": "osm_3925263803",
-    "name": "Soto Ayam Sempu",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_6440455585",
-    "name": "Toko Oen",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_10651616705",
-    "name": "Rumah Makan Inggil",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_10963142151",
-    "name": "Waroeng Inggil",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_11005939680",
-    "name": "Lapis Kukus Tugu Malang",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_11409403469",
-    "name": "Bakso President",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_10060562639",
-    "name": "Ada Apa Dengan Kopi?",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.7
-  },
-  {
-    "id": "osm_11752804510",
-    "name": "Morning Mate",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.7
-  },
-  {
-    "id": "osm_4511809689",
-    "name": "Gadjah Mada",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.69
-  },
-  {
-    "id": "osm_9414570200",
-    "name": "Taman Indie Resto",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.69
-  },
-  {
-    "id": "osm_11891245110",
-    "name": "Sumbersareh",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.69
-  },
-  {
-    "id": "osm_12022776984",
-    "name": "Hamur Utea",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.69
-  },
-  {
-    "id": "osm_13520100021",
-    "name": "Golio Hub",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.69
-  },
-  {
-    "id": "osm_13392263755",
-    "name": "Tahu Campur Pak Kumis",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.68
-  },
-  {
-    "id": "osm_4993826523",
-    "name": "Java Dancer Coffee",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_5078898524",
-    "name": "Rumah Makan Gloria",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_6723137587",
-    "name": "Kacapiring cafe",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1501339847302-ac226fd53df?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_10980693166",
-    "name": "Arthemis Coffe",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_11264350370",
-    "name": "Mi Gacoan Sawojajar",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_12113050688",
-    "name": "Kedai Raos Marem",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_12325179601",
-    "name": "CASA",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_12599885257",
-    "name": "Warmindo Konco Kentel",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_12732581957",
-    "name": "Rawon & Pecel Lama",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_13341859296",
-    "name": "SUKI - SUSU KOPI STMJ",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.67
-  },
-  {
-    "id": "osm_7135815204",
-    "name": "Rice Bowl",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.66
-  },
-  {
-    "id": "osm_9748438317",
-    "name": "Happy7Kitchen",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.66
-  },
-  {
-    "id": "osm_5048598559",
-    "name": "Kasih Karunia",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.65
-  },
-  {
-    "id": "osm_10153311616",
-    "name": "Lafayette Coffee and Eatery",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.65
-  },
-  {
-    "id": "osm_11235268039",
-    "name": "Hidden restaurant garden",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.65
-  },
-  {
-    "id": "osm_13355580101",
-    "name": "Bubur Ayam Mangkok Merah",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.65
-  },
-  {
-    "id": "osm_13380414121",
-    "name": "Penyetan Sambel Loman",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.65
-  },
-  {
-    "id": "osm_13381705570",
-    "name": "Kedai Makan Sri Semplang",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.65
-  },
-  {
-    "id": "osm_3923116173",
-    "name": "Mie Pangsit Lezat Cak To",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.64
-  },
-  {
-    "id": "osm_7238057085",
-    "name": "soto ayam lamongan",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.64
-  },
-  {
-    "id": "osm_11005716839",
-    "name": "Bakso Cak Win",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.64
-  },
-  {
-    "id": "osm_11264679869",
-    "name": "Ayam Benjos",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.64
-  },
-  {
-    "id": "osm_13690019719",
-    "name": "Ocean Garden Tepi brantas Kepanjen",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.64
-  },
-  {
-    "id": "osm_1544546804",
-    "name": "cofe POM",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.63
-  },
-  {
-    "id": "osm_3958414333",
-    "name": "Agil Coffee",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.63
-  },
-  {
-    "id": "osm_5479070423",
-    "name": "Bebek Goreng H. Slamet",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.63
-  },
-  {
-    "id": "osm_10655208706",
-    "name": "Sego Tempong by Cak Uut",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.63
-  },
-  {
-    "id": "osm_12020216365",
-    "name": "Jasa Ayah",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.63
-  },
-  {
-    "id": "osm_12027030269",
-    "name": "Bakso Malang Cak Cull Sigura-Gura",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.63
-  },
-  {
-    "id": "osm_12688071069",
-    "name": "Arasseo Cafe",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1501339847302-ac226fd53df?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.63
-  },
-  {
-    "id": "osm_3958543412",
-    "name": "Calories",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.62
-  },
-  {
-    "id": "osm_10036009272",
-    "name": "Pudji Mulyo",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.62
-  },
-  {
-    "id": "osm_10980693165",
-    "name": "Oase Cafe & Literacy",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1501339847302-ac226fd53df?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.62
-  },
-  {
-    "id": "osm_12143506819",
-    "name": "Sei Babi & Sate Babi Flobamora",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.62
-  },
-  {
-    "id": "osm_13377621678",
-    "name": "Nasgor Kepo",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.62
-  },
-  {
-    "id": "osm_6984264493",
-    "name": "Kopi Tuju",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A noteworthy culinary spot located in Malang Raya.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.61
-  },
-  {
-    "id": "osm_3311152222",
-    "name": "Pantai Sendangbiru",
+    "id": "nature_001",
+    "name": "Mount Bromo",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
+    "description": "The crown jewel of East Java. Witness a surreal sunrise over the Sea of Sand and the active crater, a breathtaking drive from Malang.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1588666249557-074092994447?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.98
+  },
+  {
+    "id": "nature_002",
+    "name": "Tumpak Sewu Waterfall",
+    "category": "Nature",
+    "semanticCategory": "Nature",
+    "description": "Indonesia's 'Little Niagara'. A massive, curtain-like waterfall tucked deep in the lush tropical highlands.",
+    "idealWeather": "Sunny",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1596396829141-8608e017366d?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.95
+  },
+  {
+    "id": "nature_003",
+    "name": "Wonosari Tea Plantation",
+    "category": "Nature",
+    "semanticCategory": "Nature",
+    "description": "Rolling green hills of tea leaves on the slopes of Mt. Arjuno. Breath clean air and enjoy sweeping panoramic views from Bukit Kuneer.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1543160732-dd38b1629857?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.88
+  },
+  {
+    "id": "nature_004",
+    "name": "Coban Rondo Waterfall",
+    "category": "Nature",
+    "semanticCategory": "Nature",
+    "description": "A majestic 84-meter waterfall surrounded by lush pine forests, featuring a famous garden labyrinth.",
+    "idealWeather": "Sunny",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
     "popularity": 0.9
   },
   {
-    "id": "osm_4803485321",
-    "name": "Pantai Balekambang",
+    "id": "nature_005",
+    "name": "Coban Pelangi",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
+    "description": "The 'Rainbow Waterfall'. When the mist catches the morning light, it creates beautiful iridescent arches in the forest.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1500382017468-9049fee74a62?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.85
   },
   {
-    "id": "osm_4805525721",
-    "name": "Coban Sewu",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Beautiful waterfall surrounded by lush nature.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1433086466345-d7645f725997?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_4990134936",
-    "name": "Pantai Sendiki",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_7146738785",
-    "name": "Pantai Segara Anakan",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_8072001330",
-    "name": "Pantai Watu Leter",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_9133588717",
-    "name": "Pantai Parang Dowo",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_10904062600",
-    "name": "Pantai Banyu Meneng",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_11004543643",
-    "name": "Pantai Kondang Merak",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439142685",
-    "name": "Pantai Temu Wetan",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163704",
-    "name": "Pantai Ngantep",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163705",
-    "name": "Pantai Wonogoro",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163706",
-    "name": "Pantai Gandul Alas",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163707",
-    "name": "Pantai Kuncaran",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163708",
-    "name": "Pantai Ngudel",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163709",
-    "name": "Pantai Kletekan",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163710",
-    "name": "Pantai Buncaran",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163711",
-    "name": "Pantai Gragalan",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163712",
-    "name": "Pantai Karang",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163713",
-    "name": "Pantai Singit",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163714",
-    "name": "Pantai Karang Bolong",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163747",
-    "name": "Pantai Gladakan",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163748",
-    "name": "Pantai Paramasegara Selatan",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163749",
-    "name": "Pantai Pasang",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163750",
-    "name": "Pantai Ngopet",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163751",
-    "name": "Pantai Wedi Klopo",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163752",
-    "name": "Pantai Batu Bengkung",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163753",
-    "name": "Pantai Watu Lepek",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163754",
-    "name": "Pantai Kanjaran",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163755",
-    "name": "Pantai Telok",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163757",
-    "name": "Pantai Jolangkung",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163758",
-    "name": "Pantai Kangen",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163759",
-    "name": "Pantai Ungapan",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163760",
-    "name": "Pantai Bajulmati",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163762",
-    "name": "Pantai Tanjung Penyu",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163765",
-    "name": "Pantai Goa Cina",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163766",
-    "name": "Pantai Sumenggung",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163767",
-    "name": "Pantai Teluk Asmara",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163785",
-    "name": "Pantai Clungup",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163786",
-    "name": "Pantai Gatra",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163787",
-    "name": "Pantai Mini",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163788",
-    "name": "Pantai Watu Pecah",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_13439163789",
+    "id": "nature_006",
     "name": "Pantai Tiga Warna",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
+    "description": "A pristine conservation beach known for its three distinct water colors and vibrant coral reefs, accessible via a light trek.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
+    "idealTime": ["Morning", "Afternoon"],
     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.92
   },
   {
-    "id": "osm_13439163790",
-    "name": "Pantai Tamban",
+    "id": "nature_007",
+    "name": "Alun-Alun Malang",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "description": "The historic heart of the city. A lush green square perfect for people-watching and enjoying the cool evening breeze.",
+    "idealWeather": "Any",
+    "idealTime": ["Evening", "Night"],
+    "imageUrl": "https://images.unsplash.com/photo-1528605105345-5344ea20e269?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.94
   },
   {
-    "id": "osm_13439163792",
-    "name": "Pantai Krambilan",
+    "id": "nature_008",
+    "name": "Mount Semeru Viewpoint",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
+    "description": "Catch a glimpse of the highest volcano in Java as it puffs smoke into the clear blue sky from a distance.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.87
   },
   {
-    "id": "osm_13439163793",
-    "name": "Pantai Penantian",
+    "id": "nature_009",
+    "name": "Paralayang Batu (Omah Kayu)",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
+    "description": "High above the clouds. Stunning treehouse stays and paragliding launch spots overlooking the twinkling lights of Batu city.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.91
   },
   {
-    "id": "osm_13439163794",
-    "name": "Pantai Anjat",
+    "id": "nature_010",
+    "name": "Sumber Sirah",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
+    "description": "Crystal clear freshwater springs. Swim through underwater gardens of river grass and schools of small fish.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1501179611942-0c2610dd1dd7?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.84
   },
   {
-    "id": "osm_13439163795",
-    "name": "Pantai Regent",
+    "id": "nature_011",
+    "name": "Selecta Park",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "description": "A historic flower garden and recreational park in the highlands. Iconic for its vibrant flower beds and cool climate.",
+    "idealWeather": "Overcast",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.89
   },
   {
-    "id": "osm_13439163796",
-    "name": "Pantai Jembatan Panjang",
+    "id": "nature_012",
+    "name": "Coban Rais",
     "category": "Nature",
     "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
+    "description": "A beautiful waterfall combined with 'Stone Flower Garden' for incredible photo opportunities high in the Batu hills.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.86
   },
   {
-    "id": "osm_13439163797",
-    "name": "Pantai Bahagia",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Stunning coast with white sands and rolling waves.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
+    "id": "culinary_001",
+    "name": "Toko Oen",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "Step back into the 1930s. A legendary colonial restaurant serving world-famous homemade ice cream and Dutch-Indonesian pastries.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.99
   },
   {
-    "id": "osm_3919538304",
-    "name": "Museum Inggil",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
+    "id": "culinary_002",
+    "name": "Bakso President",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "The dining experience of a lifetime. Enjoy Malang's most famous meatballs right next to the active railway tracks.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1547928576-a4a33237ecd3?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.97
+  },
+  {
+    "id": "culinary_003",
+    "name": "Melati Restaurant",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "Malang Tempo Doeloe (Old Malang) vibe at Hotel Tugu. High-end Peranakan and Dutch-colonial style cuisine in a museum-like setting.",
+    "idealWeather": "Any",
+    "idealTime": ["Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1550966841-3ee7adac1661?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.95
+  },
+  {
+    "id": "culinary_004",
+    "name": "Java Dancer Coffee",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "Pioneering specialty coffee in Malang. Enjoy authentic Indonesian beans in a beautiful Javanese-themed wooden joglo.",
+    "idealWeather": "Overcast",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.93
+  },
+  {
+    "id": "culinary_005",
+    "name": "Madam Wang Secret Garden",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "A whimsical, hidden gem featuring a lush garden interior and artisanal pasta, perfect for a cozy afternoon escape.",
     "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
     "popularity": 0.9
   },
   {
-    "id": "osm_6257407623",
-    "name": "Tugu PKK meneh",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
+    "id": "culinary_006",
+    "name": "Taman Indie Resto",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "Dine alongside the Brantas river in traditional Javanese pavilions. A serene atmosphere focused on classic local heritage dishes.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.9
+    "popularity": 0.92
   },
   {
-    "id": "osm_13728237757",
-    "name": "Tugu UKS",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
+    "id": "culinary_007",
+    "name": "Cafe Litchi",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "Mediterranean vibes in the heart of Malang. Modern aesthetics, refreshing drinks, and one of the most Instagrammable spots in town.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "osm_11113406515",
-    "name": "Boonpring",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.82
-  },
-  {
-    "id": "osm_8001902709",
-    "name": "Monumen UM",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.81
-  },
-  {
-    "id": "osm_10213468078",
-    "name": "Gerbong Maut",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.81
-  },
-  {
-    "id": "osm_11005961507",
-    "name": "10 Program Pokok PKK",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.8
-  },
-  {
-    "id": "osm_2426302524",
-    "name": "Monumen Juang",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.78
-  },
-  {
-    "id": "osm_13364124225",
-    "name": "Monumen Pesawat Terbang",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.78
-  },
-  {
-    "id": "osm_13435844369",
-    "name": "Patung TRIP",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.78
-  },
-  {
-    "id": "osm_3208891939",
-    "name": "Monumen Panglima Besar Sudirman",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.77
-  },
-  {
-    "id": "osm_3212167129",
-    "name": "Patung Jenderal Achmad Yani",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.75
-  },
-  {
-    "id": "osm_10015566930",
-    "name": "Patung Tank Tentara",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.75
-  },
-  {
-    "id": "osm_10213468079",
-    "name": "Indonesian Old Cinema Museum",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1463797221720-6b07e6426c24?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
-    "popularity": 0.61
+    "popularity": 0.88
   },
   {
-    "id": "osm_10213471291",
-    "name": "Museum Musik Indonesia",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&q=80&w=800",
+    "id": "culinary_008",
+    "name": "Rawon Nguling",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "The quintessential black beef soup of East Java. Authentic flavors and tender meat that have been famous for generations.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
-    "popularity": 0.43
+    "popularity": 0.94
   },
   {
-    "id": "osm_13293944837",
-    "name": "Museum Pendidikan Indonesia Kota Malang",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&q=80&w=800",
+    "id": "culinary_009",
+    "name": "Rawon Rampal",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "A historic rawon stall frequented by presidents. Pure, robust flavors cooked with traditional charcoal fires.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
-    "popularity": 0.42
+    "popularity": 0.96
   },
   {
-    "id": "osm_13556716918",
-    "name": "Museum batu Mulia Nusantara",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&q=80&w=800",
+    "id": "culinary_010",
+    "name": "Mi Gacoan Sawojajar",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "The local spicy noodle phenomenon. Energetic, loud, and incredibly popular with the younger generation for a budget spicy meal.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
-    "popularity": 0.26
+    "popularity": 0.91
   },
   {
-    "id": "osm_10092637630",
-    "name": "Museum Kesehatan Jiwa",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
+    "id": "culinary_011",
+    "name": "Alice Tea Room",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "A fairytale wonderland in the middle of the city. High tea service and Victorian-themed decor for a refined afternoon.",
     "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1520174691701-bc555a3404ca?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
-    "popularity": 0.16
+    "popularity": 0.85
   },
   {
-    "id": "osm_10213471967",
-    "name": "Museum Haji Muhammad Sattar (MHMS)",
-    "category": "Culture",
-    "semanticCategory": "Culture",
-    "description": "A noteworthy culture spot located in Malang Raya.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&q=80&w=800",
+    "id": "culinary_012",
+    "name": "Pasar Oro-Oro Dowo",
+    "category": "Culinary",
+    "semanticCategory": "Culinary",
+    "description": "The cleanest traditional market in Malang. A treasure trove of legendary street snacks and authentic local breakfast.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1488459711615-228f0974ccf7?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
-    "popularity": 0.16
+    "popularity": 0.89
   },
   {
-    "id": "osm_9717199382",
-    "name": "Bromo Transit Park",
+    "id": "attraction_001",
+    "name": "Museum Angkut",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1588665555327-a3a830b80c10?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.98
-  },
-  {
-    "id": "osm_11306800375",
-    "name": "MOG Pintu Barat",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=800",
+    "description": "Southeast Asia’s first world-class transportation museum. Explore over 300 vintage vehicles through cinematic global zones.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1551522435-a13afa10f103?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
-    "popularity": 0.98
+    "popularity": 0.99
   },
   {
-    "id": "osm_13196396475",
-    "name": "Plaza Begawan",
+    "id": "attraction_002",
+    "name": "Jatim Park 1",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=800",
+    "description": "A high-energy cultural theme park combining Indonesian science and heritage with massive amusement rides.",
+    "idealWeather": "Sunny",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.94
+  },
+  {
+    "id": "attraction_003",
+    "name": "Jatim Park 2 (Secret Zoo)",
+    "category": "Attraction",
+    "semanticCategory": "Attraction",
+    "description": "A stunning, modern zoo experience that prioritizes conservation and education in a world-class facility.",
+    "idealWeather": "Sunny",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1504173010664-32509aaefe4e?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.96
+  },
+  {
+    "id": "attraction_004",
+    "name": "Jatim Park 3 (Dino Park)",
+    "category": "Attraction",
+    "semanticCategory": "Attraction",
+    "description": "Jurassic world comes to Batu. Interactive dinosaur museums and high-tech amusement zones for an unforgettable family day.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&q=80&w=800",
     "type": "indoor",
-    "popularity": 0.76
+    "popularity": 0.93
   },
   {
-    "id": "osm_3919507973",
-    "name": "Pasar Burung Malang",
+    "id": "attraction_005",
+    "name": "Batu Night Spectacular",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "description": "The city’s evening carnival. Enjoy neon light gardens, family rides, and night markets in the cool mountain air.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Night"],
+    "imageUrl": "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.69
+    "popularity": 0.95
   },
   {
-    "id": "osm_10269026401",
-    "name": "Wisata Center Nanas",
+    "id": "attraction_006",
+    "name": "Kampung Warna Warni Jodipan",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "description": "The iconic 'Rainbow Village'. A transformed riverside community now famous for its vibrant walls and creative energy.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1518151246473-fd677e497d39?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.67
+    "popularity": 0.97
   },
   {
-    "id": "osm_10962970306",
-    "name": "White Village (Kampung Puti)",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.66
-  },
-  {
-    "id": "osm_9830172609",
-    "name": "Taman Topeng Sengguruh Kepanjen",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.65
-  },
-  {
-    "id": "osm_10284672732",
-    "name": "Kolam Renang",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.6
-  },
-  {
-    "id": "osm_13289085900",
-    "name": "Bonderland Waterpark",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.6
-  },
-  {
-    "id": "osm_10980693160",
-    "name": "Taman Lalu Lintas Merjosari",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.58
-  },
-  {
-    "id": "osm_11005252990",
-    "name": "Umbulan Tanaka",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.57
-  },
-  {
-    "id": "osm_11113407585",
-    "name": "Taman Pulau Putri Boonpring",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.56
-  },
-  {
-    "id": "osm_10672443403",
-    "name": "Taman Kenongo",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.55
-  },
-  {
-    "id": "osm_11715923590",
-    "name": "Tarekot Malang City Park\nTaman Rekreasi Kota (Tarekot) Malang",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.55
-  },
-  {
-    "id": "osm_12213769703",
-    "name": "Indi\u00eb Afstandpaal - Titik Nol Kota Malang",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.55
-  },
-  {
-    "id": "osm_6673596885",
-    "name": "Wonosari tea factory",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.53
-  },
-  {
-    "id": "osm_9738975674",
-    "name": "Wisata Edukasi Milkindo",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.53
-  },
-  {
-    "id": "osm_6784303085",
+    "id": "attraction_007",
     "name": "Kampung Biru Arema",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "description": "Inspired by Chefchaouen, this all-blue village celebrates the spirit of Malang's legendary football club, Arema FC.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bafa?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.45
+    "popularity": 0.88
   },
   {
-    "id": "osm_4977491122",
-    "name": "Nuansa Fajar - Massages",
+    "id": "attraction_008",
+    "name": "Malang Night Paradise",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "description": "A dazzling neon forest featuring lanterns, magic rivers, and dancing fountains that light up the Malang night.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Night"],
+    "imageUrl": "https://images.unsplash.com/photo-1533230301047-9f75ec5d539e?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.44
+    "popularity": 0.9
   },
   {
-    "id": "osm_12196552001",
-    "name": "Excaliburnt",
+    "id": "attraction_009",
+    "name": "Eco Green Park",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "description": "Focusing on ecosystem education. Get up close with exotic birds and learn about sustainable living in a fun, natural setting.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1444464666168-49d633b867ad?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.43
+    "popularity": 0.86
   },
   {
-    "id": "osm_9501967116",
-    "name": "Taman Puspa Kepanjen",
+    "id": "attraction_010",
+    "name": "Hawai Waterpark",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "description": "Island-themed water park featuring a massive wave pool and high-speed slides for an adrenaline-fueled afternoon.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.39
+    "popularity": 0.89
   },
   {
-    "id": "osm_6784246185",
-    "name": "Flower Market",
+    "id": "attraction_011",
+    "name": "San Terra Del Fonte",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "description": "European architecture meets Javanese landscapes. Explore miniature Dutch canals and colorful replica villages.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.3
+    "popularity": 0.91
   },
   {
-    "id": "osm_6784303185",
-    "name": "Kampung Tridi",
+    "id": "attraction_012",
+    "name": "Predator Fun Park",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "description": "An educational park dedicated to the world's most misunderstood predators, featuring crocodiles and interactive galleries.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1549240923-93a2e080e653?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.25
+    "popularity": 0.84
   },
   {
-    "id": "osm_6763151588",
-    "name": "Taman Sulfat",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.24
+    "id": "indoor_001",
+    "name": "Malang Town Square (MATOS)",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "The city's vibrant lifestyle hub. A multi-level shopping destination filled with international brands and diverse food courts.",
+    "idealWeather": "Rainy",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.95
   },
   {
-    "id": "osm_12231078764",
-    "name": "Waterboom NK Cafe",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1501339847302-ac226fd53df?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.23
+    "id": "indoor_002",
+    "name": "Olympic Garden (MOG)",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "The largest and most complete mall in Malang, featuring a massive selection of tech, fashion, and an indoor ice rink.",
+    "idealWeather": "Rainy",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.96
   },
   {
-    "id": "osm_10299650145",
-    "name": "Taman Wisata Lahor",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.22
+    "id": "indoor_003",
+    "name": "Museum Musik Indonesia",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "A unique, independent archive celebrating the rich history of Indonesian music from traditional to modern pop.",
+    "idealWeather": "Rainy",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.85
   },
   {
-    "id": "osm_9742533709",
-    "name": "Taman Wisata Sumber Alam",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.19
+    "id": "indoor_004",
+    "name": "Museum Brawijaya",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "Essential for history enthusiasts. Documents East Java's military history and the struggle for Indonesian independence.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.92
   },
   {
-    "id": "osm_9738976378",
-    "name": "Wahana Flying Fox",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.18
+    "id": "indoor_005",
+    "name": "Malang Creative Center (MCC)",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "The city's modern crown. A multi-story creative hub for arts, co-working, and futuristic rooftop views.",
+    "idealWeather": "Rainy",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.88
   },
   {
-    "id": "osm_6047734269",
-    "name": "BeSS",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.16
+    "id": "indoor_006",
+    "name": "Museum Tubuh",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "The Bagong Adventure. A world-class educational journey through interactive, giant-scale human anatomy exhibits.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1532187875605-7fe358a71ecd?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.9
   },
   {
-    "id": "osm_13324050565",
-    "name": "Taman Dempo",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.15
+    "id": "indoor_007",
+    "name": "Cinepolis Matos",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "Premium cinematic experience. The perfect rainy day retreat to catch the latest global blockbusters in comfort.",
+    "idealWeather": "Rainy",
+    "idealTime": ["Evening", "Night"],
+    "imageUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.87
   },
   {
-    "id": "osm_12204040404",
-    "name": "Pohon Raksasa",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.14
+    "id": "indoor_008",
+    "name": "Lippo Plaza Batu",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "Modern shopping destination with a grand view of the Arjuna mountains. Excellent cafes and children's entertainment.",
+    "idealWeather": "Rainy",
+    "idealTime": ["Afternoon", "Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.91
   },
   {
-    "id": "osm_9738976379",
-    "name": "Kolam Renang Wisata Edukasi Milkindo",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "A noteworthy attraction spot located in Malang Raya.",
+    "id": "indoor_009",
+    "name": "Transmart Malang",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "Shopping and play in one. Features a large supermarket and an indoor mini-theme park with high-altitude views.",
+    "idealWeather": "Rainy",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.89
+  },
+  {
+    "id": "indoor_010",
+    "name": "Cyber Mall",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "The digital pulse of the city. Malang's go-to spot for gadgets, laptops, and all thing high-tech inside a compact mall.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.84
+  },
+  {
+    "id": "indoor_011",
+    "name": "Museum Pendidikan",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "Trace the evolution of Indonesian education from ancient palm leaf manuscripts to the digital era in a serene setting.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.82
+  },
+  {
+    "id": "indoor_012",
+    "name": "Museum Kesehatan Jiwa",
+    "category": "Indoor",
+    "semanticCategory": "Indoor",
+    "description": "One of Southeast Asia’s only psychiatry museums. A fascinating, sober look into the history of mental healthcare in East Java.",
+    "idealWeather": "Overcast",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.8
+  },
+  {
+    "id": "historical_001",
+    "name": "Candi Singosari",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "The 13th-century funerary temple of King Kertanegara. A masterpiece of Hindu-Buddhist architecture and the pride of Malang.",
     "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800",
     "type": "outdoor",
-    "popularity": 0.11
+    "popularity": 0.94
+  },
+  {
+    "id": "historical_002",
+    "name": "Tugu Malang",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "The symbol of Malang’s independence. A beautiful monument surrounded by a lotus pond and lush, classic Javanese gardens.",
+    "idealWeather": "Any",
+    "idealTime": ["Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.97
+  },
+  {
+    "id": "historical_003",
+    "name": "Candi Badut",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "The oldest temple in East Java, built in 760 AD. A simple yet powerful stone structure surrounded by a quiet residential neighborhood.",
+    "idealWeather": "Sunny",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.88
+  },
+  {
+    "id": "historical_004",
+    "name": "Gereja Ijen",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "Our Lady of Mount Carmel Cathedral. A stunning piece of neo-gothic architecture located on the historic Ijen Boulevard.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1548705085-101177821188?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.93
+  },
+  {
+    "id": "historical_005",
+    "name": "Kayutangan Heritage",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "Malang’s historic corridor. Explore preserved colonial streets, vintage shopfronts, and hidden riverside heritage alleys.",
+    "idealWeather": "Any",
+    "idealTime": ["Evening"],
+    "imageUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.96
+  },
+  {
+    "id": "historical_006",
+    "name": "Klenteng Eng An Kiong",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "A 200-year-old Chinese temple. Vibrant red colors, incense-filled courtyards, and a living symbol of Malang's multi-cultural history.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1540324155974-722ebb08f029?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.9
+  },
+  {
+    "id": "historical_007",
+    "name": "Monumen Juang 45",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "An epic, high-relief bronze sculpture depicting the heroes of the independence movement right in front of the Central Station.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.85
+  },
+  {
+    "id": "historical_008",
+    "name": "Great Mosque of Malang",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "Built in 1890, this grand mosque features a unique blend of Arabic and Javanese architecture overlooking the city square.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning", "Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1564769049479-797371542159?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.92
+  },
+  {
+    "id": "historical_009",
+    "name": "Candi Kidal",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "Built to honor King Anusapati. Famous for its intricate Garuda carvings that tell the story of a hero's devotion.",
+    "idealWeather": "Sunny",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.86
+  },
+  {
+    "id": "historical_010",
+    "name": "Candi Jago",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "A unique terraced temple structure featuring exquisite reliefs that mix Hindu and Buddhist myths and legends.",
+    "idealWeather": "Sunny",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800",
+    "type": "outdoor",
+    "popularity": 0.87
+  },
+  {
+    "id": "historical_011",
+    "name": "Balai Kota Malang",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "The majestic colonial City Hall. A monumental example of Dutch 'Indische' architecture fronting the beautiful Tugu circle.",
+    "idealWeather": "Any",
+    "idealTime": ["Morning"],
+    "imageUrl": "https://images.unsplash.com/photo-1518151246473-fd677e497d39?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.89
+  },
+  {
+    "id": "historical_012",
+    "name": "Bank Indonesia Building",
+    "category": "Historical",
+    "semanticCategory": "Historical",
+    "description": "A historic pillar of Malang's commerce. This beautifully preserved colonial edifice stands as a gatekeeper to Heritage Kajoetangan.",
+    "idealWeather": "Any",
+    "idealTime": ["Afternoon"],
+    "imageUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800",
+    "type": "indoor",
+    "popularity": 0.84
   }
 ]
