@@ -4,6 +4,8 @@ import chairSilhouette from "/seat.svg";
 import FlightStage from "./sections/airplane/FlightStage";
 import HeroStage from "./sections/hero/HeroStage";
 import HeritageStage from "./sections/heritage/HeritageStage";
+import ActivityList from "./sections/activity/ActivityList";
+import TechEntrance from "./sections/modern/TechEntrance";
 import WeatherStage from "./sections/weather/WeatherStage";
 import RegionalPlanner from "./sections/planner/RegionalPlanner";
 import { useExperienceState } from "./hooks/useExperienceState";
@@ -42,6 +44,8 @@ export default function Experience() {
           <motion.div key="landing" className="w-full relative z-0">
             <HeroStage />
             <HeritageStage />
+            <ActivityList />
+            <TechEntrance />
             <WeatherStage />
             <RegionalPlanner />
           </motion.div>

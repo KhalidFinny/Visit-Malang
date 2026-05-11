@@ -9,7 +9,7 @@ type HistoryData = {
 };
 
 const historyData: Record<string, HistoryData> = {
-  "colorful-village": {
+  "the-hidden-story-behind-colorful-village": {
     title: "The Hidden Story Behind Colorful Village",
     description:
       "What looks like a vibrant tourist spot today actually started from an unexpected transformation.",

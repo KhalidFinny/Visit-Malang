@@ -88,7 +88,7 @@ export default function HeritageStage() {
               Folio Section
             </span>
             <span className="text-swiss text-3xl font-black text-premium-black uppercase tracking-tight">
-              02 / Heritage & Culture
+              02 / FunFact
             </span>
           </div>
           <div className="text-right hidden md:block">

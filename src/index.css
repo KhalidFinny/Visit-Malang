@@ -14,12 +14,16 @@
   --font-main: 'Outfit', sans-serif;
   
   --spacing-swiss-xs: 0.5rem;   /* 8px */
+  --spacing-swiss-sm: 1.5rem;   /* 24px */
+  --spacing-swiss-md: 4rem;     /* 64px */
+  --spacing-swiss-lg: 8rem;     /* 128px */
 }
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-  scroll-behavior: smooth;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+  scroll-behavior: auto !important;
+  height: auto;
 }
 
 html::-webkit-scrollbar {
@@ -55,7 +59,13 @@ body {
 .swiss-container {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 var(--spacing-swiss-md);
+  padding: 0 var(--spacing-swiss-sm);
+}
+
+@media (min-width: 768px) {
+  .swiss-container {
+    padding: 0 var(--spacing-swiss-md);
+  }
 }
 
 .bg-colonial-cream {
@@ -257,7 +267,15 @@ body {
   color: #333;
 }
 
-/* Scrollbar Hide Utility */
+/* Utility Classes */
+.text-stroke-black {
+  -webkit-text-stroke: 1px #0A0A0A;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1px #FFFFFF;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

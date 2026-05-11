@@ -75,7 +75,7 @@ const ActivityDetail: React.FC = () => {
 
         {/* BACK */}
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/")}
           className="absolute top-7 left-7 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/20 hover:bg-black/60 transition"
         >
           <svg
@@ -92,8 +92,8 @@ const ActivityDetail: React.FC = () => {
         </button>
 
         {/* TEXT */}
-        <div className="absolute inset-0 flex flex-col justify-end px-16 pb-14 max-w-[620px]">
-          <h1 className="text-[clamp(44px,5vw,72px)] font-extrabold leading-none tracking-tight mb-3 uppercase">
+        <div className="absolute inset-0 flex flex-col justify-end px-16 pb-14 max-w-[80%]">
+          <h1 className="text-[clamp(32px,6vw,72px)] font-extrabold leading-none tracking-tight mb-3 uppercase whitespace-nowrap">
             {currentPlace.title}
           </h1>
 
@@ -103,7 +103,7 @@ const ActivityDetail: React.FC = () => {
 
           <button
             onClick={handleExplore}
-            className="flex items-center gap-2 px-6 py-2.5 bg-[#e50914] text-white text-sm font-semibold rounded hover:opacity-85 transition w-fit"
+            className="flex items-center gap-2 px-8 py-3 bg-white text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-zinc-200 transition-all w-fit"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
@@ -114,7 +114,7 @@ const ActivityDetail: React.FC = () => {
       </div>
 
       {/* ================= DESTINASI ================= */}
-      <div className="w-full bg-black px-10 h-[260px] flex-shrink-0">
+      <div className="w-full bg-black px-10 h-[320px] flex-shrink-0 overflow-hidden">
 
         <div className="flex items-center justify-between mb-3 pt-4">
           <h2 className="text-sm font-semibold text-white/90">
@@ -145,27 +145,26 @@ const ActivityDetail: React.FC = () => {
         {/* LIST */}
         <div
           ref={scrollRef}
-          className="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth"
+          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-10 px-4 -mx-4"
         >
           {data.places.map((place, i) => (
             <div
               key={i}
               onClick={() => handlePlaceClick(i)}
-              className={`group relative flex-shrink-0 rounded-md overflow-hidden cursor-pointer transition
-                ${selectedPlace === i ? "ring-2 ring-red-600 scale-[1.04]" : ""}
+              className={`group relative flex-shrink-0 w-[280px] h-[180px] rounded-xl overflow-hidden cursor-pointer transition-all duration-500
+                ${selectedPlace === i ? "ring-2 ring-white scale-[1.05] z-10 shadow-[0_0_30px_rgba(255,255,255,0.2)]" : "opacity-40 hover:opacity-80"}
               `}
-              style={{ width: "260px", height: "160px" }}
             >
               <img
                 src={place.heroImage}
                 alt={place.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:via-black/10 transition-all" />
 
-              <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-black/80 to-transparent">
-                <p className="text-[11px] font-bold uppercase tracking-wide">
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-[12px] font-black uppercase tracking-[0.2em] text-white">
                   {place.title}
                 </p>
               </div>

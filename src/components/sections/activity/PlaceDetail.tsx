@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { activitiesData } from "./ActivitiesData";
 
 const PlaceDetail = () => {
-  const { name } = useParams<{ name: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
 
   const toSlug = (text: string = "") =>
@@ -13,7 +13,7 @@ const PlaceDetail = () => {
 
   for (const category of Object.values(activitiesData)) {
     const found = category.places.find(
-      (place) => toSlug(place.title) === name
+      (place) => toSlug(place.title) === slug
     );
     if (found) {
       data = found;
@@ -63,15 +63,25 @@ const PlaceDetail = () => {
 
         <button
           onClick={() => navigate(-1)}
-          className="absolute top-6 left-6 z-20 w-11 h-11 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-white/80 hover:bg-black/60 transition"
+          className="absolute top-7 left-7 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/20 hover:bg-black/60 transition"
         >
-          ←
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2"
+          >
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
         </button>
 
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-5xl mx-auto px-6 w-full">
             <div className="max-w-[720px] mt-10">
-              <h1 className="text-6xl md:text-7xl font-bold uppercase tracking-tight leading-[1.05]">
+              <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight leading-none whitespace-nowrap">
                 {data.title}
               </h1>
               <p className="text-white/70 mt-5 text-base md:text-lg leading-relaxed max-w-lg">
@@ -107,65 +117,26 @@ const PlaceDetail = () => {
           </section>
         )}
 
-        {/* BEST TIME + TIPS SIDE BY SIDE */}
-        {(hasBestTime || hasTips) && (
+        {/* TIPS */}
+        {hasTips && (
           <section>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-              {hasBestTime && (
-                <div>
-                  <p className="text-white/30 uppercase text-xs tracking-widest mb-5">
-                    Best Time to Visit
+            <p className="text-white/30 uppercase text-xs tracking-widest mb-5">
+              Tips & Advice
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {data.tips.map((tip: string, i: number) => (
+                <div
+                  key={i}
+                  className="flex gap-4 px-6 py-5 bg-white/[0.03] border border-white/[0.05] rounded-2xl hover:bg-white/[0.05] transition"
+                >
+                  <span className="text-white/40 text-xs mt-0.5 shrink-0 font-black">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    {tip}
                   </p>
-                  <div className="flex flex-col gap-3">
-                    {data.bestTime.map((item: any, i: number) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-4 px-4 py-4 bg-white/[0.04] border border-white/[0.06] rounded-2xl hover:bg-white/[0.06] transition"
-                      >
-                        <div className="w-11 h-11 rounded-xl bg-white/[0.06] flex items-center justify-center text-xl shrink-0">
-                          {item.icon}
-                        </div>
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2 mb-1">
-                            <p className="text-white font-semibold text-sm">
-                              {item.label}
-                            </p>
-                            <span className="text-[9px] text-white/30 uppercase tracking-widest bg-white/[0.06] border border-white/[0.08] px-2 py-0.5 rounded-full shrink-0">
-                              {item.badge}
-                            </span>
-                          </div>
-                          <p className="text-white/35 text-xs">{item.value}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
-              )}
-
-              {hasTips && (
-                <div>
-                  <p className="text-white/30 uppercase text-xs tracking-widest mb-5">
-                    Tips
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    {data.tips.map((tip: string, i: number) => (
-                      <div
-                        key={i}
-                        className="flex gap-3 px-4 py-4 bg-white/[0.03] border border-white/[0.05] rounded-xl"
-                      >
-                        <span className="text-white/20 text-xs mt-0.5 shrink-0 font-mono">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <p className="text-white/55 text-sm leading-relaxed">
-                          {tip}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
+              ))}
             </div>
           </section>
         )}

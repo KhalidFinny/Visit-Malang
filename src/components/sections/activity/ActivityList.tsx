@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const activities = [
   "Nature Seeker",
   "Fun & Entertainment",
-  "City Explorer",
+  "Heritage",
   "Coworking Space",
   "Hidden Gem",
 ];
@@ -19,7 +19,7 @@ const ActivityList = () => {
     <section className="w-full min-h-screen bg-[#F2E9E4] text-black flex flex-col items-center justify-center px-10">
       
       <h1 className="text-[70px] font-black mb-16 tracking-tight">
-        ACTIVITIES
+        INFORMATION
       </h1>
 
       <div className="w-full max-w-5xl">

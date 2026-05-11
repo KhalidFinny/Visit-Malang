@@ -286,7 +286,7 @@ export const activitiesData: Record<string, Category> = {
   },
 
   "city-explorer": {
-    title: "City Explorer",
+    title: "Heritage",
     description: "Wisata kota.",
     places: [
       {
