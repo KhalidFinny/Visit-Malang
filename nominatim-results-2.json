@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Puncak B29 Lumajang",
+    "category": "Nature",
+    "id": "nature_008",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Omah Kayu Paralayang Batu",
+    "category": "Nature",
+    "id": "nature_009",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Sumber Sirah Sendang Malang",
+    "category": "Nature",
+    "id": "nature_010",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Hotel Tugu Malang",
+    "category": "Culinary",
+    "id": "culinary_003",
+    "lat": -7.9773377,
+    "lng": 112.6330815,
+    "displayName": "Hotel Tugu, 3, Jalan Tugu, RW. 08, KEL. KIDUL DALEM, KOTA MALANG, Kauman, Kota Malang, Klojen, Jawa Timur, Jawa, 65111, Indonesia"
+  },
+  {
+    "name": "Rawon Nguling Probolinggo",
+    "category": "Culinary",
+    "id": "culinary_008",
+    "lat": -7.7181813,
+    "lng": 113.0816808,
+    "displayName": "Rawon Nguling, 1, Curah Tulis, Probolinggo, Jawa Timur, Jawa, Indonesia"
+  },
+  {
+    "name": "Alice Tea Room Batu",
+    "category": "Culinary",
+    "id": "culinary_011",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Jatim Park 2 Batu",
+    "category": "Attraction",
+    "id": "attraction_003",
+    "lat": -7.8881069,
+    "lng": 112.5297169,
+    "displayName": "Jatim Park 2, Jalan Raya Oro-Oro Ombo, Oro-oro Ombo, Kota Batu, Lowokwaru, Jawa Timur, Jawa, 65315, Indonesia"
+  },
+  {
+    "name": "Jatim Park 3 Batu",
+    "category": "Attraction",
+    "id": "attraction_004",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Monumen Juang 45 Kota Malang",
+    "category": "Historical",
+    "id": "historical_007",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  }
+]

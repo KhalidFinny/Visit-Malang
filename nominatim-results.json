@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Wonosari Tea Plantation Malang",
+    "category": "Nature",
+    "id": "nature_003",
+    "lat": -7.8210778,
+    "lng": 112.6433433,
+    "displayName": "Wonosari tea factory, Jalan Kampung, Tegalrejo Barat, Wonorejo, Kabupaten Malang, Jawa, 65211, Indonesia"
+  },
+  {
+    "name": "Coban Pelangi Waterfall Malang",
+    "category": "Nature",
+    "id": "nature_005",
+    "lat": -8.0108503,
+    "lng": 112.8657238,
+    "displayName": "Coban Pelangi, Kabupaten Malang, Jawa Timur, Jawa, Indonesia"
+  },
+  {
+    "name": "Mount Semeru Viewpoint Malang",
+    "category": "Nature",
+    "id": "nature_008",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Paralayang Batu Omah Kayu",
+    "category": "Nature",
+    "id": "nature_009",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Sumber Sirah Malang",
+    "category": "Nature",
+    "id": "nature_010",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Melati Restaurant Hotel Tugu Malang",
+    "category": "Culinary",
+    "id": "culinary_003",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Cafe Litchi Malang",
+    "category": "Culinary",
+    "id": "culinary_007",
+    "lat": -7.9747038,
+    "lng": 112.6133261,
+    "displayName": "Cafe Litchi, 1, Jalan Leci, Bareng, Kota Malang, Klojen, Jawa Timur, Jawa, 65100, Indonesia"
+  },
+  {
+    "name": "Taman Indie Resto Malang",
+    "category": "Culinary",
+    "id": "culinary_006",
+    "lat": -7.9394541,
+    "lng": 112.6646207,
+    "displayName": "Taman Indie Resto, Jalan Rivera Golf Utama, Araya, Gentong, Pandanwangi, Kota Malang, Kabupaten Malang, Jawa Timur, Jawa, 65102, Indonesia"
+  },
+  {
+    "name": "Rawon Nguling Malang",
+    "category": "Culinary",
+    "id": "culinary_008",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Alice Tea Room Malang",
+    "category": "Culinary",
+    "id": "culinary_011",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Museum Angkut Batu",
+    "category": "Attraction",
+    "id": "attraction_001",
+    "lat": -7.878829,
+    "lng": 112.5201389,
+    "displayName": "Museum Angkut, Jalan Terusan Sultan Agung, Pesanggrahan, Kota Batu, Lowokwaru, Jawa Timur, Jawa, 65314, Indonesia"
+  },
+  {
+    "name": "Jatim Park 1 Batu",
+    "category": "Attraction",
+    "id": "attraction_002",
+    "lat": -7.887328,
+    "lng": 112.5304146,
+    "displayName": "Jatim Park 1, Jalan Raya Oro-Oro Ombo, Oro-oro Ombo, Kota Batu, Lowokwaru, Jawa Timur, Jawa, 65315, Indonesia"
+  },
+  {
+    "name": "Jatim Park 2 Secret Zoo Batu",
+    "category": "Attraction",
+    "id": "attraction_003",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Jatim Park 3 Dino Park Batu",
+    "category": "Attraction",
+    "id": "attraction_004",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Batu Night Spectacular",
+    "category": "Attraction",
+    "id": "attraction_005",
+    "lat": -7.8965053,
+    "lng": 112.5345591,
+    "displayName": "Batu Night Spectacular, Jalan Raya Oro-Oro Ombo, Oro-oro Ombo, Kota Batu, Klojen, Jawa Timur, Jawa, 65316, Indonesia"
+  },
+  {
+    "name": "Candi Badut Malang",
+    "category": "Historical",
+    "id": "historical_003",
+    "lat": -7.9578365,
+    "lng": 112.5985999,
+    "displayName": "Candi Badut, Jalan Esberg VE 5, Sumberjo, Karangbesuki, Kota Malang, Kabupaten Malang, Jawa Timur, Jawa, 65112, Indonesia"
+  },
+  {
+    "name": "Klenteng Eng An Kiong Malang",
+    "category": "Historical",
+    "id": "historical_006",
+    "lat": -7.9877276,
+    "lng": 112.6359578,
+    "displayName": "Klenteng Eng An Kiong, RW 01 Kel. Kotalama Kec. Kedung Kandang, Kota Malang, Kotalama, Kota Malang, Kedungkandang, Jawa Timur, Jawa, Indonesia"
+  },
+  {
+    "name": "Monumen Juang 45 Malang",
+    "category": "Historical",
+    "id": "historical_007",
+    "lat": null,
+    "lng": null,
+    "error": "Not found"
+  },
+  {
+    "name": "Candi Kidal Malang",
+    "category": "Historical",
+    "id": "historical_009",
+    "lat": -8.0258439,
+    "lng": 112.7091054,
+    "displayName": "Candi Kidal, Jalan Raya Kidal, Jeding, Kidal, Kabupaten Malang, Jawa, 65156, Indonesia"
+  },
+  {
+    "name": "Balai Kota Malang",
+    "category": "Historical",
+    "id": "historical_011",
+    "lat": -7.9781344,
+    "lng": 112.6339005,
+    "displayName": "Kantor Wali Kota Malang, Jalan Majapahit, RW. 08, KEL. KIDUL DALEM, KOTA MALANG, Kiduldalem, Klojen, Jawa Timur, Jawa, 65111, Indonesia"
+  }
+]
