@@ -6,20 +6,18 @@ import TripPanel from './TripPanel';
 import { MAP_PLACES, CATEGORY_META, type MapCategory, type MapPlace } from '../../../../data/mapPlaces';
 import 'leaflet/dist/leaflet.css';
 
-const ALL_CATEGORIES: MapCategory[] = ['Nature', 'Culinary', 'Attraction', 'Historical'];
 const MALANG_CENTER: [number, number] = [-7.9666, 112.6326];
 
 interface HeroMapProps {
-  category: MapCategory; // initial category
-  onBack: () => void;
+  category: MapCategory;
 }
 
-export default function HeroMap({ category: initialCategory, onBack }: HeroMapProps) {
+export default function HeroMap({ category: initialCategory }: HeroMapProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const markersRef = useRef<Marker[]>([]);
   const hintTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [activeCategory, setActiveCategory] = useState<MapCategory>(initialCategory);
+  const [activeCategory] = useState<MapCategory>(initialCategory);
   const [selectedPlace, setSelectedPlace] = useState<MapPlace | null>(null);
   const [showScrollHint, setShowScrollHint] = useState(false);
 
@@ -162,12 +160,6 @@ export default function HeroMap({ category: initialCategory, onBack }: HeroMapPr
     });
   }
 
-  function switchCategory(cat: MapCategory) {
-    if (cat === activeCategory) return;
-    setSelectedPlace(null);
-    setActiveCategory(cat);
-  }
-
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#f0ebe3] flex">
       {/* ── Side List Panel ──────────────────────────────────────────── */}
@@ -177,47 +169,17 @@ export default function HeroMap({ category: initialCategory, onBack }: HeroMapPr
         transition={{ type: 'spring', damping: 30, stiffness: 280 }}
         className="relative z-[300] w-72 shrink-0 bg-white border-r border-black/8 flex flex-col shadow-xl"
       >
-        {/* Back + Category switcher */}
+        {/* Active category header */}
         <div className="px-5 pt-5 pb-4 border-b border-black/6">
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.3em] text-premium-black/30 hover:text-premium-black transition-colors mb-4"
-          >
-            ← Back
-          </button>
-
-          {/* Category chips row */}
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            {ALL_CATEGORIES.map((cat) => {
-              const m = CATEGORY_META[cat];
-              const isActive = cat === activeCategory;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => switchCategory(cat)}
-                  className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border transition-all"
-                  style={
-                    isActive
-                      ? { backgroundColor: m.color, color: 'white', borderColor: 'transparent' }
-                      : { backgroundColor: 'transparent', color: '#00000066', borderColor: '#00000015' }
-                  }
-                >
-                  <span>{m.emoji}</span>
-                  {m.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active category label */}
           <div className="flex items-center gap-2">
+            <span className="text-2xl">{meta.emoji}</span>
             <h3
-              className="text-base font-black uppercase tracking-tight leading-none"
+              className="text-[18px] font-black uppercase tracking-tight leading-none"
               style={{ color: meta.color }}
             >
               {meta.label}
             </h3>
-            <span className="text-[10px] font-bold text-premium-black/30 uppercase tracking-widest">
+            <span className="text-[14px] font-bold text-[#1a1a1a]/30 uppercase tracking-widest">
               — {places.length} spots
             </span>
           </div>

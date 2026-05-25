@@ -78,7 +78,7 @@ export default function HeritageStage() {
 
   return (
     <motion.section 
-      className="relative w-full bg-colonial-cream py-40 min-h-[800px] flex items-center overflow-hidden"
+      className="relative w-full bg-[#f5f4f0] py-40 min-h-[800px] flex items-center overflow-hidden"
     >
       <div className="swiss-container">
         {/* Editorial Section Metadata */}

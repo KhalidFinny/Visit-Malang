@@ -57,7 +57,7 @@ export function generateAdvice(
   budget: BudgetTier,
   origin: EconomyOrigin,
   weather: string,
-  timeOfDay: string,
+  _timeOfDay: string,
   seed: number = 42
 ): PlannerAdvice {
   const allPlaces = placesData as Recommendation[];

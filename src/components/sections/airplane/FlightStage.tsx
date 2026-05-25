@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import FlightBackground from "./FlightBackground";
 import CabinInterior from "./CabinInterior";
-import UIOverlay from "../../shared/UIOverlay";
+import UIOverlay from "./parts/UIOverlay";
 import { useFlightState } from "./hook/useFlightState";
 import type { FlightStageProps } from "./types";
 

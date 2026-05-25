@@ -21,7 +21,4 @@ export interface FlightBackgroundProps {
   bgGolden: string;
 }
 
-export interface UIOverlayProps {
-  onDescend: () => void;
-  mousePos: MousePosition;
-}
+

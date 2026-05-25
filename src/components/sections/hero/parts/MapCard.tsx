@@ -1,7 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTrip } from '../../../../context/TripContext';
 import type { MapPlace } from '../../../../data/mapPlaces';
-import { CATEGORY_META } from '../../../../data/mapPlaces';
+import { CATEGORY_META, getGoogleMapsUrl } from '../../../../data/mapPlaces';
 
 interface MapCardProps {
   place: MapPlace | null;
@@ -23,7 +25,7 @@ export default function MapCard({ place, onClose }: MapCardProps) {
   }
 
   const mapsLink = place
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.googleMapsQuery)}`
+    ? getGoogleMapsUrl(place.coordinates.lat, place.coordinates.lng)
     : '#';
 
   return (
@@ -80,9 +82,10 @@ export default function MapCard({ place, onClose }: MapCardProps) {
                   href={mapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 text-center py-2.5 text-xs font-bold uppercase tracking-widest border border-black/15 text-premium-black/60 hover:text-premium-black hover:border-black/30 rounded-lg transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 text-xs font-bold uppercase tracking-widest border border-black/15 text-premium-black/60 hover:text-premium-black hover:border-black/30 rounded-lg transition-all"
                 >
-                  Navigate ↗
+                  <FontAwesomeIcon icon={faMapLocationDot} className="text-xs" />
+                  Google Maps
                 </a>
                 <button
                   onClick={handleTrip}

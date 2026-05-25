@@ -30,23 +30,23 @@ export default function PlannerInputs({
     return (
       <div className="flex items-center gap-6 flex-wrap">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-semibold text-white/30 uppercase tracking-widest">Month</span>
-          <span className="text-sm font-bold text-white bg-white/8 border border-white/10 px-3 py-1.5 rounded-md">
+          <span className="text-[14px] font-semibold text-[#1a1a1a]/30 uppercase tracking-widest">Month</span>
+          <span className="text-[14px] font-bold text-[#1a1a1a] bg-[#1a1a1a]/5 border border-[#1a1a1a]/10 px-3 py-1.5 rounded-md">
             {monthsList && selectedMonth !== undefined ? MONTHS_SHORT[selectedMonth] : "—"}
           </span>
         </div>
 
-        <div className="w-px h-5 bg-white/10" />
+        <div className="w-px h-5 bg-[#1a1a1a]/10" />
 
         <div className="flex gap-2">
           {(["backpacker", "balanced", "luxury"] as BudgetTier[]).map((tier) => (
             <button
               key={tier}
               onClick={() => setBudget(tier)}
-              className={`px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-md border transition-all ${
+              className={`px-4 py-2 text-[14px] font-bold uppercase tracking-widest rounded-md border transition-all ${
                 budget === tier
-                  ? "bg-white text-premium-black border-white"
-                  : "border-white/10 text-white/40 hover:text-white hover:border-white/25 bg-transparent"
+                  ? "bg-[#1a1a1a] text-white border-[#1a1a1a]"
+                  : "border-[#1a1a1a]/10 text-[#1a1a1a]/40 hover:text-[#1a1a1a] hover:border-[#1a1a1a]/25 bg-transparent"
               }`}
             >
               {tier}
@@ -54,11 +54,11 @@ export default function PlannerInputs({
           ))}
         </div>
 
-        <div className="w-px h-5 bg-white/10" />
+        <div className="w-px h-5 bg-[#1a1a1a]/10" />
 
-        <div className="flex items-center gap-2 bg-white/8 border border-white/10 px-3 py-1.5 rounded-md">
+        <div className="flex items-center gap-2 bg-[#1a1a1a]/5 border border-[#1a1a1a]/10 px-3 py-1.5 rounded-md">
           <span className="text-base leading-none">{origin.flag}</span>
-          <span className="text-sm font-bold text-white">{origin.code}</span>
+          <span className="text-[14px] font-bold text-[#1a1a1a]">{origin.code}</span>
         </div>
       </div>
     );
@@ -72,7 +72,7 @@ export default function PlannerInputs({
       <div className="flex flex-col gap-8">
         {/* Month */}
         <div className="flex flex-col gap-3">
-          <label className="text-xs font-bold uppercase tracking-[0.25em] text-white/40">
+          <label className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
             Month of Visit
           </label>
           <div className="grid grid-cols-6 gap-2">
@@ -80,10 +80,10 @@ export default function PlannerInputs({
               <button
                 key={m}
                 onClick={() => setSelectedMonth?.(idx)}
-                className={`py-3 text-sm font-bold rounded-lg border transition-all ${
+                className={`py-3 text-[14px] font-bold rounded-lg border transition-all ${
                   selectedMonth === idx
-                    ? "bg-white text-premium-black border-white"
-                    : "bg-white/5 border-white/8 text-white/50 hover:border-white/20 hover:text-white"
+                    ? "bg-[#1a1a1a] text-white border-[#1a1a1a]"
+                    : "bg-[#1a1a1a]/5 border-[#1a1a1a]/8 text-[#1a1a1a]/50 hover:border-[#1a1a1a]/20 hover:text-[#1a1a1a]"
                 }`}
               >
                 {m}
@@ -94,7 +94,7 @@ export default function PlannerInputs({
 
         {/* Budget tier */}
         <div className="flex flex-col gap-3">
-          <label className="text-xs font-bold uppercase tracking-[0.25em] text-white/40">
+          <label className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
             Travel Style
           </label>
           <div className="flex flex-col gap-2">
@@ -106,18 +106,18 @@ export default function PlannerInputs({
                   onClick={() => setBudget(tier)}
                   className={`flex items-center justify-between px-6 py-5 border rounded-xl transition-all text-left ${
                     active
-                      ? "bg-white border-white text-premium-black"
-                      : "bg-white/5 border-white/8 text-white hover:border-white/20"
+                      ? "bg-[#1a1a1a] border-[#1a1a1a] text-white"
+                      : "bg-[#1a1a1a]/5 border-[#1a1a1a]/8 text-[#1a1a1a] hover:border-[#1a1a1a]/20"
                   }`}
                 >
                   <div className="flex flex-col gap-0.5">
                     <span className="text-base font-bold">{TIER_META[tier].label}</span>
-                    <span className={`text-xs font-medium ${active ? "text-premium-black/50" : "text-white/30"}`}>
+                    <span className={`text-[14px] font-medium ${active ? "text-white/50" : "text-[#1a1a1a]/40"}`}>
                       {TIER_META[tier].sub}
                     </span>
                   </div>
                   <div className={`w-3 h-3 rounded-full border-2 transition-all ${
-                    active ? "bg-heritage-sage border-heritage-sage" : "border-white/20 bg-transparent"
+                    active ? "bg-heritage-sage border-heritage-sage" : "border-[#1a1a1a]/20 bg-transparent"
                   }`} />
                 </button>
               );
@@ -128,7 +128,7 @@ export default function PlannerInputs({
 
       {/* Right: Currency */}
       <div className="flex flex-col gap-3">
-        <label className="text-xs font-bold uppercase tracking-[0.25em] text-white/40">
+        <label className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
           Your Currency
         </label>
         <div className="grid grid-cols-3 gap-2 overflow-y-auto max-h-[360px] pr-1 pb-1">
@@ -140,17 +140,17 @@ export default function PlannerInputs({
                 onClick={() => setOrigin(e)}
                 className={`flex flex-col items-center justify-center gap-2 py-5 border rounded-xl transition-all ${
                   active
-                    ? "bg-heritage-sage/15 border-heritage-sage text-white"
-                    : "bg-white/5 border-white/8 text-white/40 hover:border-white/20 hover:text-white"
+                    ? "bg-heritage-sage/15 border-heritage-sage text-[#1a1a1a]"
+                    : "bg-[#1a1a1a]/5 border-[#1a1a1a]/8 text-[#1a1a1a]/40 hover:border-[#1a1a1a]/20 hover:text-[#1a1a1a]"
                 }`}
               >
                 <span className="text-2xl leading-none">{e.flag}</span>
-                <span className="text-sm font-bold tracking-wide">{e.code}</span>
+                <span className="text-[14px] font-bold tracking-wide">{e.code}</span>
               </button>
             );
           })}
         </div>
-        <p className="text-xs text-white/20 font-medium mt-1">
+        <p className="text-[14px] text-[#1a1a1a]/20 font-medium mt-1">
           Estimates adapt to purchasing power
         </p>
       </div>

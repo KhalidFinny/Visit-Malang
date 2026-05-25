@@ -1,5 +1,4 @@
 import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
-import type { MousePosition } from "../types";
 
 export interface NavButtonProps {
   icon: IconDefinition;
@@ -7,9 +6,4 @@ export interface NavButtonProps {
   direction?: "left" | "right";
   className?: string;
   ariaLabel?: string;
-}
-
-export interface UIOverlayProps {
-  onDescend: () => void;
-  mousePos: MousePosition;
 }

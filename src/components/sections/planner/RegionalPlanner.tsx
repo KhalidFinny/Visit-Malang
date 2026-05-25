@@ -44,7 +44,7 @@ export default function RegionalPlanner() {
   function handleClose() {
     setIsModalOpen(false);
     setHasRecommendation(false);
-    setRefreshSeed(42); // Reset seed on full close
+    setRefreshSeed(42);
   }
 
   return (
@@ -64,19 +64,19 @@ export default function RegionalPlanner() {
               className="flex flex-col h-full"
             >
               {/* Setup header strip */}
-              <div className="px-8 pt-8 pb-6 border-b border-white/6">
+              <div className="px-8 pt-8 pb-6 border-b border-[#1a1a1a]/8">
                 <div className="flex items-end justify-between gap-6">
                   <div>
-                    <h2 className="text-3xl font-black text-white uppercase tracking-tight leading-none">
+                    <h2 className="text-3xl font-black text-[#1a1a1a] uppercase tracking-tight leading-none">
                       Plan Your Visit
                     </h2>
-                    <p className="text-sm text-white/40 font-medium mt-1.5">
+                    <p className="text-[16px] text-[#1a1a1a]/40 font-medium mt-1.5">
                       Personalised counsel based on your travel profile
                     </p>
                   </div>
-                  <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 px-4 py-2.5 rounded-lg shrink-0">
+                  <div className="flex items-center gap-2.5 bg-[#1a1a1a]/5 border border-[#1a1a1a]/10 px-4 py-2.5 rounded-lg shrink-0">
                     <div className="w-2 h-2 rounded-full bg-heritage-sage animate-pulse" />
-                    <span className="text-sm font-bold text-white/70 uppercase tracking-wide">
+                    <span className="text-[14px] font-bold text-[#1a1a1a]/70 uppercase tracking-wide">
                       {seasonInfo.label}
                     </span>
                   </div>
@@ -100,7 +100,7 @@ export default function RegionalPlanner() {
               <div className="shrink-0 px-8 pb-8">
                 <button
                   onClick={() => setHasRecommendation(true)}
-                  className="w-full py-5 bg-white text-premium-black text-sm font-bold uppercase tracking-[0.3em] rounded-xl hover:bg-heritage-sage hover:text-white active:scale-[0.99] transition-all"
+                  className="w-full py-5 bg-[#1a1a1a] text-white text-[14px] font-bold uppercase tracking-[0.3em] rounded-xl hover:bg-heritage-sage active:scale-[0.99] transition-all"
                 >
                   Generate Counsel
                 </button>
@@ -123,7 +123,7 @@ export default function RegionalPlanner() {
               </div>
 
               {/* Compact controls bar at bottom */}
-              <div className="shrink-0 px-8 py-5 border-t border-white/6 flex items-center justify-between gap-8">
+              <div className="shrink-0 px-8 py-5 border-t border-[#1a1a1a]/8 flex items-center justify-between gap-8">
                 <PlannerInputs
                   budget={budget}
                   setBudget={setBudget}
@@ -138,13 +138,13 @@ export default function RegionalPlanner() {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => setRefreshSeed(prev => prev + 1)}
-                    className="shrink-0 text-sm font-bold uppercase tracking-[0.15em] text-heritage-sage border border-heritage-sage/30 px-6 py-3 rounded-lg hover:bg-heritage-sage/10 transition-all whitespace-nowrap"
+                    className="shrink-0 text-[14px] font-bold uppercase tracking-[0.15em] text-heritage-sage border border-heritage-sage/30 px-6 py-3 rounded-lg hover:bg-heritage-sage/10 transition-all whitespace-nowrap"
                   >
                     Refresh Counsel
                   </button>
                   <button
                     onClick={() => setHasRecommendation(false)}
-                    className="shrink-0 text-sm font-bold uppercase tracking-[0.15em] text-white/60 border border-white/15 px-6 py-3 rounded-lg hover:text-white hover:border-white/30 transition-all whitespace-nowrap"
+                    className="shrink-0 text-[14px] font-bold uppercase tracking-[0.15em] text-[#1a1a1a]/60 border border-[#1a1a1a]/15 px-6 py-3 rounded-lg hover:text-[#1a1a1a] hover:border-[#1a1a1a]/30 transition-all whitespace-nowrap"
                   >
                     Edit Plan
                   </button>
