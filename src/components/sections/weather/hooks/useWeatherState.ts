@@ -60,11 +60,7 @@ export function useWeatherState() {
 
   const recommendations = useRecommendations(currentCondition, timeOfDay, forecastCondition);
 
-  const date = new Intl.DateTimeFormat("id-ID", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  }).format(new Date());
+  const date = new Date();
 
   const next = useCallback(() => {
     if (recommendations.length === 0) return;
@@ -82,11 +78,11 @@ export function useWeatherState() {
 
   // Handle Auto-play — REMOVED per user request for manual navigation
 
-  // Weather condition mapping
+  // Weather condition mapping (labels translated in component)
   const weatherInfo = {
-    Sunny: { icon: faSun, label: "Sunny" },
-    Overcast: { icon: faCloudSun, label: "Cloudy" },
-    Rainy: { icon: faCloudRain, label: "Rainy" },
+    Sunny: { icon: faSun, labelKey: "sunny" },
+    Overcast: { icon: faCloudSun, labelKey: "overcast" },
+    Rainy: { icon: faCloudRain, labelKey: "rainy" },
   };
 
   const currentInfo = weatherInfo[currentCondition];
@@ -114,6 +110,7 @@ export function useWeatherState() {
     next,
     prev,
     currentInfo,
+    currentCondition,
     predictionText,
     weatherChips,
     recommendations,

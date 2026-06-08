@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { PlannerAdvice, EconomyOrigin } from '../types';
 
 interface Props {
@@ -6,6 +7,7 @@ interface Props {
 }
 
 export default function PlannerAdviceCard({ advice, origin }: Props) {
+  const { t } = useTranslation();
   const { places, foods, budgetEstimation, headline, counsel } = advice;
 
   return (
@@ -16,7 +18,7 @@ export default function PlannerAdviceCard({ advice, origin }: Props) {
         <div className="flex items-start justify-between gap-8">
           <div className="flex-1">
             <p className="text-[14px] font-bold uppercase tracking-[0.3em] text-heritage-sage mb-3">
-              Your Malang Itinerary
+              {t('planner.advice.heading')}
             </p>
             <h3 className="text-4xl lg:text-5xl font-black text-[#1a1a1a] uppercase tracking-tight leading-tight mb-4">
               {headline}
@@ -28,7 +30,7 @@ export default function PlannerAdviceCard({ advice, origin }: Props) {
 
           {/* Budget card */}
           <div className="shrink-0 flex flex-col gap-1 items-end">
-            <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/25">Strategy</span>
+            <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/25">{t('planner.advice.strategy')}</span>
             <span className="text-3xl font-black text-[#1a1a1a] uppercase">{budgetEstimation.level}</span>
             <span className="text-[14px] font-semibold text-heritage-sage uppercase tracking-widest">{origin.code} · {budgetEstimation.strength}</span>
           </div>
@@ -38,12 +40,12 @@ export default function PlannerAdviceCard({ advice, origin }: Props) {
       {/* ── Budget Row ───────────────────────────────────────────────── */}
       <div className="px-8 py-5 border-b border-[#1a1a1a]/8 flex items-center gap-6 flex-wrap">
         <div className="flex flex-col gap-0.5">
-          <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/30">Per Day</span>
+          <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/30">{t('planner.advice.perDay')}</span>
           <span className="text-3xl font-black text-heritage-sage">{budgetEstimation.dailyEstimate}</span>
         </div>
         <div className="w-px h-10 bg-[#1a1a1a]/8" />
         <div className="flex flex-col gap-0.5">
-          <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/30">3-Day Total</span>
+          <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/30">{t('planner.advice.dayTotal')}</span>
           <span className="text-3xl font-black text-[#1a1a1a]">{budgetEstimation.totalEstimate}</span>
         </div>
         <div className="w-px h-10 bg-[#1a1a1a]/8 hidden md:block" />
@@ -59,7 +61,7 @@ export default function PlannerAdviceCard({ advice, origin }: Props) {
         <div className="flex flex-col">
           <div className="px-6 py-3 border-b border-[#1a1a1a]/8">
             <p className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
-              Recommended Places
+              {t('planner.advice.recommendedPlaces')}
             </p>
           </div>
           <div className="flex flex-col divide-y divide-[#1a1a1a]/5">
@@ -93,7 +95,7 @@ export default function PlannerAdviceCard({ advice, origin }: Props) {
         <div className="flex flex-col">
           <div className="px-6 py-3 border-b border-[#1a1a1a]/8">
             <p className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
-              Seasonal Culinary
+              {t('planner.advice.seasonalCulinary')}
             </p>
           </div>
           <div className="flex flex-col divide-y divide-[#1a1a1a]/5">
@@ -119,13 +121,13 @@ export default function PlannerAdviceCard({ advice, origin }: Props) {
         <div className="flex flex-col">
           <div className="px-6 py-3 border-b border-[#1a1a1a]/8">
             <p className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
-              Budget Synthesis
+              {t('planner.advice.budgetSynthesis')}
             </p>
           </div>
           <div className="px-6 py-6 flex flex-col gap-4">
             <div className="flex items-end justify-between pb-4 border-b border-[#1a1a1a]/8">
               <div>
-                <p className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/25 mb-1">Scale</p>
+                <p className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/25 mb-1">{t('planner.advice.scale')}</p>
                 <p className="text-3xl font-black text-[#1a1a1a] uppercase">{budgetEstimation.level}</p>
               </div>
               <div className="text-right">
@@ -136,24 +138,24 @@ export default function PlannerAdviceCard({ advice, origin }: Props) {
 
             <div className="flex flex-col gap-2.5">
               <div className="flex items-center justify-between p-3.5 bg-[#1a1a1a]/4 rounded-xl">
-                <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/40">Daily</span>
+                <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/40">{t('planner.advice.daily')}</span>
                 <span className="text-xl font-black text-heritage-sage">{budgetEstimation.dailyEstimate}</span>
               </div>
               <div className="flex items-center justify-between p-3.5 bg-[#1a1a1a]/4 rounded-xl">
-                <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/40">3-Day Total</span>
+                <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1a1a]/40">{t('planner.advice.dayTotal')}</span>
                 <span className="text-xl font-black text-[#1a1a1a]">{budgetEstimation.totalEstimate}</span>
               </div>
             </div>
 
             <div className="p-4 bg-heritage-sage/10 border border-heritage-sage/20 rounded-xl">
-              <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-heritage-sage mb-1.5">Strategy</p>
+              <p className="text-[14px] font-bold uppercase tracking-[0.2em] text-heritage-sage mb-1.5">{t('planner.advice.strategy')}</p>
               <p className="text-[14px] font-semibold text-[#1a1a1a]/60 leading-relaxed italic">
                 "{budgetEstimation.suggestion}"
               </p>
             </div>
 
             <p className="text-[14px] text-[#1a1a1a]/20 font-medium leading-relaxed mt-auto pt-3 border-t border-[#1a1a1a]/8">
-              Estimates based on current exchange rates for {origin.name}.
+              {t('planner.advice.estimatesBased', { origin: origin.name })}
             </p>
           </div>
         </div>

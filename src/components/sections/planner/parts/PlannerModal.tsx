@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
 import { type ReactNode, useEffect } from "react";
 
@@ -8,6 +9,7 @@ interface PlannerModalProps {
 }
 
 export default function PlannerModal({ isOpen, onClose, children }: PlannerModalProps) {
+  const { t } = useTranslation();
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -39,19 +41,19 @@ export default function PlannerModal({ isOpen, onClose, children }: PlannerModal
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-heritage-sage" />
                 <span className="font-sans text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/60">
-                  Regional Counsel
+                  {t('planner.modal.regionalCounsel')}
                 </span>
               </div>
               <button
                 onClick={onClose}
                 className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#1a1a1a]/40 hover:text-[#1a1a1a] border border-[#1a1a1a]/10 hover:border-[#1a1a1a]/25 px-5 py-2.5 rounded-lg transition-all"
               >
-                Close
+                {t('planner.modal.close')}
               </button>
             </div>
 
             {/* Content */}
-            <div className="flex-1 overflow-y-auto scrollbar-hide">
+            <div className="flex-1 overflow-y-auto scrollbar-transparent min-h-0">
               {children}
             </div>
           </motion.div>

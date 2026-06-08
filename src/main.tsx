@@ -6,6 +6,9 @@ import './index.css'
 import App from './App.tsx'
 import { TripProvider } from './context/TripContext.tsx'
 
+// Initialize i18n
+import './locales/i18n'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>

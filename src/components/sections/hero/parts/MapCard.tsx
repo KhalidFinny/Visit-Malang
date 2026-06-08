@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTrip } from '../../../../context/TripContext';
 import type { MapPlace } from '../../../../data/mapPlaces';
 import { CATEGORY_META, getGoogleMapsUrl } from '../../../../data/mapPlaces';
+import { ImageWithSkeleton } from '../../../shared/Skeleton';
 
 interface MapCardProps {
   place: MapPlace | null;
@@ -11,6 +13,7 @@ interface MapCardProps {
 }
 
 export default function MapCard({ place, onClose }: MapCardProps) {
+  const { t } = useTranslation();
   const { addToTrip, removeFromTrip, isInTrip } = useTrip();
 
   const inTrip = place ? isInTrip(place.id) : false;
@@ -42,12 +45,13 @@ export default function MapCard({ place, onClose }: MapCardProps) {
           <div className="bg-white rounded-2xl overflow-hidden border border-black/8 shadow-xl">
             {/* Image */}
             <div className="relative h-40 overflow-hidden">
-              <img
+              <ImageWithSkeleton
                 src={place.imageUrl}
                 alt={place.name}
                 className="w-full h-full object-cover"
+                wrapperClassName="w-full h-full"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
 
               {/* Category badge */}
               <div
@@ -55,7 +59,7 @@ export default function MapCard({ place, onClose }: MapCardProps) {
                 style={{ backgroundColor: CATEGORY_META[place.category].color + 'cc' }}
               >
                 <span>{CATEGORY_META[place.category].emoji}</span>
-                <span>{CATEGORY_META[place.category].label}</span>
+                <span>{t('hero.categories.' + place.category.toLowerCase())}</span>
               </div>
 
               {/* Close */}
@@ -85,7 +89,7 @@ export default function MapCard({ place, onClose }: MapCardProps) {
                   className="flex-1 flex items-center justify-center gap-2 py-2.5 text-xs font-bold uppercase tracking-widest border border-black/15 text-premium-black/60 hover:text-premium-black hover:border-black/30 rounded-lg transition-all"
                 >
                   <FontAwesomeIcon icon={faMapLocationDot} className="text-xs" />
-                  Google Maps
+                  {t('weather.googleMaps')}
                 </a>
                 <button
                   onClick={handleTrip}
@@ -95,7 +99,7 @@ export default function MapCard({ place, onClose }: MapCardProps) {
                       : 'bg-white text-premium-black hover:bg-heritage-sage hover:text-white'
                   }`}
                 >
-                  {inTrip ? '✓ Added' : '+ Add to Trip'}
+                  {inTrip ? '✓ ' + t('hero.trip.added') : '+ ' + t('hero.trip.addToTrip')}
                 </button>
               </div>
             </div>

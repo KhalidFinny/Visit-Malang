@@ -1,7 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { CATEGORY_META, MAP_PLACES, type MapCategory } from '../../../../data/mapPlaces';
+import { ImageWithSkeleton } from '../../../shared/Skeleton';
 
 const CATEGORIES: MapCategory[] = ['Nature', 'Culinary', 'Attraction', 'Historical'];
+
+const CATEGORY_LOCALE_KEY: Record<MapCategory, string> = {
+  Nature:     'hero.categories.nature',
+  Culinary:   'hero.categories.culinary',
+  Attraction: 'hero.categories.attractions',
+  Historical: 'hero.categories.heritage',
+};
 
 const CATEGORY_BG: Record<MapCategory, string> = {
   Nature:     'https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=70&w=800&auto=format&fit=crop',
@@ -15,6 +24,7 @@ interface HeroCategoriesProps {
 }
 
 export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
+  const { t } = useTranslation();
   return (
     <div className="relative w-full h-screen bg-[#f5f4f0] flex flex-col overflow-hidden">
       {/* Header */}
@@ -26,11 +36,11 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
       >
         <div className="max-w-[1400px] mx-auto">
           <p className="text-[14px] font-black uppercase tracking-[0.5em] text-[#1a1a1a]/40 mb-3">
-            Malang Explorer
+            {t('hero.explorer.label')}
           </p>
-          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black text-[#1a1a1a] uppercase tracking-tight leading-none">
-            What would you like<br />
-            to explore?
+          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black text-[#1a1a1a] uppercase tracking-tight leading-none text-balance">
+            {t('hero.explorer.titleLine1')}<br />
+            {t('hero.explorer.titleLine2')}
           </h2>
         </div>
       </motion.div>
@@ -52,12 +62,13 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
             >
               {/* Full background image */}
               <div className="absolute inset-0">
-                <img
+                <ImageWithSkeleton
                   src={CATEGORY_BG[cat]}
                   alt={cat}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  wrapperClassName="w-full h-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent z-10" />
               </div>
 
               {/* Bottom accent line */}
@@ -67,17 +78,17 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
               />
 
               {/* Text content */}
-              <div className="relative z-10 flex flex-col justify-end h-full px-7 pb-10 pt-8">
+              <div className="relative z-20 flex flex-col justify-end h-full px-7 pb-10 pt-8">
                 <div className="mt-auto">
                   <span className="text-4xl md:text-5xl mb-4 block">{meta.emoji}</span>
-                  <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-none mb-2">
-                    {meta.label}
+                  <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-none mb-2 text-balance">
+                    {t(CATEGORY_LOCALE_KEY[cat])}
                   </h3>
                   <p className="text-[14px] font-bold uppercase tracking-widest text-white/50 mb-5">
-                    {count} spots
+                    {count} {t('hero.explorer.spots')}
                   </p>
                   <span className="text-[14px] font-black uppercase tracking-[0.3em] text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                    Explore →
+                    {t('hero.explorer.explore')}
                   </span>
                 </div>
               </div>

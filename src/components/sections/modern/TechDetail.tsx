@@ -1,23 +1,26 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { ImageWithSkeleton } from "../../shared/Skeleton";
 
 const TechDetail: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   const timeline = [
-    { year: "1980s", event: "Education City", desc: "Dikenal sebagai salah satu kota pendidikan utama di Indonesia." },
-    { year: "2000s", event: "Creative Boom", desc: "Industri kreatif dan pariwisata berkembang pesat secara masif." },
-    { year: "2015", event: "Digital Rise", desc: "Komunitas digital dan startup mulai tumbuh subur di berbagai sudut kota." },
-    { year: "Today", event: "Modern Hub", desc: "Malang tumbuh sebagai kota modern yang digerakkan oleh teknologi." },
+    { year: t('tech.timeline.year1980'), event: t('tech.timeline.event1980'), desc: t('tech.timeline.desc1980') },
+    { year: t('tech.timeline.year2000'), event: t('tech.timeline.event2000'), desc: t('tech.timeline.desc2000') },
+    { year: t('tech.timeline.year2015'), event: t('tech.timeline.event2015'), desc: t('tech.timeline.desc2015') },
+    { year: t('tech.timeline.yearToday'), event: t('tech.timeline.eventToday'), desc: t('tech.timeline.descToday') },
   ];
 
   const studentFeatures = [
     {
-      title: "Education City",
-      desc: "Rumah bagi puluhan universitas ternama dan ribuan mahasiswa.",
+      title: t('tech.creative.feature01'),
+      desc: t('tech.creative.desc01'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3.33 3 10.67 3 14 0v-5" />
@@ -25,8 +28,8 @@ const TechDetail: React.FC = () => {
       )
     },
     {
-      title: "Digital Communities",
-      desc: "Ekosistem digital yang aktif dan inklusif bagi para inovator.",
+      title: t('tech.creative.feature02'),
+      desc: t('tech.creative.desc02'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
@@ -34,8 +37,8 @@ const TechDetail: React.FC = () => {
       )
     },
     {
-      title: "Startup Culture",
-      desc: "Tempat lahirnya inovasi kreatif berbasis teknologi.",
+      title: t('tech.creative.feature03'),
+      desc: t('tech.creative.desc03'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-5c1.62-2.2 5-3 5-3s-.38 3.38-2.5 5.5c-1.9 1.9-4.5 2.5-4.5 2.5z" /><path d="M12 15v5s3.03-.55 5-2c2.2-1.62 3-5 3-5s-3.38.38-5.5 2.5c-1.9 1.9-2.5 4.5-2.5 4.5z" />
@@ -43,8 +46,8 @@ const TechDetail: React.FC = () => {
       )
     },
     {
-      title: "Youth Creativity",
-      desc: "Energi muda yang membentuk identitas kota masa kini.",
+      title: t('tech.creative.feature04'),
+      desc: t('tech.creative.desc04'),
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" /><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
@@ -60,10 +63,11 @@ const TechDetail: React.FC = () => {
       <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-[#F2E9E4]">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#F2E9E4] z-10" />
-          <img
+          <ImageWithSkeleton
             src="/this.jpg"
             alt="Modern Malang"
             className="w-full h-full object-cover opacity-40 grayscale-[0.2]"
+            wrapperClassName="absolute inset-0 w-full h-full"
           />
         </motion.div>
 
@@ -82,15 +86,15 @@ const TechDetail: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-swiss text-[12px] md:text-[14px] font-black tracking-[0.8em] text-[#0A0A0A]/40 uppercase mb-8 block"
           >
-            Nusantara Digital City
+            {t('tech.hero.label')}
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-editorial text-[clamp(4.5rem,11vw,8rem)] leading-[0.85] uppercase tracking-tighter mb-10 text-[#0A0A0A]"
+            className="text-editorial text-[clamp(4.5rem,11vw,8rem)] text-balance leading-[0.85] uppercase tracking-tighter mb-10 text-[#0A0A0A]"
           >
-            Modern <br /> Malang
+            {t('tech.hero.titleLine1')} <br /> {t('tech.hero.titleLine2')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -98,7 +102,7 @@ const TechDetail: React.FC = () => {
             transition={{ delay: 0.5 }}
             className="text-swiss text-[12px] md:text-base text-[#0A0A0A]/50 tracking-[0.5em] uppercase max-w-2xl mx-auto mb-14 font-medium"
           >
-            A city where education, creativity, and technology continue to grow together.
+            {t('tech.hero.subtitle')}
           </motion.p>
         </div>
       </section>
@@ -112,9 +116,9 @@ const TechDetail: React.FC = () => {
               whileInView={{ opacity: 1 }}
               className="text-swiss text-[10px] font-black tracking-[0.5em] text-[#4A5759] uppercase mb-4 block"
             >
-              The Creative Engine
+              {t('tech.creative.label')}
             </motion.span>
-            <h2 className="text-editorial text-5xl md:text-7xl uppercase tracking-tighter leading-none text-[#0A0A0A]">A City of Students <br /> & Creativity</h2>
+            <h2 className="text-editorial text-5xl md:text-7xl uppercase tracking-tighter leading-none text-[#0A0A0A] text-balance">{t('tech.creative.titleLine1')} <br /> {t('tech.creative.titleLine2')}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -130,7 +134,7 @@ const TechDetail: React.FC = () => {
                 <div className="text-[#4A5759] mb-8 bg-[#0A0A0A]/5 w-14 h-14 flex items-center justify-center rounded-xl group-hover:bg-[#4A5759] group-hover:text-white transition-colors">
                   {f.icon}
                 </div>
-                <h3 className="text-swiss text-lg font-bold uppercase mb-3 text-[#0A0A0A]">{f.title}</h3>
+                <h3 className="text-swiss text-lg font-bold uppercase mb-3 text-[#0A0A0A] text-balance">{f.title}</h3>
                 <p className="text-swiss text-xs text-[#0A0A0A]/50 leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
@@ -142,8 +146,8 @@ const TechDetail: React.FC = () => {
       <section className="py-32 bg-[#0A0A0A]/5 relative">
         <div className="swiss-container">
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
-            <h2 className="text-editorial text-5xl md:text-7xl uppercase tracking-tighter leading-none text-[#0A0A0A]">Malang <br /> Through the Years</h2>
-            <p className="text-swiss text-[#0A0A0A]/30 text-[10px] md:text-xs max-w-[200px] text-right uppercase tracking-[0.3em] font-black leading-relaxed">A journey of evolution and innovation.</p>
+            <h2 className="text-editorial text-5xl md:text-7xl uppercase tracking-tighter leading-none text-[#0A0A0A] text-balance">{t('tech.timeline.titleLine1')} <br /> {t('tech.timeline.titleLine2')}</h2>
+            <p className="text-swiss text-[#0A0A0A]/30 text-[10px] md:text-xs max-w-[200px] text-right uppercase tracking-[0.3em] font-black leading-relaxed">{t('tech.timeline.subtitle')}</p>
           </div>
 
           <div className="relative px-8 md:px-0">
@@ -165,7 +169,7 @@ const TechDetail: React.FC = () => {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                       >
-                        <h3 className="text-swiss text-xl font-black uppercase mb-2 text-[#0A0A0A]">{item.event}</h3>
+                        <h3 className="text-swiss text-xl font-black uppercase mb-2 text-[#0A0A0A] text-balance">{item.event}</h3>
                         <p className="text-[#0A0A0A]/50 text-xs max-w-xs ml-auto mr-auto md:mr-0 leading-relaxed">{item.desc}</p>
                       </motion.div>
                     ) : <div className="hidden md:block" />}
@@ -185,7 +189,7 @@ const TechDetail: React.FC = () => {
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                       >
-                        <h3 className="text-swiss text-xl font-black uppercase mb-2 text-[#0A0A0A]">{item.event}</h3>
+                        <h3 className="text-swiss text-xl font-black uppercase mb-2 text-[#0A0A0A] text-balance">{item.event}</h3>
                         <p className="text-[#0A0A0A]/50 text-xs max-w-xs ml-auto mr-auto md:ml-0 leading-relaxed">{item.desc}</p>
                       </motion.div>
                     ) : <div className="hidden md:block" />}
@@ -207,16 +211,16 @@ const TechDetail: React.FC = () => {
                 whileInView={{ opacity: 1 }}
                 className="text-swiss text-[10px] font-black tracking-[0.5em] text-[#A3B18A] uppercase mb-6 block"
               >
-                Future Vision
+                {t('tech.future.label')}
               </motion.span>
-              <h2 className="text-editorial text-5xl md:text-8xl uppercase tracking-tighter leading-[0.85] mb-10 text-[#0A0A0A]">Towards a <br /> Smarter <br /> Malang.</h2>
+              <h2 className="text-editorial text-5xl md:text-8xl uppercase tracking-tighter leading-[0.85] mb-10 text-[#0A0A0A] text-balance">{t('tech.future.titleLine1')} <br /> {t('tech.future.titleLine2')} <br /> {t('tech.future.titleLine3')}</h2>
               <p className="text-swiss text-lg md:text-xl text-[#0A0A0A]/60 leading-relaxed max-w-xl font-medium">
-                “As technology continues to evolve, Malang is embracing digital transformation to create a smarter, more connected, and more accessible city experience.”
+                “{t('tech.future.quote')}”
               </p>
             </div>
 
             <div className="lg:col-span-5 grid grid-cols-1 gap-4">
-              {['Smart Tourism', 'Digital Infrastructure', 'Connected Governance'].map((item, i) => (
+              {[t('tech.future.item01'), t('tech.future.item02'), t('tech.future.item03')].map((item, i) => (
                 <motion.div
                   key={i}
                   whileHover={{ x: 15 }}
@@ -244,10 +248,10 @@ const TechDetail: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-editorial text-6xl md:text-[8rem] uppercase tracking-tighter mb-10 leading-none text-[#0A0A0A]"
           >
-            The Future <br /> Starts Here.
+            {t('tech.closing.titleLine1')} <br /> {t('tech.closing.titleLine2')}
           </motion.h2>
           <p className="text-swiss text-base md:text-lg text-[#0A0A0A]/40 max-w-xl mx-auto mb-16 uppercase tracking-[0.3em] font-black">
-            Blending culture, education, tourism, and technology.
+            {t('tech.closing.subtitle')}
           </p>
           <button
             onClick={() => navigate("/")}
@@ -258,7 +262,7 @@ const TechDetail: React.FC = () => {
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
             </div>
-            <span className="text-swiss text-[10px] font-black uppercase tracking-[0.5em] text-[#0A0A0A]/30 group-hover:text-[#0A0A0A] transition-colors">Back to Explore</span>
+            <span className="text-swiss text-[10px] font-black uppercase tracking-[0.5em] text-[#0A0A0A]/30 group-hover:text-[#0A0A0A] transition-colors">{t('tech.closing.cta')}</span>
           </button>
         </div>
       </section>

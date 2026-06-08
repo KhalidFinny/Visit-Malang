@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Map as LeafletMap, Marker } from 'leaflet';
 import MapCard from './MapCard';
@@ -13,6 +14,7 @@ interface HeroMapProps {
 }
 
 export default function HeroMap({ category: initialCategory }: HeroMapProps) {
+  const { t } = useTranslation();
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const markersRef = useRef<Marker[]>([]);
@@ -177,10 +179,10 @@ export default function HeroMap({ category: initialCategory }: HeroMapProps) {
               className="text-[18px] font-black uppercase tracking-tight leading-none"
               style={{ color: meta.color }}
             >
-              {meta.label}
+              {t('hero.categories.' + activeCategory.toLowerCase())}
             </h3>
             <span className="text-[14px] font-bold text-[#1a1a1a]/30 uppercase tracking-widest">
-              — {places.length} spots
+              — {places.length} {t('hero.explorer.spots')}
             </span>
           </div>
         </div>
@@ -262,7 +264,7 @@ export default function HeroMap({ category: initialCategory }: HeroMapProps) {
               <div className="flex items-center gap-2 bg-premium-black/85 backdrop-blur-sm text-white text-[11px] font-bold uppercase tracking-widest px-5 py-2.5 rounded-full shadow-lg whitespace-nowrap">
                 <kbd className="bg-white/20 text-white text-[10px] font-black px-1.5 py-0.5 rounded">Ctrl</kbd>
                 <span className="text-white/60">+</span>
-                <span>Scroll to zoom</span>
+                <span>{t('hero.map.scrollToZoom')}</span>
               </div>
             </motion.div>
           )}
@@ -279,18 +281,18 @@ export default function HeroMap({ category: initialCategory }: HeroMapProps) {
         <div className="absolute bottom-6 left-6 z-[200] pointer-events-auto">
           <div className="bg-white/80 backdrop-blur-md border border-black/5 p-4 rounded-2xl shadow-xl flex flex-col gap-3">
             <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-premium-black/40 mb-1">
-              Map Controls
+              {t('hero.map.controls')}
             </h4>
             
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 flex items-center justify-center bg-black/5 rounded text-[10px]">👆</div>
-                <span className="text-[11px] font-bold text-premium-black/70">Click marker for details</span>
+                <span className="text-[11px] font-bold text-premium-black/70">{t('hero.map.clickMarker')}</span>
               </div>
               
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 flex items-center justify-center bg-black/5 rounded text-[10px]">🖐️</div>
-                <span className="text-[11px] font-bold text-premium-black/70">Drag to explore area</span>
+                <span className="text-[11px] font-bold text-premium-black/70">{t('hero.map.drag')}</span>
               </div>
 
               <div className="flex items-center gap-3">
@@ -299,7 +301,7 @@ export default function HeroMap({ category: initialCategory }: HeroMapProps) {
                   <span className="text-[9px] font-bold text-premium-black/30">+</span>
                   <span className="text-[9px] font-bold text-premium-black/50">SCROLL</span>
                 </div>
-                <span className="text-[11px] font-bold text-premium-black/70">Zoom in/out</span>
+                <span className="text-[11px] font-bold text-premium-black/70">{t('hero.map.zoom')}</span>
               </div>
             </div>
           </div>

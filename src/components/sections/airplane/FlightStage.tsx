@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
 import FlightBackground from "./FlightBackground";
 import CabinInterior from "./CabinInterior";
@@ -11,6 +12,7 @@ export default function FlightStage({
   onDescend,
   mousePos,
 }: FlightStageProps) {
+  const { t } = useTranslation();
   const { loading } = useFlightState();
 
   return (
@@ -44,7 +46,7 @@ export default function FlightStage({
               />
             </div>
             <p className="text-white/80 text-sm uppercase tracking-[0.5em] font-sans font-bold">
-              Traveling
+              {t('app.traveling')}
             </p>
           </motion.div>
         )}

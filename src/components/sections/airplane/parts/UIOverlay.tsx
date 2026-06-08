@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { motion } from "framer-motion";
 import type { UIOverlayProps } from "../types";
 import { useUIOverlayState } from "../hook/useUIOverlayState";
 import { overlayTextContainer, overlayCharacter } from "../animations";
 
 export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
+  const { t } = useTranslation();
   const {
     isHovered,
     setIsHovered,
@@ -87,7 +89,7 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
             }}
           >
             <span className="text-[1rem] tracking-[0.3em] font-medium text-white/90">
-              TAP THE WINDOW
+              {t('hero.airplane.tap')}
             </span>
           </div>
           <div
@@ -101,7 +103,7 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
       </div>
 
       <button className="skip-btn pointer-events-auto" onClick={onDescend}>
-        Skip ›
+        {t('app.skip')} ›
       </button>
     </div>
   );

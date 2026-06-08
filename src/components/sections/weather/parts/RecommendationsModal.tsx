@@ -1,8 +1,10 @@
 import { useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
 import { faXmark, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { Recommendation } from "../types";
+import { ImageWithSkeleton } from "../../../shared/Skeleton";
 
 interface RecommendationsModalProps {
   isOpen: boolean;
@@ -19,6 +21,7 @@ export default function RecommendationsModal({
   onClose,
   recommendations,
 }: RecommendationsModalProps) {
+  const { t } = useTranslation();
   // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -62,10 +65,10 @@ export default function RecommendationsModal({
             <div className="flex items-center justify-between px-8 py-6 border-b border-black/8 shrink-0">
               <div>
                 <h2 className="text-2xl font-black text-premium-black uppercase tracking-tight leading-none">
-                  All Recommendations
+                  {t('weather.allRecommendations')}
                 </h2>
                 <p className="text-sm text-premium-black/40 font-medium mt-1.5">
-                  {recommendations.length} places matched for today's weather
+                  {recommendations.length} {t('weather.placesMatched')}
                 </p>
               </div>
               <button
@@ -78,7 +81,7 @@ export default function RecommendationsModal({
             </div>
 
             {/* List */}
-            <div className="flex-1 overflow-y-auto p-6 md:p-8">
+            <div className="flex-1 overflow-y-auto scrollbar-transparent p-6 md:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {recommendations.map((rec, i) => (
                   <motion.div
@@ -90,10 +93,11 @@ export default function RecommendationsModal({
                   >
                     {/* Thumbnail */}
                     <div className="w-24 h-24 shrink-0 rounded-xl overflow-hidden">
-                      <img
+                      <ImageWithSkeleton
                         src={rec.imageUrl}
                         alt={rec.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        wrapperClassName="w-full h-full"
                       />
                     </div>
 
@@ -102,11 +106,11 @@ export default function RecommendationsModal({
                       <div>
                         <div className="flex items-center gap-2 mb-1.5">
                           <span className="text-[10px] font-black uppercase tracking-[0.3em] text-premium-black/30">
-                            {rec.category}
+                            {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
                           </span>
                           <span className="text-[10px] text-premium-black/20">•</span>
                           <span className="text-[10px] font-bold text-premium-black/30">
-                            {rec.idealWeather}
+                            {rec.idealWeather === 'Any' ? t('weather.any') : t('weather.condition.' + rec.idealWeather.toLowerCase())}
                           </span>
                         </div>
                         <h3 className="text-sm font-black text-premium-black uppercase tracking-tight leading-tight mb-1 truncate">
@@ -124,7 +128,7 @@ export default function RecommendationsModal({
                         className="inline-flex items-center gap-1.5 mt-2 text-[10px] font-black uppercase tracking-[0.2em] text-premium-black/40 hover:text-premium-black transition-colors"
                       >
                         <FontAwesomeIcon icon={faMapLocationDot} className="text-[10px]" />
-                        Google Maps
+                        {t('weather.googleMaps')}
                       </a>
                     </div>
                   </motion.div>

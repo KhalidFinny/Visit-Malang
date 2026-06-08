@@ -1,4 +1,5 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState, lazy, Suspense, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AnimatePresence, motion } from 'framer-motion';
 import HeroIntro from './parts/HeroIntro';
 import HeroCategories from './parts/HeroCategories';
@@ -6,9 +7,18 @@ import type { MapCategory } from '../../../data/mapPlaces';
 
 const HeroMap = lazy(() => import('./parts/HeroMap'));
 
+/** Preload these images so the category page feels instant */
+const CATEGORY_BG_URLS = [
+  'https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=70&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1547928576-a4a33237ecd3?q=70&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1518151246473-fd677e497d39?q=70&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=70&w=800&auto=format&fit=crop',
+];
+
 type HeroState = 'intro' | 'categories' | 'map';
 
 export default function HeroStage() {
+  const { t } = useTranslation();
   const [state, setState] = useState<HeroState>('intro');
   const [selectedCategory, setSelectedCategory] = useState<MapCategory>('Nature');
 
@@ -25,6 +35,16 @@ export default function HeroStage() {
     setSelectedCategory(cat);
     setState('map');
   }
+
+  // Warm up the category background images while the intro is on screen
+  useEffect(() => {
+    if (state !== 'intro') return;
+    const imgs = CATEGORY_BG_URLS.map((url) => {
+      const img = new Image();
+      img.src = url;
+      return img;
+    });
+  }, [state]);
 
   return (
     <section className="relative w-full">
@@ -68,7 +88,7 @@ export default function HeroStage() {
               fallback={
                 <div className="w-full h-screen bg-[#f5f4f0] flex items-center justify-center">
                   <span className="text-[#1a1a1a]/30 text-[14px] font-bold uppercase tracking-widest animate-pulse">
-                    Loading map…
+                    {t('app.loadingMap')}
                   </span>
                 </div>
               }

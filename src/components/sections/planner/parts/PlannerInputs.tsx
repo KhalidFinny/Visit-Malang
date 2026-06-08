@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { BudgetTier, EconomyOrigin } from '../types';
 import { ECONOMIES } from '../utils/PlannerLogic';
 
@@ -12,27 +13,26 @@ interface Props {
   compact?: boolean;
 }
 
-const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-const TIER_META: Record<BudgetTier, { label: string; sub: string }> = {
-  backpacker: { label: "Backpacker", sub: "Budget-conscious essentials" },
-  balanced:   { label: "Balanced",   sub: "Comfort with value" },
-  luxury:     { label: "Luxury",     sub: "Premium experience" },
-};
+const MONTH_KEYS = [
+  'months.short.jan', 'months.short.feb', 'months.short.mar', 'months.short.apr',
+  'months.short.may', 'months.short.jun', 'months.short.jul', 'months.short.aug',
+  'months.short.sep', 'months.short.oct', 'months.short.nov', 'months.short.dec'
+];
 
 export default function PlannerInputs({
   budget, setBudget, origin, setOrigin,
   selectedMonth, setSelectedMonth, monthsList,
   compact = false,
 }: Props) {
+  const { t } = useTranslation();
   /* ── Compact strip shown in results view ── */
   if (compact) {
     return (
       <div className="flex items-center gap-6 flex-wrap">
         <div className="flex items-center gap-2">
-          <span className="text-[14px] font-semibold text-[#1a1a1a]/30 uppercase tracking-widest">Month</span>
+          <span className="text-[14px] font-semibold text-[#1a1a1a]/30 uppercase tracking-widest">{t('planner.input.month')}</span>
           <span className="text-[14px] font-bold text-[#1a1a1a] bg-[#1a1a1a]/5 border border-[#1a1a1a]/10 px-3 py-1.5 rounded-md">
-            {monthsList && selectedMonth !== undefined ? MONTHS_SHORT[selectedMonth] : "—"}
+            {monthsList && selectedMonth !== undefined ? monthsList[selectedMonth] : "—"}
           </span>
         </div>
 
@@ -49,7 +49,7 @@ export default function PlannerInputs({
                   : "border-[#1a1a1a]/10 text-[#1a1a1a]/40 hover:text-[#1a1a1a] hover:border-[#1a1a1a]/25 bg-transparent"
               }`}
             >
-              {tier}
+              {t('planner.tier.' + tier + 'Sub')}
             </button>
           ))}
         </div>
@@ -73,10 +73,10 @@ export default function PlannerInputs({
         {/* Month */}
         <div className="flex flex-col gap-3">
           <label className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
-            Month of Visit
+            {t('planner.input.month')}
           </label>
           <div className="grid grid-cols-6 gap-2">
-            {MONTHS_SHORT.map((m, idx) => (
+            {MONTH_KEYS.map((m, idx) => (
               <button
                 key={m}
                 onClick={() => setSelectedMonth?.(idx)}
@@ -86,7 +86,7 @@ export default function PlannerInputs({
                     : "bg-[#1a1a1a]/5 border-[#1a1a1a]/8 text-[#1a1a1a]/50 hover:border-[#1a1a1a]/20 hover:text-[#1a1a1a]"
                 }`}
               >
-                {m}
+                {t(m)}
               </button>
             ))}
           </div>
@@ -95,7 +95,7 @@ export default function PlannerInputs({
         {/* Budget tier */}
         <div className="flex flex-col gap-3">
           <label className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
-            Travel Style
+            {t('planner.input.travelStyle')}
           </label>
           <div className="flex flex-col gap-2">
             {(["backpacker", "balanced", "luxury"] as BudgetTier[]).map((tier) => {
@@ -111,9 +111,9 @@ export default function PlannerInputs({
                   }`}
                 >
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-base font-bold">{TIER_META[tier].label}</span>
+                    <span className="text-base font-bold">{t('planner.tier.' + tier)}</span>
                     <span className={`text-[14px] font-medium ${active ? "text-white/50" : "text-[#1a1a1a]/40"}`}>
-                      {TIER_META[tier].sub}
+                      {t('planner.tier.' + tier + 'Sub')}
                     </span>
                   </div>
                   <div className={`w-3 h-3 rounded-full border-2 transition-all ${
@@ -129,7 +129,7 @@ export default function PlannerInputs({
       {/* Right: Currency */}
       <div className="flex flex-col gap-3">
         <label className="text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/40">
-          Your Currency
+          {t('planner.input.currency')}
         </label>
         <div className="grid grid-cols-3 gap-2 overflow-y-auto max-h-[360px] pr-1 pb-1">
           {ECONOMIES.map((e) => {
@@ -151,7 +151,7 @@ export default function PlannerInputs({
           })}
         </div>
         <p className="text-[14px] text-[#1a1a1a]/20 font-medium mt-1">
-          Estimates adapt to purchasing power
+          {t('planner.input.estimatesAdapt')}
         </p>
       </div>
 

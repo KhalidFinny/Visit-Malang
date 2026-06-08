@@ -1,6 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { motion } from "framer-motion";
 
 export default function DiscoverStage() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative w-full min-h-screen bg-colonial-cream flex flex-col items-center justify-center py-40 px-8">
       <div className="max-w-4xl mx-auto text-center space-y-12">
@@ -9,9 +12,9 @@ export default function DiscoverStage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-editorial text-6xl md:text-8xl text-midnight-steel tracking-wider"
+          className="text-editorial text-6xl md:text-8xl text-midnight-steel tracking-wider text-balance"
         >
-          DISCOVER THE HERITAGE
+          {t('discover.title')}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -20,10 +23,7 @@ export default function DiscoverStage() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-swiss text-midnight-steel/80 text-xl md:text-2xl leading-relaxed font-light"
         >
-          Nestled in the highlands of East Java, Malang seamlessly blends cool
-          mountain air with rich colonial history. Explore ancient temples,
-          vibrant colorful villages, and the majestic volcanic landscapes that
-          surround this timeless city.
+          {t('discover.description')}
         </motion.p>
       </div>
     </section>

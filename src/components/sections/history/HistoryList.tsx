@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
 
 type CardProps = {
@@ -45,38 +46,11 @@ const Card: React.FC<CardProps> = ({ title, description }) => {
 };
 
 const HistoryList: React.FC = () => {
-  const data: CardProps[] = [
-    {
-      title: "The Hidden Story Behind Colorful Village",
-      description:
-        "What looks like a vibrant tourist spot today actually started from an unexpected transformation..."
-    },
-    {
-      title: "From Slum to Global Attraction",
-      description:
-        "Once considered an overlooked area, this village became one of Indonesia’s most iconic destinations."
-    },
-    {
-      title: "The People Behind the Colors",
-      description:
-        "Local communities and students collaborated to transform this place into something extraordinary."
-    },
-    {
-      title: "Transformation Through Community",
-      description:
-        "A collective effort that turned a simple neighborhood into a national icon."
-    },
-    {
-      title: "Tourism That Changed Everything",
-      description:
-        "After going viral, the village quickly became a must-visit destination in Malang."
-    },
-    {
-      title: "Sustainability & Challenges",
-      description:
-        "Maintaining the beauty while handling mass tourism remains a challenge today."
-    }
-  ];
+  const { t } = useTranslation();
+  const data: CardProps[] = Array.from({ length: 6 }, (_, i) => ({
+    title: t(`history.card${String(i + 1).padStart(2, '0')}.title`),
+    description: t(`history.card${String(i + 1).padStart(2, '0')}.desc`),
+  }));
 
   return (
     <section className="bg-[#0a0a0a] py-28 text-white">
@@ -85,10 +59,10 @@ const HistoryList: React.FC = () => {
         {/* HEADER */}
         <div className="mb-16 max-w-md">
           <h2 className="text-[clamp(42px,6vw,72px)] font-semibold">
-            History
+            {t('history.title')}
           </h2>
           <p className="text-white/40 mt-4 text-[14px]">
-            Discover the stories behind Malang’s most iconic places.
+            {t('history.subtitle')}
           </p>
         </div>
 

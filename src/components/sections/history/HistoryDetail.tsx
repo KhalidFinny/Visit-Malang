@@ -1,42 +1,38 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from "react-router-dom";
 
 type HistoryData = {
   title: string;
   description: string;
   content: string;
-  image: string;
 };
 
-const historyData: Record<string, HistoryData> = {
-  "the-hidden-story-behind-colorful-village": {
-    title: "The Hidden Story Behind Colorful Village",
-    description:
-      "What looks like a vibrant tourist spot today actually started from an unexpected transformation.",
-    image: "/bromo.jpg",
-    content:
-      "Kampung Warna-Warni Jodipan dulunya merupakan kawasan kumuh yang kurang diperhatikan. Perubahan besar dimulai ketika sekelompok mahasiswa memiliki ide untuk mengubah wajah kampung tersebut menjadi lebih menarik melalui warna.\n\nDengan dukungan perusahaan cat dan partisipasi warga, seluruh rumah dicat dengan warna-warna cerah. Transformasi ini tidak hanya memperbaiki tampilan visual, tetapi juga mengubah kehidupan ekonomi masyarakat.\n\nNamun, di balik keindahan tersebut, terdapat tantangan dalam menjaga kebersihan dan keseimbangan antara kehidupan warga dan pariwisata."
-  },
-
-  "from-slum-to-global-attraction": {
-    title: "From Slum to Global Attraction",
-    description:
-      "Once considered an overlooked area, this village became one of Indonesia’s most iconic destinations.",
-    image: "/bromo.jpg",
-    content:
-      "Awalnya kawasan ini tidak dikenal dan bahkan dihindari oleh banyak orang. Namun dengan sentuhan kreativitas dan semangat komunitas, kawasan ini berubah menjadi destinasi wisata global.\n\nMedia sosial berperan besar dalam memperkenalkan tempat ini ke dunia. Dalam waktu singkat, jumlah pengunjung meningkat drastis.\n\nPerubahan ini membawa dampak positif sekaligus tantangan dalam pengelolaan wisata yang berkelanjutan."
-  }
+const storySlugs: Record<string, string> = {
+  "the-hidden-story-behind-colorful-village": "story01",
+  "from-slum-to-global-attraction": "story02",
+  "the-people-behind-the-colors": "story03",
+  "transformation-through-community": "story04",
+  "tourism-that-changed-everything": "story05",
+  "sustainability-challenges": "story06",
 };
 
 const HistoryDetail: React.FC = () => {
+  const { t } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
 
-  const data = slug ? historyData[slug] : null;
+  const storyKey = slug ? storySlugs[slug] : null;
 
-  if (!data) {
-    return <div className="text-white p-10">Story not found</div>;
+  if (!storyKey) {
+    return <div className="text-white p-10">{t('history.notFound')}</div>;
   }
+  
+  const data: HistoryData = {
+    title: t(`history.${storyKey}.title`),
+    description: t(`history.${storyKey}.description`),
+    content: t(`history.${storyKey}.content`),
+  };
 
   return (
     <div className="bg-[#0a0a0a] text-white min-h-screen">
@@ -45,7 +41,7 @@ const HistoryDetail: React.FC = () => {
       <div className="relative h-[70vh] w-full overflow-hidden">
 
         <img
-          src={data.image}
+          src="/bromo.jpg"
           alt={data.title}
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -103,14 +99,14 @@ const HistoryDetail: React.FC = () => {
         {/* FOOTER */}
         <div className="mt-20 pt-10 border-t border-white/10 text-center">
           <p className="text-white/30 text-sm mb-6">
-            Explore more stories to discover the hidden side of Malang.
+            {t('history.exploreMore')}
           </p>
 
           <button
             onClick={() => navigate("/history")}
             className="px-6 py-2 border border-white/20 rounded-full text-sm text-white/70 hover:text-white hover:border-white/40 transition"
           >
-            Back to History
+            {t('history.backToHistory')}
           </button>
         </div>
 

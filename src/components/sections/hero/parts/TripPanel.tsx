@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { useTrip } from '../../../../context/TripContext';
@@ -7,6 +8,7 @@ interface TripPanelProps {
 }
 
 export default function TripPanel({ inline = false }: TripPanelProps) {
+  const { t } = useTranslation();
   const { tripPlaces, removeFromTrip, directionsUrl } = useTrip();
   const [expanded, setExpanded] = useState(false);
 
@@ -24,7 +26,7 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
             <span className="w-4 h-4 rounded-full bg-heritage-sage text-white text-[9px] font-black flex items-center justify-center">
               {tripPlaces.length}
             </span>
-            Your Trip
+            {t('hero.trip.yourTrip')}
           </span>
           <span className={`transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>↑</span>
         </button>
@@ -56,7 +58,7 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
                   rel="noopener noreferrer"
                   className="mt-2 block w-full text-center py-2 bg-heritage-sage text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-heritage-sage/80 transition-colors"
                 >
-                  Open in Google Maps ↗
+                  {t('hero.trip.openMaps')}
                 </a>
               </div>
             </motion.div>
@@ -98,7 +100,7 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-black/6">
               <span className="text-xs font-black uppercase tracking-widest text-premium-black">
-                Your Trip ({tripPlaces.length})
+                {t('hero.trip.yourTrip')} ({tripPlaces.length})
               </span>
               <button onClick={() => setExpanded(false)} className="text-premium-black/40 hover:text-premium-black text-sm transition-colors">
                 ✕
@@ -119,7 +121,7 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
                 rel="noopener noreferrer"
                 className="block w-full text-center py-2.5 bg-heritage-sage text-white text-xs font-black uppercase tracking-widest rounded-lg hover:bg-heritage-sage/80 transition-colors"
               >
-                Open in Google Maps ↗
+                {t('hero.trip.openMaps')}
               </a>
             </div>
           </motion.div>

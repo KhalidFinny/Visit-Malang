@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from "react-router-dom";
 import { activitiesData } from "./ActivitiesData";
+import { ImageWithSkeleton } from "../../shared/Skeleton";
 
 const PlaceDetail = () => {
+  const { t } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
 
@@ -21,15 +24,13 @@ const PlaceDetail = () => {
   }
 
   if (!data) {
-    return <div className="text-white p-10">Place not found</div>;
+    return <div className="text-white p-10">{t('placeDetail.notFound')}</div>;
   }
 
   const hasThingsToDo =
     Array.isArray(data.thingsToDo) && data.thingsToDo.length > 0;
   const hasTips = Array.isArray(data.tips) && data.tips.length > 0;
   const hasGallery = Array.isArray(data.gallery) && data.gallery.length > 0;
-  const hasBestTime =
-    Array.isArray(data.bestTime) && data.bestTime.length > 0;
   const hasLocation =
     data.location?.lat !== undefined && data.location?.lng !== undefined;
 
@@ -43,10 +44,11 @@ const PlaceDetail = () => {
       {/* HERO */}
       <div className="relative w-full h-[80vh]">
         {data.heroImage ? (
-          <img
+          <ImageWithSkeleton
             src={data.heroImage}
             alt={data.title}
             className="absolute inset-0 w-full h-full object-cover"
+            wrapperClassName="absolute inset-0 w-full h-full"
           />
         ) : (
           <div className="absolute inset-0 bg-zinc-900" />
@@ -98,7 +100,7 @@ const PlaceDetail = () => {
         {hasThingsToDo && (
           <section>
             <p className="text-white/30 uppercase text-xs tracking-widest mb-5">
-              What You Can Do
+              {t('placeDetail.whatYouCanDo')}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {data.thingsToDo.map((item: any, i: number) => (
@@ -120,7 +122,7 @@ const PlaceDetail = () => {
         {hasTips && (
           <section>
             <p className="text-white/30 uppercase text-xs tracking-widest mb-5">
-              Tips & Advice
+              {t('placeDetail.tipsAndAdvice')}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {data.tips.map((tip: string, i: number) => (
@@ -144,7 +146,7 @@ const PlaceDetail = () => {
         {data.story && (
           <section>
             <p className="text-white/30 uppercase text-xs tracking-widest mb-5">
-              Story
+              {t('placeDetail.story')}
             </p>
             <p className="text-white/60 text-sm leading-relaxed max-w-2xl">
               {data.story}
@@ -156,11 +158,11 @@ const PlaceDetail = () => {
         {hasLocation && (
           <section>
             <p className="text-white/30 uppercase text-xs tracking-widest mb-5">
-              Location
+              {t('placeDetail.location')}
             </p>
             <div className="rounded-2xl overflow-hidden border border-white/[0.06]">
               <iframe
-                title={"Map of " + data.title}
+                title={t('placeDetail.mapOf') + ' ' + data.title}
                 width="100%"
                 height="300"
                 style={{
@@ -199,7 +201,7 @@ const PlaceDetail = () => {
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
                   <circle cx="12" cy="9" r="2.5" />
                 </svg>
-                Buka di Google Maps
+                {t('placeDetail.openInMaps')}
               </a>
             </div>
           </section>
@@ -210,7 +212,7 @@ const PlaceDetail = () => {
 {hasGallery && (
   <section>
     <p className="text-white/30 uppercase text-xs tracking-widest mb-10">
-      Gallery
+      {t('placeDetail.gallery')}
     </p>
 
     <div
@@ -233,10 +235,11 @@ const PlaceDetail = () => {
           <div className="relative w-full h-[80vh] mx-6 rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
 
             {/* IMAGE */}
-            <img
+            <ImageWithSkeleton
               src={img}
               alt={`Gallery ${i + 1}`}
               className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out scale-[1.05]"
+              wrapperClassName="absolute inset-0 w-full h-full"
             />
 
             {/* DARK OVERLAY */}

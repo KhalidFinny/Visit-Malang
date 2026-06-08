@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from "react-router-dom";
 import { activitiesData } from "./ActivitiesData";
+import { ImageWithSkeleton } from "../../shared/Skeleton";
 
 /* ================= TYPES ================= */
 type Place = {
@@ -20,6 +22,7 @@ const toSlug = (text: string = "") =>
 
 /* ================= COMPONENT ================= */
 const ActivityDetail: React.FC = () => {
+  const { t } = useTranslation();
   const { name } = useParams<{ name: string }>();
   const navigate = useNavigate();
 
@@ -32,7 +35,7 @@ const ActivityDetail: React.FC = () => {
   ).find((cat) => toSlug(cat.title) === name);
 
   if (!data) {
-    return <div className="text-white p-10">Activity not found</div>;
+    return <div className="text-white p-10">{t('activityDetail.notFound')}</div>;
   }
 
   const currentPlace = data.places[selectedPlace];
@@ -63,10 +66,11 @@ const ActivityDetail: React.FC = () => {
       {/* ================= HERO ================= */}
       <div className="relative w-full flex-1 min-h-0">
 
-        <img
+        <ImageWithSkeleton
           src={currentPlace.heroImage}
           alt={currentPlace.title}
           className="absolute inset-0 w-full h-full object-cover"
+          wrapperClassName="absolute inset-0 w-full h-full"
         />
 
         {/* overlay */}
@@ -108,7 +112,7 @@ const ActivityDetail: React.FC = () => {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
             </svg>
-            Jelajahi
+            {t('activityDetail.explore')}
           </button>
         </div>
       </div>
@@ -118,7 +122,7 @@ const ActivityDetail: React.FC = () => {
 
         <div className="flex items-center justify-between mb-3 pt-4">
           <h2 className="text-sm font-semibold text-white/90">
-            Destinasi Lain
+            {t('activityDetail.otherDestinations')}
           </h2>
 
           <div className="flex gap-2">
@@ -155,10 +159,11 @@ const ActivityDetail: React.FC = () => {
                 ${selectedPlace === i ? "ring-2 ring-white scale-[1.05] z-10 shadow-[0_0_30px_rgba(255,255,255,0.2)]" : "opacity-40 hover:opacity-80"}
               `}
             >
-              <img
+              <ImageWithSkeleton
                 src={place.heroImage}
                 alt={place.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                wrapperClassName="w-full h-full"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:via-black/10 transition-all" />

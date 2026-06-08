@@ -1,70 +1,23 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
 
-const heritageFacts = [
-  {
-    num: "01",
-    title: "Parijs van Oost-Java",
-    description: "During the colonial era, Malang was titled 'The Paris of East Java' due to its cool mountainous air and well-planned European-style architecture, designed as a luxury retreat for the elite.",
-    tag: "History"
-  },
-  {
-    num: "02",
-    title: "Boso Walikan Slang",
-    description: "Malang has a unique linguistic culture called 'Boso Walikan,' where words are spoken backwards. It was originally used by local fighters to confuse Dutch colonizers during the independence struggle.",
-    tag: "Culture"
-  },
-  {
-    num: "03",
-    title: "Singosari Majesty",
-    description: "Before the colonial arrival, Malang was the seat of the powerful Singosari Kingdom in the 13th century. Ancient temples like Candi Singosari still stand as silent witnesses to this golden era.",
-    tag: "Origins"
-  },
-  {
-    num: "04",
-    title: "The Apple Capital",
-    description: "Malang is famous as the apple producing center of Indonesia. The cool climate of the surrounding Batu highlands makes it the only place in the country where various apple varieties thrive.",
-    tag: "Economy"
-  },
-  {
-    num: "05",
-    title: "Thomas Karsten's Legacy",
-    description: "The Ijen Boulevard district remains one of Indonesia's most preserved examples of 1920s 'Indo-European' urban design by Herman Thomas Karsten, featuring wide boulevards and distinctive villas.",
-    tag: "Architecture"
-  },
-  {
-    num: "06",
-    title: "The Mask Tradition",
-    description: "'Topeng Malangan' dance masks are carved from local wood, representing a unique 12th-century artistic lineage linking East Java to Majapahit glory through traditional theater.",
-    tag: "Arts"
-  },
-  {
-    num: "07",
-    title: "City of Education",
-    description: "Home to over 50 higher education institutions, Malang has been a regional center for knowledge and student life since the early 1900s, earning its reputation as 'Kota Pendidikan'.",
-    tag: "Society"
-  },
-  {
-    num: "08",
-    title: "Alun-Alun Tugu",
-    description: "The city's famous circular park features a historic monument surrounded by a lotus pond, symbolizing Indonesia's resilience and independence at the very heart of the city.",
-    tag: "Landmark"
-  },
-  {
-    num: "09",
-    title: "Candi Badut",
-    description: "Standing since 760 AD, Candi Badut is the oldest temple in East Java, proving that Malang was a center of civilization long before the later Majapahit and Singosari empires.",
-    tag: "Ancient"
-  },
-  {
-    num: "10",
-    title: "Tempo Doeloe",
-    description: "Every year, the city's main thoroughfares transform into living history museums, celebrating the 'old world' charm of local colonial life through the Malang Tempo Doeloe festival.",
-    tag: "Festivals"
-  }
-];
-
 export default function HeritageStage() {
+  const { t } = useTranslation();
+  
+  const heritageFacts = [
+    { num: "01", title: t('heritage.facts.01.title'), description: t('heritage.facts.01.description'), tag: t('heritage.facts.01.tag') },
+    { num: "02", title: t('heritage.facts.02.title'), description: t('heritage.facts.02.description'), tag: t('heritage.facts.02.tag') },
+    { num: "03", title: t('heritage.facts.03.title'), description: t('heritage.facts.03.description'), tag: t('heritage.facts.03.tag') },
+    { num: "04", title: t('heritage.facts.04.title'), description: t('heritage.facts.04.description'), tag: t('heritage.facts.04.tag') },
+    { num: "05", title: t('heritage.facts.05.title'), description: t('heritage.facts.05.description'), tag: t('heritage.facts.05.tag') },
+    { num: "06", title: t('heritage.facts.06.title'), description: t('heritage.facts.06.description'), tag: t('heritage.facts.06.tag') },
+    { num: "07", title: t('heritage.facts.07.title'), description: t('heritage.facts.07.description'), tag: t('heritage.facts.07.tag') },
+    { num: "08", title: t('heritage.facts.08.title'), description: t('heritage.facts.08.description'), tag: t('heritage.facts.08.tag') },
+    { num: "09", title: t('heritage.facts.09.title'), description: t('heritage.facts.09.description'), tag: t('heritage.facts.09.tag') },
+    { num: "10", title: t('heritage.facts.10.title'), description: t('heritage.facts.10.description'), tag: t('heritage.facts.10.tag') },
+  ];
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -85,18 +38,18 @@ export default function HeritageStage() {
         <div className="flex items-start justify-between mb-32 border-b-2 border-premium-black/20 pb-10">
           <div className="flex flex-col gap-3">
             <span className="text-swiss text-sm font-black tracking-[0.5em] text-premium-black uppercase opacity-70">
-              Folio Section
+              {t('heritage.section')}
             </span>
             <span className="text-swiss text-3xl font-black text-premium-black uppercase tracking-tight">
-              02 / FunFact
+              {t('heritage.funFact')}
             </span>
           </div>
           <div className="text-right hidden md:block">
             <span className="text-swiss text-sm tracking-widest text-premium-black/60 uppercase font-black block mb-2">
-              Malang, East Java
+              {t('heritage.location')}
             </span>
             <span className="text-swiss text-sm tracking-widest text-premium-black/60 uppercase font-black">
-              Established c. 1260
+              {t('heritage.established')}
             </span>
           </div>
         </div>
@@ -131,7 +84,7 @@ export default function HeritageStage() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
-                    className="text-editorial text-[clamp(3.5rem,7vw,6.5rem)] text-premium-black leading-[0.85] tracking-tight mb-12"
+                    className="text-editorial text-[clamp(3.5rem,7vw,6.5rem)] text-premium-black leading-[0.85] tracking-tight mb-12 text-balance"
                   >
                     {activeFact.title}
                   </motion.h3>
@@ -139,7 +92,7 @@ export default function HeritageStage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="text-swiss text-3xl md:text-4xl text-premium-black leading-[1.4] font-bold max-w-3xl"
+                    className="text-swiss text-3xl md:text-4xl text-premium-black leading-[1.4] font-bold max-w-3xl text-pretty"
                   >
                     {activeFact.description}
                   </motion.p>
@@ -163,7 +116,7 @@ export default function HeritageStage() {
         {/* Ambient Typography Background */}
         <div className="absolute bottom-0 right-0 translate-y-1/2 opacity-[0.03] pointer-events-none select-none">
           <span className="text-editorial text-[45rem] font-black text-premium-black leading-none">
-            ARCHIVE
+            {t('heritage.archive')}
           </span>
         </div>
       </div>

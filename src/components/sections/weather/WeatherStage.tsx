@@ -1,30 +1,39 @@
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { AnimatePresence, motion } from "framer-motion";
 import { faChevronLeft, faChevronRight, faMapLocationDot, faArrowRight, faClock, faCloudSun, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useWeatherState } from "./hooks/useWeatherState";
 import RecommendationsModal from "./parts/RecommendationsModal";
+import { ImageWithSkeleton } from "../../shared/Skeleton";
 
 function getGoogleMapsSearchUrl(name: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ' Malang Indonesia')}`;
 }
 
 export default function WeatherStage() {
+  const { t, i18n } = useTranslation();
   const {
     activeIndex,
     date,
     next,
     prev,
     currentInfo,
-    predictionText,
     recommendations,
     todayWeather,
+    currentCondition,
     loading,
   } = useWeatherState();
 
   const [showAllModal, setShowAllModal] = useState(false);
 
   const rec = recommendations[activeIndex];
+
+  // Format date with current locale
+  const formattedDate = new Intl.DateTimeFormat(
+    i18n.language || 'en',
+    { weekday: 'long', day: 'numeric', month: 'long' }
+  ).format(date);
 
   return (
     <>
@@ -42,7 +51,7 @@ export default function WeatherStage() {
           <div className="lg:w-[380px] shrink-0 flex flex-col py-16 lg:py-20 lg:pr-12">
             {/* Label */}
             <span className="text-[14px] font-black tracking-[0.3em] text-[#1a1a1a]/30 uppercase mb-10">
-              Weather Recommendation
+              {t('weather.recommendation')}
             </span>
 
             {/* Temperature Row */}
@@ -58,7 +67,7 @@ export default function WeatherStage() {
 
             {/* Condition */}
             <span className="text-[18px] font-medium text-[#1a1a1a]/70 mb-8">
-              {todayWeather.condition}
+              {t('weather.condition.' + todayWeather.condition.toLowerCase())}
             </span>
 
             {/* Divider */}
@@ -68,7 +77,7 @@ export default function WeatherStage() {
             <div className="flex flex-col gap-5 mb-8">
               <div className="flex items-center justify-between">
                 <span className="text-[14px] font-black uppercase tracking-[0.2em] text-[#1a1a1a]/30">
-                  Wind
+                  {t('weather.wind')}
                 </span>
                 <span className="text-[18px] font-bold text-[#1a1a1a]">
                   {todayWeather.windSpeed} km/h
@@ -76,7 +85,7 @@ export default function WeatherStage() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[14px] font-black uppercase tracking-[0.2em] text-[#1a1a1a]/30">
-                  Humidity
+                  {t('weather.humidity')}
                 </span>
                 <span className="text-[18px] font-bold text-[#1a1a1a]">
                   {todayWeather.humidity}%
@@ -84,7 +93,7 @@ export default function WeatherStage() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-[14px] font-black uppercase tracking-[0.2em] text-[#1a1a1a]/30">
-                  Feels Like
+                  {t('weather.feelsLike')}
                 </span>
                 <span className="text-[18px] font-bold text-[#1a1a1a]">
                   {todayWeather.temp - 1}°
@@ -98,16 +107,16 @@ export default function WeatherStage() {
             {/* Date & Location */}
             <div className="mb-8">
               <p className="text-[14px] font-bold uppercase tracking-[0.15em] text-[#1a1a1a]/50 mb-1">
-                {date}
+                {formattedDate}
               </p>
               <p className="text-[14px] font-bold uppercase tracking-[0.1em] text-[#1a1a1a]/35">
-                Malang, East Java
+                {t('weather.location')}
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-[16px] text-[#1a1a1a]/60 font-medium leading-relaxed max-w-[280px] mb-10">
-              {predictionText}
+            <p className="text-[16px] text-[#1a1a1a]/60 font-medium leading-relaxed max-w-[280px] mb-10 text-pretty">
+              {t('weather.prediction.' + currentCondition.toLowerCase() + '0' + (new Date().getDate() % 3 + 1))}
             </p>
 
             {/* Spacer fills remaining space naturally */}
@@ -118,7 +127,7 @@ export default function WeatherStage() {
               onClick={() => setShowAllModal(true)}
               className="group flex items-center gap-2 text-[14px] font-black uppercase tracking-[0.2em] text-[#1a1a1a]/50 hover:text-[#1a1a1a] transition-colors mb-10"
             >
-              See All Recommendations
+              {t('weather.seeAll')}
               <FontAwesomeIcon
                 icon={faArrowRight}
                 className="text-[12px] group-hover:translate-x-1 transition-transform"
@@ -141,16 +150,21 @@ export default function WeatherStage() {
                 <>
                   {/* Image */}
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={rec.id}
-                      src={rec.imageUrl}
-                      alt={rec.name}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
+                      className="absolute inset-0 w-full h-full"
+                    >
+                      <ImageWithSkeleton
+                        src={rec.imageUrl}
+                        alt={rec.name}
+                        className="w-full h-full object-cover"
+                        wrapperClassName="w-full h-full"
+                      />
+                    </motion.div>
                   </AnimatePresence>
 
                   {/* Gradient Overlay */}
@@ -182,10 +196,10 @@ export default function WeatherStage() {
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                         </svg>
-                        Match for Today
+                        {t('weather.matchForToday')}
                       </span>
                       <span className="text-[14px] tracking-[0.2em] text-white/80 uppercase font-black">
-                        {rec.category}
+                        {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
                       </span>
                     </div>
 
@@ -206,7 +220,7 @@ export default function WeatherStage() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#1a1a1a] text-[14px] font-black uppercase tracking-[0.15em] rounded-full hover:bg-white/90 transition-all"
                         >
-                          View Details
+                          {t('weather.viewDetails')}
                           <FontAwesomeIcon icon={faArrowRight} className="text-[12px]" />
                         </a>
                         <a
@@ -231,19 +245,19 @@ export default function WeatherStage() {
                 <div className="flex items-center gap-10">
                   <div className="flex items-center gap-3">
                     <FontAwesomeIcon icon={faClock} className="text-[#1a1a1a]/25 text-base" />
-                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">Time to Go</span>
-                    <span className="text-[16px] font-bold text-[#1a1a1a]">{rec.idealTime.join(" / ")}</span>
+                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">{t('weather.timeToGo')}</span>
+                    <span className="text-[16px] font-bold text-[#1a1a1a]">{rec.idealTime.map((time: string) => t('weather.time.' + time.toLowerCase())).join(" / ")}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FontAwesomeIcon icon={faCloudSun} className="text-[#1a1a1a]/25 text-base" />
-                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">Best For</span>
-                    <span className="text-[16px] font-bold text-[#1a1a1a]">{rec.idealWeather}</span>
+                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">{t('weather.bestFor')}</span>
+                    <span className="text-[16px] font-bold text-[#1a1a1a]">{rec.idealWeather === 'Any' ? t('weather.any') : t('weather.condition.' + rec.idealWeather.toLowerCase())}</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FontAwesomeIcon icon={faUsers} className="text-[#1a1a1a]/25 text-base" />
-                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">Crowd Level</span>
+                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">{t('weather.crowdLevel')}</span>
                     <span className="text-[16px] font-bold text-[#1a1a1a]">
-                      {rec.popularity > 0.9 ? 'High' : rec.popularity > 0.8 ? 'Medium' : 'Low'}
+                      {rec.popularity > 0.9 ? t('weather.high') : rec.popularity > 0.8 ? t('weather.medium') : t('weather.low')}
                     </span>
                   </div>
                 </div>

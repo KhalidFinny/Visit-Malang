@@ -1,8 +1,10 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const TechEntrance: React.FC = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
@@ -15,19 +17,18 @@ const TechEntrance: React.FC = () => {
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-editorial text-6xl md:text-8xl text-[#0A0A0A] leading-[0.8] tracking-tighter uppercase mb-8"
+              className="text-editorial text-6xl md:text-8xl text-[#0A0A0A] leading-[0.8] tracking-tighter uppercase mb-8 text-balance"
             >
-              <span className="block">Sinergi Teknologi</span>
-              <span className="block">Malang Raya</span>
+              <span className="block">{t('tech.entrance.title')}</span>
             </motion.h2>
 
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-swiss text-[#0A0A0A]/60 leading-relaxed text-sm md:text-base max-w-lg"
+              className="text-swiss text-[#0A0A0A]/60 leading-relaxed text-sm md:text-base max-w-lg text-pretty"
             >
-              Sebuah simfoni antara pendidikan, kreativitas, dan teknologi yang tumbuh bersama di jantung Jawa Timur.
+              {t('tech.entrance.description')}
             </motion.p>
           </div>
 
@@ -39,7 +40,7 @@ const TechEntrance: React.FC = () => {
             <div className="relative group cursor-pointer" onClick={() => navigate("/modern-malang")}>
               <div className="absolute inset-0 bg-[#A3B18A] blur-3xl opacity-20 group-hover:opacity-40 transition-opacity" />
               <button className="relative px-12 py-6 bg-[#0A0A0A] text-white text-xs font-black uppercase tracking-[0.4em] rounded-full hover:bg-[#4A5759] transition-all duration-500 whitespace-nowrap shadow-xl">
-                Explore the Future
+                {t('tech.entrance.cta')}
               </button>
             </div>
           </motion.div>
