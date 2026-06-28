@@ -10,50 +10,102 @@ interface PlannerModalProps {
 
 export default function PlannerModal({ isOpen, onClose, children }: PlannerModalProps) {
   const { t } = useTranslation();
+
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (!isOpen) return;
+
+    // Prevent background scrolling on touch devices (iOS Safari etc)
+    const preventDefault = (e: TouchEvent) => {
+      const target = e.target as HTMLElement;
+      // Allow scroll only inside our designated scrollable container
+      const isInsideScrollable = target.closest(".modal-scrollable-content");
+      if (!isInsideScrollable) {
+        e.preventDefault();
+      }
+    };
+
+    // Capture original style states
+    const originalBodyStyle = document.body.style.cssText;
+    const originalHtmlStyle = document.documentElement.style.cssText;
+
+    // Force strict overflow locking on both root wrappers
+    document.body.style.setProperty("overflow", "hidden", "important");
+    document.documentElement.style.setProperty("overflow", "hidden", "important");
+    document.body.style.setProperty("position", "relative", "important");
+    document.body.style.setProperty("height", "100%", "important");
+
+    // Add scroll lock class helpers
+    document.body.classList.add("overflow-hidden");
+    document.documentElement.classList.add("overflow-hidden");
+
+    // Listen to touch events
+    window.addEventListener("touchmove", preventDefault, { passive: false });
+
+    return () => {
+      // Revert styles and classes
+      document.body.style.cssText = originalBodyStyle;
+      document.documentElement.style.cssText = originalHtmlStyle;
+      document.body.classList.remove("overflow-hidden");
+      document.documentElement.classList.remove("overflow-hidden");
+      window.removeEventListener("touchmove", preventDefault);
+    };
   }, [isOpen]);
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          key="planner-modal"
+          key="planner-modal-overlay"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[200] flex items-center justify-center p-6 md:p-10"
+          transition={{ duration: 0.25 }}
+          className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center"
         >
-          <div className="absolute inset-0 bg-[#1a1a1a]/40 backdrop-blur-sm" onClick={onClose} />
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-md"
+            onClick={onClose}
+          />
 
+          {/* Modal Card */}
           <motion.div
-            initial={{ scale: 0.97, opacity: 0, y: 12 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.97, opacity: 0, y: 12 }}
-            transition={{ type: "spring", damping: 28, stiffness: 300 }}
-            className="relative w-full max-w-[1400px] max-h-[92vh] bg-[#f5f4f0] border border-[#1a1a1a]/8 rounded-2xl flex flex-col overflow-hidden shadow-2xl"
+            initial={{ y: 40, opacity: 0, scale: 0.98 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 40, opacity: 0, scale: 0.98 }}
+            transition={{ type: "spring", damping: 32, stiffness: 320 }}
+            className="relative z-10 w-full sm:w-[92vw] md:w-[85vw] max-w-[960px] h-[92dvh] sm:h-auto sm:max-h-[88vh] bg-white rounded-t-3xl sm:rounded-3xl flex flex-col shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header bar */}
-            <div className="shrink-0 flex items-center justify-between px-8 py-5 bg-white border-b border-[#1a1a1a]/8">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-heritage-sage" />
-                <span className="font-sans text-[14px] font-bold uppercase tracking-[0.25em] text-[#1a1a1a]/60">
+            {/* Top Handle (mobile) */}
+            <div className="sm:hidden flex justify-center pt-3 pb-1 shrink-0">
+              <div className="w-10 h-1 rounded-full bg-black/15" />
+            </div>
+
+            {/* Header */}
+            <div className="shrink-0 flex items-center justify-between px-4 sm:px-8 py-4 sm:py-5 border-b border-black/[0.06]">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2 h-2 rounded-full bg-[#7a9e64] animate-pulse" />
+                <span className="text-sm font-semibold text-black/50 tracking-wide">
                   {t('planner.modal.regionalCounsel')}
                 </span>
               </div>
               <button
                 onClick={onClose}
-                className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#1a1a1a]/40 hover:text-[#1a1a1a] border border-[#1a1a1a]/10 hover:border-[#1a1a1a]/25 px-5 py-2.5 rounded-lg transition-all"
+                className="flex items-center justify-center w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 transition-colors cursor-pointer"
+                aria-label="Close"
               >
-                {t('planner.modal.close')}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
               </button>
             </div>
 
-            {/* Content */}
-            <div className="flex-1 overflow-y-auto scrollbar-transparent min-h-0">
+            {/* Scrollable Content Area */}
+            <div 
+              className="flex-1 overflow-y-auto min-h-0 modal-scrollable-content"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
               {children}
             </div>
           </motion.div>

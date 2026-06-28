@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { useBackgroundParallax } from "./hook/useBackgroundParallax";
 import type { FlightBackgroundProps } from "./types";
 
-export default function FlightBackground({
+const FlightBackground = memo(function FlightBackground({
   bgGolden,
   mousePos,
 }: FlightBackgroundProps) {
@@ -53,12 +54,6 @@ export default function FlightBackground({
               {/* Right Side: Mirrored Right-Half of the Image */}
               <div
                 className="w-1/2 h-full relative overflow-hidden ml-px"
-                style={{
-                  maskImage:
-                    "linear-gradient(to right, transparent 2%, black 15%)",
-                  WebkitMaskImage:
-                    "linear-gradient(to right, transparent 2%, black 15%)",
-                }}
               >
                 <img
                   src={bgGolden}
@@ -82,7 +77,7 @@ export default function FlightBackground({
               width: "450px",
               filter: "blur(1px)",
             }}
-            animate={{ x: ["110vw", "-110vw"] }}
+            animate={{ x: ["2200px", "-2200px"] }}
             transition={{
               duration: 0.8 + Math.random() * 0.5,
               repeat: Infinity,
@@ -94,4 +89,6 @@ export default function FlightBackground({
       </div>
     </div>
   );
-}
+});
+
+export default FlightBackground;

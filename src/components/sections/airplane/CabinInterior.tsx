@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { getWindowPath, getRimPath } from "./utils";
 import { useCabinParallax } from "./hook/useCabinParallax";
 import type { CabinInteriorProps } from "./types";
 
-export default function CabinInterior({
+const CabinInterior = memo(function CabinInterior({
   chairSilhouette,
   mousePos,
 }: CabinInteriorProps) {
@@ -84,44 +85,8 @@ export default function CabinInterior({
         </motion.div>
       </motion.div>
 
-      {/* 2. Foreground Chairs (Near-Field - Immersive Seating) */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          x: chairX,
-          y: chairY,
-          rotateY: chairTilt,
-          translateZ: 420,
-          scale: 1.25,
-        }}
-      >
-        <svg
-          className="w-full h-full overflow-visible"
-          viewBox="0 0 1920 1080"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          {/* Left Suite Chair */}
-          <image
-            href={chairSilhouette}
-            x="-1000"
-            y="-120"
-            width="3500"
-            height="3500"
-            opacity="1"
-            preserveAspectRatio="xMidYMid meet"
-          />
-          {/* Right Suite Chair */}
-          <image
-            href={chairSilhouette}
-            x="500"
-            y="-120"
-            width="3500"
-            height="3500"
-            opacity="1"
-            preserveAspectRatio="xMidYMid meet"
-          />
-        </svg>
-      </motion.div>
     </motion.div>
   );
-}
+});
+
+export default CabinInterior;

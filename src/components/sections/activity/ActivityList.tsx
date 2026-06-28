@@ -21,24 +21,24 @@ const ActivityList = () => {
     text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 
   return (
-    <section className="w-full min-h-screen bg-[#f5f4f0] text-black flex flex-col items-center justify-center px-10">
+    <section className="w-full min-h-screen bg-[#f5f4f0] text-black flex flex-col items-center justify-center px-4 sm:px-10 py-16">
       
-      <h1 className="text-[70px] font-black mb-16 tracking-tight text-balance">
+      <h1 className="text-4xl sm:text-6xl md:text-[70px] font-black mb-12 md:mb-16 tracking-tight text-center uppercase max-w-full text-balance leading-none">
         {t('activityList.title')}
       </h1>
 
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-5xl px-2 sm:px-0">
         {activities.map((item, index) => (
           <div
             key={index}
             onClick={() => navigate(`/activity/${toSlug(item)}`)}
-            className="flex justify-between items-center border-b border-black/40 py-6 cursor-pointer group"
+            className="flex justify-between items-center border-b border-black/40 py-5 cursor-pointer group gap-4"
           >
-            <h2 className="text-3xl font-extrabold uppercase group-hover:translate-x-2 transition text-safe">
+            <h2 className="text-xl sm:text-3xl font-extrabold uppercase group-hover:translate-x-2 transition text-safe leading-snug">
               {activityLabels[index]}
             </h2>
 
-            <span className="text-sm uppercase tracking-widest opacity-70 group-hover:opacity-100">
+            <span className="text-xs sm:text-sm uppercase tracking-widest opacity-70 group-hover:opacity-100 shrink-0 whitespace-nowrap">
               {t('activityList.viewMore')}
             </span>
           </div>

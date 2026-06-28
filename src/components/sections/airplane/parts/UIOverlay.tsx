@@ -1,11 +1,14 @@
+import { memo } from "react";
 import { useTranslation } from 'react-i18next';
 import { motion } from "framer-motion";
 import type { UIOverlayProps } from "../types";
 import { useUIOverlayState } from "../hook/useUIOverlayState";
 import { overlayTextContainer, overlayCharacter } from "../animations";
+import { useResponsiveScale } from "../../../hooks/useResponsiveScale";
 
-export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
+const UIOverlay = memo(function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
   const { t } = useTranslation();
+  const { isPhone } = useResponsiveScale();
   const {
     isHovered,
     setIsHovered,
@@ -41,7 +44,7 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
               x: driftX,
               y: driftY,
               fontFamily: '"Sue Ellen Francisco", cursive',
-              fontSize: "4rem",
+              fontSize: isPhone ? "clamp(2.6rem, 1.5rem + 2.5vw, 3.5rem)" : "4rem",
               fontWeight: "normal",
               letterSpacing: "0.2em",
               textShadow:
@@ -107,4 +110,6 @@ export default function UIOverlay({ onDescend, mousePos }: UIOverlayProps) {
       </button>
     </div>
   );
-}
+});
+
+export default UIOverlay;

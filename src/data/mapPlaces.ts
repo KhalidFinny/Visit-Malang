@@ -196,8 +196,8 @@ export const MAP_PLACES: MapPlace[] = [
     hook: "The quintessential black beef soup of East Java — authentic flavors famous for generations.",
     category: 'Culinary',
     imageUrl: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80&w=800',
-    coordinates: { lat: -7.7182, lng: 113.0817 },
-    googleMapsQuery: 'Rawon Nguling Probolinggo Jawa Timur',
+    coordinates: { lat: -7.9840, lng: 112.6305 },
+    googleMapsQuery: 'Rawon Nguling Kiduldalem Malang Jawa Timur',
   },
   {
     id: 'culinary_010',

@@ -131,8 +131,7 @@ export function generateAdvice(
   const totalRaw = (dailyBase * 3) / exchangeRate;
 
   const formatBudget = (val: number) => {
-    if (origin.code === 'IDR') return `IDR ${(val / 1000).toFixed(0)}k`;
-    return `${origin.code} ${val.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+    return `${origin.code} ${Math.round(val).toLocaleString('en-US')}`;
   };
 
   const suggestions: Record<BudgetTier, string> = {

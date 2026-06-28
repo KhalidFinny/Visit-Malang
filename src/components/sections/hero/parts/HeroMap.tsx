@@ -1,32 +1,61 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Map as LeafletMap, Marker } from 'leaflet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faMountain,
+  faLandmark,
+  faUtensils,
+  faCompass,
+  faInfoCircle,
+  faTimes,
+  faMap,
+} from '@fortawesome/free-solid-svg-icons';
 import MapCard from './MapCard';
-import TripPanel from './TripPanel';
 import { MAP_PLACES, CATEGORY_META, type MapCategory, type MapPlace } from '../../../../data/mapPlaces';
 import 'leaflet/dist/leaflet.css';
 
 const MALANG_CENTER: [number, number] = [-7.9666, 112.6326];
 
+const CATEGORY_ICONS: Record<MapCategory, any> = {
+  Nature:     faMountain,
+  Historical: faLandmark,
+  Culinary:   faUtensils,
+  Attraction: faCompass,
+};
+
+const CATEGORY_LOCALE_KEY: Record<MapCategory, string> = {
+  Nature:     "hero.categories.nature",
+  Historical: "hero.categories.heritage",
+  Culinary:   "hero.categories.culinary",
+  Attraction: "hero.categories.attractions",
+};
+
+// Inline SVG paths for Leaflet marker tags (instead of emojis)
+const MARKER_SVG_PATHS: Record<MapCategory, string> = {
+  Nature: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4.5px;"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>`,
+  Historical: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4.5px;"><line x1="2" y1="22" x2="22" y2="22"/><line x1="6" y1="8" x2="6" y2="18"/><line x1="10" y1="8" x2="10" y2="18"/><line x1="14" y1="8" x2="14" y2="18"/><line x1="18" y1="8" x2="18" y2="18"/><path d="M3 2c3-1 7-1 10 0 3 1 5 1 8 0v4c-3 1-5 1-8 0-3-1-7-1-10 0V2z"/></svg>`,
+  Culinary: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4.5px;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+  Attraction: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4.5px;"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
+};
+
 interface HeroMapProps {
   category: MapCategory;
+  onClose?: () => void;
 }
 
-export default function HeroMap({ category: initialCategory }: HeroMapProps) {
+export default function HeroMap({ category: initialCategory, onClose }: HeroMapProps) {
   const { t } = useTranslation();
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const markersRef = useRef<Marker[]>([]);
-  const hintTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [activeCategory] = useState<MapCategory>(initialCategory);
+  const [activeCategory, setActiveCategory] = useState<MapCategory>(initialCategory);
   const [selectedPlace, setSelectedPlace] = useState<MapPlace | null>(null);
-  const [showScrollHint, setShowScrollHint] = useState(false);
+  const [showControls, setShowControls] = useState(false);
+  const [mapReady, setMapReady] = useState(false);
 
-  const places = MAP_PLACES.filter((p) => p.category === activeCategory);
-  const meta = CATEGORY_META[activeCategory];
-
-  // Init map once
+  // Init map once with full zoom freedom
   useEffect(() => {
     if (mapRef.current || !mapContainerRef.current) return;
 
@@ -34,7 +63,6 @@ export default function HeroMap({ category: initialCategory }: HeroMapProps) {
 
     import('leaflet').then((L) => {
       if (cancelled || !mapContainerRef.current) return;
-      // Guard against Leaflet already having stamped this container (StrictMode)
       type LeafletEl = HTMLElement & { _leaflet_id?: number };
       if ((mapContainerRef.current as LeafletEl)._leaflet_id) return;
 
@@ -43,7 +71,12 @@ export default function HeroMap({ category: initialCategory }: HeroMapProps) {
         zoom: 13,
         zoomControl: false,
         attributionControl: false,
-        scrollWheelZoom: false,
+        scrollWheelZoom: true,
+        dragging: true,
+        touchZoom: true,
+        doubleClickZoom: true,
+        boxZoom: true,
+        keyboard: true,
       });
 
       L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -54,257 +87,210 @@ export default function HeroMap({ category: initialCategory }: HeroMapProps) {
       L.control.zoom({ position: 'bottomright' }).addTo(map);
 
       mapRef.current = map;
+      setMapReady(true);
+      setTimeout(() => map.invalidateSize(), 100);
     });
 
     return () => {
       cancelled = true;
       mapRef.current?.remove();
       mapRef.current = null;
+      setMapReady(false);
     };
   }, []);
 
-  // Re-draw markers whenever activeCategory changes
+  // Draw markers when map is ready OR active category changes
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current || !mapReady) return;
 
     import('leaflet').then((L) => {
-      // Clear old markers
       markersRef.current.forEach((m) => m.remove());
       markersRef.current = [];
 
       const filtered = MAP_PLACES.filter((p) => p.category === activeCategory);
       const activeMeta = CATEGORY_META[activeCategory];
+      const svgPath = MARKER_SVG_PATHS[activeCategory];
 
-      // Fit map to new category's places
       const coords = filtered.map((p) => [p.coordinates.lat, p.coordinates.lng] as [number, number]);
       if (coords.length > 0) {
-        mapRef.current!.fitBounds(L.latLngBounds(coords), { padding: [80, 80], maxZoom: 14 });
+        mapRef.current!.fitBounds(L.latLngBounds(coords), { padding: [60, 60], maxZoom: 14 });
       }
 
-      filtered.forEach((place) => {
+      filtered.forEach((place, idx) => {
         const icon = L.divIcon({
           className: '',
           html: `
-            <div style="
-              position: relative;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              cursor: pointer;
-            ">
+            <div 
+              class="custom-pin-wrapper"
+              style="
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                cursor: pointer;
+                animation: pinPop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+                animation-delay: ${idx * 40}ms;
+              "
+            >
               <div style="
                 background: ${activeMeta.color};
                 color: white;
-                border: 2.5px solid white;
-                border-radius: 10px;
-                padding: 5px 10px;
+                border: 2px solid white;
+                border-radius: 8px;
+                padding: 6px 12px;
                 font-size: 11px;
                 font-weight: 800;
                 font-family: 'Outfit', sans-serif;
                 white-space: nowrap;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.25);
                 display: flex;
                 align-items: center;
-                gap: 5px;
+                gap: 2px;
                 letter-spacing: 0.02em;
               ">
-                <span style="font-size:13px">${activeMeta.emoji}</span>
-                ${place.name}
+                ${svgPath}
+                ${t("hero.places." + place.id + ".name", place.name)}
               </div>
               <div style="
                 width: 0; height: 0;
-                border-left: 6px solid transparent;
-                border-right: 6px solid transparent;
-                border-top: 8px solid ${activeMeta.color};
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 6px solid ${activeMeta.color};
                 margin-top: -1px;
               "></div>
             </div>
           `,
-          iconAnchor: [0, 42],
+          iconAnchor: [0, 36],
           iconSize: [0, 0],
         });
 
         const marker = L.marker([place.coordinates.lat, place.coordinates.lng], { icon })
           .addTo(mapRef.current!);
 
-        marker.on('click', () => setSelectedPlace(place));
+        marker.on('click', () => {
+          setSelectedPlace(place);
+          mapRef.current?.flyTo(
+            [place.coordinates.lat, place.coordinates.lng],
+            15,
+            { animate: true, duration: 0.6 }
+          );
+        });
         markersRef.current.push(marker);
       });
     });
-  }, [activeCategory]);
-
-  // Ctrl+Scroll to zoom
-  const handleWheel = useCallback((e: WheelEvent) => {
-    if (!mapRef.current) return;
-    if (e.ctrlKey || e.metaKey) {
-      e.preventDefault();
-      e.stopPropagation();
-      mapRef.current.setZoom(mapRef.current.getZoom() + (e.deltaY < 0 ? 1 : -1), { animate: true });
-    } else {
-      setShowScrollHint(true);
-      if (hintTimerRef.current) clearTimeout(hintTimerRef.current);
-      hintTimerRef.current = setTimeout(() => setShowScrollHint(false), 1800);
-    }
-  }, []);
-
-  useEffect(() => {
-    const el = mapContainerRef.current;
-    if (!el) return;
-    el.addEventListener('wheel', handleWheel, { passive: false });
-    return () => el.removeEventListener('wheel', handleWheel);
-  }, [handleWheel]);
-
-  function focusPlace(place: MapPlace) {
-    setSelectedPlace(place);
-    mapRef.current?.flyTo([place.coordinates.lat, place.coordinates.lng], 15, {
-      animate: true,
-      duration: 0.8,
-    });
-  }
+  }, [activeCategory, mapReady]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#f0ebe3] flex">
-      {/* ── Side List Panel ──────────────────────────────────────────── */}
-      <motion.div
-        initial={{ x: -320, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ type: 'spring', damping: 30, stiffness: 280 }}
-        className="relative z-[300] w-72 shrink-0 bg-white border-r border-black/8 flex flex-col shadow-xl"
-      >
-        {/* Active category header */}
-        <div className="px-5 pt-5 pb-4 border-b border-black/6">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">{meta.emoji}</span>
-            <h3
-              className="text-[18px] font-black uppercase tracking-tight leading-none"
-              style={{ color: meta.color }}
-            >
-              {t('hero.categories.' + activeCategory.toLowerCase())}
-            </h3>
-            <span className="text-[14px] font-bold text-[#1a1a1a]/30 uppercase tracking-widest">
-              — {places.length} {t('hero.explorer.spots')}
-            </span>
-          </div>
+    <div className="relative w-full h-full overflow-hidden bg-[#f0ebe3] flex flex-col">
+      
+      {/* Dynamic Keyframes for Pins popping and hover scaling */}
+      <style>{`
+        @keyframes pinPop {
+          0% { opacity: 0; transform: scale(0.6) translateY(12px); }
+          100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .custom-pin-wrapper {
+          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+          transform-origin: bottom center;
+        }
+        .custom-pin-wrapper:hover {
+          transform: scale(1.08) translateY(-4px) !important;
+          z-index: 999999 !important;
+        }
+      `}</style>
+
+      {/* ── Top Header Controls Overlay ────────────────────────── */}
+      <div className="absolute top-4 inset-x-4 z-[600] flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between pointer-events-none">
+        
+        {/* Back Button (Highly Seeable, Solid Swiss layout, No arrow) */}
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="pointer-events-auto flex items-center justify-center px-6 py-3 bg-[#0A0A0A] border border-[#0A0A0A] text-white hover:bg-white hover:text-[#0A0A0A] rounded-xl text-xs font-black uppercase tracking-[0.16em] transition-all duration-300 cursor-pointer shadow-md select-none"
+          >
+            <span>{t('activityDetail.back')}</span>
+          </button>
+        )}
+
+        {/* Category Switcher Tabs inside Map */}
+        <div className="pointer-events-auto bg-[#f5f4f0] border border-premium-black/15 p-1.5 rounded-xl flex overflow-x-auto max-w-full gap-1 shadow-sm select-none scrollbar-none">
+          {(['Nature', 'Historical', 'Culinary', 'Attraction'] as MapCategory[]).map((cat) => {
+            const isActive = activeCategory === cat;
+            const meta = CATEGORY_META[cat];
+            return (
+              <button
+                key={cat}
+                onClick={() => {
+                  setActiveCategory(cat);
+                  setSelectedPlace(null);
+                }}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  isActive
+                    ? 'text-white'
+                    : 'text-premium-black/60 hover:text-premium-black'
+                }`}
+                style={{ backgroundColor: isActive ? meta.color : 'transparent' }}
+              >
+                <FontAwesomeIcon icon={CATEGORY_ICONS[cat]} className="text-[10px]" />
+                <span>{t(CATEGORY_LOCALE_KEY[cat])}</span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Place list */}
-        <div className="flex-1 overflow-y-auto">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.18 }}
-            >
-              {places.map((place, i) => {
-                const isSelected = selectedPlace?.id === place.id;
-                return (
-                  <button
-                    key={place.id}
-                    onClick={() => focusPlace(place)}
-                    className={`relative w-full text-left px-5 py-4 border-b border-black/5 transition-all group ${
-                      isSelected ? 'bg-[#fafafa]' : 'hover:bg-[#fafafa]'
-                    }`}
-                  >
-                    {/* Active indicator */}
-                    {isSelected && (
-                      <div
-                        className="absolute left-0 top-0 bottom-0 w-0.5"
-                        style={{ backgroundColor: meta.color }}
-                      />
-                    )}
-                    <div className="flex items-start gap-3">
-                      <span
-                        className="text-xs font-black shrink-0 mt-0.5"
-                        style={{ color: isSelected ? meta.color : 'rgba(0,0,0,0.2)' }}
-                      >
-                        0{i + 1}
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <p
-                          className={`text-sm font-black uppercase tracking-tight leading-tight mb-1 transition-colors ${
-                            isSelected
-                              ? 'text-premium-black'
-                              : 'text-premium-black/70 group-hover:text-premium-black'
-                          }`}
-                        >
-                          {place.name}
-                        </p>
-                        <p className="text-[11px] text-premium-black/40 font-medium leading-relaxed line-clamp-2">
-                          {place.hook}
-                        </p>
-                      </div>
+        {/* Spacer for layout balance */}
+        <div className="hidden md:block w-28" />
+      </div>
+
+      {/* ── Leaflet Map Viewport (Spans 100% space) ─────────────── */}
+      <div ref={mapContainerRef} className="absolute inset-0 z-0" />
+
+      {/* ── Beautiful Split-Card Place Overlay ─────────────────── */}
+      <div className="absolute inset-0 z-[500] pointer-events-none">
+        <MapCard place={selectedPlace} onClose={() => setSelectedPlace(null)} />
+      </div>
+
+      {/* ── Toggleable Map Guide/Controls Legend ────────────────── */}
+      <div className="absolute bottom-6 left-6 z-[200] pointer-events-auto">
+        <div className="relative">
+          {/* Toggle Button */}
+          <button
+            onClick={() => setShowControls((prev) => !prev)}
+            className="flex items-center gap-2 px-3.5 py-2.5 bg-[#f5f4f0] border border-premium-black/15 text-premium-black/75 hover:text-premium-black rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-sm select-none"
+          >
+            <FontAwesomeIcon icon={showControls ? faTimes : faInfoCircle} />
+            <span>{showControls ? t('planner.modal.close') : t('hero.map.controls')}</span>
+          </button>
+
+          {/* Collapsible Panel */}
+          <AnimatePresence>
+            {showControls && (
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                transition={{ duration: 0.18 }}
+                className="absolute bottom-full mb-3 left-0 bg-[#f5f4f0] border border-premium-black/15 p-4 rounded-xl flex flex-col gap-2.5 min-w-[210px] shadow-md select-none text-left"
+              >
+                <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-premium-black/40 mb-1">
+                  {t('hero.map.controls')}
+                </h4>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 flex items-center justify-center bg-black/5 border border-black/5 rounded text-[10px]">
+                      <FontAwesomeIcon icon={faMap} className="text-premium-black/50 text-[10px]" />
                     </div>
-                  </button>
-                );
-              })}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Trip panel at bottom */}
-        <div className="shrink-0 px-5 py-4 border-t border-black/6">
-          <TripPanel inline />
-        </div>
-      </motion.div>
-
-      {/* ── Map ─────────────────────────────────────────────────────── */}
-      <div className="relative flex-1 min-w-0">
-        {/* Ctrl+Scroll hint */}
-        <AnimatePresence>
-          {showScrollHint && (
-            <motion.div
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 4 }}
-              transition={{ duration: 0.2 }}
-              className="absolute bottom-24 left-1/2 -translate-x-1/2 z-[200] pointer-events-none"
-            >
-              <div className="flex items-center gap-2 bg-premium-black/85 backdrop-blur-sm text-white text-[11px] font-bold uppercase tracking-widest px-5 py-2.5 rounded-full shadow-lg whitespace-nowrap">
-                <kbd className="bg-white/20 text-white text-[10px] font-black px-1.5 py-0.5 rounded">Ctrl</kbd>
-                <span className="text-white/60">+</span>
-                <span>{t('hero.map.scrollToZoom')}</span>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <div ref={mapContainerRef} className="absolute inset-0 z-0" />
-
-        {/* Map card overlay */}
-        <div className="absolute inset-0 z-[500] pointer-events-none">
-          <MapCard place={selectedPlace} onClose={() => setSelectedPlace(null)} />
-        </div>
-
-        {/* ── Map Legend ────────────────────────────────────────────── */}
-        <div className="absolute bottom-6 left-6 z-[200] pointer-events-auto">
-          <div className="bg-white/80 backdrop-blur-md border border-black/5 p-4 rounded-2xl shadow-xl flex flex-col gap-3">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-premium-black/40 mb-1">
-              {t('hero.map.controls')}
-            </h4>
-            
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center bg-black/5 rounded text-[10px]">👆</div>
-                <span className="text-[11px] font-bold text-premium-black/70">{t('hero.map.clickMarker')}</span>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-5 h-5 flex items-center justify-center bg-black/5 rounded text-[10px]">🖐️</div>
-                <span className="text-[11px] font-bold text-premium-black/70">{t('hero.map.drag')}</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1 bg-black/5 px-1.5 py-1 rounded">
-                  <kbd className="text-[9px] font-black text-premium-black/50">CTRL</kbd>
-                  <span className="text-[9px] font-bold text-premium-black/30">+</span>
-                  <span className="text-[9px] font-bold text-premium-black/50">SCROLL</span>
+                    <span className="text-[11px] font-bold text-premium-black/70">{t('hero.map.clickMarker')}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 flex items-center justify-center bg-black/5 border border-black/5 rounded text-[10px]">
+                      <FontAwesomeIcon icon={faCompass} className="text-premium-black/50 text-[10px]" />
+                    </div>
+                    <span className="text-[11px] font-bold text-premium-black/70">{t('hero.map.drag')}</span>
+                  </div>
                 </div>
-                <span className="text-[11px] font-bold text-premium-black/70">{t('hero.map.zoom')}</span>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

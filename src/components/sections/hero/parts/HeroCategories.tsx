@@ -1,101 +1,84 @@
-import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { CATEGORY_META, MAP_PLACES, type MapCategory } from '../../../../data/mapPlaces';
-import { ImageWithSkeleton } from '../../../shared/Skeleton';
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMountain,
+  faLandmark,
+  faUtensils,
+  faCompass,
+  faArrowUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
+import type { MapCategory } from "../../../../data/mapPlaces";
 
-const CATEGORIES: MapCategory[] = ['Nature', 'Culinary', 'Attraction', 'Historical'];
+const CATEGORIES: MapCategory[] = ["Nature", "Historical", "Culinary", "Attraction"];
 
 const CATEGORY_LOCALE_KEY: Record<MapCategory, string> = {
-  Nature:     'hero.categories.nature',
-  Culinary:   'hero.categories.culinary',
-  Attraction: 'hero.categories.attractions',
-  Historical: 'hero.categories.heritage',
+  Nature:     "hero.categories.nature",
+  Historical: "hero.categories.heritage",
+  Culinary:   "hero.categories.culinary",
+  Attraction: "hero.categories.attractions",
 };
 
-const CATEGORY_BG: Record<MapCategory, string> = {
-  Nature:     'https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=70&w=800&auto=format&fit=crop',
-  Culinary:   'https://images.unsplash.com/photo-1547928576-a4a33237ecd3?q=70&w=800&auto=format&fit=crop',
-  Attraction: 'https://images.unsplash.com/photo-1518151246473-fd677e497d39?q=70&w=800&auto=format&fit=crop',
-  Historical: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=70&w=800&auto=format&fit=crop',
+const CATEGORY_ICONS: Record<MapCategory, any> = {
+  Nature:     faMountain,
+  Historical: faLandmark,
+  Culinary:   faUtensils,
+  Attraction: faCompass,
 };
 
-interface HeroCategoriesProps {
-  onSelect: (cat: MapCategory) => void;
-}
+// Clean blackish brown theme colors
+const THEME_BROWN = "text-[#2D221F]";
+const BORDER_BROWN = "border-[#2D221F]/15 hover:border-[#2D221F]/30";
 
 export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
   const { t } = useTranslation();
+
   return (
-    <div className="relative w-full h-screen bg-[#f5f4f0] flex flex-col overflow-hidden">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="shrink-0 px-10 md:px-16 pt-16 pb-10 z-10"
-      >
-        <div className="max-w-[1400px] mx-auto">
-          <p className="text-[14px] font-black uppercase tracking-[0.5em] text-[#1a1a1a]/40 mb-3">
-            {t('hero.explorer.label')}
-          </p>
-          <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-black text-[#1a1a1a] uppercase tracking-tight leading-none text-balance">
-            {t('hero.explorer.titleLine1')}<br />
-            {t('hero.explorer.titleLine2')}
-          </h2>
-        </div>
-      </motion.div>
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 w-full">
+      {CATEGORIES.map((cat, i) => (
+        <motion.button
+          key={cat}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.07 * i, ease: "easeOut" }}
+          onClick={() => onSelect(cat)}
+          className={`group relative bg-transparent hover:bg-[#2D221F]/[0.03] rounded-2xl overflow-hidden cursor-pointer text-left w-full h-[160px] md:h-[190px] lg:h-[220px] hover:-translate-y-1 border ${BORDER_BROWN} transition-all duration-300`}
+        >
+          {/* Giant background icon */}
+          <FontAwesomeIcon
+            icon={CATEGORY_ICONS[cat]}
+            className={`absolute -right-6 -bottom-10 text-[120px] md:text-[160px] opacity-[0.03] ${THEME_BROWN} pointer-events-none select-none transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3 group-hover:opacity-[0.06]`}
+          />
 
-      {/* Category grid */}
-      <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 min-h-0 px-10 md:px-16 pb-16 gap-4">
-        {CATEGORIES.map((cat, i) => {
-          const meta = CATEGORY_META[cat];
-          const count = MAP_PLACES.filter((p) => p.category === cat).length;
-
-          return (
-            <motion.button
-              key={cat}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              onClick={() => onSelect(cat)}
-              className="group relative overflow-hidden rounded-3xl text-left"
-            >
-              {/* Full background image */}
-              <div className="absolute inset-0">
-                <ImageWithSkeleton
-                  src={CATEGORY_BG[cat]}
-                  alt={cat}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  wrapperClassName="w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent z-10" />
-              </div>
-
-              {/* Bottom accent line */}
-              <div
-                className="absolute bottom-0 inset-x-0 h-1 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                style={{ backgroundColor: meta.color }}
+          {/* Content */}
+          <div className="relative z-10 h-full flex flex-col justify-between p-5 md:p-8">
+            {/* Top: small icon badge */}
+            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center bg-transparent border ${BORDER_BROWN} transition-colors duration-300 group-hover:bg-[#2D221F]/5`}>
+              <FontAwesomeIcon
+                icon={CATEGORY_ICONS[cat]}
+                className={`text-lg ${THEME_BROWN}`}
               />
+            </div>
 
-              {/* Text content */}
-              <div className="relative z-20 flex flex-col justify-end h-full px-7 pb-10 pt-8">
-                <div className="mt-auto">
-                  <span className="text-4xl md:text-5xl mb-4 block">{meta.emoji}</span>
-                  <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-none mb-2 text-balance">
-                    {t(CATEGORY_LOCALE_KEY[cat])}
-                  </h3>
-                  <p className="text-[14px] font-bold uppercase tracking-widest text-white/50 mb-5">
-                    {count} {t('hero.explorer.spots')}
-                  </p>
-                  <span className="text-[14px] font-black uppercase tracking-[0.3em] text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                    {t('hero.explorer.explore')}
-                  </span>
-                </div>
+            {/* Bottom: text + arrow */}
+            <div className="flex items-end justify-between w-full">
+              <h3 className={`text-base md:text-xl lg:text-2xl font-bold tracking-tight leading-tight ${THEME_BROWN}`}>
+                {t(CATEGORY_LOCALE_KEY[cat])}
+              </h3>
+              <div className={`w-10 h-10 rounded-full bg-transparent border ${BORDER_BROWN} flex items-center justify-center group-hover:bg-[#2D221F]/10 transition-all duration-200 shrink-0 ml-3`}>
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className={`text-sm ${THEME_BROWN} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200`}
+                />
               </div>
-            </motion.button>
-          );
-        })}
-      </div>
+            </div>
+          </div>
+        </motion.button>
+      ))}
     </div>
   );
+}
+
+interface HeroCategoriesProps {
+  onSelect: (cat: MapCategory) => void;
 }

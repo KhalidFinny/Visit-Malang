@@ -1,102 +1,177 @@
-import { useState, lazy, Suspense, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { AnimatePresence, motion } from 'framer-motion';
-import HeroIntro from './parts/HeroIntro';
-import HeroCategories from './parts/HeroCategories';
-import type { MapCategory } from '../../../data/mapPlaces';
+import { useState, useEffect, lazy, Suspense } from "react";
+import { useTranslation } from "react-i18next";
+import { AnimatePresence, motion } from "framer-motion";
+import type { MapCategory } from "../../../data/mapPlaces";
+import HeroCategories from "./parts/HeroCategories";
+import { useWeather } from "../weather/hooks/useWeather";
+import { getWeatherFromCode } from "../weather/utils";
 
-const HeroMap = lazy(() => import('./parts/HeroMap'));
+const HeroMap = lazy(() => import("./parts/HeroMap"));
 
-/** Preload these images so the category page feels instant */
-const CATEGORY_BG_URLS = [
-  'https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=70&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1547928576-a4a33237ecd3?q=70&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1518151246473-fd677e497d39?q=70&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=70&w=800&auto=format&fit=crop',
-];
-
-type HeroState = 'intro' | 'categories' | 'map';
+function GeometricPattern() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.03]">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <circle cx="30" cy="30" r="1.5" fill="#1a1a1a" />
+          </pattern>
+          <pattern id="diagonal" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="40" stroke="#1a1a1a" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+        <rect width="100%" height="100%" fill="url(#diagonal)" opacity="0.5" />
+      </svg>
+    </div>
+  );
+}
 
 export default function HeroStage() {
   const { t } = useTranslation();
-  const [state, setState] = useState<HeroState>('intro');
-  const [selectedCategory, setSelectedCategory] = useState<MapCategory>('Nature');
+  const [mapOpen, setMapOpen] = useState(false);
+  const [mapCategory, setMapCategory] = useState<MapCategory>("Nature");
+  const [currentTime, setCurrentTime] = useState("");
 
-  function handleExplore() {
-    setState('categories');
-  }
+  const { data: weatherData } = useWeather();
 
-  function handleScrollDown() {
-    // Scroll to next section (Heritage)
-    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-  }
+  // Clock format matching local Malang time (WIB, UTC+7)
+  useEffect(() => {
+    const updateClock = () => {
+      const timeStr = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Jakarta",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      }).format(new Date());
+      setCurrentTime(timeStr);
+    };
+
+    updateClock();
+    const interval = setInterval(updateClock, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   function handleCategorySelect(cat: MapCategory) {
-    setSelectedCategory(cat);
-    setState('map');
+    setMapCategory(cat);
+    setMapOpen(true);
   }
 
-  // Warm up the category background images while the intro is on screen
-  useEffect(() => {
-    if (state !== 'intro') return;
-    const imgs = CATEGORY_BG_URLS.map((url) => {
-      const img = new Image();
-      img.src = url;
-      return img;
-    });
-  }, [state]);
-
   return (
-    <section className="relative w-full">
-      <AnimatePresence mode="wait">
-        {state === 'intro' && (
-          <motion.div
-            key="intro"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <HeroIntro
-              onExplore={handleExplore}
-              onScrollDown={handleScrollDown}
-            />
-          </motion.div>
-        )}
+    <section className="relative w-full bg-[#f5f4f0] flex flex-col overflow-visible">
 
-        {state === 'categories' && (
-          <motion.div
-            key="categories"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <HeroCategories onSelect={handleCategorySelect} />
-          </motion.div>
-        )}
+      {/* ── Banner ─────────────────────────────────────────── */}
+      <div className="relative w-full h-[58vh] min-h-[460px] md:h-[70vh] md:min-h-[560px] flex-shrink-0 overflow-visible">
+        {/* Video + overlay */}
+        <div className="absolute inset-0 rounded-b-[2rem] md:rounded-b-[3.5rem] overflow-hidden">
+          <video
+            src="/malang.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/65" />
+        </div>
 
-        {state === 'map' && (
-          <motion.div
-            key="map"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-screen"
-          >
-            <Suspense
-              fallback={
-                <div className="w-full h-screen bg-[#f5f4f0] flex items-center justify-center">
-                  <span className="text-[#1a1a1a]/30 text-[14px] font-bold uppercase tracking-widest animate-pulse">
-                    {t('app.loadingMap')}
-                  </span>
-                </div>
-              }
+        {/* Live Weather + Time Widget in top-left banner */}
+        <div className="absolute left-6 md:left-12 lg:left-16 top-6 md:top-8 z-20 flex items-center gap-4 text-white/95 font-mono text-sm tracking-wider select-none">
+          <div className="flex flex-col">
+            <span className="text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
+            <span className="font-semibold text-white mt-1.5">{currentTime || "--:--:--"} WIB</span>
+          </div>
+          <div className="h-6 w-px bg-white/20" />
+          {weatherData && (
+            <div className="flex flex-col">
+              <span className="text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.malangWeather")}</span>
+              <span className="font-semibold text-white mt-1.5">
+                {Math.round(weatherData.temp)}°C · {getWeatherFromCode(weatherData.weatherCode)}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Title block — centered vertically in the banner */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white gap-0">
+          {/* Eyebrow */}
+          <span className="text-xs md:text-sm font-bold tracking-[0.65em] text-white/60 uppercase mb-4">
+            {t("hero.custom.discover")}
+          </span>
+
+          {/* MALANG — inline split: MA outlined, LANG solid */}
+          <h1 className="text-editorial text-[clamp(6.5rem,15vw,14rem)] leading-none tracking-wide uppercase select-none relative font-black">
+            <span
+              className="text-transparent"
+              style={{ WebkitTextStroke: "clamp(2px, 0.25vw, 4px) white" }}
             >
-              <HeroMap
-                category={selectedCategory}
-              />
-            </Suspense>
+              Ma
+            </span>
+            <span className="text-white">lang</span>
+            {/* Script accent — overlapping slightly for classic Swiss editorial look */}
+            <span className="font-script text-[clamp(3.5rem,7.5vw,6.5rem)] text-[#D88A6E] absolute bottom-[-0.15em] right-[8%] -rotate-6 select-none pointer-events-none z-20 normal-case tracking-normal">
+              timeless
+            </span>
+          </h1>
+
+          {/* Divider + slogan */}
+          <div className="w-10 h-px bg-white/30 my-4" />
+          <p className="text-[clamp(13px,1.4vw,18px)] text-white/80 font-light tracking-[0.32em] uppercase">
+            {t("hero.custom.slogan")}
+          </p>
+        </div>
+      </div>
+
+      {/* ── Consolidated Hero Console Dock — 40% overlap, 90% centered ─────── */}
+      <div className="relative z-20 w-full -mt-[110px] md:-mt-[135px] px-4 md:px-8">
+        <div className="w-full max-w-[1400px] mx-auto bg-[#f5f4f0] rounded-xl border border-premium-black/[0.06] relative overflow-hidden">
+          {/* Subtle background dot grid pattern for extra texture */}
+          <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#1c1c1c_1px,transparent_1px)] [background-size:16px_16px]" />
+          
+          <div className="px-6 md:px-12 lg:px-16 py-8 md:py-12 lg:py-14 relative z-10">
+            <HeroCategories onSelect={handleCategorySelect} />
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom spacer with geometric texture */}
+      <div className="relative w-full pb-8 pt-4">
+        <GeometricPattern />
+      </div>
+
+      {/* ── Map modal ──────────────────────────────────────── */}
+      <AnimatePresence>
+        {mapOpen && (
+          <motion.div
+            key="map-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[9998] bg-black/40"
+            onClick={() => setMapOpen(false)}
+          >
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 300 }}
+              className="absolute bottom-0 inset-x-0 top-0 bg-[#f0ebe3] overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Suspense
+                fallback={
+                  <div className="w-full h-full bg-[#f5f4f0] flex items-center justify-center">
+                    <span className="text-[#1a1a1a]/30 text-[14px] font-bold uppercase tracking-widest animate-pulse">
+                      {t("app.loading")}
+                    </span>
+                  </div>
+                }
+              >
+                <HeroMap category={mapCategory} onClose={() => setMapOpen(false)} />
+              </Suspense>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

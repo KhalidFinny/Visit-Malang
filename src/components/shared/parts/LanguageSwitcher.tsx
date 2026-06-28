@@ -44,11 +44,10 @@ export default function LanguageSwitcher() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-xl text-[13px] font-semibold tracking-wide
-          bg-white/70 backdrop-blur-md border border-black/8
-          text-[#1a1a1a]/60 hover:text-[#1a1a1a] hover:bg-white/90
-          shadow-sm hover:shadow-md
-          transition-all duration-200 ease-out"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] font-semibold tracking-wide
+          bg-white border border-black/10
+          text-[#1a1a1a]/60 hover:text-[#1a1a1a] hover:bg-black/[0.03]
+          transition-colors duration-150"
       >
         <span className="text-[11px] font-bold tracking-wider">{currentLang.label}</span>
         <svg
@@ -61,9 +60,8 @@ export default function LanguageSwitcher() {
 
       {isOpen && (
         <div
-          className="absolute top-full right-0 mt-2 py-2 w-48 rounded-2xl
-            bg-white/90 backdrop-blur-xl border border-black/8
-            shadow-xl shadow-black/5
+          className="absolute top-full right-0 mt-2 py-2 w-48 max-w-[calc(100vw-32px)] rounded-xl
+            bg-white border border-black/10
             overflow-hidden z-[9999]"
         >
           {LANGUAGES.map((lang) => {
