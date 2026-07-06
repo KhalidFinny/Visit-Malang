@@ -77,16 +77,16 @@ export default function HeroStage() {
         </div>
 
         {/* Live Weather + Time Widget in top-left banner */}
-        <div className="absolute left-6 md:left-12 lg:left-16 top-6 md:top-8 z-20 flex items-center gap-4 text-white/95 font-mono text-sm tracking-wider select-none">
+        <div className="absolute left-4 top-4 sm:left-6 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-[11px] sm:text-sm tracking-wider select-none">
           <div className="flex flex-col">
-            <span className="text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
-            <span className="font-semibold text-white mt-1.5">{currentTime || "--:--:--"} WIB</span>
+            <span className="text-[9px] sm:text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
+            <span className="font-semibold text-white mt-1 text-[10px] sm:text-xs md:text-sm">{currentTime || "--:--:--"} WIB</span>
           </div>
-          <div className="h-6 w-px bg-white/20" />
+          <div className="h-5 sm:h-6 w-px bg-white/20" />
           {weatherData && (
             <div className="flex flex-col">
-              <span className="text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.malangWeather")}</span>
-              <span className="font-semibold text-white mt-1.5">
+              <span className="text-[9px] sm:text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.malangWeather")}</span>
+              <span className="font-semibold text-white mt-1 text-[10px] sm:text-xs md:text-sm">
                 {Math.round(weatherData.temp)}°C · {getWeatherFromCode(weatherData.weatherCode)}
               </span>
             </div>

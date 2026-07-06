@@ -2,15 +2,12 @@ import React from "react";
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
 
-type CardProps = {
-  title: string;
-  description: string;
-};
+import type { HistoryCardProps } from "./types";
 
 const toSlug = (text: string) =>
   text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 
-const Card: React.FC<CardProps> = ({ title, description }) => {
+const Card: React.FC<HistoryCardProps> = ({ title, description }) => {
   const navigate = useNavigate();
 
   return (
@@ -47,7 +44,7 @@ const Card: React.FC<CardProps> = ({ title, description }) => {
 
 const HistoryList: React.FC = () => {
   const { t } = useTranslation();
-  const data: CardProps[] = Array.from({ length: 6 }, (_, i) => ({
+  const data: HistoryCardProps[] = Array.from({ length: 6 }, (_, i) => ({
     title: t(`history.card${String(i + 1).padStart(2, '0')}.title`),
     description: t(`history.card${String(i + 1).padStart(2, '0')}.desc`),
   }));

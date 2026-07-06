@@ -1,17 +1,10 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import type { SkeletonProps, ImageWithSkeletonProps } from "./types";
 
 /* ─────────────────────────────────────────────
  * Generic Skeleton Placeholder
  * ───────────────────────────────────────────── */
-interface SkeletonProps {
-  className?: string;
-  /** Aspect ratio width (e.g. 16 for 16/9). Omit for auto */
-  aspectW?: number;
-  /** Aspect ratio height (e.g. 9 for 16/9) */
-  aspectH?: number;
-  rounded?: string;
-}
 
 export function Skeleton({
   className = "",
@@ -41,18 +34,14 @@ export function Skeleton({
 /* ─────────────────────────────────────────────
  * Image With Skeleton — shows shimmer while img loads
  * ───────────────────────────────────────────── */
-interface ImageWithSkeletonProps {
-  src: string;
-  alt: string;
-  className?: string;
-  wrapperClassName?: string;
-}
 
 export function ImageWithSkeleton({
   src,
   alt,
   className = "",
   wrapperClassName = "",
+  loading = "lazy",
+  fetchPriority = "auto",
 }: ImageWithSkeletonProps) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -95,7 +84,9 @@ export function ImageWithSkeleton({
         className={`transition-opacity duration-500 ${className} ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
-        loading="lazy"
+        loading={loading}
+        fetchPriority={fetchPriority}
+        decoding="async"
         onLoad={handleLoad}
         onError={() => {
           setError(true);

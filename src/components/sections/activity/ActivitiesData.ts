@@ -1,39 +1,4 @@
-type Activity = {
-  title: string;
-  desc: string;
-};
-
-type BestTime = {
-  icon: string;
-  badge: string;
-  label: string;
-  value: string;
-  color: string;
-  intensity: string;
-};
-
-type Coordinates = {
-  lat: number;
-  lng: number;
-};
-
-type Place = {
-  title: string;
-  description: string;
-  heroImage: string;
-  thingsToDo: Activity[];
-  tips: string[];
-  bestTime: BestTime[];
-  location: Coordinates;
-  story: string;
-  gallery: string[];
-};
-
-type Category = {
-  title: string;
-  description: string;
-  places: Place[];
-};
+import type { Category } from "./types";
 
 export const activitiesData: Record<string, Category> = {
   "nature-seeker": {

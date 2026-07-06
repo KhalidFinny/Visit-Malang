@@ -2,11 +2,7 @@ import React from "react";
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from "react-router-dom";
 
-type HistoryData = {
-  title: string;
-  description: string;
-  content: string;
-};
+import type { HistoryData } from "./types";
 
 const storySlugs: Record<string, string> = {
   "the-hidden-story-behind-colorful-village": "story01",

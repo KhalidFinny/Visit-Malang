@@ -1,18 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import type { BudgetTier, EconomyOrigin } from '../types';
+import type { PlannerInputsProps, BudgetTier } from '../types';
 import { ECONOMIES } from '../utils/PlannerLogic';
-
-interface Props {
-  budget: BudgetTier;
-  setBudget: (b: BudgetTier) => void;
-  origin: EconomyOrigin;
-  setOrigin: (o: EconomyOrigin) => void;
-  selectedMonth?: number;
-  setSelectedMonth?: (m: number) => void;
-  monthsList?: string[];
-  compact?: boolean;
-  step?: number;
-}
 
 const MONTH_SHORT_KEYS = [
   'months.short.jan', 'months.short.feb', 'months.short.mar', 'months.short.apr',
@@ -56,7 +44,7 @@ export default function PlannerInputs({
   selectedMonth, setSelectedMonth,
   compact = false,
   step = 1,
-}: Props) {
+}: PlannerInputsProps) {
   const { t } = useTranslation();
 
   /* ── Compact inline strip (results footer) ── */

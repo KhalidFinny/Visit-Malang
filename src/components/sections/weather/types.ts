@@ -31,3 +31,25 @@ export interface ForecastItem {
   temp: number;
   icon: IconDefinition;
 }
+
+export interface WeatherForecast {
+  time: string;
+  temp: number;
+  weatherCode: number;
+}
+
+export interface WeatherData {
+  temp: number;
+  weatherCode: number;
+  humidity: number;
+  windSpeed: number;
+  forecastCode: number; // +2h forecast
+  cityName: string;
+  hourly: WeatherForecast[];
+}
+
+export interface RecommendationsModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  recommendations: Recommendation[];
+}

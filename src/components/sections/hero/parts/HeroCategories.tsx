@@ -9,6 +9,7 @@ import {
   faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import type { MapCategory } from "../../../../data/mapPlaces";
+import type { HeroCategoriesProps } from "../types";
 
 const CATEGORIES: MapCategory[] = ["Nature", "Historical", "Culinary", "Attraction"];
 
@@ -79,6 +80,3 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
   );
 }
 
-interface HeroCategoriesProps {
-  onSelect: (cat: MapCategory) => void;
-}

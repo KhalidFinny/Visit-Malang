@@ -1,17 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
-import { faXmark, faMapLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faMapLocationDot, faMountain, faSun, faCloudRain, faCloud } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import type { Recommendation } from "../types";
-import { ImageWithSkeleton } from "../../../shared/Skeleton";
+import type { RecommendationsModalProps } from "../types";
 import { useResponsiveScale } from "../../../hooks/useResponsiveScale";
-
-interface RecommendationsModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  recommendations: Recommendation[];
-}
+import { ImageWithSkeleton } from "../../../shared/Skeleton";
+import { useScrollLock } from "../../../hooks/useScrollLock";
 
 function getGoogleMapsSearchUrl(name: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ' Malang Indonesia')}`;
@@ -24,17 +19,21 @@ export default function RecommendationsModal({
 }: RecommendationsModalProps) {
   const { t } = useTranslation();
   const { isPhone } = useResponsiveScale();
+  const [altitudes, setAltitudes] = useState<any[]>([]);
 
-  // Lock body scroll when modal is open
+  useScrollLock(isOpen);
+
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+      fetch("/api/altitudes")
+        .then((res) => res.json())
+        .then((data) => {
+          if (Array.isArray(data)) {
+            setAltitudes(data);
+          }
+        })
+        .catch((err) => console.error("Error fetching altitudes:", err));
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [isOpen]);
 
   return (
@@ -103,81 +102,110 @@ export default function RecommendationsModal({
             </div>
 
             {/* List */}
-            <div className="flex-1 overflow-y-auto scrollbar-transparent">
-              <div className={`${isPhone ? 'p-4' : 'p-6 md:p-8'}`}>
+            <div data-lenis-prevent="true" className="flex-1 overflow-y-auto [overscroll-behavior:contain] scrollbar-transparent">
                 <div className={`${isPhone ? 'flex flex-col gap-3' : 'grid grid-cols-1 md:grid-cols-2 gap-4'}`}>
-                  {recommendations.map((rec, i) => (
-                    <motion.div
-                      key={rec.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.05, duration: 0.3 }}
-                      className={`group flex gap-3 border border-black/6 hover:border-black/12 hover:bg-black/[0.02] transition-all ${
-                        isPhone ? 'p-3 rounded-xl' : 'p-4 rounded-2xl'
-                      }`}
-                    >
-                      {/* Thumbnail */}
-                      <div className={`shrink-0 rounded-xl overflow-hidden ${
-                        isPhone ? 'w-20 h-20' : 'w-24 h-24'
-                      }`}>
-                        <ImageWithSkeleton
-                          src={rec.imageUrl}
-                          alt={rec.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          wrapperClassName="w-full h-full"
-                        />
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-1 min-w-0 flex flex-col justify-between">
-                        <div>
-                          <div className={`flex items-center gap-2 mb-1 ${
-                            isPhone ? '' : ''
+                  {recommendations.map((rec, i) => {
+                    const recSlug = rec.name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+                    const altData = altitudes.find((a) => a.slug === recSlug);
+                    
+                    return (
+                      <motion.div
+                        key={rec.id}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.05, duration: 0.3 }}
+                        className={`group flex flex-col justify-between border border-black/6 hover:border-black/12 hover:bg-black/[0.02] transition-all ${
+                          isPhone ? 'p-3 rounded-xl' : 'p-4 rounded-2xl'
+                        }`}
+                      >
+                        <div className="flex gap-3">
+                          {/* Thumbnail */}
+                          <div className={`shrink-0 rounded-xl overflow-hidden ${
+                            isPhone ? 'w-20 h-20' : 'w-24 h-24'
                           }`}>
-                            {isPhone && (
-                              <span className="text-lg shrink-0">
-                                {rec.idealWeather === 'Any' ? '☀️' : rec.idealWeather === 'Sunny' ? '☀️' : rec.idealWeather === 'Rainy' ? '🌧️' : '☁️'}
-                              </span>
-                            )}
-                            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-premium-black/30">
-                              {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
-                            </span>
-                            {!isPhone && (
-                              <>
-                                <span className="text-[10px] text-premium-black/20">•</span>
-                                <span className="text-[10px] font-bold text-premium-black/30">
-                                  {rec.idealWeather === 'Any' ? t('weather.any') : t('weather.condition.' + rec.idealWeather.toLowerCase())}
-                                </span>
-                              </>
-                            )}
+                            <ImageWithSkeleton
+                              src={rec.imageUrl}
+                              alt={rec.name}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              wrapperClassName="w-full h-full"
+                            />
                           </div>
-                          <h3 className={`font-black text-premium-black uppercase tracking-tight leading-tight mb-1 truncate ${
-                            isPhone ? 'text-[13px]' : 'text-sm'
-                          }`}>
-                            {rec.name}
-                          </h3>
-                          <p className={`text-premium-black/50 font-medium leading-relaxed line-clamp-2 ${
-                            isPhone ? 'text-[11px]' : 'text-xs'
-                          }`}>
-                            {rec.description}
-                          </p>
+
+                          {/* Content */}
+                          <div className="flex-1 min-w-0 flex flex-col justify-between">
+                            <div>
+                              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                                 {isPhone && (
+                                   <span className="text-xs shrink-0 text-premium-black/60">
+                                     <FontAwesomeIcon icon={
+                                       rec.idealWeather === 'Any' || rec.idealWeather === 'Sunny' 
+                                         ? faSun 
+                                         : rec.idealWeather === 'Rainy' 
+                                           ? faCloudRain 
+                                           : faCloud
+                                     } />
+                                   </span>
+                                 )}
+                                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-premium-black/30">
+                                  {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
+                                </span>
+                                {altData && (
+                                  <>
+                                    <span className="text-[10px] text-premium-black/20">•</span>
+                                    <span className="text-[10px] font-extrabold text-[#7a9e64] uppercase tracking-wider flex items-center gap-1">
+                                      <FontAwesomeIcon icon={faMountain} className="text-[9px]" />
+                                      <span>{altData.altitude}m</span>
+                                    </span>
+                                  </>
+                                )}
+                                {!isPhone && (
+                                  <>
+                                    <span className="text-[10px] text-premium-black/20">•</span>
+                                    <span className="text-[10px] font-bold text-premium-black/30">
+                                      {rec.idealWeather === 'Any' ? t('weather.any') : t('weather.condition.' + rec.idealWeather.toLowerCase())}
+                                    </span>
+                                  </>
+                                )}
+                              </div>
+                              <h3 className={`font-black text-premium-black uppercase tracking-tight leading-tight mb-1 truncate ${
+                                isPhone ? 'text-[13px]' : 'text-sm'
+                              }`}>
+                                {rec.name}
+                              </h3>
+                              <p className={`text-premium-black/50 font-medium leading-relaxed line-clamp-2 ${
+                                isPhone ? 'text-[11px]' : 'text-xs'
+                              }`}>
+                                {rec.description}
+                              </p>
+                            </div>
+
+                            <a
+                              href={getGoogleMapsSearchUrl(rec.name)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 mt-2 text-[10px] font-black uppercase tracking-[0.2em] text-premium-black/40 hover:text-premium-black transition-colors"
+                            >
+                              <FontAwesomeIcon icon={faMapLocationDot} className="text-[10px]" />
+                              {t('weather.googleMaps')}
+                            </a>
+                          </div>
                         </div>
 
-                        <a
-                          href={getGoogleMapsSearchUrl(rec.name)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 mt-2 text-[10px] font-black uppercase tracking-[0.2em] text-premium-black/40 hover:text-premium-black transition-colors"
-                        >
-                          <FontAwesomeIcon icon={faMapLocationDot} className="text-[10px]" />
-                          {t('weather.googleMaps')}
-                        </a>
-                      </div>
-                    </motion.div>
-                  ))}
+                        {/* Altitude Alert details if altitude is high (>1000m) */}
+                        {altData && altData.altitude > 1000 && (
+                          <div className="mt-3 p-2.5 rounded-xl bg-amber-500/[0.04] border border-amber-500/15 text-[10px] leading-relaxed text-amber-700 font-medium flex items-start gap-2">
+                            <span className="shrink-0 text-xs">❄️</span>
+                            <div>
+                              <span className="font-extrabold uppercase tracking-wider text-amber-800">Altitude Weather Warning: </span>
+                              Temp drops to {altData.temp_range}. Dress warm! Recommended gear: {altData.packing_list}.
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </div>
-            </div>
           </motion.div>
         </motion.div>
       )}

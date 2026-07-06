@@ -37,28 +37,23 @@ const FlightBackground = memo(function FlightBackground({
             <div
               key={block}
               className="flex h-full w-1/2 relative"
-              style={{ marginLeft: "-1px" }}
             >
               {/* Left Side: Right-Half of the Image */}
-              <div
-                className="w-1/2 h-full relative overflow-hidden"
-                style={{ marginRight: "-1px" }}
-              >
+              <div className="w-1/2 h-full relative overflow-hidden">
                 <img
                   src={bgGolden}
                   alt=""
-                  className="absolute inset-y-0 -right-px h-full w-[calc(200%+2px)] max-w-none object-cover"
+                  className="absolute top-0 right-0 h-full w-[200%] max-w-none object-cover"
                 />
               </div>
 
               {/* Right Side: Mirrored Right-Half of the Image */}
-              <div
-                className="w-1/2 h-full relative overflow-hidden ml-px"
-              >
+              <div className="w-1/2 h-full relative overflow-hidden">
                 <img
                   src={bgGolden}
                   alt=""
-                  className="absolute inset-y-0 -left-px h-full w-[calc(200%+2px)] max-w-none object-cover scale-x-[-1]"
+                  className="absolute top-0 left-0 h-full w-[200%] max-w-none object-cover"
+                  style={{ transform: "scaleX(-1)" }}
                 />
               </div>
             </div>

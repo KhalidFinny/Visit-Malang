@@ -5,10 +5,9 @@ import { useCabinParallax } from "./hook/useCabinParallax";
 import type { CabinInteriorProps } from "./types";
 
 const CabinInterior = memo(function CabinInterior({
-  chairSilhouette,
   mousePos,
 }: CabinInteriorProps) {
-  const { cabinX, cabinY, chairTilt, chairX, chairY } =
+  const { cabinX, cabinY } =
     useCabinParallax(mousePos);
 
   return (

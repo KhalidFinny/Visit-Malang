@@ -12,13 +12,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTrip } from '../../../../context/TripContext';
-import type { MapPlace, MapCategory } from '../../../../data/mapPlaces';
+import type { MapCategory } from '../../../../data/mapPlaces';
 import { CATEGORY_META, getGoogleMapsUrl } from '../../../../data/mapPlaces';
+import type { MapCardProps } from '../types';
 
-interface MapCardProps {
-  place: MapPlace | null;
-  onClose: () => void;
-}
 
 const CATEGORY_ICONS: Record<MapCategory, any> = {
   Nature:     faMountain,
@@ -72,7 +69,7 @@ export default function MapCard({ place, onClose }: MapCardProps) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 30, scale: 0.97 }}
           transition={{ type: 'spring', damping: 24, stiffness: 220 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[1000] w-[calc(100%-2.5rem)] max-w-3xl pointer-events-auto"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[1000] w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] max-w-3xl max-h-[82vh] overflow-y-auto md:overflow-visible pointer-events-auto rounded-2xl"
         >
           <div className="bg-[#f5f4f0] rounded-2xl overflow-hidden border border-premium-black/15 flex flex-col md:flex-row md:h-[290px] relative">
             

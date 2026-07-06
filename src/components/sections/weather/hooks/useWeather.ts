@@ -1,20 +1,5 @@
 import { useState, useEffect } from 'react';
-
-export interface WeatherForecast {
-  time: string;
-  temp: number;
-  weatherCode: number;
-}
-
-export interface WeatherData {
-  temp: number;
-  weatherCode: number;
-  humidity: number;
-  windSpeed: number;
-  forecastCode: number; // +2h forecast
-  cityName: string;
-  hourly: WeatherForecast[];
-}
+import type { WeatherForecast, WeatherData } from '../types';
 
 export const useWeather = (lat: number = -7.9839, lon: number = 112.6214) => {
   const [data, setData] = useState<WeatherData | null>(null);

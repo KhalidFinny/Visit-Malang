@@ -1,10 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from "framer-motion";
 import { ImageWithSkeleton } from "../../../shared/Skeleton";
+import type { PlannerTeaserProps } from "../types";
 
-interface PlannerTeaserProps {
-  onOpen: () => void;
-}
 
 export default function PlannerTeaser({ onOpen }: PlannerTeaserProps) {
   const { t } = useTranslation();

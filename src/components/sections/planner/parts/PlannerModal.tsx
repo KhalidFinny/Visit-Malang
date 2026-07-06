@@ -1,55 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
-import { type ReactNode, useEffect } from "react";
-
-interface PlannerModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  children: ReactNode;
-}
+import { useScrollLock } from "../../../hooks/useScrollLock";
+import type { PlannerModalProps } from "../types";
 
 export default function PlannerModal({ isOpen, onClose, children }: PlannerModalProps) {
   const { t } = useTranslation();
 
-  useEffect(() => {
-    if (!isOpen) return;
-
-    // Prevent background scrolling on touch devices (iOS Safari etc)
-    const preventDefault = (e: TouchEvent) => {
-      const target = e.target as HTMLElement;
-      // Allow scroll only inside our designated scrollable container
-      const isInsideScrollable = target.closest(".modal-scrollable-content");
-      if (!isInsideScrollable) {
-        e.preventDefault();
-      }
-    };
-
-    // Capture original style states
-    const originalBodyStyle = document.body.style.cssText;
-    const originalHtmlStyle = document.documentElement.style.cssText;
-
-    // Force strict overflow locking on both root wrappers
-    document.body.style.setProperty("overflow", "hidden", "important");
-    document.documentElement.style.setProperty("overflow", "hidden", "important");
-    document.body.style.setProperty("position", "relative", "important");
-    document.body.style.setProperty("height", "100%", "important");
-
-    // Add scroll lock class helpers
-    document.body.classList.add("overflow-hidden");
-    document.documentElement.classList.add("overflow-hidden");
-
-    // Listen to touch events
-    window.addEventListener("touchmove", preventDefault, { passive: false });
-
-    return () => {
-      // Revert styles and classes
-      document.body.style.cssText = originalBodyStyle;
-      document.documentElement.style.cssText = originalHtmlStyle;
-      document.body.classList.remove("overflow-hidden");
-      document.documentElement.classList.remove("overflow-hidden");
-      window.removeEventListener("touchmove", preventDefault);
-    };
-  }, [isOpen]);
+  useScrollLock(isOpen);
 
   return (
     <AnimatePresence>
@@ -103,7 +60,8 @@ export default function PlannerModal({ isOpen, onClose, children }: PlannerModal
 
             {/* Scrollable Content Area */}
             <div 
-              className="flex-1 overflow-y-auto min-h-0 modal-scrollable-content"
+              data-lenis-prevent="true"
+              className="flex-1 overflow-y-auto min-h-0 modal-scrollable-content [overscroll-behavior:contain]"
               style={{ WebkitOverflowScrolling: 'touch' }}
             >
               {children}

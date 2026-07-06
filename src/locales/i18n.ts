@@ -10,7 +10,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './en/translation.json';
 
 // Map of language → dynamic import for on-demand loading
-const localeLoaders: Record<string, () => Promise<{ default: typeof en }>> = {
+const localeLoaders: Record<string, () => Promise<unknown>> = {
   id: () => import('./id/translation.json'),
   zh: () => import('./zh/translation.json'),
   ja: () => import('./ja/translation.json'),
@@ -34,7 +34,10 @@ const lazyBackend = {
       return;
     }
     loader()
-      .then((mod) => callback(null, mod.default ?? mod))
+      .then((mod) => {
+        const data = (mod && typeof mod === 'object' && 'default' in mod) ? mod.default : mod;
+        callback(null, data);
+      })
       .catch((err) => {
         console.warn(`Failed to load locale "${language}", falling back to English`, err);
         callback(null, {});

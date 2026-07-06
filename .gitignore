@@ -1,25 +1,71 @@
 # Logs
 logs
 *.log
+bun-debug.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data & Lockfiles (Primary package manager: Bun)
+pids
+*.pid
+*.seed
+*.pid.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Dependency directories
+node_modules/
+
+# TypeScript storage
+*.tsbuildinfo
+.tscache
+
+# Microservice & Tooling Cache
+.vite
+.cache
+.eslintcache
+.bun
+
+# Build outputs
 dist
 dist-ssr
 *.local
 
+# Environment variables & secrets
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+*.env
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.swp
+.DS_Store
+Thumbs.db
+
+# Custom project assets
 public/malang.webm

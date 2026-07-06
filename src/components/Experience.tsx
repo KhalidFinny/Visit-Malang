@@ -1,10 +1,14 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import bgGolden from "/this.jpg";
-import chairSilhouette from "/seat.svg";
 import FlightStage from "./sections/airplane/FlightStage";
 import LanguageSwitcher from "./shared/parts/LanguageSwitcher";
+import StampPassportModal from "./shared/parts/StampPassportModal";
+import VisualLensModal from "./shared/parts/VisualLensModal";
+import PostcardModal from "./shared/parts/PostcardModal";
 import { useExperienceState } from "./hooks/useExperienceState";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCompass, faCamera, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 // ── Lazy-loaded sections (below the fold) ────────────────────────
 // These are only loaded after the user clicks "descend" from the airplane.
@@ -45,6 +49,9 @@ function SectionFallback() {
 export default function Experience() {
   const { phase, handleDescend, handleMouseMove, springX, springY, pOrigin } =
     useExperienceState();
+  const [passportOpen, setPassportOpen] = useState(false);
+  const [lensOpen, setLensOpen] = useState(false);
+  const [postcardOpen, setPostcardOpen] = useState(false);
 
   // Preload landing sections on first render (during airplane splash)
   // This is a side effect — no need to track completion
@@ -78,7 +85,6 @@ export default function Experience() {
           >
             <FlightStage
               bgGolden={bgGolden}
-              chairSilhouette={chairSilhouette}
               onDescend={handleDescend}
               mousePos={{ x: springX, y: springY }}
             />
@@ -91,8 +97,34 @@ export default function Experience() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
           >
-            {/* Language Switcher - only after landing */}
-            <div className="fixed top-4 right-4 z-[9999]">
+            {/* Language Switcher, Passport, Lens & Postcard - only after landing */}
+            <div className="fixed top-3 right-3 sm:top-4 sm:right-4 z-[9999] flex items-center gap-1.5 sm:gap-3 max-w-[calc(100vw-1.5rem)]">
+              <button
+                onClick={() => setPassportOpen(true)}
+                className="px-2.5 py-2 sm:px-4 sm:py-2.5 bg-white/85 backdrop-blur-md hover:bg-black hover:text-white border border-black/12 text-black text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer select-none animate-[slideIn_0.3s_ease]"
+                title="Open Stamp Booklet"
+              >
+                <FontAwesomeIcon icon={faCompass} className="text-xs" />
+                <span className="hidden sm:inline">Passport</span>
+              </button>
+
+              <button
+                onClick={() => setLensOpen(true)}
+                className="px-2.5 py-2 sm:px-4 sm:py-2.5 bg-white/85 backdrop-blur-md hover:bg-black hover:text-white border border-black/12 text-black text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer select-none animate-[slideIn_0.4s_ease]"
+                title="Photo Finder (Lens)"
+              >
+                <FontAwesomeIcon icon={faCamera} className="text-xs" />
+                <span className="hidden sm:inline">Lens</span>
+              </button>
+
+              <button
+                onClick={() => setPostcardOpen(true)}
+                className="px-2.5 py-2 sm:px-4 sm:py-2.5 bg-white/85 backdrop-blur-md hover:bg-black hover:text-white border border-black/12 text-black text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer select-none animate-[slideIn_0.5s_ease]"
+                title="Create a Postcard"
+              >
+                <FontAwesomeIcon icon={faEnvelope} className="text-xs" />
+                <span className="hidden sm:inline">Postcard</span>
+              </button>
               <LanguageSwitcher />
             </div>
 
@@ -127,6 +159,24 @@ export default function Experience() {
                 &copy; {new Date().getFullYear()} Team Khalid & Resty. All rights reserved.
               </p>
             </footer>
+
+            {/* Stamp Passport Booklet Modal */}
+            <StampPassportModal
+              isOpen={passportOpen}
+              onClose={() => setPassportOpen(false)}
+            />
+
+            {/* Photo Finder Lens Modal */}
+            <VisualLensModal
+              isOpen={lensOpen}
+              onClose={() => setLensOpen(false)}
+            />
+
+            {/* Postcard Maker Modal */}
+            <PostcardModal
+              isOpen={postcardOpen}
+              onClose={() => setPostcardOpen(false)}
+            />
           </motion.div>
         )}
       </AnimatePresence>

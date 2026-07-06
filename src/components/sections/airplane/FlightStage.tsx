@@ -9,7 +9,6 @@ import type { FlightStageProps } from "./types";
 
 export default function FlightStage({
   bgGolden,
-  chairSilhouette,
   onDescend,
   mousePos,
 }: FlightStageProps) {
@@ -38,7 +37,7 @@ export default function FlightStage({
             }}
           />
           <FlightBackground bgGolden={bgGolden} mousePos={mousePos} />
-          <CabinInterior chairSilhouette={chairSilhouette} mousePos={mousePos} />
+          <CabinInterior mousePos={mousePos} />
           {/* Bottom gradient mask — same purpose */}
           <div className="absolute inset-x-0 bottom-0 h-[20%] z-20 pointer-events-none"
             style={{

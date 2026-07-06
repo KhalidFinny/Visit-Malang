@@ -3,19 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from "react-router-dom";
 import { activitiesData } from "./ActivitiesData";
 import { ImageWithSkeleton } from "../../shared/Skeleton";
-
-/* ================= TYPES ================= */
-type Place = {
-  title: string;
-  description: string;
-  heroImage: string;
-};
-
-type ActivityCategory = {
-  title: string;
-  places: Place[];
-};
-
+import type { Category } from "./types";
 /* ================= UTILS ================= */
 const toSlug = (text: string = "") =>
   text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
@@ -30,8 +18,8 @@ const ActivityDetail: React.FC = () => {
   const [selectedPlace, setSelectedPlace] = useState(0);
 
   /* 🔥 FIX: find category by slug */
-  const data: ActivityCategory | undefined = Object.values(
-    activitiesData as Record<string, ActivityCategory>
+  const data: Category | undefined = Object.values(
+    activitiesData
   ).find((cat) => toSlug(cat.title) === name);
 
   if (!data) {
@@ -80,7 +68,7 @@ const ActivityDetail: React.FC = () => {
         {/* BACK */}
         <button
           onClick={() => navigate("/")}
-          className="absolute top-7 left-7 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/20 hover:bg-black/60 transition"
+          className="absolute top-5 left-5 sm:top-7 sm:left-7 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/20 hover:bg-black/60 transition"
         >
           <svg
             width="18"
@@ -96,18 +84,18 @@ const ActivityDetail: React.FC = () => {
         </button>
 
         {/* TEXT */}
-        <div className="absolute inset-0 flex flex-col justify-end px-16 pb-14 max-w-[80%]">
-          <h1 className="text-[clamp(32px,6vw,72px)] font-extrabold leading-none tracking-tight mb-3 uppercase whitespace-nowrap">
+        <div className="absolute inset-0 flex flex-col justify-end px-6 pb-8 sm:px-12 sm:pb-12 md:px-16 md:pb-14 max-w-full sm:max-w-[80%]">
+          <h1 className="text-[clamp(28px,6vw,72px)] font-extrabold leading-tight sm:leading-none tracking-tight mb-3 uppercase text-balance">
             {currentPlace.title}
           </h1>
 
-          <p className="text-white/70 text-[14px] leading-relaxed mb-6 max-w-[420px]">
+          <p className="text-white/70 text-xs sm:text-[14px] leading-relaxed mb-4 sm:mb-6 max-w-[420px]">
             {currentPlace.description}
           </p>
 
           <button
             onClick={handleExplore}
-            className="flex items-center gap-2 px-8 py-3 bg-white text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-zinc-200 transition-all w-fit"
+            className="flex items-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-zinc-200 transition-all w-fit"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
@@ -118,8 +106,7 @@ const ActivityDetail: React.FC = () => {
       </div>
 
       {/* ================= DESTINASI ================= */}
-      <div className="w-full bg-black px-10 h-[320px] flex-shrink-0 overflow-hidden">
-
+      <div className="w-full bg-black px-4 sm:px-10 h-[320px] flex-shrink-0 overflow-hidden">
         <div className="flex items-center justify-between mb-3 pt-4">
           <h2 className="text-sm font-semibold text-white/90">
             {t('activityDetail.otherDestinations')}

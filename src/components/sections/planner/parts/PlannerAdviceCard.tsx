@@ -1,10 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import type { PlannerAdvice, EconomyOrigin } from '../types';
-
-interface Props {
-  advice: PlannerAdvice;
-  origin: EconomyOrigin;
-}
+import type { PlannerAdviceCardProps } from '../types';
 
 export function FoodIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -15,7 +10,7 @@ export function FoodIcon({ className = "w-4 h-4" }: { className?: string }) {
   );
 }
 
-export default function PlannerAdviceCard({ advice, origin }: Props) {
+export default function PlannerAdviceCard({ advice, origin }: PlannerAdviceCardProps) {
   const { t } = useTranslation();
   const { places, foods, budgetEstimation, headline, counsel } = advice;
 

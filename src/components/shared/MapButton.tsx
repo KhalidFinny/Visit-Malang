@@ -1,12 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
-
-interface MapButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  /** Visual variant */
-  variant?: 'primary' | 'ghost' | 'flat';
-  /** Extra classes */
-  className?: string;
-}
+import type { MapButtonProps } from './types';
 
 /**
  * Flat, no-gimmick map button. No shadows, no backdrop blur, no 3D.

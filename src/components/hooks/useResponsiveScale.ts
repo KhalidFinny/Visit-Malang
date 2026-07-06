@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import type { ResponsiveScale } from './types';
 
 /**
  * Responsive scale hook for the airplane section.
@@ -17,20 +18,6 @@ const DESIGN_W = 1920;
 const DESIGN_H = 1080;
 const PHONE_BP = 768;
 
-interface ResponsiveScale {
-  /** True when viewport < 768px */
-  isPhone: boolean;
-  /** True when 768 ≤ vw < 1024 */
-  isTablet: boolean;
-  /** True when vw ≥ 1024 */
-  isDesktop: boolean;
-  /** Scale factor for the airplane section. */
-  planeScale: number;
-  /** Viewport width */
-  vw: number;
-  /** Viewport height */
-  vh: number;
-}
 
 export function useResponsiveScale(): ResponsiveScale {
   const [dims, setDims] = useState({ vw: window.innerWidth, vh: window.innerHeight });

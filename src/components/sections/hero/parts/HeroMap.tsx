@@ -14,6 +14,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import MapCard from './MapCard';
 import { MAP_PLACES, CATEGORY_META, type MapCategory, type MapPlace } from '../../../../data/mapPlaces';
+import type { HeroMapProps } from '../types';
+import { useScrollLock } from '../../../hooks/useScrollLock';
 import 'leaflet/dist/leaflet.css';
 
 const MALANG_CENTER: [number, number] = [-7.9666, 112.6326];
@@ -40,13 +42,11 @@ const MARKER_SVG_PATHS: Record<MapCategory, string> = {
   Attraction: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4.5px;"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
 };
 
-interface HeroMapProps {
-  category: MapCategory;
-  onClose?: () => void;
-}
 
 export default function HeroMap({ category: initialCategory, onClose }: HeroMapProps) {
   const { t } = useTranslation();
+  // Lock background scroll while interactive map modal is open
+  useScrollLock(true);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const markersRef = useRef<Marker[]>([]);

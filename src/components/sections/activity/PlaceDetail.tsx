@@ -1,12 +1,77 @@
+import { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from "react-router-dom";
 import { activitiesData } from "./ActivitiesData";
 import { ImageWithSkeleton } from "../../shared/Skeleton";
+import PlaceSafetyAdvisory from "./parts/PlaceSafetyAdvisory";
+import PlaceCashAdvisor from "./parts/PlaceCashAdvisor";
+import PlaceAltitudeAdvisor from "./parts/PlaceAltitudeAdvisor";
+import MountainSunrisePredictor from "./parts/MountainSunrisePredictor";
 
 const PlaceDetail = () => {
   const { t } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const [safety, setSafety] = useState<any>(null);
+  const [fees, setFees] = useState<any>(null);
+  const [altitude, setAltitude] = useState<any>(null);
+
+  useEffect(() => {
+    fetch("/api/safety")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          const matched = data.find((item: any) => item.slug === slug);
+          if (matched) {
+            setSafety(matched);
+          }
+        }
+      })
+      .catch((err) => console.error("Error fetching safety details:", err));
+  }, [slug]);
+
+  useEffect(() => {
+    fetch("/api/fees")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          const matched = data.find((item: any) => item.slug === slug);
+          if (matched) {
+            setFees(matched);
+          } else {
+            setFees({
+              domestic_entry: 10000,
+              foreign_entry: 50000,
+              transport_cost: 0,
+              parking_cost: 5000,
+              notes: "Standard destination fees. Bring local IDR cash for small purchases.",
+              atm_info: "Located near Malang regional center. ATMs are widely available on main access roads."
+            });
+          }
+        }
+      })
+      .catch((err) => console.error("Error fetching fee details:", err));
+  }, [slug]);
+
+  useEffect(() => {
+    fetch("/api/altitudes")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          const matched = data.find((item: any) => item.slug === slug);
+          if (matched) {
+            setAltitude(matched);
+          } else {
+            setAltitude({
+              altitude: 450,
+              temp_range: "22°C - 30°C",
+              packing_list: "Comfortable Walking Shoes, Sunscreen, Light Casual Wear"
+            });
+          }
+        }
+      })
+      .catch((err) => console.error("Error fetching altitude details:", err));
+  }, [slug]);
 
   const toSlug = (text: string = "") =>
     text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
@@ -38,6 +103,14 @@ const PlaceDetail = () => {
     ? [...data.gallery, ...data.gallery, ...data.gallery].slice(0, 6)
     : [];
 
+  const isMountain =
+    slug?.includes("bromo") ||
+    slug?.includes("semeru") ||
+    data.title.toLowerCase().includes("mount") ||
+    data.title.toLowerCase().includes("gunung") ||
+    data.title.toLowerCase().includes("puncak") ||
+    data.title.toLowerCase().includes("bukit");
+
   return (
     <div className="w-full min-h-screen bg-[#0a0a0a] text-white font-sans">
 
@@ -49,6 +122,8 @@ const PlaceDetail = () => {
             alt={data.title}
             className="absolute inset-0 w-full h-full object-cover"
             wrapperClassName="absolute inset-0 w-full h-full"
+            loading="eager"
+            fetchPriority="high"
           />
         ) : (
           <div className="absolute inset-0 bg-zinc-900" />
@@ -64,7 +139,7 @@ const PlaceDetail = () => {
 
         <button
           onClick={() => navigate(-1)}
-          className="absolute top-7 left-7 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/20 hover:bg-black/60 transition"
+          className="absolute top-5 left-5 sm:top-7 sm:left-7 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/20 hover:bg-black/60 transition"
         >
           <svg
             width="18"
@@ -80,12 +155,12 @@ const PlaceDetail = () => {
         </button>
 
         <div className="absolute inset-0 flex items-center">
-          <div className="max-w-5xl mx-auto px-6 w-full">
+          <div className="max-w-5xl mx-auto px-5 sm:px-6 w-full">
             <div className="max-w-[720px] mt-10">
-              <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight leading-none whitespace-nowrap">
+              <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tight leading-tight sm:leading-none text-balance">
                 {data.title}
               </h1>
-              <p className="text-white/70 mt-5 text-base md:text-lg leading-relaxed max-w-lg">
+              <p className="text-white/70 mt-3 sm:mt-5 text-sm sm:text-base md:text-lg leading-relaxed max-w-lg">
                 {data.description}
               </p>
             </div>
@@ -95,6 +170,25 @@ const PlaceDetail = () => {
 
       {/* BODY */}
       <div className="max-w-5xl mx-auto px-6 pb-16 space-y-16">
+
+        {/* SAFETY ADVISORY PANEL */}
+        {safety && <PlaceSafetyAdvisory safety={safety} />}
+
+        {/* CASH REQUIREMENT ADVISOR */}
+        {fees && slug && <PlaceCashAdvisor slug={slug} fees={fees} />}
+
+        {/* ALTITUDE WEATHER & PACKING CHECKLIST */}
+        {altitude && <PlaceAltitudeAdvisor altitude={altitude} />}
+
+        {/* AI SUNRISE CLARITY PREDICTOR */}
+        {isMountain && data.location && (
+          <MountainSunrisePredictor
+            lat={data.location.lat}
+            lng={data.location.lng}
+          />
+        )}
+
+
 
         {/* THINGS TO DO */}
         {hasThingsToDo && (

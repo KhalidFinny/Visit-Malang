@@ -3,9 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { useTrip } from '../../../../context/TripContext';
 
-interface TripPanelProps {
-  inline?: boolean; // When true, renders flat in the side panel (no absolute positioning)
-}
+import type { TripPanelProps } from '../types';
 
 export default function TripPanel({ inline = false }: TripPanelProps) {
   const { t } = useTranslation();

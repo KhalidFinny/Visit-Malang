@@ -1,12 +1,8 @@
 import { useTranslation } from "react-i18next";
 
-interface Destination {
-  name: string;
-  category: string;
-  image: string;
-}
+import type { HeroDestination } from "../types";
 
-const TOP_5_DESTINATIONS: Destination[] = [
+const TOP_5_DESTINATIONS: HeroDestination[] = [
   {
     name: "Mount Bromo",
     category: "Nature",

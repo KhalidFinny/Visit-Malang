@@ -1,4 +1,5 @@
 import type { MotionValue } from "framer-motion";
+import type { MapCategory, MapPlace } from "../../../data/mapPlaces";
 
 export interface HeroParallaxValues {
   heroRef: React.RefObject<HTMLElement | null>;
@@ -19,3 +20,27 @@ export interface HeroTuguProps {
 }
 
 export interface HeroContentProps {}
+
+export interface HeroCategoriesProps {
+  onSelect: (cat: MapCategory) => void;
+}
+
+export interface HeroMapProps {
+  category: MapCategory;
+  onClose?: () => void;
+}
+
+export interface MapCardProps {
+  place: MapPlace | null;
+  onClose: () => void;
+}
+
+export interface HeroDestination {
+  name: string;
+  category: string;
+  image: string;
+}
+
+export interface TripPanelProps {
+  inline?: boolean;
+}
