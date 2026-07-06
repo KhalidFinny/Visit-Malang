@@ -24,18 +24,10 @@ html {
   scrollbar-color: rgba(255,255,255,0.2) transparent;
   scroll-behavior: auto !important;
   height: auto;
-}
-
-html::-webkit-scrollbar {
-  width: 6px;
-}
-
-html::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-html::-webkit-scrollbar-thumb {
-  background: transparent;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -43,6 +35,8 @@ body {
   background: #000;
   font-family: 'Outfit', sans-serif;
   color: white;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

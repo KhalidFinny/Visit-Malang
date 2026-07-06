@@ -21,9 +21,35 @@ const TechEntrance = lazy(() => import("./sections/modern/TechEntrance"));
 const WeatherStage = lazy(() => import("./sections/weather/WeatherStage"));
 const RegionalPlanner = lazy(() => import("./sections/planner/RegionalPlanner"));
 
-// Preload the hero section while the airplane splash is visible
+// Preload landing sections + critical images & video while airplane splash is visible
 function preloadLandingSections() {
   import("./sections/hero/HeroStage");
+
+  // Eagerly pre-instantiate Image objects & video buffer for instant rendering
+  const criticalMedia = [
+    "/malang.webm",
+    "/bromo.jpg",
+    "/this.jpg",
+    "/tugu.webp",
+    "/sky.webp",
+    "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop",
+  ];
+
+  criticalMedia.forEach((src) => {
+    if (src.endsWith(".webm")) {
+      const v = document.createElement("video");
+      v.src = src;
+      v.preload = "auto";
+    } else {
+      const img = new Image();
+      img.src = src;
+    }
+  });
+
   // Stagger the rest so we don't compete with hero rendering
   setTimeout(() => {
     import("./sections/popular/PopularDestinationsSection");

@@ -67,5 +67,3 @@ dist-ssr
 .DS_Store
 Thumbs.db
 
-# Custom project assets
-public/malang.webm

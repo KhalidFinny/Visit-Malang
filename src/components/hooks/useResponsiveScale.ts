@@ -19,16 +19,33 @@ const DESIGN_H = 1080;
 const PHONE_BP = 768;
 
 
+function getViewportDims() {
+  if (typeof window === 'undefined') return { vw: 1920, vh: 1080 };
+  const vw = Math.min(window.innerWidth, document.documentElement?.clientWidth || window.innerWidth);
+  const vh = window.innerHeight;
+  return { vw, vh };
+}
+
 export function useResponsiveScale(): ResponsiveScale {
-  const [dims, setDims] = useState({ vw: window.innerWidth, vh: window.innerHeight });
+  const [dims, setDims] = useState(getViewportDims);
 
   const handleResize = useCallback(() => {
-    setDims({ vw: window.innerWidth, vh: window.innerHeight });
+    setDims(getViewportDims());
   }, []);
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleResize);
+    }
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', handleResize);
+      }
+    };
   }, [handleResize]);
 
   const { vw, vh } = dims;

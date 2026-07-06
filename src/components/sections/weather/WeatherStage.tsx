@@ -17,7 +17,8 @@ function getGoogleMapsSearchUrl(name: string): string {
 
 export default function WeatherStage() {
   const { t, i18n } = useTranslation();
-  const { isPhone } = useResponsiveScale();
+  const { isPhone, isTablet } = useResponsiveScale();
+  const isMobileView = isPhone || isTablet;
 
   /** Show the current weather condition instead of "Any" for adaptable places */
   function displayWeather(ideal: string): string {
@@ -45,7 +46,7 @@ export default function WeatherStage() {
   ).format(date);
 
   // ── PHONE: full mobile-native redesign ─────────────────────────
-  if (isPhone) {
+  if (isMobileView) {
     return (
       <>
         <motion.section

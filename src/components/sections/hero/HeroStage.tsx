@@ -66,13 +66,17 @@ export default function HeroStage() {
         {/* Video + overlay */}
         <div className="absolute inset-0 rounded-b-[2rem] md:rounded-b-[3.5rem] overflow-hidden">
           <video
-            src="/malang.webm"
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
+            poster="/bromo.jpg"
             className="w-full h-full object-cover object-center"
-          />
+          >
+            <source src="/malang.webm" type="video/webm" />
+            <source src="/malang.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-black/65" />
         </div>
 
