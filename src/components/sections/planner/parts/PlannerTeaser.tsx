@@ -41,7 +41,7 @@ export default function PlannerTeaser({ onOpen }: PlannerTeaserProps) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="text-swiss text-white/80 text-xl md:text-3xl font-light max-w-2xl leading-relaxed mb-12"
+            className="text-swiss text-white/80 text-base sm:text-xl md:text-3xl font-light max-w-2xl leading-relaxed mb-8 sm:mb-12"
           >
             {t('planner.teaser.subtitle')}
           </motion.p>
@@ -51,15 +51,25 @@ export default function PlannerTeaser({ onOpen }: PlannerTeaserProps) {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-            className="absolute bottom-20 right-10 md:right-20 flex flex-col items-end max-w-[50vw]"
+            className="absolute bottom-28 sm:bottom-32 md:bottom-44 right-6 sm:right-10 md:right-20 flex flex-col items-end max-w-[65vw] sm:max-w-[50vw]"
           >
             <div className="relative group/cta">
-              <h3 className="text-editorial text-[3rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] text-white leading-[0.85] select-none text-right text-balance">
+              <h3 className="text-editorial text-[1.8rem] sm:text-[3rem] md:text-[6rem] lg:text-[8rem] text-white leading-[0.9] sm:leading-[0.85] select-none text-right text-balance">
                 {t('planner.teaser.ctaLine1')}{' '}
                 {t('planner.teaser.ctaLine2')}
               </h3>
             </div>
           </motion.div>
+        </div>
+
+        {/* Footer overlaid at bottom of image */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 w-full text-center select-none pointer-events-none">
+          <p className="text-xs sm:text-sm font-bold text-white/50 tracking-widest uppercase mb-1">
+            Come and Visit Malang
+          </p>
+          <p className="text-[10px] sm:text-xs font-semibold text-white/30">
+            &copy; {new Date().getFullYear()} Team Khalid &amp; Resty. All rights reserved.
+          </p>
         </div>
 
         {/* Decorative Blur Gradients */}

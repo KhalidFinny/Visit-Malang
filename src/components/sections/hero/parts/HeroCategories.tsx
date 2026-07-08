@@ -43,7 +43,7 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.07 * i, ease: "easeOut" }}
           onClick={() => onSelect(cat)}
-          className={`group relative bg-transparent hover:bg-[#2D221F]/[0.03] rounded-2xl overflow-hidden cursor-pointer text-left w-full h-[160px] md:h-[190px] lg:h-[220px] hover:-translate-y-1 border ${BORDER_BROWN} transition-all duration-300`}
+          className={`group relative bg-transparent hover:bg-[#2D221F]/[0.03] rounded-2xl overflow-hidden cursor-pointer text-left w-full h-[140px] md:h-[170px] lg:h-[200px] hover:-translate-y-1 border ${BORDER_BROWN} transition-all duration-300`}
         >
           {/* Giant background icon */}
           <FontAwesomeIcon
@@ -52,24 +52,24 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
           />
 
           {/* Content */}
-          <div className="relative z-10 h-full flex flex-col justify-between p-5 md:p-8">
-            {/* Top: small icon badge */}
-            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center bg-transparent border ${BORDER_BROWN} transition-colors duration-300 group-hover:bg-[#2D221F]/5`}>
+          <div className="relative z-10 h-full flex flex-col justify-between p-4 sm:p-5 md:p-6">
+            {/* Top: large icon badge */}
+            <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center bg-transparent border ${BORDER_BROWN} transition-colors duration-300 group-hover:bg-[#2D221F]/5`}>
               <FontAwesomeIcon
                 icon={CATEGORY_ICONS[cat]}
-                className={`text-lg ${THEME_BROWN}`}
+                className={`text-xl md:text-2xl ${THEME_BROWN}`}
               />
             </div>
 
-            {/* Bottom: text + arrow */}
+            {/* Bottom: bigger text + arrow */}
             <div className="flex items-end justify-between w-full">
-              <h3 className={`text-base md:text-xl lg:text-2xl font-bold tracking-tight leading-tight ${THEME_BROWN}`}>
+              <h3 className={`text-lg font-bold tracking-tight leading-tight md:text-2xl lg:text-3xl ${THEME_BROWN}`}>
                 {t(CATEGORY_LOCALE_KEY[cat])}
               </h3>
-              <div className={`w-10 h-10 rounded-full bg-transparent border ${BORDER_BROWN} flex items-center justify-center group-hover:bg-[#2D221F]/10 transition-all duration-200 shrink-0 ml-3`}>
+              <div className={`w-12 h-12 md:w-14 md:h-14 rounded-full bg-transparent border ${BORDER_BROWN} flex items-center justify-center group-hover:bg-[#2D221F]/10 transition-all duration-200 shrink-0 ml-3`}>
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
-                  className={`text-sm ${THEME_BROWN} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200`}
+                  className={`text-base md:text-lg ${THEME_BROWN} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200`}
                 />
               </div>
             </div>

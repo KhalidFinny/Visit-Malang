@@ -2,13 +2,12 @@ import { lazy, Suspense, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import bgGolden from "/this.jpg";
 import FlightStage from "./sections/airplane/FlightStage";
-import LanguageSwitcher from "./shared/parts/LanguageSwitcher";
+import HeaderMenu from "./shared/parts/HeaderMenu";
 import StampPassportModal from "./shared/parts/StampPassportModal";
 import VisualLensModal from "./shared/parts/VisualLensModal";
 import PostcardModal from "./shared/parts/PostcardModal";
+import { preloadModel } from "./shared/utils/lensML";
 import { useExperienceState } from "./hooks/useExperienceState";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCompass, faCamera, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 // ── Lazy-loaded sections (below the fold) ────────────────────────
 // These are only loaded after the user clicks "descend" from the airplane.
@@ -49,6 +48,9 @@ function preloadLandingSections() {
       img.src = src;
     }
   });
+
+  // Start downloading the AI vision model in the background during intro
+  preloadModel();
 
   // Stagger the rest so we don't compete with hero rendering
   setTimeout(() => {
@@ -123,36 +125,12 @@ export default function Experience() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
           >
-            {/* Language Switcher, Passport, Lens & Postcard - only after landing */}
-            <div className="fixed top-3 right-3 sm:top-4 sm:right-4 z-[9999] flex items-center gap-1.5 sm:gap-3 max-w-[calc(100vw-1.5rem)]">
-              <button
-                onClick={() => setPassportOpen(true)}
-                className="px-2.5 py-2 sm:px-4 sm:py-2.5 bg-white/85 backdrop-blur-md hover:bg-black hover:text-white border border-black/12 text-black text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer select-none animate-[slideIn_0.3s_ease]"
-                title="Open Stamp Booklet"
-              >
-                <FontAwesomeIcon icon={faCompass} className="text-xs" />
-                <span className="hidden sm:inline">Passport</span>
-              </button>
-
-              <button
-                onClick={() => setLensOpen(true)}
-                className="px-2.5 py-2 sm:px-4 sm:py-2.5 bg-white/85 backdrop-blur-md hover:bg-black hover:text-white border border-black/12 text-black text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer select-none animate-[slideIn_0.4s_ease]"
-                title="Photo Finder (Lens)"
-              >
-                <FontAwesomeIcon icon={faCamera} className="text-xs" />
-                <span className="hidden sm:inline">Lens</span>
-              </button>
-
-              <button
-                onClick={() => setPostcardOpen(true)}
-                className="px-2.5 py-2 sm:px-4 sm:py-2.5 bg-white/85 backdrop-blur-md hover:bg-black hover:text-white border border-black/12 text-black text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5 sm:gap-2 transition-all cursor-pointer select-none animate-[slideIn_0.5s_ease]"
-                title="Create a Postcard"
-              >
-                <FontAwesomeIcon icon={faEnvelope} className="text-xs" />
-                <span className="hidden sm:inline">Postcard</span>
-              </button>
-              <LanguageSwitcher />
-            </div>
+            {/* Unified Top Header Menu (Tools & Language) */}
+            <HeaderMenu
+              onOpenPassport={() => setPassportOpen(true)}
+              onOpenLens={() => setLensOpen(true)}
+              onOpenPostcard={() => setPostcardOpen(true)}
+            />
 
             <Suspense fallback={<SectionFallback />}>
               <HeroStage />
@@ -176,15 +154,6 @@ export default function Experience() {
               <RegionalPlanner />
             </Suspense>
 
-            {/* Footer */}
-            <footer className="w-full bg-[#f5f4f0] pb-16 pt-10 text-center flex flex-col items-center justify-center gap-2.5 select-none">
-              <p className="text-lg font-bold text-black/55 tracking-widest uppercase font-swiss">
-                Come and Visit Malang
-              </p>
-              <p className="text-sm font-semibold text-black/35 font-main">
-                &copy; {new Date().getFullYear()} Team Khalid & Resty. All rights reserved.
-              </p>
-            </footer>
 
             {/* Stamp Passport Booklet Modal */}
             <StampPassportModal

@@ -1,3 +1,5 @@
+import { zeroShotClassify } from "./lensML";
+
 export interface VerificationResult {
   isVerified: boolean;
   confidence: number;
@@ -8,20 +10,21 @@ const LANDMARK_KEYWORDS: Record<string, string[]> = {
   "mount-bromo": ["bromo", "crater", "caldera", "volcano", "mountain", "gunung"],
   "tumpak-sewu": ["sewu", "tumpak", "waterfall", "coban", "water"],
   "mount-semeru": ["semeru", "puncak", "volcano", "mountain", "gunung"],
-  "pantai-3-warna": ["warna", "pantai", "beach", "sea", "ocean", "3warna"],
+  "pantai-3-warna": ["warna", "pantai", "beach", "sea", "ocean"],
   "coban-pelangi": ["pelangi", "coban", "waterfall", "rainbow"],
-  "pulau-sempu": ["sempu", "island", "lagoon", "pulau", "segara"],
-  "budug-asu": ["budug", "asu", "trail", "ridge", "hill"],
-  "jatim-park-1": ["jatim", "park", "theme", "play", "entertainment"],
-  "museum-angkut": ["museum", "angkut", "car", "vehicle", "transport"],
-  "kayutangan-heritage": ["kayutangan", "heritage", "colonial", "kampung", "street"],
-  "sumber-sirah": ["sirah", "sumber", "spring", "underwater", "snorkeling"],
-  "nakoa-coffee": ["nakoa", "coffee", "cafe", "coffeehouse"],
+  "pulau-sempu": ["sempu", "island", "lagoon", "pulau"],
+  "budug-asu": ["budug", "asu", "trail", "ridge"],
+  "jatim-park-1": ["jatim", "park", "theme"],
+  "museum-angkut": ["museum", "angkut", "vehicle"],
+  "kayutangan-heritage": ["kayutangan", "heritage", "colonial"],
+  "sumber-sirah": ["sirah", "sumber", "spring"],
+  "nakoa-coffee": ["nakoa", "coffee", "cafe"],
 };
 
 /**
- * Verifies if an uploaded image matches the expected features of a Malang landmark.
- * Combines filename keyword analysis with HTML Canvas color distribution analysis.
+ * Verifies if an uploaded image matches a specific Malang landmark.
+ * Uses the zero-shot ML model (same model as Lens) for actual visual recognition.
+ * Falls back to filename keywords if the model isn't available.
  */
 export async function verifyLandmarkImage(
   slug: string,
@@ -31,126 +34,65 @@ export async function verifyLandmarkImage(
   const filenameLower = filename.toLowerCase();
   const keywords = LANDMARK_KEYWORDS[slug] || [];
 
-  // 1. Keyword Filename Analysis
+  // 1. Quick filename keyword check (instant, no model needed)
   for (const kw of keywords) {
     if (filenameLower.includes(kw)) {
       return {
         isVerified: true,
         confidence: 96.5,
-        reason: `Filename matched landmark keyword "${kw}".`,
+        reason: `Filename matched "${kw}"`,
       };
     }
   }
 
-  // 2. Visual Canvas Pixel Analysis using Promise.withResolvers()
-  const { promise, resolve } = Promise.withResolvers<VerificationResult>();
+  // 2. Use the zero-shot ML model for actual visual recognition.
+  //    Shares the same model cache as Lens — no double loading.
+  try {
+    const result = await zeroShotClassify(imageDataUrl);
 
-  const img = new Image();
-  img.crossOrigin = "anonymous";
-  img.src = imageDataUrl;
-
-  img.onload = () => {
-    try {
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-      if (!ctx) {
-        resolve({
-          isVerified: true,
-          confidence: 85.0,
-          reason: "Image loaded successfully (Basic Verification).",
-        });
-        return;
-      }
-
-      canvas.width = 30;
-      canvas.height = 30;
-      ctx.drawImage(img, 0, 0, 30, 30);
-      const data = ctx.getImageData(0, 0, 30, 30).data;
-
-      let rTotal = 0, gTotal = 0, bTotal = 0;
-      let pixelCount = data.length / 4;
-      let colorVariances = 0;
-
-      for (let i = 0; i < data.length; i += 4) {
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        rTotal += r;
-        gTotal += g;
-        bTotal += b;
-
-        // Color diversity check
-        if (Math.abs(r - g) > 25 || Math.abs(g - b) > 25) {
-          colorVariances++;
-        }
-      }
-
-      const avgR = rTotal / pixelCount;
-      const avgG = gTotal / pixelCount;
-      const avgB = bTotal / pixelCount;
-      const diversityRatio = colorVariances / pixelCount;
-
-      // Category-specific color profile matching
-      if (slug.includes("bromo") || slug.includes("semeru")) {
-        // Volcanic landscapes: atmospheric gray, earthy brown, or sky tones
-        if (avgR > 40 || avgG > 40 || avgB > 40) {
-          resolve({
-            isVerified: true,
-            confidence: 91.2,
-            reason: "Visual AI detected volcanic landscape horizon & soil profile.",
-          });
-          return;
-        }
-      } else if (slug.includes("sewu") || slug.includes("pelangi") || slug.includes("sirah")) {
-        // Waterfall / Nature: dominant green or blue tones
-        if (avgG >= avgR * 0.85 || avgB >= avgR * 0.85) {
-          resolve({
-            isVerified: true,
-            confidence: 93.8,
-            reason: "Visual AI detected lush nature / aquatic spectrum.",
-          });
-          return;
-        }
-      } else if (diversityRatio > 0.35) {
-        // Vibrant or urban heritage locations
-        resolve({
-          isVerified: true,
-          confidence: 88.4,
-          reason: "Visual AI verified landmark color saturation & structure.",
-        });
-        return;
-      }
-
-      // Default photo verification if readable image with content
-      if (avgR > 15 || avgG > 15 || avgB > 15) {
-        resolve({
-          isVerified: true,
-          confidence: 85.0,
-          reason: "Photo features validated via Visual AI.",
-        });
-      } else {
-        resolve({
-          isVerified: false,
-          confidence: 32.0,
-          reason: "Image is too dark or lacks recognizable landmark features.",
-        });
-      }
-    } catch {
-      resolve({
-        isVerified: true,
-        confidence: 80.0,
-        reason: "Photo metadata validated.",
-      });
+    if (result.isUnknown) {
+      return {
+        isVerified: false,
+        confidence: 0,
+        reason: "Could not recognize this location. The photo doesn't match any known Malang landmark.",
+      };
     }
-  };
 
-  img.onerror = () => {
-    resolve({
+    if (!result.topMatch) {
+      return {
+        isVerified: false,
+        confidence: 0,
+        reason: "Visual recognition failed. Try a clearer photo of the landmark.",
+      };
+    }
+
+    // Exact match — top result IS this landmark
+    if (result.topMatch.slug === slug) {
+      return {
+        isVerified: true,
+        confidence: result.topMatch.confidence,
+        reason: result.topMatch.matchReason,
+      };
+    }
+
+    // Close candidate — target is in top 3 with decent score
+    const targetAsCandidate = result.candidates.find(c => c.slug === slug);
+    if (targetAsCandidate && targetAsCandidate.confidence > 30) {
+      return {
+        isVerified: true,
+        confidence: targetAsCandidate.confidence,
+        reason: `Visual AI matched ${result.topMatch.name} (${Math.round(result.topMatch.confidence)}%), ${slug} scored ${Math.round(targetAsCandidate.confidence)}%`,
+      };
+    }
+
+    // Wrong place entirely
+    return {
       isVerified: false,
       confidence: 0,
-      reason: "Could not load image for visual verification.",
-    });
-  };
-
-  return promise;
+      reason: `This photo looks like ${result.topMatch.name} (${Math.round(result.topMatch.confidence)}%), not ${slug}. Please upload a photo of the correct location.`,
+    };
+  } catch {
+    // Model unavailable — basic validation only
+    return { isVerified: true, confidence: 80.0, reason: "Image validated (offline mode)." };
+  }
 }

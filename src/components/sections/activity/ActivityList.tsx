@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { activitiesData } from "./ActivitiesData";
 
 const ACTIVITIES = ['Nature Seeker', 'Fun & Entertainment', 'Heritage', 'Coworking Space', 'Hidden Gem'] as const;
 const ACTIVITY_KEYS: string[] = [
@@ -20,6 +21,19 @@ const ActivityList = () => {
   const toSlug = (text: string) =>
     text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 
+  const handleNavigate = (item: string) => {
+    const slug = toSlug(item);
+    // Preload hero images before navigating so they're cached
+    const category = activitiesData[slug];
+    if (category) {
+      category.places.forEach(p => {
+        const img = new Image();
+        img.src = p.heroImage;
+      });
+    }
+    navigate(`/activity/${slug}`);
+  };
+
   return (
     <section className="w-full min-h-screen bg-[#f5f4f0] text-black flex flex-col items-center justify-center px-4 sm:px-10 py-16">
       
@@ -31,7 +45,7 @@ const ActivityList = () => {
         {activities.map((item, index) => (
           <div
             key={index}
-            onClick={() => navigate(`/activity/${toSlug(item)}`)}
+            onClick={() => handleNavigate(item)}
             className="flex justify-between items-center border-b border-black/40 py-5 cursor-pointer group gap-4"
           >
             <h2 className="text-xl sm:text-3xl font-extrabold uppercase group-hover:translate-x-2 transition text-safe leading-snug">

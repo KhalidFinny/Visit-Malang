@@ -129,7 +129,7 @@ export default function HeroStage() {
 
       {/* ── Consolidated Hero Console Dock — 40% overlap, 90% centered ─────── */}
       <div className="relative z-20 w-full -mt-[110px] md:-mt-[135px] px-4 md:px-8">
-        <div className="w-full max-w-[1400px] mx-auto bg-[#f5f4f0] rounded-xl border border-premium-black/[0.06] relative overflow-hidden">
+        <div className="w-full max-w-[1400px] mx-auto bg-[#f5f4f0] rounded-xl border-2 border-premium-black/20 relative overflow-hidden shadow-lg">
           {/* Subtle background dot grid pattern for extra texture */}
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#1c1c1c_1px,transparent_1px)] [background-size:16px_16px]" />
           

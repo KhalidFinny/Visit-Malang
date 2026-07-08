@@ -7,15 +7,15 @@ export const activitiesData: Record<string, Category> = {
     places: [
       {
         title: "Mount Bromo",
-        description: "Gunung api aktif paling ikonik dengan lautan pasir luas.",
+        description: "Gunung api aktif yang menjulang megah di atas lautan pasir seluas ribuan hektar — panorama sunrise-nya diakui sebagai salah satu yang terindah di Asia Tenggara, dengan asap belerang yang mengepul dari kawah di ujung jalan setapak.",
         heroImage: "/bromo.jpg",
         thingsToDo: [
-          { title: "Sunrise Hunt", desc: "Melihat matahari terbit dari Penanjakan." },
-          { title: "Jeep Ride", desc: "Menjelajahi lautan pasir dengan jeep." },
-          { title: "Kawah Walk", desc: "Mendekati kawah aktif Bromo." },
-          { title: "Camping", desc: "Bermalam di bawah bintang lautan pasir." },
+          { title: "Sunrise Hunt", desc: "Menyaksikan fajar perlahan menyapu lautan pasir dari puncak Penanjakan — momen yang tidak akan pernah terlupakan." },
+          { title: "Jeep Ride", desc: "Menjelajahi gurun pasir dan savana luas dengan jeep klasik ala petualangan safari." },
+          { title: "Kawah Walk", desc: "Berjalan menuju bibir kawah aktif Bromo, mendengar gemuruh bumi dari kedalaman." },
+          { title: "Camping", desc: "Bermalam di bawah langit bertabur bintang di tengah lautan pasir yang sunyi." },
         ],
-        tips: ["Gunakan jaket tebal", "Pakai masker"],
+        tips: ["Gunakan jaket tebal — suhu bisa turun hingga 5°C", "Pakai masker untuk abu vulkanik"],
         bestTime: [
           {
             icon: "🌅",
@@ -41,10 +41,10 @@ export const activitiesData: Record<string, Category> = {
 
       {
         title: "Tumpak Sewu",
-        description: "Air terjun tirai megah.",
+        description: "Air terjun bertirai selebar seratus meter yang jatuh dari tebing setengah lingkaran ke dalam lembah hijau yang diselimuti kabut — salah satu air terjun terindah di Jawa Timur dengan ketinggian sekitar 120 meter.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Trekking", desc: "Turun ke bawah air terjun." }],
-        tips: ["Gunakan sepatu anti slip"],
+        thingsToDo: [{ title: "Trekking", desc: "Menuruni tebing curam menuju dasar air terjun, merasakan semburan air dan semilir angin lembah." }],
+        tips: ["Gunakan sepatu anti slip — jalur curam dan licin"],
         bestTime: [
           {
             icon: "🌄",
@@ -70,10 +70,10 @@ export const activitiesData: Record<string, Category> = {
 
       {
         title: "Pantai 3 Warna",
-        description: "Pantai unik dengan gradasi warna.",
+        description: "Pantai konservasi dengan gradasi tiga warna air laut yang memukau — dari biru muda, biru kehijauan, hingga biru laut dalam. Terumbu karangnya masih asri dan terjaga berkat status kawasan lindung.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Snorkeling", desc: "Lihat terumbu karang." }],
-        tips: ["Reservasi dulu"],
+        thingsToDo: [{ title: "Snorkeling", desc: "Menyelam di antara terumbu karang warna-warni sambil dikelilingi ikan tropis." }],
+        tips: ["Reservasi dulu — jumlah pengunjung dibatasi"],
         bestTime: [
           {
             icon: "☀️",
@@ -99,10 +99,10 @@ export const activitiesData: Record<string, Category> = {
 
       {
         title: "Coban Pelangi",
-        description: "Air terjun dengan pelangi.",
+        description: "Air terjun dataran tinggi yang memantulkan spektrum warna pelangi di pagi hari ketika sinar matahari menerpa butiran air yang berterbangan. Dikelilingi hutan tropis yang rimbun dan udara sejuk khas pegunungan.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Hiking", desc: "Jalan ke air terjun." }],
-        tips: ["Datang pagi"],
+        thingsToDo: [{ title: "Hiking", desc: "Menyusuri setapak hujan menuju air terjun dengan suara gemericik air menemani langkah." }],
+        tips: ["Datang pagi — pelangi hanya muncul antara pukul 09:00–12:00"],
         bestTime: [
           {
             icon: "🌈",
@@ -128,10 +128,10 @@ export const activitiesData: Record<string, Category> = {
 
       {
         title: "Pulau Sempu",
-        description: "Cagar alam dengan laguna.",
+        description: "Cagar alam pulau tropis yang menyimpan laguna air asin tersembunyi di tengahnya — Segara Anakan. Airnya berwarna hijau toska jernih, dikelilingi tebing karang dan hutan tropis yang lebat.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Trekking", desc: "Masuk hutan." }],
-        tips: ["Izin wajib"],
+        thingsToDo: [{ title: "Trekking", desc: "Menjelajahi hutan tropis pulau menuju laguna tersembunyi yang memukau." }],
+        tips: ["Izin wajib — kawasan cagar alam dilindungi"],
         bestTime: [
           {
             icon: "🌴",
@@ -157,10 +157,10 @@ export const activitiesData: Record<string, Category> = {
 
       {
         title: "Budug Asu",
-        description: "Bukit view Gunung Arjuno.",
+        description: "Bukit tinggi dengan jalur setapak yang menawarkan panorama 360° Gunung Arjuno dari puncaknya. Dikelilingi hutan pinus yang rimbun, tempat ini menjadi favorit para pendaki dan pecinta camping di bawah bintang.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Offroad", desc: "Naik ke puncak." }],
-        tips: ["Gunakan kendaraan kuat"],
+        thingsToDo: [{ title: "Offroad", desc: "Menantang medan berbatu menuju puncak dengan kendaraan 4x4." }],
+        tips: ["Gunakan kendaraan kuat — medan terjal"],
         bestTime: [
           {
             icon: "🌅",
@@ -192,7 +192,7 @@ export const activitiesData: Record<string, Category> = {
     places: [
       {
         title: "Jatim Park 1",
-        description: "Taman hiburan.",
+        description: "Taman tema edukatif dan rekreasi terbesar di Malang — menggabungkan wahana permainan modern dengan pusat sains interaktif. Cocok untuk keluarga dengan anak-anak yang ingin belajar sambil bermain.",
         heroImage: "/bromo.jpg",
         thingsToDo: [{ title: "Rides", desc: "Wahana seru." }],
         tips: ["Datang pagi"],
@@ -221,7 +221,7 @@ export const activitiesData: Record<string, Category> = {
 
       {
         title: "Museum Angkut",
-        description: "Museum transportasi.",
+        description: "Museum transportasi bertaraf internasional dengan koleksi lebih dari 300 kendaraan klasik dari seluruh dunia, ditata dalam tema zona Hollywood, Eropa, dan Asia. Setiap sudutnya instagramable dan penuh sejarah.",
         heroImage: "/bromo.jpg",
         thingsToDo: [{ title: "Exhibition", desc: "Lihat koleksi." }],
         tips: ["Datang sore"],
@@ -256,7 +256,7 @@ export const activitiesData: Record<string, Category> = {
     places: [
       {
         title: "Kayutangan Heritage",
-        description: "Kawasan kolonial.",
+        description: "Koridor bersejarah di pusat Malang yang mempertahankan arsitektur kolonial Belanda asli — deretan bangunan art deco, jalan berbatu, dan kafe-kafe vintage yang menyajikan pengalaman Eropa lama di tengah kota.",
         heroImage: "/bromo.jpg",
         thingsToDo: [{ title: "Walking", desc: "Jalan santai." }],
         tips: ["Datang sore"],
@@ -291,7 +291,7 @@ export const activitiesData: Record<string, Category> = {
     places: [
       {
         title: "Sumber Sirah",
-        description: "Air jernih.",
+        description: "Mata air alami dengan air sejernih kristal yang memancar dari celah-celah bebatuan. Dikelilingi pepohonan tropis dan tanaman air yang bergoyang lembut — tempat snorkeling air tawar yang unik di Malang selatan.",
         heroImage: "/bromo.jpg",
         thingsToDo: [{ title: "Snorkeling", desc: "Air tawar." }],
         tips: ["Jangan injak tanaman"],
@@ -326,7 +326,7 @@ export const activitiesData: Record<string, Category> = {
     places: [
       {
         title: "Nakoa Coffee",
-        description: "Cafe kerja.",
+        description: "Kafe modern 24 jam dengan interior industrial, meja besar komunal, pencahayaan hangat, dan colokan listrik di setiap sudut — tempat favorit para remote worker dan pelajar yang membutuhkan suasana kerja produktif.",
         heroImage: "/bromo.jpg",
         thingsToDo: [{ title: "Work", desc: "Nugas." }],
         tips: ["Bawa charger"],

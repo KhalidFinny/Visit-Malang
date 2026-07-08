@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 import { useParams, useNavigate } from "react-router-dom";
 import { activitiesData } from "./ActivitiesData";
@@ -49,7 +50,12 @@ const ActivityDetail: React.FC = () => {
 
   /* ================= RENDER ================= */
   return (
-    <div className="w-full h-screen bg-black text-white flex flex-col overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="w-full h-screen bg-black text-white flex flex-col overflow-hidden"
+    >
 
       {/* ================= HERO ================= */}
       <div className="relative w-full flex-1 min-h-0">
@@ -59,8 +65,9 @@ const ActivityDetail: React.FC = () => {
           alt={currentPlace.title}
           className="absolute inset-0 w-full h-full object-cover"
           wrapperClassName="absolute inset-0 w-full h-full"
+          loading="eager"
+          fetchPriority="high"
         />
-
         {/* overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent" />
@@ -164,7 +171,7 @@ const ActivityDetail: React.FC = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

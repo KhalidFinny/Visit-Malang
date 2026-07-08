@@ -1,10 +1,6 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import type { SkeletonProps, ImageWithSkeletonProps } from "./types";
-
-/* ─────────────────────────────────────────────
- * Generic Skeleton Placeholder
- * ───────────────────────────────────────────── */
 
 export function Skeleton({
   className = "",
@@ -12,15 +8,10 @@ export function Skeleton({
   aspectH,
   rounded = "rounded-xl",
 }: SkeletonProps) {
-  const aspectStyle =
-    aspectW && aspectH
-      ? ({ aspectRatio: `${aspectW} / ${aspectH}` } as React.CSSProperties)
-      : {};
-
   return (
     <div
       className={`relative overflow-hidden bg-[#1a1a1a]/8 ${rounded} ${className}`}
-      style={aspectStyle}
+      style={aspectW && aspectH ? { aspectRatio: `${aspectW} / ${aspectH}` } : undefined}
     >
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
@@ -31,10 +22,6 @@ export function Skeleton({
   );
 }
 
-/* ─────────────────────────────────────────────
- * Image With Skeleton — shows shimmer while img loads
- * ───────────────────────────────────────────── */
-
 export function ImageWithSkeleton({
   src,
   alt,
@@ -43,55 +30,51 @@ export function ImageWithSkeleton({
   loading = "lazy",
   fetchPriority = "auto",
 }: ImageWithSkeletonProps) {
-  const [loaded, setLoaded] = useState(false);
-  const [error, setError] = useState(false);
-  const imgRef = useRef<HTMLImageElement | null>(null);
-  const rafRef = useRef<number>(0);
+  // Start as loaded (hide skeleton). Only show skeleton if onLoad hasn't fired.
+  const [loaded, setLoaded] = useState(true);
+  const [showSkeleton, setShowSkeleton] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   const handleLoad = useCallback(() => {
-    // small delay so cached images still show skeleton briefly for consistency
-    const start = performance.now();
-    const poll = () => {
-      if (performance.now() - start >= 200) {
-        setLoaded(true);
-      } else {
-        rafRef.current = requestAnimationFrame(poll);
+    setLoaded(true);
+    setShowSkeleton(false);
+  }, []);
+
+  // On mount / src change: if image loads instantly, keep skeleton hidden.
+  // If not loaded after one frame, show skeleton until onLoad fires.
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setLoaded(true);
+      setShowSkeleton(false);
+      return;
+    }
+    // Image not immediately ready — wait one frame, then show skeleton if still not loaded
+    const raf = requestAnimationFrame(() => {
+      if (!imgRef.current?.complete) {
+        setShowSkeleton(true);
+        setLoaded(false);
       }
-    };
-    rafRef.current = requestAnimationFrame(poll);
-  }, []);
-
-  useEffect(() => {
-    return () => cancelAnimationFrame(rafRef.current);
-  }, []);
-
-  // Reset when src changes
-  useEffect(() => {
-    setLoaded(false);
-    setError(false);
+    });
+    return () => cancelAnimationFrame(raf);
   }, [src]);
 
   return (
     <div className={`relative overflow-hidden ${wrapperClassName}`}>
-      {/* Skeleton — hidden once loaded or errored */}
-      {!loaded && !error && (
+      {showSkeleton && !loaded && (
         <Skeleton className="absolute inset-0 w-full h-full z-10" rounded="inherit" />
       )}
       <img
         ref={imgRef}
         src={src}
         alt={alt}
-        className={`transition-opacity duration-500 ${className} ${
+        className={`transition-opacity duration-300 ${className} ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
         loading={loading}
         fetchPriority={fetchPriority}
         decoding="async"
         onLoad={handleLoad}
-        onError={() => {
-          setError(true);
-          setLoaded(true); // reveal broken image too
-        }}
+        onError={() => setLoaded(true)}
       />
     </div>
   );

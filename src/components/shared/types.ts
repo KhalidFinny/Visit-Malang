@@ -65,3 +65,18 @@ export interface MatchResult {
   coordinates: { lat: number; lng: number };
   description: string;
 }
+
+export interface HeaderMenuProps {
+  onOpenPassport: () => void;
+  onOpenLens: () => void;
+  onOpenPostcard: () => void;
+}
+
+export interface Place {
+  slug: string;
+  name: string;
+  lat: number;
+  lng: number;
+  desc: string;
+  cat: string;
+}
