@@ -11,6 +11,7 @@ export interface Recommendation {
   imageUrl: string;
   type: "indoor" | "outdoor";
   popularity: number;
+  averagePrice?: number;
 }
 
 export interface CurrentWeather {

@@ -320,5 +320,15 @@
   "weather.timeToGo": "Time to Go",
   "weather.viewDetails": "View Details",
   "weather.wind": "Wind",
-  "weather.windSpeed": "Wind Speed"
+  "weather.windSpeed": "Wind Speed",
+  "culture.section": "03 / Culture",
+  "culture.exploreAll": "Explore all cultures",
+  "culture.readStory": "Read story",
+  "culture.backToCultures": "All Cultures",
+  "culture.whereToExperience": "Where to experience",
+  "culture.notFound": "Culture not found",
+  "culture.prev": "Previous",
+  "culture.next": "Next",
+  "culture.pageTitle": "Arts & Culture",
+  "culture.pageSubtitle": "From the masked dances of Singosari to the pottery kilns of Dinoyo — an introduction to the living traditional arts of Malang."
 }

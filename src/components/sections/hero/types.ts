@@ -44,3 +44,6 @@ export interface HeroDestination {
 export interface TripPanelProps {
   inline?: boolean;
 }
+
+/** Internal type for Leaflet map container element check */
+export type LeafletEl = HTMLElement & { _leaflet_id?: number };

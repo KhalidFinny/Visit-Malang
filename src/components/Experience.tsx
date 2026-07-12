@@ -15,6 +15,8 @@ import { useExperienceState } from "./hooks/useExperienceState";
 const HeroStage = lazy(() => import("./sections/hero/HeroStage"));
 const PopularDestinationsSection = lazy(() => import("./sections/popular/PopularDestinationsSection"));
 const HeritageStage = lazy(() => import("./sections/heritage/HeritageStage"));
+const HistoryStage = lazy(() => import("./sections/history/HistoryStage"));
+const CultureStage = lazy(() => import("./sections/culture/CultureStage"));
 const ActivityList = lazy(() => import("./sections/activity/ActivityList"));
 const TechEntrance = lazy(() => import("./sections/modern/TechEntrance"));
 const WeatherStage = lazy(() => import("./sections/weather/WeatherStage"));
@@ -56,6 +58,7 @@ function preloadLandingSections() {
   setTimeout(() => {
     import("./sections/popular/PopularDestinationsSection");
     import("./sections/heritage/HeritageStage");
+    import("./sections/culture/CultureStage");
     import("./sections/activity/ActivityList");
   }, 1000);
   setTimeout(() => {
@@ -75,7 +78,7 @@ function SectionFallback() {
 }
 
 export default function Experience() {
-  const { phase, handleDescend, handleMouseMove, springX, springY, pOrigin } =
+  const { phase, skipLandingAnim, handleDescend, handleMouseMove, springX, springY, pOrigin } =
     useExperienceState();
   const [passportOpen, setPassportOpen] = useState(false);
   const [lensOpen, setLensOpen] = useState(false);
@@ -121,7 +124,7 @@ export default function Experience() {
           <motion.div
             key="landing"
             className="w-full relative z-0 bg-[#f5f4f0] min-h-screen"
-            initial={{ opacity: 0, y: "100vh" }}
+            initial={skipLandingAnim ? false : { opacity: 0, y: "100vh" }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
           >
@@ -140,6 +143,12 @@ export default function Experience() {
             </Suspense>
             <Suspense fallback={<SectionFallback />}>
               <HeritageStage />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <CultureStage />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <HistoryStage />
             </Suspense>
             <Suspense fallback={<SectionFallback />}>
               <ActivityList />

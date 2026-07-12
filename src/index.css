@@ -9,9 +9,9 @@
 
   /* Typography Variables */
   --font-editorial: 'Antonio', sans-serif;
-  --font-swiss: 'Urbanist', sans-serif;
+  --font-swiss: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-script: 'Sue Ellen Francisco', cursive;
-  --font-main: 'Outfit', sans-serif;
+  --font-main: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   
   --spacing-swiss-xs: 0.5rem;   /* 8px */
   --spacing-swiss-sm: 1.5rem;   /* 24px */
@@ -33,7 +33,7 @@ html {
 body {
   margin: 0;
   background: #000;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: white;
   width: 100%;
   max-width: 100%;
@@ -199,7 +199,7 @@ body {
   cursor: pointer;
   pointer-events: auto;
   transition: all 0.3s ease;
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 600;
 }
 

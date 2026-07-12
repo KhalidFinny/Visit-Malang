@@ -2,9 +2,10 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollLock } from "../../hooks/useScrollLock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faCamera, faSpinner, faMapLocationDot, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faSpinner, faMapLocationDot, faEye } from "@fortawesome/free-solid-svg-icons";
 import type { VisualLensModalProps } from "../types";
 import { zeroShotClassify, type MLMatchResult } from "../utils/lensML";
+import CloseButton from "./CloseButton";
 
 export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProps) {
   const [imageSrc, setImageSrc] = useState<string | null>(null);
@@ -56,14 +57,16 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
     <AnimatePresence>
       {isOpen && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-8" onClick={onClose}>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.25, ease: "easeOut" }} onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl bg-[#f5f4f0] rounded-3xl shadow-2xl border border-black/10 flex flex-col md:flex-row overflow-hidden">
+          className="fixed inset-0 z-[99999] flex items-end sm:items-center justify-center p-0 sm:p-8" onClick={onClose}>
+          <motion.div initial={{ y: 40, opacity: 0, scale: 0.98 }} animate={{ y: 0, opacity: 1, scale: 1 }} exit={{ y: 40, opacity: 0, scale: 0.98 }}
+            transition={{ type: "spring", damping: 32, stiffness: 320 }} onClick={(e) => e.stopPropagation()}
+            className="relative w-full sm:max-w-2xl h-[92dvh] sm:h-auto bg-[#f5f4f0] sm:rounded-3xl shadow-2xl sm:border border-black/10 flex flex-col md:flex-row overflow-hidden">
 
-            <button onClick={onClose} className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white border border-black/10 text-black/50 hover:text-black flex items-center justify-center transition-all cursor-pointer">
-              <FontAwesomeIcon icon={faTimes} className="text-xs" />
-            </button>
+            {/* Top Handle (mobile) */}
+            <div className="sm:hidden flex justify-center pt-3 pb-1 shrink-0">
+              <div className="w-10 h-1 rounded-full bg-black/15" />
+            </div>
+            <CloseButton onClick={onClose} className="absolute top-4 right-4 z-20" />
 
             <div className="w-full md:w-1/2 bg-[#f0ebe6] border-b md:border-b-0 md:border-r border-black/[0.06] relative flex flex-col items-center justify-center p-6 h-[240px] md:h-full">
               {imageSrc ? (

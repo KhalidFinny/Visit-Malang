@@ -58,15 +58,12 @@ export default function HeroMap({ category: initialCategory, onClose }: HeroMapP
   // Init map once with full zoom freedom
   useEffect(() => {
     if (mapRef.current || !mapContainerRef.current) return;
-
-    let cancelled = false;
+    const container = mapContainerRef.current as HTMLElement;
 
     import('leaflet').then((L) => {
-      if (cancelled || !mapContainerRef.current) return;
-      type LeafletEl = HTMLElement & { _leaflet_id?: number };
-      if ((mapContainerRef.current as LeafletEl)._leaflet_id) return;
+      if ("_leaflet_id" in container) return;
 
-      const map = L.map(mapContainerRef.current, {
+      const map = L.map(container, {
         center: MALANG_CENTER,
         zoom: 13,
         zoomControl: false,
@@ -88,15 +85,7 @@ export default function HeroMap({ category: initialCategory, onClose }: HeroMapP
 
       mapRef.current = map;
       setMapReady(true);
-      setTimeout(() => map.invalidateSize(), 100);
     });
-
-    return () => {
-      cancelled = true;
-      mapRef.current?.remove();
-      mapRef.current = null;
-      setMapReady(false);
-    };
   }, []);
 
   // Draw markers when map is ready OR active category changes
@@ -140,7 +129,7 @@ export default function HeroMap({ category: initialCategory, onClose }: HeroMapP
                 padding: 6px 12px;
                 font-size: 11px;
                 font-weight: 800;
-                font-family: 'Outfit', sans-serif;
+                font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
                 white-space: nowrap;
                 display: flex;
                 align-items: center;

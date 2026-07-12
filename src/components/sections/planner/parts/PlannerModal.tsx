@@ -31,7 +31,7 @@ export default function PlannerModal({ isOpen, onClose, children }: PlannerModal
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 40, opacity: 0, scale: 0.98 }}
             transition={{ type: "spring", damping: 32, stiffness: 320 }}
-            className="relative z-10 w-full sm:w-[92vw] md:w-[85vw] max-w-[960px] h-[92dvh] sm:h-auto sm:max-h-[88vh] bg-white rounded-t-3xl sm:rounded-3xl flex flex-col shadow-2xl overflow-hidden"
+            className="relative z-10 w-full sm:w-[92vw] md:w-[85vw] max-w-[960px] h-[92dvh] sm:h-auto sm:max-h-[88vh] bg-[#f5f4f0] rounded-t-3xl sm:rounded-3xl flex flex-col shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Handle (mobile) */}
@@ -40,16 +40,18 @@ export default function PlannerModal({ isOpen, onClose, children }: PlannerModal
             </div>
 
             {/* Header */}
-            <div className="shrink-0 flex items-center justify-between px-4 sm:px-8 py-4 sm:py-5 border-b border-black/[0.06]">
-              <div className="flex items-center gap-2.5">
-                <div className="w-2 h-2 rounded-full bg-[#7a9e64] animate-pulse" />
-                <span className="text-sm font-semibold text-black/50 tracking-wide">
-                  {t('planner.modal.regionalCounsel')}
-                </span>
+            <div className="shrink-0 flex items-center justify-between px-4 sm:px-8 py-4 sm:py-5 border-b border-black/[0.06] bg-[#f5f4f0]">
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold text-black leading-snug">
+                  {t('planner.modal.title')}
+                </h2>
+                <p className="text-sm text-black/45 font-normal mt-0.5">
+                  {t('planner.modal.subtitle')}
+                </p>
               </div>
               <button
                 onClick={onClose}
-                className="flex items-center justify-center w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 transition-colors cursor-pointer"
+                className="flex items-center justify-center w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 transition-colors cursor-pointer shrink-0 ml-4"
                 aria-label="Close"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

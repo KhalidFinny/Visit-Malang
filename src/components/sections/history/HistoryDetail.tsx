@@ -1,114 +1,107 @@
-import React from "react";
-import { useTranslation } from 'react-i18next';
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ImageWithSkeleton } from "../../shared/Skeleton";
+import { HISTORY_STORIES, HISTORY_ACCENTS } from "./historyData";
+import BackButton from "../../shared/parts/BackButton";
 
-import type { HistoryData } from "./types";
+const fade = (d: number) => ({
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, delay: d, ease: [0.16, 1, 0.3, 1] },
+});
 
-const storySlugs: Record<string, string> = {
-  "the-hidden-story-behind-colorful-village": "story01",
-  "from-slum-to-global-attraction": "story02",
-  "the-people-behind-the-colors": "story03",
-  "transformation-through-community": "story04",
-  "tourism-that-changed-everything": "story05",
-  "sustainability-challenges": "story06",
+const ERA_BG: Record<string, string> = {
+  kingdoms: "#f5f0e8",
+  colonial: "#eef2ee",
+  modern: "#f0ede6",
 };
 
-const HistoryDetail: React.FC = () => {
-  const { t } = useTranslation();
+export default function HistoryDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const story = HISTORY_STORIES.find((s) => s.slug === slug);
 
-  const storyKey = slug ? storySlugs[slug] : null;
-
-  if (!storyKey) {
-    return <div className="text-white p-10">{t('history.notFound')}</div>;
+  if (!story) {
+    return (
+      <div className="min-h-screen bg-[#f5f4f0] flex items-center justify-center">
+        Story not found
+      </div>
+    );
   }
-  
-  const data: HistoryData = {
-    title: t(`history.${storyKey}.title`),
-    description: t(`history.${storyKey}.description`),
-    content: t(`history.${storyKey}.content`),
-  };
+
+  const siblings = HISTORY_STORIES.filter(
+    (s) => s.period === story.period && s.slug !== story.slug
+  ).slice(0, 3);
+  const accent = HISTORY_ACCENTS[story.accent];
+  const eraBg = ERA_BG[story.period] || "#f5f4f0";
 
   return (
-    <div className="bg-[#0a0a0a] text-white min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: eraBg }}>
+      <BackButton to={`/history?period=${story.period}`} />
 
-      {/* HERO */}
-      <div className="relative h-[70vh] w-full overflow-hidden">
-
-        <img
-          src="/bromo.jpg"
-          alt={data.title}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/40 to-transparent" />
-
-        {/* BACK ICON ONLY */}
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute top-6 left-6 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/10 hover:bg-black/60 transition"
+      <div className="mx-auto max-w-[80%] py-12 sm:py-16 lg:py-20">
+        <motion.h1
+          {...fade(0)}
+          className="text-3xl sm:text-4xl lg:text-[3rem] font-bold text-[#1a1a1a] leading-[1.1] tracking-tight mb-4"
         >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M19 12H5" />
-            <path d="M12 19l-7-7 7-7" />
-          </svg>
-        </button>
+          {story.title}
+        </motion.h1>
 
-        {/* TEXT (NOW ALIGNED) */}
-        <div className="absolute bottom-16 left-0 right-0">
-          <div className="max-w-3xl mx-auto px-6">
-            <h1 className="text-[clamp(32px,5vw,64px)] font-semibold leading-tight tracking-tight">
-              {data.title}
-            </h1>
+        <motion.p
+          {...fade(0.05)}
+          className="text-lg sm:text-xl font-medium leading-relaxed mb-8 sm:mb-10"
+          style={{ color: accent.hex + "cc" }}
+        >
+          {story.hook}
+        </motion.p>
 
-            <p className="text-white/60 mt-4 text-[15px]">
-              {data.description}
-            </p>
-          </div>
-        </div>
-      </div>
+        <motion.div
+          {...fade(0.1)}
+          className="w-full h-[300px] sm:h-[400px] lg:h-[480px] rounded-2xl overflow-hidden mb-8 sm:mb-10 bg-black/5"
+        >
+          <ImageWithSkeleton
+            src={story.imageUrl}
+            alt={story.title}
+            className="w-full h-full object-cover"
+            wrapperClassName="w-full h-full"
+          />
+        </motion.div>
 
-      {/* CONTENT */}
-      <div className="max-w-3xl mx-auto px-6 py-20">
+          <div className="w-10 h-0.5 mb-8 sm:mb-10" style={{ backgroundColor: accent.hex + "40" }} />
 
-        <div className="space-y-8">
-          {data.content.split("\n\n").map((para, i) => (
-            <p
-              key={i}
-              className="text-white/70 text-[16px] leading-[1.9]"
+        <div className="space-y-6 sm:space-y-8">
+          {story.content.map((paragraph, i) => (
+            <motion.p
+              key={paragraph}
+              {...fade(0.05 + i * 0.03)}
+              className="text-[17px] sm:text-[18px] leading-[1.8] sm:leading-[1.9] text-[#1a1a1a]/70"
             >
-              {para}
-            </p>
+              {paragraph}
+            </motion.p>
           ))}
         </div>
 
-        {/* FOOTER */}
-        <div className="mt-20 pt-10 border-t border-white/10 text-center">
-          <p className="text-white/30 text-sm mb-6">
-            {t('history.exploreMore')}
-          </p>
+          <div className="w-10 h-0.5 my-10 sm:my-14" style={{ backgroundColor: accent.hex + "40" }} />
 
-          <button
-            onClick={() => navigate("/history")}
-            className="px-6 py-2 border border-white/20 rounded-full text-sm text-white/70 hover:text-white hover:border-white/40 transition"
-          >
-            {t('history.backToHistory')}
-          </button>
-        </div>
-
+        {siblings.length > 0 && (
+          <div>
+            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#1a1a1a]/40 mb-6">Continue Reading</h3>
+            <div className="flex flex-col gap-6">
+              {siblings.map((s) => (
+                <button key={s.slug} onClick={() => navigate(`/history/${s.slug}`)} className="flex items-center gap-4 text-left group">
+                  <div className="w-16 h-16 rounded-lg overflow-hidden bg-black/5 shrink-0">
+                    <img src={s.imageUrl} alt="" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-base font-bold text-[#1a1a1a] leading-snug group-hover:opacity-70 transition-opacity">{s.title}</h4>
+                    <p className="text-sm text-[#1a1a1a]/50 mt-1">{s.hook}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
-};
-
-export default HistoryDetail;
+}

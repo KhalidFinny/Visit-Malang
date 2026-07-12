@@ -36,7 +36,7 @@ export interface PostcardModalProps {
   onClose: () => void;
 }
 
-export type LayoutStyle = "classic" | "polaroid" | "scrapbook" | "swiss";
+export type PostcardLayoutKey = "classic" | "fullbleed" | "polaroid";
 
 export interface StampLocation {
   slug: string;

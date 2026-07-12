@@ -320,5 +320,15 @@
   "weather.timeToGo": "Waktu Terbaik",
   "weather.viewDetails": "Lihat Detail",
   "weather.wind": "Angin",
-  "weather.windSpeed": "Kecepatan Angin"
+  "weather.windSpeed": "Kecepatan Angin",
+  "culture.section": "03 / Budaya",
+  "culture.exploreAll": "Jelajahi semua budaya",
+  "culture.readStory": "Baca cerita",
+  "culture.backToCultures": "Semua Budaya",
+  "culture.whereToExperience": "Tempat menikmati",
+  "culture.notFound": "Budaya tidak ditemukan",
+  "culture.prev": "Sebelumnya",
+  "culture.next": "Selanjutnya",
+  "culture.pageTitle": "Seni & Budaya",
+  "culture.pageSubtitle": "Dari tari topeng Singosari hingga gerabah Dinoyo — pengantar seni tradisional Malang yang masih hidup."
 }

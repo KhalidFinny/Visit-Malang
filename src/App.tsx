@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Experience from "./components/Experience";
 import SmoothScroll from "./components/utils/SmoothScroll";
 import ScrollToTop from "./components/utils/ScrollToTop";
@@ -13,6 +13,8 @@ const ActivityList = lazy(() => import("./components/sections/activity/ActivityL
 const ActivityDetail = lazy(() => import("./components/sections/activity/ActivityDetail"));
 const PlaceDetail = lazy(() => import("./components/sections/activity/PlaceDetail"));
 const TechDetail = lazy(() => import("./components/sections/modern/TechDetail"));
+const CultureList = lazy(() => import("./components/sections/culture/CultureList"));
+const CultureDetail = lazy(() => import("./components/sections/culture/CultureDetail"));
 
 function PageFallback() {
   return (
@@ -23,23 +25,32 @@ function PageFallback() {
 }
 
 function App() {
+  const { pathname } = useLocation();
+  const isPlaceDetailRoute = pathname.startsWith("/place/");
+
+  const routedContent = (
+    <>
+      <ScrollToTop />
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
+          {/* HOME */}
+          <Route path="/" element={<Experience />} />
+          <Route path="/history" element={<HistoryList />} />
+          <Route path="/history/:slug" element={<HistoryDetail />} />
+          <Route path="/activity" element={<ActivityList />} />
+          <Route path="/activity/:name" element={<ActivityDetail />} />
+          <Route path="/place/:slug" element={<PlaceDetail />} />
+          <Route path="/culture" element={<CultureList />} />
+          <Route path="/culture/:slug" element={<CultureDetail />} />
+          <Route path="/modern-malang" element={<TechDetail />} />
+        </Routes>
+      </Suspense>
+    </>
+  );
+
   return (
     <main>
-      <SmoothScroll>
-        <ScrollToTop />
-        <Suspense fallback={<PageFallback />}>
-          <Routes>
-            {/* HOME */}
-            <Route path="/" element={<Experience />} />
-            <Route path="/history" element={<HistoryList />} />
-            <Route path="/history/:slug" element={<HistoryDetail />} />
-            <Route path="/activity" element={<ActivityList />} />
-            <Route path="/activity/:name" element={<ActivityDetail />} />
-            <Route path="/place/:slug" element={<PlaceDetail />} />
-            <Route path="/modern-malang" element={<TechDetail />} />
-          </Routes>
-        </Suspense>
-      </SmoothScroll>
+      {isPlaceDetailRoute ? routedContent : <SmoothScroll>{routedContent}</SmoothScroll>}
     </main>
   );
 }

@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faUpload, faDownload, faPalette, faImage } from "@fortawesome/free-solid-svg-icons";
+import { faUpload, faDownload, faPalette, faImage } from "@fortawesome/free-solid-svg-icons";
 import { useScrollLock } from "../../hooks/useScrollLock";
-import type { PostcardModalProps } from "../types";
+import type { PostcardModalProps, PostcardLayoutKey } from "../types";
+import CloseButton from "./CloseButton";
 
-type LayoutKey = "classic" | "fullbleed" | "polaroid";
-
-const LAYOUTS: { key: LayoutKey; label: string; icon: string }[] = [
+const LAYOUTS: { key: PostcardLayoutKey; label: string; icon: string }[] = [
   { key: "classic", label: "Classic Split", icon: "▐" },
   { key: "fullbleed", label: "Full Bleed", icon: "◻" },
   { key: "polaroid", label: "Polaroid", icon: "▯" },
@@ -57,10 +56,10 @@ function wrapText(ctx: CanvasRenderingContext2D, text: string, maxW: number): st
 
 export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
   const [dest, setDest] = useState("");
-  const [msg, setMsg] = useState("Exploring Malang — every corner tells a story.");
   const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [msg, setMsg] = useState("Exploring Malang — every corner tells a story.");
+  const [layout, setLayout] = useState<PostcardLayoutKey>("classic");
   const [palette, setPalette] = useState<string[]>(["#A3B18A", "#4a5e3a", "#0A0A0A", "#f5f4f0"]);
-  const [layout, setLayout] = useState<LayoutKey>("classic");
   const [downloading, setDownloading] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -165,11 +164,15 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-8" onClick={onClose}>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.25, ease: "easeOut" }} onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-4xl bg-[#f5f4f0] rounded-3xl shadow-2xl border border-black/10 flex flex-col overflow-hidden">
+          className="fixed inset-0 z-[99999] flex items-end sm:items-center justify-center p-0 sm:p-8" onClick={onClose}>
+          <motion.div initial={{ y: 40, opacity: 0, scale: 0.98 }} animate={{ y: 0, opacity: 1, scale: 1 }} exit={{ y: 40, opacity: 0, scale: 0.98 }}
+            transition={{ type: "spring", damping: 32, stiffness: 320 }} onClick={(e) => e.stopPropagation()}
+            className="relative w-full sm:max-w-4xl h-[92dvh] sm:h-auto bg-[#f5f4f0] sm:rounded-3xl shadow-2xl sm:border border-black/10 flex flex-col overflow-hidden">
 
+            {/* Top Handle (mobile) */}
+            <div className="sm:hidden flex justify-center pt-3 pb-1 shrink-0">
+              <div className="w-10 h-1 rounded-full bg-black/15" />
+            </div>
             <div className="px-6 pt-5 pb-3 flex items-center justify-between shrink-0 border-b border-black/[0.06]">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-[#A3B18A]/15 border border-[#A3B18A]/25 flex items-center justify-center text-[#A3B18A]">
@@ -177,9 +180,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                 </div>
                 <h2 className="text-lg font-bold text-[#0A0A0A] tracking-tight">Postcard Maker</h2>
               </div>
-              <button onClick={onClose} className="w-8 h-8 rounded-full bg-white border border-black/10 text-black/50 hover:text-black flex items-center justify-center transition-all cursor-pointer">
-                <FontAwesomeIcon icon={faTimes} className="text-xs" />
-              </button>
+              <CloseButton onClick={onClose} />
             </div>
 
             <div className="flex flex-col md:flex-row gap-0 p-5 md:p-6 flex-1 min-h-0">

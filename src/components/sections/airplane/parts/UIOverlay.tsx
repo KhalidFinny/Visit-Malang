@@ -77,7 +77,7 @@ const UIOverlay = memo(function UIOverlay({ onDescend, mousePos }: UIOverlayProp
             {
               x: ctaDriftX,
               y: ctaDriftY,
-              fontFamily: '"Urbanist", sans-serif',
+              fontFamily: '"DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
             } as any
           }
           transition={{

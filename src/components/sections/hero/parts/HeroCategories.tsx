@@ -43,33 +43,33 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.07 * i, ease: "easeOut" }}
           onClick={() => onSelect(cat)}
-          className={`group relative bg-transparent hover:bg-[#2D221F]/[0.03] rounded-2xl overflow-hidden cursor-pointer text-left w-full h-[140px] md:h-[170px] lg:h-[200px] hover:-translate-y-1 border ${BORDER_BROWN} transition-all duration-300`}
+          className={`group relative bg-transparent hover:bg-[#2D221F]/[0.03] rounded-2xl overflow-hidden cursor-pointer text-left w-full min-h-[120px] md:h-[170px] lg:h-[200px] hover:-translate-y-1 border ${BORDER_BROWN} transition-all duration-300`}
         >
           {/* Giant background icon */}
           <FontAwesomeIcon
             icon={CATEGORY_ICONS[cat]}
-            className={`absolute -right-6 -bottom-10 text-[120px] md:text-[160px] opacity-[0.03] ${THEME_BROWN} pointer-events-none select-none transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3 group-hover:opacity-[0.06]`}
+            className={`absolute -right-6 -bottom-10 text-[80px] md:text-[160px] opacity-[0.03] ${THEME_BROWN} pointer-events-none select-none transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3 group-hover:opacity-[0.06]`}
           />
 
           {/* Content */}
-          <div className="relative z-10 h-full flex flex-col justify-between p-4 sm:p-5 md:p-6">
+          <div className="relative z-10 h-full flex flex-col justify-between p-3 md:p-6">
             {/* Top: large icon badge */}
-            <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center bg-transparent border ${BORDER_BROWN} transition-colors duration-300 group-hover:bg-[#2D221F]/5`}>
+            <div className={`w-10 h-10 md:w-16 md:h-16 rounded-2xl flex items-center justify-center bg-transparent border ${BORDER_BROWN} transition-colors duration-300 group-hover:bg-[#2D221F]/5`}>
               <FontAwesomeIcon
                 icon={CATEGORY_ICONS[cat]}
-                className={`text-xl md:text-2xl ${THEME_BROWN}`}
+                className={`text-base md:text-2xl ${THEME_BROWN}`}
               />
             </div>
 
             {/* Bottom: bigger text + arrow */}
             <div className="flex items-end justify-between w-full">
-              <h3 className={`text-lg font-bold tracking-tight leading-tight md:text-2xl lg:text-3xl ${THEME_BROWN}`}>
+              <h3 className={`text-sm font-bold tracking-tight leading-tight md:text-2xl lg:text-3xl ${THEME_BROWN}`}>
                 {t(CATEGORY_LOCALE_KEY[cat])}
               </h3>
-              <div className={`w-12 h-12 md:w-14 md:h-14 rounded-full bg-transparent border ${BORDER_BROWN} flex items-center justify-center group-hover:bg-[#2D221F]/10 transition-all duration-200 shrink-0 ml-3`}>
+              <div className={`w-8 h-8 md:w-14 md:h-14 rounded-full bg-transparent border ${BORDER_BROWN} flex items-center justify-center group-hover:bg-[#2D221F]/10 transition-all duration-200 shrink-0 ml-3`}>
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
-                  className={`text-base md:text-lg ${THEME_BROWN} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200`}
+                  className={`text-xs md:text-lg ${THEME_BROWN} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200`}
                 />
               </div>
             </div>

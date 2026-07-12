@@ -73,30 +73,11 @@ export default function RegionalPlanner() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.18 }}
-              className="flex flex-col min-h-0"
+              className="flex flex-col h-full"
             >
-              {/* Setup header */}
-              <div className="px-4 sm:px-8 pt-6 pb-4">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-black leading-snug">
-                      {t('planner.modal.title')}
-                    </h2>
-                    <p className="text-sm text-black/45 font-normal mt-1">
-                      {t('planner.modal.subtitle')}
-                    </p>
-                  </div>
-                  <div className="shrink-0 flex items-center gap-1.5 bg-black/[0.04] border border-black/[0.07] px-3 py-1.5 rounded-full mt-1">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#7a9e64] animate-pulse" />
-                    <span className="text-[11px] font-semibold text-black/50 uppercase tracking-wide whitespace-nowrap">
-                      {seasonInfo.label}
-                    </span>
-                  </div>
-                </div>
-              </div>
 
               {/* Inputs content (Current step only) */}
-              <div className="px-4 sm:px-8 pb-4 flex-1 overflow-hidden">
+              <div className="px-4 sm:px-8 pb-4 flex-1 overflow-y-auto">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`step-${step}`}
@@ -121,7 +102,7 @@ export default function RegionalPlanner() {
               </div>
 
               {/* Wizard Nav CTA Buttons */}
-              <div className="sticky bottom-0 px-4 sm:px-8 py-4 bg-white border-t border-black/[0.06] flex items-center gap-3">
+              <div className="px-4 sm:px-8 py-4 pb-20 sm:pb-4 bg-[#f5f4f0] border-t border-black/[0.06] flex items-center gap-3 shrink-0">
                 {step > 1 && (
                   <button
                     onClick={() => setStep(prev => prev - 1)}
@@ -157,43 +138,28 @@ export default function RegionalPlanner() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.18 }}
-              className="flex flex-col min-h-0"
+              className="flex flex-col h-full"
             >
               {/* Results */}
               <PlannerAdviceCard advice={advice} origin={origin} />
 
               {/* Sticky action bar */}
-              <div className="sticky bottom-0 px-4 sm:px-8 py-4 bg-white border-t border-black/[0.06] flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <div className="flex-1 overflow-x-auto">
-                  <PlannerInputs
-                    budget={budget}
-                    setBudget={setBudget}
-                    origin={origin}
-                    setOrigin={setOrigin}
-                    selectedMonth={selectedMonth}
-                    setSelectedMonth={setSelectedMonth}
-                    monthsList={MONTHS}
-                    compact
-                  />
-                </div>
-
-                <div className="flex items-center gap-3 shrink-0">
-                  <button
-                    onClick={() => setRefreshSeed(prev => prev + 1)}
-                    className="flex-1 sm:flex-none px-5 py-3 text-base font-semibold text-[#4e6b38] bg-[#7a9e64]/10 border border-[#7a9e64]/30 rounded-xl hover:bg-[#7a9e64]/20 transition-all cursor-pointer whitespace-nowrap"
-                  >
-                    {t('planner.modal.refresh')}
-                  </button>
-                  <button
-                    onClick={() => {
-                      setHasRecommendation(false);
-                      setStep(1); // Reset back to step 1 of inputs
-                    }}
-                    className="flex-1 sm:flex-none px-5 py-3 text-base font-semibold text-black/50 bg-black/[0.04] border border-black/[0.07] rounded-xl hover:text-black hover:bg-black/[0.07] transition-all cursor-pointer whitespace-nowrap"
-                  >
-                    {t('planner.modal.editPlan')}
-                  </button>
-                </div>
+              <div className="px-4 sm:px-8 py-4 pb-20 sm:pb-4 bg-[#f5f4f0] border-t border-black/[0.06] flex items-center justify-between gap-3 shrink-0">
+                <button
+                  onClick={() => setRefreshSeed(prev => prev + 1)}
+                  className="flex-1 px-5 py-3 text-base font-semibold text-[#4e6b38] bg-[#7a9e64]/10 border border-[#7a9e64]/30 rounded-xl hover:bg-[#7a9e64]/20 transition-all cursor-pointer whitespace-nowrap"
+                >
+                  {t('planner.modal.refresh')}
+                </button>
+                <button
+                  onClick={() => {
+                    setHasRecommendation(false);
+                    setStep(1);
+                  }}
+                  className="flex-1 px-5 py-3 text-base font-semibold text-black/50 bg-black/[0.04] border border-black/[0.07] rounded-xl hover:text-black hover:bg-black/[0.07] transition-all cursor-pointer whitespace-nowrap"
+                >
+                  {t('planner.modal.editPlan')}
+                </button>
               </div>
             </motion.div>
           )}

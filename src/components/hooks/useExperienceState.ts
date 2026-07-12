@@ -6,13 +6,25 @@ import { useCameraPhysics } from "./useCameraPhysics";
  */
 export function useExperienceState() {
   const [phase, setPhase] = useState<"flight" | "landing">(() => {
-    return (
-      (sessionStorage.getItem("malangPhase") as "flight" | "landing") ||
-      "flight"
-    );
+    const storedPhase = sessionStorage.getItem("malangPhase");
+    if (storedPhase === "flight" || storedPhase === "landing") {
+      return storedPhase;
+    }
+
+    const introSeen = sessionStorage.getItem("malangIntroSeen");
+    if (introSeen === "true") {
+      return "landing";
+    }
+
+    sessionStorage.setItem("malangIntroSeen", "true");
+    return "flight";
   });
 
-  // Persist phase on change
+  const [skipLandingAnim] = useState(() => {
+    const storedPhase = sessionStorage.getItem("malangPhase");
+    return storedPhase === "landing";
+  });
+
   useEffect(() => {
     sessionStorage.setItem("malangPhase", phase);
   }, [phase]);
@@ -31,6 +43,7 @@ export function useExperienceState() {
 
   return {
     phase,
+    skipLandingAnim,
     setPhase,
     handleDescend,
     handleMouseMove,

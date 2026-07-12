@@ -62,7 +62,7 @@ export default function HeroStage() {
     <section className="relative w-full bg-[#f5f4f0] flex flex-col overflow-visible">
 
       {/* ── Banner ─────────────────────────────────────────── */}
-      <div className="relative w-full h-[58vh] min-h-[460px] md:h-[70vh] md:min-h-[560px] flex-shrink-0 overflow-visible">
+      <div className="relative w-full h-[58vh] min-h-[500px] md:h-[70vh] md:min-h-[560px] flex-shrink-0 overflow-visible">
         {/* Video + overlay */}
         <div className="absolute inset-0 rounded-b-[2rem] md:rounded-b-[3.5rem] overflow-hidden">
           <video
@@ -81,7 +81,7 @@ export default function HeroStage() {
         </div>
 
         {/* Live Weather + Time Widget in top-left banner */}
-        <div className="absolute left-4 top-4 sm:left-6 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-[11px] sm:text-sm tracking-wider select-none">
+        <div className="absolute left-4 top-24 sm:left-6 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-[11px] sm:text-sm tracking-wider select-none">
           <div className="flex flex-col">
             <span className="text-[9px] sm:text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
             <span className="font-semibold text-white mt-1 text-[10px] sm:text-xs md:text-sm">{currentTime || "--:--:--"} WIB</span>
@@ -133,7 +133,7 @@ export default function HeroStage() {
           {/* Subtle background dot grid pattern for extra texture */}
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#1c1c1c_1px,transparent_1px)] [background-size:16px_16px]" />
           
-          <div className="px-6 md:px-12 lg:px-16 py-8 md:py-12 lg:py-14 relative z-10">
+          <div className="px-4 md:px-12 lg:px-16 py-6 md:py-12 lg:py-14 relative z-10">
             <HeroCategories onSelect={handleCategorySelect} />
           </div>
         </div>

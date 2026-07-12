@@ -162,6 +162,8 @@ interface ImageFeatures {
   highlightPct: number;
 }
 
+interface CellSig { hue: number; sat: number; light: number; variance: number }
+
 function extractFeatures(data: Uint8ClampedArray, w: number, h: number): ImageFeatures {
   const grid: { hue: number; sat: number; light: number }[] = [];
   const CELLS = 10;
@@ -382,7 +384,6 @@ export async function classifyLocationPhoto(
       const highlightPct = highlights / totalPx;
 
       // ─── Extract Fine Grid Signatures (100 cells) ─────────
-      interface CellSig { hue: number; sat: number; light: number; variance: number }
       const fineGrid: CellSig[] = [];
       for (let gy = 0; gy < FINE_CELL; gy++) {
         for (let gx = 0; gx < FINE_CELL; gx++) {

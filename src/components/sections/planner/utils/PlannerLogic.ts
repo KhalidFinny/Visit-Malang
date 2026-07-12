@@ -89,15 +89,25 @@ export function generateAdvice(
   const placeCandidates = allPlaces
     .filter(p => ["Nature", "Historical", "Attraction"].includes(p.semanticCategory) && (isRaining ? p.type === "indoor" : true))
     .sort((a, b) => scorePlace(b) - scorePlace(a));
-
-  const foodCandidates = allPlaces
-    .filter(p => p.semanticCategory === "Culinary")
-    .sort((a, b) => (b.popularity || 0) - (a.popularity || 0));
-
-  // 3. Select based on seed to provide variety within the tier
-  // We take the top 10 relevant items and then seed-shuffle them to get 3
   const places = seedShuffle(placeCandidates.slice(0, 10), seed).slice(0, 3);
-  const foods = seedShuffle(foodCandidates.slice(0, 10), seed + 1).slice(0, 3);
+
+  const foodPool = allPlaces
+    .filter(p => p.semanticCategory === "Culinary" && typeof p.averagePrice === "number")
+    .sort((a, b) => (a.averagePrice ?? 0) - (b.averagePrice ?? 0));
+
+  // Dynamic price tiers based on actual price distribution
+  const n = foodPool.length;
+  const budgetCutoff = foodPool[Math.floor(n * 0.33)]?.averagePrice ?? 30000;
+  const midCutoff = foodPool[Math.floor(n * 0.66)]?.averagePrice ?? 80000;
+  const foodCandidates = foodPool.filter(p => {
+    const price = p.averagePrice ?? 0;
+    if (budget === "backpacker") return price <= budgetCutoff;
+    if (budget === "balanced") return price > budgetCutoff && price <= midCutoff;
+    return price > midCutoff; // luxury
+  });
+  const foods = foodCandidates.length >= 2
+    ? seedShuffle(foodCandidates, seed + 1).slice(0, 2)
+    : seedShuffle(foodPool, seed + 1).slice(0, 2);
 
   // 4. Generate Headline & Counsel
   let headline = "";

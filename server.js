@@ -59,7 +59,7 @@ async function getCache(key) {
   return null;
 }
 
-async function setCache(key, value, ttlSeconds = 60) {
+async function setCache(key, value, ttlSeconds = 300) {
   if (isRedisConnected && redisClient) {
     try {
       await redisClient.set(key, JSON.stringify(value), {
@@ -317,9 +317,9 @@ db.serialize(() => {
 });
 
 // ── ROUTES ──
-
-// GET /api/safety (cached-aside)
+// GET /api/safety (cached-aside, TTL 5 min)
 app.get("/api/safety", async (req, res) => {
+  res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=60");
   try {
     const cached = await getCache("safety_status");
     if (cached) {
@@ -335,13 +335,14 @@ app.get("/api/safety", async (req, res) => {
       res.status(500).json({ error: err.message });
       return;
     }
-    await setCache("safety_status", rows, 60);
+    await setCache("safety_status", rows);
     res.json(rows);
   });
 });
 
-// GET /api/fees (cached-aside)
+// GET /api/fees (cached-aside, TTL 5 min)
 app.get("/api/fees", async (req, res) => {
+  res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=60");
   try {
     const cached = await getCache("attraction_fees");
     if (cached) {
@@ -357,13 +358,14 @@ app.get("/api/fees", async (req, res) => {
       res.status(500).json({ error: err.message });
       return;
     }
-    await setCache("attraction_fees", rows, 60);
+    await setCache("attraction_fees", rows);
     res.json(rows);
   });
 });
 
-// GET /api/altitudes (cached-aside)
+// GET /api/altitudes (cached-aside, TTL 5 min)
 app.get("/api/altitudes", async (req, res) => {
+  res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=60");
   try {
     const cached = await getCache("place_altitudes");
     if (cached) {
@@ -379,10 +381,11 @@ app.get("/api/altitudes", async (req, res) => {
       res.status(500).json({ error: err.message });
       return;
     }
-    await setCache("place_altitudes", rows, 60);
+    await setCache("place_altitudes", rows);
     res.json(rows);
   });
 });
+
 
 // POST /api/safety/update
 app.post("/api/safety/update", (req, res) => {

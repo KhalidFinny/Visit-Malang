@@ -43,7 +43,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Tumpak Sewu",
         description: "Air terjun bertirai selebar seratus meter yang jatuh dari tebing setengah lingkaran ke dalam lembah hijau yang diselimuti kabut — salah satu air terjun terindah di Jawa Timur dengan ketinggian sekitar 120 meter.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Trekking", desc: "Menuruni tebing curam menuju dasar air terjun, merasakan semburan air dan semilir angin lembah." }],
+        thingsToDo: [
+        { title: "Waterfall Trek", desc: "Menuruni tebing curam menuju dasar air terjun, merasakan semburan air." },
+        { title: "Photo Spot", desc: "Mengabadikan momen di spot foto legendaris dengan latar air terjun." },
+        { title: "River Walk", desc: "Jalan-jalan di sepanjang sungai di dasar lembah yang rimbun." },
+      ],
         tips: ["Gunakan sepatu anti slip — jalur curam dan licin"],
         bestTime: [
           {
@@ -101,7 +105,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Coban Pelangi",
         description: "Air terjun dataran tinggi yang memantulkan spektrum warna pelangi di pagi hari ketika sinar matahari menerpa butiran air yang berterbangan. Dikelilingi hutan tropis yang rimbun dan udara sejuk khas pegunungan.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Hiking", desc: "Menyusuri setapak hujan menuju air terjun dengan suara gemericik air menemani langkah." }],
+        thingsToDo: [
+        { title: "Hiking", desc: "Menyusuri setapak hujan menuju air terjun dengan suara gemericik air menemani langkah." },
+        { title: "Rainbow Hunt", desc: "Mengabadikan momen pelangi yang muncul di semburan air terjun saat sinar pagi." },
+        { title: "Forest Bathing", desc: "Duduk tenang di tepi sungai sambil menikmati kesejukan hutan dataran tinggi." },
+      ],
         tips: ["Datang pagi — pelangi hanya muncul antara pukul 09:00–12:00"],
         bestTime: [
           {
@@ -130,7 +138,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Pulau Sempu",
         description: "Cagar alam pulau tropis yang menyimpan laguna air asin tersembunyi di tengahnya — Segara Anakan. Airnya berwarna hijau toska jernih, dikelilingi tebing karang dan hutan tropis yang lebat.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Trekking", desc: "Menjelajahi hutan tropis pulau menuju laguna tersembunyi yang memukau." }],
+        thingsToDo: [
+        { title: "Hutan Trek", desc: "Menjelajahi hutan tropis pulau menuju laguna tersembunyi Segara Anakan." },
+        { title: "Lagoon Swim", desc: "Berenang di laguna air asin hijau toska yang dikelilingi tebing karang." },
+        { title: "Bird Watching", desc: "Mengamati burung endemik di sepanjang jalur hutan." },
+      ],
         tips: ["Izin wajib — kawasan cagar alam dilindungi"],
         bestTime: [
           {
@@ -159,7 +171,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Budug Asu",
         description: "Bukit tinggi dengan jalur setapak yang menawarkan panorama 360° Gunung Arjuno dari puncaknya. Dikelilingi hutan pinus yang rimbun, tempat ini menjadi favorit para pendaki dan pecinta camping di bawah bintang.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Offroad", desc: "Menantang medan berbatu menuju puncak dengan kendaraan 4x4." }],
+        thingsToDo: [
+        { title: "Offroad", desc: "Menantang medan berbatu menuju puncak dengan kendaraan 4x4." },
+        { title: "Camping", desc: "Mendirikan tenda di puncak bukit dengan panorama Gunung Arjuo di kejauhan." },
+        { title: "Stargazing", desc: "Mengamati langit malam yang cerah bebas polusi cahaya dari ketinggian." },
+      ],
         tips: ["Gunakan kendaraan kuat — medan terjal"],
         bestTime: [
           {
@@ -194,7 +210,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Jatim Park 1",
         description: "Taman tema edukatif dan rekreasi terbesar di Malang — menggabungkan wahana permainan modern dengan pusat sains interaktif. Cocok untuk keluarga dengan anak-anak yang ingin belajar sambil bermain.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Rides", desc: "Wahana seru." }],
+        thingsToDo: [
+        { title: "Thrill Rides", desc: "Menikmati wahana roller coaster dan bianglala raksasa." },
+        { title: "Science Zone", desc: "Belajar sains interaktif di laboratorium dan museum sains." },
+        { title: "Waterpark", desc: "Bermain air di kolam ombak dan seluncuran raksasa." },
+      ],
         tips: ["Datang pagi"],
         bestTime: [
           {
@@ -223,7 +243,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Museum Angkut",
         description: "Museum transportasi bertaraf internasional dengan koleksi lebih dari 300 kendaraan klasik dari seluruh dunia, ditata dalam tema zona Hollywood, Eropa, dan Asia. Setiap sudutnya instagramable dan penuh sejarah.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Exhibition", desc: "Lihat koleksi." }],
+        thingsToDo: [
+        { title: "Auto Collection", desc: "Melihat lebih dari 300 kendaraan klasik dari seluruh dunia." },
+        { title: "Hollywood Zone", desc: "Berfoto di set Hollywood dan jalanan era 1950-an." },
+        { title: "European Walk", desc: "Jalan-jalan di zona Eropa dengan arsitektur khas." },
+      ],
         tips: ["Datang sore"],
         bestTime: [
           {
@@ -258,7 +282,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Kayutangan Heritage",
         description: "Koridor bersejarah di pusat Malang yang mempertahankan arsitektur kolonial Belanda asli — deretan bangunan art deco, jalan berbatu, dan kafe-kafe vintage yang menyajikan pengalaman Eropa lama di tengah kota.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Walking", desc: "Jalan santai." }],
+        thingsToDo: [
+        { title: "Heritage Walk", desc: "Jalan-jalan di sepanjang koridor bersejarah dengan arsitektur kolonial Belanda." },
+        { title: "Vintage Coffee", desc: "Mampir di kafe-kafe vintage yang menyajikan kopi lokal." },
+        { title: "Photo Tour", desc: "Berfoto di depan bangunan art deco dan mural jalanan." },
+      ],
         tips: ["Datang sore"],
         bestTime: [
           {
@@ -293,7 +321,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Sumber Sirah",
         description: "Mata air alami dengan air sejernih kristal yang memancar dari celah-celah bebatuan. Dikelilingi pepohonan tropis dan tanaman air yang bergoyang lembut — tempat snorkeling air tawar yang unik di Malang selatan.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Snorkeling", desc: "Air tawar." }],
+        thingsToDo: [
+        { title: "Freshwater Snorkeling", desc: "Snorkeling di mata air alami dengan visibilitas air sangat jernih." },
+        { title: "Spring Dive", desc: "Menyelam dangkal di kolam alami dengan tanaman air yang bergoyang." },
+        { title: "Picnic", desc: "Bersantai di tepi sungai sambil menikmati bekal makan siang." },
+      ],
         tips: ["Jangan injak tanaman"],
         bestTime: [
           {
@@ -328,7 +360,11 @@ export const activitiesData: Record<string, Category> = {
         title: "Nakoa Coffee",
         description: "Kafe modern 24 jam dengan interior industrial, meja besar komunal, pencahayaan hangat, dan colokan listrik di setiap sudut — tempat favorit para remote worker dan pelajar yang membutuhkan suasana kerja produktif.",
         heroImage: "/bromo.jpg",
-        thingsToDo: [{ title: "Work", desc: "Nugas." }],
+        thingsToDo: [
+        { title: "Remote Work", desc: "Bekerja dengan nyaman di meja besar dengan colokan dan WiFi kencang." },
+        { title: "Coffee Tasting", desc: "Mencoba berbagai varian kopi lokal specialty." },
+        { title: "Meet & Greet", desc: "Bertemu sesama digital nomad di coworking space." },
+      ],
         tips: ["Bawa charger"],
         bestTime: [
           {

@@ -75,7 +75,7 @@ export default function HeaderMenu({
   };
 
   return (
-    <div className="fixed top-3 right-3 sm:top-4 sm:right-4 z-[9999] flex items-center gap-2">
+    <div className="fixed top-3 inset-x-3 sm:top-4 sm:right-4 sm:left-auto z-[9999] flex items-center justify-between sm:justify-end sm:gap-2">
       {/* ════════════════════════════════════════════════════════════
           1. INTERACTIVE TOOLS DROPDOWN
       ════════════════════════════════════════════════════════════ */}
@@ -111,7 +111,7 @@ export default function HeaderMenu({
               exit={{ opacity: 0, y: -8, scale: 0.96 }}
               transition={{ duration: 0.15, ease: 'easeOut' }}
               data-lenis-prevent="true"
-              className="absolute right-0 top-full mt-2 w-[290px] sm:w-[320px] bg-white border border-black/12 rounded-3xl p-4 shadow-2xl text-black select-none overflow-y-auto max-h-[70vh] [overscroll-behavior:contain] scrollbar-none"
+              className="absolute left-0 sm:right-0 sm:left-auto top-full mt-2 w-[290px] sm:w-[320px] bg-white border border-black/12 rounded-3xl p-4 shadow-2xl text-black select-none overflow-y-auto max-h-[70vh] [overscroll-behavior:contain] scrollbar-none"
             >
               <div className="mb-3">
                 <span className="text-[10px] font-black uppercase tracking-widest text-black/45">

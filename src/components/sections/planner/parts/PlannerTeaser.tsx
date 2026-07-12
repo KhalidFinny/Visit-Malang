@@ -46,28 +46,33 @@ export default function PlannerTeaser({ onOpen }: PlannerTeaserProps) {
             {t('planner.teaser.subtitle')}
           </motion.p>
 
-          {/* Large CTA: Vina Sans (Editorial) */}
+          {/* Styled CTA Button */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-            className="absolute bottom-28 sm:bottom-32 md:bottom-44 right-6 sm:right-10 md:right-20 flex flex-col items-end max-w-[65vw] sm:max-w-[50vw]"
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+            className="absolute bottom-44 sm:bottom-48 md:bottom-56 right-6 sm:right-10 md:right-16 z-20"
           >
-            <div className="relative group/cta">
-              <h3 className="text-editorial text-[1.8rem] sm:text-[3rem] md:text-[6rem] lg:text-[8rem] text-white leading-[0.9] sm:leading-[0.85] select-none text-right text-balance">
-                {t('planner.teaser.ctaLine1')}{' '}
-                {t('planner.teaser.ctaLine2')}
-              </h3>
-            </div>
+            <button
+              onClick={onOpen}
+              className="group relative inline-flex items-center gap-3 sm:gap-4 rounded-[24px] border-2 border-white/30 bg-white/12 px-6 sm:px-8 py-4 sm:py-5 backdrop-blur-md transition-all hover:border-white/50 hover:bg-white/18 active:scale-[0.97]"
+            >
+              <span className="text-editorial text-[1.6rem] sm:text-[2.8rem] md:text-[4rem] lg:text-[5.5rem] text-white leading-none tracking-tight select-none">
+                {t('planner.teaser.ctaLine1')} {t('planner.teaser.ctaLine2')}
+              </span>
+              <svg className="w-7 h-7 sm:w-9 sm:h-9 text-white/70 transition-transform group-hover:translate-x-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
           </motion.div>
         </div>
 
         {/* Footer overlaid at bottom of image */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 w-full text-center select-none pointer-events-none">
-          <p className="text-xs sm:text-sm font-bold text-white/50 tracking-widest uppercase mb-1">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 w-full text-center select-none pointer-events-none">
+          <p className="text-sm font-bold text-white/50 tracking-widest uppercase mb-1">
             Come and Visit Malang
           </p>
-          <p className="text-[10px] sm:text-xs font-semibold text-white/30">
+          <p className="text-sm font-semibold text-white/30">
             &copy; {new Date().getFullYear()} Team Khalid &amp; Resty. All rights reserved.
           </p>
         </div>
