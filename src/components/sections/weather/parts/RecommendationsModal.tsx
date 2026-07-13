@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
-import { faXmark, faMapLocationDot, faMountain, faSun, faCloudRain, faCloud } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faMapLocationDot, faMountain } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { RecommendationsModalProps } from "../types";
 import { useResponsiveScale } from "../../../hooks/useResponsiveScale";

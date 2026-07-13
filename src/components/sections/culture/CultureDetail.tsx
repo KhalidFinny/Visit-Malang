@@ -1,9 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BackButton from "../../shared/parts/BackButton";
+import { CULTURE_ENTRIES } from "./cultureData";
 
-const fade = (d: number) => ({ initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.5, delay: d, ease: [0.16, 1, 0.3, 1] } });
+const fade = (d: number) => ({ initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.5, delay: d, ease: [0.16, 1, 0.3, 1] as const } });
 
 export default function CultureDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -24,7 +26,6 @@ export default function CultureDetail() {
   }
 
   const { palette } = entry.decoration;
-  const currentIndex = CULTURE_ENTRIES.findIndex((e) => e.slug === slug);
   const siblings = CULTURE_ENTRIES.filter((e) => e.slug !== slug).slice(0, 3);
 
   return (

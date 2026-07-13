@@ -1,12 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { CULTURE_ENTRIES } from "./cultureData";
 import BackButton from "../../shared/parts/BackButton";
+import { CULTURE_ENTRIES } from "./cultureData";
 import CultureCard from "./parts/CultureCard";
 
 export default function CultureList() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-[#f5f4f0] text-[#0A0A0A]">

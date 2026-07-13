@@ -1,9 +1,9 @@
 import { useMemo, type ReactNode } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { faArrowLeft, faMountain, faTrain, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon, type IconDefinition } from "@fortawesome/react-fontawesome";
+import { faMountain, faTrain, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import BackButton from "../../shared/parts/BackButton";
-import { HISTORY_PERIODS, HISTORY_STORIES, type HistoryPeriodKey } from "./historyData";
+import { HISTORY_PERIODS, HISTORY_STORIES, HISTORY_ACCENTS, type HistoryPeriodKey } from "./historyData";
 
 const ERA: Record<HistoryPeriodKey, { bg: string; accent: string; decoImage: string; deco: ReactNode; icon: IconDefinition }> = {
   kingdoms: {
@@ -53,7 +53,6 @@ export default function HistoryList() {
 
         <div className="border-t border-[#1a1a1a]/10">
           {stories.map((story) => {
-            const chip = HISTORY_ACCENTS[story.accent];
             return (
               <button key={story.slug} onClick={() => navigate(`/history/${story.slug}`)}
                 className="group w-full text-left border-b border-[#1a1a1a]/10 py-8 sm:py-10 cursor-pointer">

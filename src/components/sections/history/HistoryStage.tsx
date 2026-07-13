@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLandmark, faBuildingColumns, faMapLocationDot,
   faMountain, faTrain, faGraduationCap,
 } from "@fortawesome/free-solid-svg-icons";
 import { HISTORY_PERIODS, HISTORY_ACCENTS } from "./historyData";

@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useTranslation } from 'react-i18next';
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { faMapMarkerAlt, faClock } from "@fortawesome/free-solid-svg-icons";
 import { activitiesData } from "./ActivitiesData";
 import { ImageWithSkeleton } from "../../shared/Skeleton";
 import MountainSunrisePredictor from "./parts/MountainSunrisePredictor";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PlaceSafetyAdvisory from "./parts/PlaceSafetyAdvisory";
 import BackButton from "../../shared/parts/BackButton";
 import PlaceAltitudeAdvisor from "./parts/PlaceAltitudeAdvisor";
@@ -24,7 +25,6 @@ const GALLERY_PLACEHOLDERS = [
 const PlaceDetail = () => {
   const { t } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
   const [pageReady, setPageReady] = useState(false);
   useEffect(() => { const t2 = setTimeout(() => setPageReady(true), 200); return () => clearTimeout(t2); }, []);
   const [safety, setSafety] = useState<PlaceSafetyData | null>(null);
