@@ -77,7 +77,7 @@ export default function CultureStage() {
                 {entry.subtitle}
               </p>
 
-              <p className="text-swiss text-base sm:text-lg leading-relaxed mb-8 max-w-xl text-premium-black/50">
+              <p className="text-swiss text-base sm:text-lg leading-relaxed mb-8 max-w-xl text-premium-black/65">
                 {entry.teaser}
               </p>
               <div className="flex flex-wrap items-center gap-3 mt-6">

@@ -15,7 +15,7 @@ export default function HistoryBackHeader({ onBack }: HistoryBackHeaderProps) {
         ariaLabel="Back"
         className="text-[#0A0A0A]/40 hover:text-[#0A0A0A]"
       />
-      <span className="text-xs font-black uppercase tracking-[0.2em] text-[#5A7A4A]">
+      <span className="text-xs font-black uppercase tracking-[0.2em] text-[#3A5A3A]">
         History Archive
       </span>
     </div>

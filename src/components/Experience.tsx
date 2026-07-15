@@ -28,11 +28,11 @@ const PRELOAD_CRITICAL_MEDIA = [
   "/bromo.webp",
   "/this.webp",
   "/sky.webp",
-  "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=450&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=450&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=450&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=450&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=450&auto=format&fit=crop",
 ];
 
 /** Placeholder that reserves approximate space during lazy section load — prevents layout shift */

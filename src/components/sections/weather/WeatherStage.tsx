@@ -242,9 +242,9 @@ export default function WeatherStage() {
                         <p className="text-sm font-black uppercase tracking-[0.2em] text-[#4a5e3a]/78">
                           {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
                         </p>
-                        <h4 className="mt-1 text-base font-semibold leading-tight text-[#1a1a1a] truncate">
+                        <h3 className="mt-1 text-base font-semibold leading-tight text-[#1a1a1a] truncate">
                           {rec.name}
-                        </h4>
+                        </h3>
                         <div className="mt-2 flex items-center gap-1.5 text-sm font-medium text-[#4a5e3a]/78">
                           <span className="text-[13px]">
                             {displayWeather(rec.idealWeather) === 'Sunny'

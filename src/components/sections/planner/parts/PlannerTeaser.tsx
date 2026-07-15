@@ -16,7 +16,7 @@ export default function PlannerTeaser({ onOpen }: PlannerTeaserProps) {
         {/* 1. Iconic Bromo Background */}
         <div className="absolute inset-0">
           <ImageWithSkeleton 
-            src="https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=75&w=800&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=75&w=600&auto=format&fit=crop"
             alt="Mt. Bromo Landscape" 
             className="w-full h-full object-cover"
             wrapperClassName="w-full h-full"
