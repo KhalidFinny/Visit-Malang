@@ -4,9 +4,8 @@ import bgGolden from "/this.webp";
 import FlightStage from "./sections/airplane/FlightStage";
 import HeaderMenu from "./shared/parts/HeaderMenu";
 import StampPassportModal from "./shared/parts/StampPassportModal";
-import VisualLensModal from "./shared/parts/VisualLensModal";
 import PostcardModal from "./shared/parts/PostcardModal";
-import { preloadModel } from "./shared/utils/lensML";
+const VisualLensModal = lazy(() => import("./shared/parts/VisualLensModal"));
 import { useExperienceState } from "./hooks/useExperienceState";
 
 // ── Lazy-loaded sections (below the fold) ────────────────────────
@@ -29,16 +28,16 @@ const PRELOAD_CRITICAL_MEDIA = [
   "/bromo.webp",
   "/this.webp",
   "/sky.webp",
-  "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=600&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop",
 ];
 
-/** Minimal placeholder during lazy section load — avoids layout shift without a giant spinner */
-function SectionFallback() {
-  return <div className="w-full" style={{ height: '1px' }} />;
+/** Placeholder that reserves approximate space during lazy section load — prevents layout shift */
+function SectionFallback({ minH }: { minH?: string }) {
+  return <div className="w-full" style={{ height: minH ?? '1px' }} />;
 }
 
 export default function Experience() {
@@ -73,8 +72,6 @@ export default function Experience() {
       }
     });
 
-    // Start downloading the AI vision model in the background
-    preloadModel();
   }, []);
 
   return (
@@ -113,9 +110,9 @@ export default function Experience() {
           <motion.div
             key="landing"
             className="w-full relative z-0 bg-[#f5f4f0] min-h-screen"
-            initial={skipLandingAnim ? false : { opacity: 0, y: "100vh" }}
+            initial={skipLandingAnim ? false : { opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           >
             {/* Unified Top Header Menu (Tools & Language) */}
             <HeaderMenu
@@ -124,31 +121,31 @@ export default function Experience() {
               onOpenPostcard={() => setPostcardOpen(true)}
             />
 
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="600px" />}>
               <HeroStage />
             </Suspense>
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="380px" />}>
               <PopularDestinationsSection />
             </Suspense>
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="85vh" />}>
               <HeritageStage />
             </Suspense>
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="400px" />}>
               <CultureStage />
             </Suspense>
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="400px" />}>
               <HistoryStage />
             </Suspense>
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="400px" />}>
               <ActivityList />
             </Suspense>
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="400px" />}>
               <TechEntrance />
             </Suspense>
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="300px" />}>
               <WeatherStage />
             </Suspense>
-            <Suspense fallback={<SectionFallback />}>
+            <Suspense fallback={<SectionFallback minH="400px" />}>
               <RegionalPlanner />
             </Suspense>
 
@@ -160,10 +157,12 @@ export default function Experience() {
             />
 
             {/* Photo Finder Lens Modal */}
-            <VisualLensModal
-              isOpen={lensOpen}
-              onClose={() => setLensOpen(false)}
-            />
+            <Suspense fallback={null}>
+              <VisualLensModal
+                isOpen={lensOpen}
+                onClose={() => setLensOpen(false)}
+              />
+            </Suspense>
 
             {/* Postcard Maker Modal */}
             <PostcardModal

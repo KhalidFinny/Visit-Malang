@@ -88,7 +88,7 @@ export const CULTURE_ENTRIES: CultureEntry[] = [
     ],
     decoration: {
       palette: {
-        primary: "#8B4513",
+        primary: "#6A3010",
         secondary: "#D4A030",
         surface: "#FDF6EC",
         text: "#2D1B0E",
@@ -119,7 +119,7 @@ export const CULTURE_ENTRIES: CultureEntry[] = [
     ],
     decoration: {
       palette: {
-        primary: "#7B9A7B",
+        primary: "#4A6A4A",
         secondary: "#D4A574",
         surface: "#F8F6F0",
         text: "#2D2D2D",
@@ -151,7 +151,7 @@ export const CULTURE_ENTRIES: CultureEntry[] = [
     ],
     decoration: {
       palette: {
-        primary: "#C06030",
+        primary: "#8B3E1A",
         secondary: "#D4A060",
         surface: "#FCF6EF",
         text: "#2D1B0E",

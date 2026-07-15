@@ -169,9 +169,9 @@ export default function WeatherStage() {
                     </div>
 
                     <div className="flex flex-col py-2 pr-1">
-                      <h3 className="truncate text-[18px] font-bold leading-[1.08] text-[#1a1a1a]">
+                      <h2 className="truncate text-[18px] font-bold leading-[1.08] text-[#1a1a1a]">
                         {mobileFeatured.name}
-                      </h3>
+                      </h2>
 
                       <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#1a1a1a]/8 bg-[#f5f4f0] px-3.5 py-3 text-sm font-medium text-[#1a1a1a]/72">
                         <span className="text-[14px]">
@@ -201,6 +201,7 @@ export default function WeatherStage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-auto ml-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#A3B18A]/28 bg-[#f5f4f0] text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10"
+                          aria-label={`Open ${mobileFeatured.name} in Google Maps`}
                       >
                         <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />
                       </a>
@@ -265,6 +266,7 @@ export default function WeatherStage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex h-10 w-10 items-center justify-center rounded-full border border-[#A3B18A]/25 text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10"
+                          aria-label={`Open ${rec.name} in Google Maps`}
                         >
                           <FontAwesomeIcon icon={faArrowRight} className="text-[12px]" />
                         </a>
@@ -471,9 +473,9 @@ export default function WeatherStage() {
 
                     {/* Bottom Content */}
                     <div className="mt-auto pt-[25%]">
-                      <h3 className="text-[40px] lg:text-[52px] font-black text-white uppercase leading-[0.9] tracking-tight mb-4">
+                      <h2 className="text-[40px] lg:text-[52px] font-black text-white uppercase leading-[0.9] tracking-tight mb-4">
                         {rec.name}
-                      </h3>
+                      </h2>
                       <p className="text-[16px] text-white/80 font-medium leading-relaxed max-w-lg mb-8">
                         {rec.description}
                       </p>

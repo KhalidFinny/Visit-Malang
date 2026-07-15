@@ -59,7 +59,7 @@ export default function HeroStage() {
   }
 
   return (
-    <section className="relative w-full bg-[#f5f4f0] flex flex-col overflow-visible">
+    <section className="relative w-full bg-[#f5f4f0] flex flex-col overflow-visible min-h-[600px]">
 
       {/* ── Banner ─────────────────────────────────────────── */}
       <div className="relative w-full h-[58vh] min-h-[500px] md:h-[70vh] md:min-h-[560px] flex-shrink-0 overflow-visible">
@@ -78,6 +78,7 @@ export default function HeroStage() {
           >
             <source src="/malang.mp4" type="video/mp4" />
             <source src="/malang.webm" type="video/webm" />
+            <track kind="captions" src="/hero-captions.vtt" srcLang="en" label="English captions" />
           </video>
           <div className="absolute inset-0 bg-black/65" />
         </div>

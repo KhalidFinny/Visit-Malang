@@ -43,15 +43,15 @@ export default function HistoryStage() {
   const navigate = useNavigate();
 
   return (
-    <section className="relative w-full bg-[#f5f4f0] overflow-hidden">
+    <section className="relative w-full bg-[#f5f4f0] overflow-hidden min-h-[400px]">
       <div className="swiss-container py-16 sm:py-20 lg:py-28">
         <div className="mb-12 sm:mb-16">
-          <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#A3B18A] mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#A3B18A]" />
+          <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#5A7A4A] mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#5A7A4A]" />
             Malang History
           </span>
           <h2 className="text-editorial text-[clamp(2.5rem,5vw,4.5rem)] text-[#0A0A0A] leading-[0.92] tracking-tight mb-4">
-            How Malang<br /><span className="text-[#A3B18A]">came to be</span>
+            How Malang<br /><span className="text-[#5A7A4A]">came to be</span>
           </h2>
           <p className="text-sm sm:text-base text-[#0A0A0A]/60 font-medium leading-relaxed max-w-2xl">
             From ancient inscriptions to a modern city of students and layered culture — explore the key eras that shaped Malang.

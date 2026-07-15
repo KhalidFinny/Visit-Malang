@@ -58,13 +58,15 @@ export default function PopularDestinations() {
         {TRACK.map((dest, idx) => (
           <div
             key={`${dest.name}-${idx}`}
-            className="group flex flex-col shrink-0 cursor-pointer relative overflow-hidden rounded-2xl border border-premium-black/10 hover:border-premium-black/30 transition-all duration-300 w-[280px] h-[280px] sm:w-[450px] sm:h-[290px]"
+            className="group flex flex-col shrink-0 cursor-pointer relative overflow-hidden rounded-2xl border border-premium-black/10 hover:border-premium-black/30 transition-all duration-300 w-[280px] h-[280px] sm:w-[450px] sm:h-[290px] aspect-[1/1] sm:aspect-[450/290]"
           >
             {/* Full Card Cover Image (Landscape ratio) */}
             <div className="absolute inset-0 w-full h-full overflow-hidden">
               <img
                 src={dest.image}
                 alt={dest.name}
+                width={450}
+                height={290}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
               />

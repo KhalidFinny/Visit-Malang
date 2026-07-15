@@ -8,7 +8,7 @@ const TechEntrance: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full bg-[#f5f4f0] py-32 border-t border-black/5 overflow-hidden">
+    <section className="w-full bg-[#f5f4f0] py-32 border-t border-black/5 overflow-hidden min-h-[300px]">
       <div className="swiss-container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-16">
 
