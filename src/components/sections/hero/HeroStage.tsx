@@ -71,11 +71,13 @@ export default function HeroStage() {
             muted
             playsInline
             preload="auto"
-            poster="/bromo.jpg"
+            poster="/bromo.webp"
+            width="1280"
+            height="720"
             className="w-full h-full object-cover object-center"
           >
-            <source src="/malang.webm" type="video/webm" />
             <source src="/malang.mp4" type="video/mp4" />
+            <source src="/malang.webm" type="video/webm" />
           </video>
           <div className="absolute inset-0 bg-black/65" />
         </div>

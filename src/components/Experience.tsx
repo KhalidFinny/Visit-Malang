@@ -1,6 +1,6 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import bgGolden from "/this.jpg";
+import bgGolden from "/this.webp";
 import FlightStage from "./sections/airplane/FlightStage";
 import HeaderMenu from "./shared/parts/HeaderMenu";
 import StampPassportModal from "./shared/parts/StampPassportModal";
@@ -22,59 +22,23 @@ const TechEntrance = lazy(() => import("./sections/modern/TechEntrance"));
 const WeatherStage = lazy(() => import("./sections/weather/WeatherStage"));
 const RegionalPlanner = lazy(() => import("./sections/planner/RegionalPlanner"));
 
-// Preload landing sections + critical images & video while airplane splash is visible
-function preloadLandingSections() {
-  import("./sections/hero/HeroStage");
+// Preload landing sections + critical images & video during airplane splash.
+// Runs once on mount — browser caches the chunks for instant rendering on descend.
+const PRELOAD_CRITICAL_MEDIA = [
+  "/malang.webm",
+  "/bromo.webp",
+  "/this.webp",
+  "/sky.webp",
+  "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop",
+];
 
-  // Eagerly pre-instantiate Image objects & video buffer for instant rendering
-  const criticalMedia = [
-    "/malang.webm",
-    "/bromo.jpg",
-    "/this.jpg",
-    "/tugu.webp",
-    "/sky.webp",
-    "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=800&auto=format&fit=crop",
-  ];
-
-  criticalMedia.forEach((src) => {
-    if (src.endsWith(".webm")) {
-      const v = document.createElement("video");
-      v.src = src;
-      v.preload = "auto";
-    } else {
-      const img = new Image();
-      img.src = src;
-    }
-  });
-
-  // Start downloading the AI vision model in the background during intro
-  preloadModel();
-
-  // Stagger the rest so we don't compete with hero rendering
-  setTimeout(() => {
-    import("./sections/popular/PopularDestinationsSection");
-    import("./sections/heritage/HeritageStage");
-    import("./sections/culture/CultureStage");
-    import("./sections/activity/ActivityList");
-  }, 1000);
-  setTimeout(() => {
-    import("./sections/modern/TechEntrance");
-    import("./sections/weather/WeatherStage");
-    import("./sections/planner/RegionalPlanner");
-  }, 2500);
-}
-
-/** Inline suspense fallback — minimal to avoid layout shift */
+/** Minimal placeholder during lazy section load — avoids layout shift without a giant spinner */
 function SectionFallback() {
-  return (
-    <div className="w-full h-screen bg-[#f5f4f0] flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-[#1a1a1a]/10 border-t-[#1a1a1a]/40 rounded-full animate-spin" />
-    </div>
-  );
+  return <div className="w-full" style={{ height: '1px' }} />;
 }
 
 export default function Experience() {
@@ -84,9 +48,34 @@ export default function Experience() {
   const [lensOpen, setLensOpen] = useState(false);
   const [postcardOpen, setPostcardOpen] = useState(false);
 
-  // Preload landing sections on first render (during airplane splash)
-  // This is a side effect — no need to track completion
-  preloadLandingSections();
+  // Preload section chunks & critical media once on mount (during airplane splash or page load).
+  // Chunks are cached by the browser — sections render instantly when the user descends.
+  useEffect(() => {
+    // Start all section chunk downloads immediately — no stagger.
+    // The browser prioritises network bandwidth naturally.
+    import("./sections/popular/PopularDestinationsSection");
+    import("./sections/heritage/HeritageStage");
+    import("./sections/culture/CultureStage");
+    import("./sections/activity/ActivityList");
+    import("./sections/modern/TechEntrance");
+    import("./sections/weather/WeatherStage");
+    import("./sections/planner/RegionalPlanner");
+
+    // Preload critical media so images/video render instantly on descend
+    PRELOAD_CRITICAL_MEDIA.forEach((src) => {
+      if (src.endsWith(".webm")) {
+        const v = document.createElement("video");
+        v.src = src;
+        v.preload = "auto";
+      } else {
+        const img = new Image();
+        img.src = src;
+      }
+    });
+
+    // Start downloading the AI vision model in the background
+    preloadModel();
+  }, []);
 
   return (
     <div className={`experience-root relative w-full min-h-screen transition-colors duration-1000 ${phase === 'flight' ? 'bg-black' : 'bg-[#f5f4f0]'}`}>

@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { CULTURE_ENTRIES } from "./cultureData";
-
+import Button from "../../shared/parts/Button";
 export default function CultureStage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -82,32 +80,15 @@ export default function CultureStage() {
               <p className="text-swiss text-base sm:text-lg leading-relaxed mb-8 max-w-xl text-premium-black/50">
                 {entry.teaser}
               </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <span
-                  className="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full"
-                  style={{
-                    backgroundColor: `${palette.primary}10`,
-                    color: palette.primary,
-                  }}
+              <div className="flex flex-wrap items-center gap-3 mt-6">
+                <Button
+                  onClick={() => navigate("/culture")}
+                  style={{ backgroundColor: palette.primary, color: "#fff" }}
                 >
-                  {entry.era}
-                </span>
-
-                <button
-                  onClick={() => navigate(`/culture/${entry.slug}`)}
-                  className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer hover:gap-3"
-                  style={{ color: palette.primary }}
-                >
-                  <span>{t("culture.readStory")}</span>
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="text-xs transition-transform duration-200 group-hover:translate-x-0.5"
-                  />
-                </button>
+                  Explore Malang Culture
+                </Button>
               </div>
             </div>
-
             {/* Photo — 2/5 on desktop, full width on mobile */}
             <div className="lg:col-span-2">
               {entry.imageUrl && (
@@ -144,19 +125,6 @@ export default function CultureStage() {
           />
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-8 flex justify-center">
-          <button
-            onClick={() => navigate("/culture")}
-            className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-200 cursor-pointer text-premium-black/40"
-          >
-            <span>{t("culture.exploreAll")}</span>
-            <FontAwesomeIcon
-              icon={faArrowRight}
-              className="text-[10px] transition-transform duration-200 group-hover:translate-x-0.5"
-            />
-          </button>
-        </div>
       </div>
     </section>
   );
