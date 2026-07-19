@@ -44,41 +44,41 @@ export default function PlaceCashAdvisor({ slug, fees: initialFees }: PlaceCashA
         <FontAwesomeIcon icon={faWallet} className="text-sm text-[#A3B18A]" />
         <span className="text-sm font-bold uppercase tracking-widest text-[#A3B18A]">Cash Planner</span>
       </div>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/5">
-        <h4 className="text-lg font-bold text-white uppercase tracking-tight">Estimated Cash Required</h4>
-        <div className="flex items-center bg-[#121212] border border-white/5 p-1 rounded-xl shrink-0 self-start sm:self-auto">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#f5f4f0]/5">
+        <h4 className="text-lg font-bold text-[#f5f4f0] uppercase tracking-tight">Estimated Cash Required</h4>
+        <div className="flex items-center bg-[#221a18] border border-[#f5f4f0]/5 p-1 rounded-xl shrink-0 self-start sm:self-auto">
           <button onClick={() => setIsForeigner(false)}
-            className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all cursor-pointer ${!isForeigner ? 'bg-[#A3B18A] text-white' : 'text-white/50 hover:text-white bg-transparent'}`}>Domestic</button>
+            className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all cursor-pointer ${!isForeigner ? 'bg-[#A3B18A] text-white' : 'text-[#f5f4f0]/50 hover:text-[#f5f4f0] bg-transparent'}`}>Domestic</button>
           <button onClick={() => setIsForeigner(true)}
-            className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all cursor-pointer ${isForeigner ? 'bg-[#A3B18A] text-white' : 'text-white/50 hover:text-white bg-transparent'}`}>Foreigner</button>
+            className={`px-3 py-1.5 rounded-lg text-sm font-bold transition-all cursor-pointer ${isForeigner ? 'bg-[#A3B18A] text-white' : 'text-[#f5f4f0]/50 hover:text-[#f5f4f0] bg-transparent'}`}>Foreigner</button>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 py-5">
-        <div><span className="text-sm text-white/50 font-bold uppercase tracking-wider">Entrance Ticket</span><p className="text-xl font-extrabold text-white mt-0.5">IDR {entryCost.toLocaleString()}</p></div>
-        {fees.transport_cost > 0 && <div><span className="text-sm text-white/50 font-bold uppercase tracking-wider"><FontAwesomeIcon icon={faCar} className="mr-1.5 text-[10px]" />Transport</span><p className="text-xl font-extrabold text-white mt-0.5">IDR {fees.transport_cost.toLocaleString()}</p></div>}
-        <div><span className="text-sm text-white/50 font-bold uppercase tracking-wider"><FontAwesomeIcon icon={faParking} className="mr-1.5 text-[10px]" />Parking & Fees</span><p className="text-xl font-extrabold text-white mt-0.5">IDR {fees.parking_cost.toLocaleString()}</p></div>
+        <div><span className="text-sm text-[#f5f4f0]/50 font-bold uppercase tracking-wider">Entrance Ticket</span><p className="text-xl font-extrabold text-[#f5f4f0] mt-0.5">IDR {entryCost.toLocaleString()}</p></div>
+        {fees.transport_cost > 0 && <div><span className="text-sm text-[#f5f4f0]/50 font-bold uppercase tracking-wider"><FontAwesomeIcon icon={faCar} className="mr-1.5 text-[10px]" />Transport</span><p className="text-xl font-extrabold text-[#f5f4f0] mt-0.5">IDR {fees.transport_cost.toLocaleString()}</p></div>}
+        <div><span className="text-sm text-[#f5f4f0]/50 font-bold uppercase tracking-wider"><FontAwesomeIcon icon={faParking} className="mr-1.5 text-[10px]" />Parking & Fees</span><p className="text-xl font-extrabold text-[#f5f4f0] mt-0.5">IDR {fees.parking_cost.toLocaleString()}</p></div>
       </div>
-      <div className="flex flex-col lg:flex-row gap-5 pt-5 border-t border-white/5">
-        <div className="lg:w-1/3 bg-[#121212] border border-white/5 p-5 rounded-xl"><span className="text-sm text-white/50 font-bold uppercase tracking-wider block mb-1">Recommended Reserve</span><span className="text-2xl font-black text-[#A3B18A] tracking-tight">IDR {totalCost.toLocaleString()}</span></div>
+      <div className="flex flex-col lg:flex-row gap-5 pt-5 border-t border-[#f5f4f0]/5">
+        <div className="lg:w-1/3 bg-[#221a18] border border-[#f5f4f0]/5 p-5 rounded-xl"><span className="text-sm text-[#f5f4f0]/50 font-bold uppercase tracking-wider block mb-1">Recommended Reserve</span><span className="text-2xl font-black text-[#A3B18A] tracking-tight">IDR {totalCost.toLocaleString()}</span></div>
         <div className="flex-1 space-y-3">
-          <div><h5 className="text-sm font-bold text-white/70 uppercase tracking-wider mb-1">Logistics Note</h5><p className="text-sm text-white/50 leading-relaxed">{fees.notes}</p></div>
-          <div><h5 className="text-sm font-bold text-rose-400 uppercase tracking-wider mb-1"><FontAwesomeIcon icon={faFlag} className="mr-1.5 text-[10px]" />ATM Availability</h5><p className="text-sm text-white/50 leading-relaxed">{fees.atm_info}</p></div>
+          <div><h5 className="text-sm font-bold text-[#f5f4f0]/70 uppercase tracking-wider mb-1">Logistics Note</h5><p className="text-sm text-[#f5f4f0]/50 leading-relaxed">{fees.notes}</p></div>
+          <div><h5 className="text-sm font-bold text-rose-400 uppercase tracking-wider mb-1"><FontAwesomeIcon icon={faFlag} className="mr-1.5 text-[10px]" />ATM Availability</h5><p className="text-sm text-[#f5f4f0]/50 leading-relaxed">{fees.atm_info}</p></div>
         </div>
       </div>
       <div className="mt-4 flex justify-end">
-        <button onClick={() => setShowReportForm(!showReportForm)} className="text-sm font-medium text-white/40 hover:text-white underline transition-all cursor-pointer">{showReportForm ? "Close" : "Report a price change"}</button>
+        <button onClick={() => setShowReportForm(!showReportForm)} className="text-sm font-medium text-[#f5f4f0]/40 hover:text-[#f5f4f0] underline transition-all cursor-pointer">{showReportForm ? "Close" : "Report a price change"}</button>
       </div>
       {showReportForm && (
-        <form onSubmit={handleSubmitReport} className="mt-5 p-5 rounded-xl bg-[#121212] border border-white/5 space-y-4">
-          <h5 className="text-sm font-bold text-white uppercase tracking-wider">Report Price Correction</h5>
-          <p className="text-sm text-white/50 leading-normal">Input the price you actually paid.</p>
+        <form onSubmit={handleSubmitReport} className="mt-5 p-5 rounded-xl bg-[#221a18] border border-[#f5f4f0]/5 space-y-4">
+          <h5 className="text-sm font-bold text-[#f5f4f0] uppercase tracking-wider">Report Price Correction</h5>
+          <p className="text-sm text-[#f5f4f0]/50 leading-normal">Input the price you actually paid.</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[{ label: "Domestic Entry", v: domesticInput, s: setDomesticInput }, { label: "Foreigner Entry", v: foreignInput, s: setForeignInput }, { label: "Transport Cost", v: transportInput, s: setTransportInput }, { label: "Parking Cost", v: parkingInput, s: setParkingInput }].map((f, i) => (
-              <div key={i}><label className="text-sm font-bold text-white/50 uppercase block mb-1">{f.label} (IDR)</label><input type="number" value={f.v} onChange={e => f.s(e.target.value)} className="w-full bg-[#1a1a1a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#A3B18A]" required /></div>
+              <div key={i}><label className="text-sm font-bold text-[#f5f4f0]/50 uppercase block mb-1">{f.label} (IDR)</label><input type="number" value={f.v} onChange={e => f.s(e.target.value)} className="w-full bg-[#221a18] border border-[#f5f4f0]/10 rounded-lg px-3 py-2 text-sm text-[#f5f4f0] focus:outline-none focus:border-[#A3B18A]" required /></div>
             ))}
           </div>
           <div className="flex items-center justify-between gap-4 pt-2">
-            {submitSuccess ? <span className="text-sm font-bold text-emerald-400">Submitted! Thank you!</span> : <span className="text-sm text-white/40">Prices aggregated automatically</span>}
+            {submitSuccess ? <span className="text-sm font-bold text-emerald-400">Submitted! Thank you!</span> : <span className="text-sm text-[#f5f4f0]/40">Prices aggregated automatically</span>}
             <button type="submit" disabled={isSubmitting} className="bg-[#A3B18A] hover:bg-[#8a9e75] disabled:bg-white/10 text-white text-sm font-bold px-4 py-2 rounded-xl transition-all cursor-pointer">{isSubmitting ? "Submitting..." : "Submit"}</button>
           </div>
         </form>

@@ -17,16 +17,16 @@ export default function PlaceAltitudeAdvisor({ altitude }: PlaceAltitudeAdvisorP
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-6">
-        <div className="bg-[#121212] border border-white/5 p-5 rounded-xl">
-          <span className="text-sm text-white/50 font-bold uppercase tracking-wider block mb-1">Expected Temperature</span>
+        <div className="bg-[#221a18] border border-[#f5f4f0]/5 p-5 rounded-xl">
+          <span className="text-sm text-[#f5f4f0]/50 font-bold uppercase tracking-wider block mb-1">Expected Temperature</span>
           <span className="text-3xl font-black text-sky-400 tracking-tight">{altitude.temp_range}</span>
-          <span className="text-sm text-white/40 font-bold uppercase tracking-wider block mt-1.5">Colder than Malang city</span>
+          <span className="text-sm text-[#f5f4f0]/40 font-bold uppercase tracking-wider block mt-1.5">Colder than Malang city</span>
         </div>
         <div className="md:col-span-2">
-          <h5 className="text-sm font-bold text-white/70 uppercase tracking-wider mb-3">Recommended Packing Gear</h5>
+          <h5 className="text-sm font-bold text-[#f5f4f0]/70 uppercase tracking-wider mb-3">Recommended Packing Gear</h5>
           <div className="flex flex-wrap gap-2">
             {altitude.packing_list.split(",").map((item: string, i: number) => (
-              <span key={i} className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold bg-[#121212] border border-white/5 rounded-full text-white/70">
+              <span key={i} className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold bg-[#221a18] border border-[#f5f4f0]/5 rounded-full text-[#f5f4f0]/70">
                 <FontAwesomeIcon icon={faCheck} className="text-sky-400 text-[10px]" />
                 {item.trim()}
               </span>

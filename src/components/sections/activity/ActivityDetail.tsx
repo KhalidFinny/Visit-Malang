@@ -1,51 +1,50 @@
-import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { useTranslation } from 'react-i18next';
+import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import { motion } from "framer-motion";
 import { activitiesData } from "./ActivitiesData";
 import { ImageWithSkeleton } from "../../shared/Skeleton";
-import type { Category } from "./types";
-/* ================= UTILS ================= */
-const toSlug = (text: string = "") =>
-  text.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+import BackButton from "../../shared/parts/BackButton";
+import type { Category, Place } from "./types";
 
-/* ================= COMPONENT ================= */
-const ActivityDetail: React.FC = () => {
+const ActivityDetail = () => {
   const { t } = useTranslation();
   const { name } = useParams<{ name: string }>();
   const navigate = useNavigate();
+  const listRef = useRef<HTMLDivElement>(null);
 
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [selectedPlace, setSelectedPlace] = useState(0);
+  // Find current category
+  const currentCategory = activitiesData[name || ""] as Category | undefined;
 
-  /* 🔥 FIX: find category by slug */
-  const data: Category | undefined = Object.values(
-    activitiesData
-  ).find((cat) => toSlug(cat.title) === name);
+  // Handle local state for current spot
+  const [currentPlaceIndex, setCurrentPlaceIndex] = useState(0);
 
-  if (!data) {
-    return <div className="text-white p-10">{t('activityDetail.notFound')}</div>;
-  }
+  // Safety check: if category not found
+  useEffect(() => {
+    if (!currentCategory) {
+      navigate("/activity");
+    }
+  }, [currentCategory, navigate]);
 
-  const currentPlace = data.places[selectedPlace];
+  if (!currentCategory) return null;
 
-  /* ================= HANDLERS ================= */
-  const scroll = (dir: "left" | "right") => {
-    if (!scrollRef.current) return;
-
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -460 : 460,
-      behavior: "smooth",
-    });
-  };
+  const currentPlace = currentCategory.places[currentPlaceIndex] as Place;
 
   const handleExplore = () => {
-    const slug = toSlug(currentPlace.title);
+    const slug = currentPlace.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
     navigate(`/place/${slug}`);
   };
 
-  const handlePlaceClick = (index: number) => {
-    setSelectedPlace(index);
+  const handlePlaceSelect = (index: number) => {
+    setCurrentPlaceIndex(index);
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    if (listRef.current) {
+      const { scrollLeft, clientWidth } = listRef.current;
+      const scrollTo = direction === "left" ? scrollLeft - clientWidth / 2 : scrollLeft + clientWidth / 2;
+      listRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
   };
 
   /* ================= RENDER ================= */
@@ -53,13 +52,13 @@ const ActivityDetail: React.FC = () => {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="w-full h-screen bg-black text-white flex flex-col overflow-hidden"
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="w-full h-screen bg-[#f5f4f0] text-[#2D221F] flex flex-col overflow-hidden"
     >
+      <BackButton to="/" />
 
       {/* ================= HERO ================= */}
       <div className="relative w-full flex-1 min-h-0">
-
         <ImageWithSkeleton
           src={currentPlace.heroImage}
           alt={currentPlace.title}
@@ -69,40 +68,22 @@ const ActivityDetail: React.FC = () => {
           fetchPriority="high"
         />
         {/* overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent" />
-
-        {/* BACK */}
-        <button
-          onClick={() => navigate("/")}
-          className="absolute top-5 left-5 sm:top-7 sm:left-7 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-black/40 border border-white/20 hover:bg-black/60 transition"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            <path d="M19 12H5" />
-            <path d="M12 19l-7-7 7-7" />
-          </svg>
-        </button>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#f5f4f0] via-[#f5f4f0]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f5f4f0]/60 via-transparent to-transparent" />
 
         {/* TEXT */}
         <div className="absolute inset-0 flex flex-col justify-end px-6 pb-8 sm:px-12 sm:pb-12 md:px-16 md:pb-14 max-w-full sm:max-w-[80%]">
-          <h1 className="text-[clamp(28px,6vw,72px)] font-extrabold leading-tight sm:leading-none tracking-tight mb-3 uppercase text-balance">
+          <h1 className="text-[clamp(28px,6vw,72px)] text-editorial font-black leading-tight sm:leading-none tracking-tight mb-3 uppercase text-balance text-[#2D221F]">
             {currentPlace.title}
           </h1>
 
-          <p className="text-white/70 text-xs sm:text-[14px] leading-relaxed mb-4 sm:mb-6 max-w-[420px]">
+          <p className="text-[#2D221F]/70 text-xs sm:text-[14px] leading-relaxed mb-4 sm:mb-6 max-w-[420px] font-sans">
             {currentPlace.description}
           </p>
 
           <button
             onClick={handleExplore}
-            className="flex items-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-zinc-200 transition-all w-fit"
+            className="flex items-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 bg-[#2D221F] text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-[#A3B18A] transition-all w-fit cursor-pointer shadow-md"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
@@ -113,62 +94,70 @@ const ActivityDetail: React.FC = () => {
       </div>
 
       {/* ================= DESTINASI ================= */}
-      <div className="w-full bg-black px-4 sm:px-10 h-[320px] flex-shrink-0 overflow-hidden">
-        <div className="flex items-center justify-between mb-3 pt-4">
-          <h2 className="text-sm font-semibold text-white/90">
+      <div className="w-full bg-[#f5f4f0] px-4 sm:px-10 h-[210px] sm:h-[240px] flex-shrink-0 overflow-hidden border-t border-[#2D221F]/5">
+        <div className="flex items-center justify-between mb-3 pt-3">
+          <h2 className="text-editorial text-xs sm:text-sm font-bold uppercase tracking-wide text-[#2D221F]">
             {t('activityDetail.otherDestinations')}
           </h2>
 
           <div className="flex gap-2">
             <button
               onClick={() => scroll("left")}
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 border border-white/15 hover:bg-white/20 transition"
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-[#2D221F]/5 border border-[#2D221F]/10 hover:bg-[#2D221F]/10 transition cursor-pointer"
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" stroke="white" fill="none" strokeWidth="2.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" stroke="#2D221F" fill="none" strokeWidth="2.5">
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
 
             <button
               onClick={() => scroll("right")}
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 border border-white/15 hover:bg-white/20 transition"
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-[#2D221F]/5 border border-[#2D221F]/10 hover:bg-[#2D221F]/10 transition cursor-pointer"
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" stroke="white" fill="none" strokeWidth="2.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" stroke="#2D221F" fill="none" strokeWidth="2.5">
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
           </div>
         </div>
 
-        {/* LIST */}
+        {/* list */}
         <div
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-10 px-4 -mx-4"
+          ref={listRef}
+          className="flex gap-4 overflow-x-auto pb-3 scrollbar-hide snap-x scroll-smooth"
+          style={{ scrollbarWidth: "none" }}
         >
-          {data.places.map((place, i) => (
-            <div
-              key={i}
-              onClick={() => handlePlaceClick(i)}
-              className={`group relative flex-shrink-0 w-[280px] h-[180px] rounded-xl overflow-hidden cursor-pointer transition-all duration-500
-                ${selectedPlace === i ? "ring-2 ring-white scale-[1.05] z-10 shadow-[0_0_30px_rgba(255,255,255,0.2)]" : "opacity-40 hover:opacity-80"}
-              `}
-            >
-              <ImageWithSkeleton
-                src={place.heroImage}
-                alt={place.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                wrapperClassName="w-full h-full"
-              />
+          {currentCategory.places.map((place: Place, index: number) => {
+            const isSelected = index === currentPlaceIndex;
+            return (
+              <div
+                key={index}
+                onClick={() => handlePlaceSelect(index)}
+                className={`flex-shrink-0 w-[180px] sm:w-[220px] h-[110px] sm:h-[130px] rounded-xl relative overflow-hidden cursor-pointer snap-start transition-all duration-300 border ${
+                  isSelected 
+                    ? "border-[#A3B18A] shadow-md scale-[1.02] opacity-100" 
+                    : "border-[#2D221F]/5 hover:border-[#A3B18A]/30 opacity-60 hover:opacity-90"
+                }`}
+              >
+                <img
+                  src={place.heroImage}
+                  alt={place.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2D221F]/90 via-[#2D221F]/20 to-transparent" />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:via-black/10 transition-all" />
-
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className="text-[12px] font-black uppercase tracking-[0.2em] text-white">
-                  {place.title}
-                </p>
+                {/* text */}
+                <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4">
+                  <h3 className="text-white font-bold text-xs sm:text-sm truncate uppercase font-sans">
+                    {place.title}
+                  </h3>
+                  <p className="text-white/70 text-[9px] sm:text-[10px] truncate font-sans">
+                    {place.tagline || place.basicInfo?.location || ""}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </motion.div>

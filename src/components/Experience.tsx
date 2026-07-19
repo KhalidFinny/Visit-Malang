@@ -18,9 +18,10 @@ const HeritageStage = lazy(() => import("./sections/heritage/HeritageStage"));
 const HistoryStage = lazy(() => import("./sections/history/HistoryStage"));
 const CultureStage = lazy(() => import("./sections/culture/CultureStage"));
 const ActivityList = lazy(() => import("./sections/activity/ActivityList"));
-const TechEntrance = lazy(() => import("./sections/modern/TechEntrance"));
+const TechEntrance = lazy(() => import("./sections/tech/TechEntrance"));
 const WeatherStage = lazy(() => import("./sections/weather/WeatherStage"));
 const RegionalPlanner = lazy(() => import("./sections/planner/RegionalPlanner"));
+
 
 // Preload landing sections + critical images & video while airplane splash is visible
 function preloadLandingSections() {
@@ -62,7 +63,7 @@ function preloadLandingSections() {
     import("./sections/activity/ActivityList");
   }, 1000);
   setTimeout(() => {
-    import("./sections/modern/TechEntrance");
+    import("./sections/tech/TechEntrance");
     import("./sections/weather/WeatherStage");
     import("./sections/planner/RegionalPlanner");
   }, 2500);
@@ -162,6 +163,7 @@ export default function Experience() {
             <Suspense fallback={<SectionFallback />}>
               <RegionalPlanner />
             </Suspense>
+
 
 
             {/* Stamp Passport Booklet Modal */}

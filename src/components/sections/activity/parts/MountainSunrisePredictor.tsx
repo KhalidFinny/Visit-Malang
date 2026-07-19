@@ -49,47 +49,47 @@ export default function MountainSunrisePredictor({ lat, lng }: MountainSunrisePr
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className={`p-5 rounded-xl border ${color}`}>
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl">
+            <div className="w-12 h-12 rounded-xl bg-white/5 border border-[#f5f4f0]/10 flex items-center justify-center text-xl">
               <FontAwesomeIcon icon={icon} />
             </div>
             <div>
               <p className="text-sm font-bold uppercase tracking-wider">{label}</p>
-              <p className="text-sm text-white/50">Clarity Score: {score}/100</p>
+              <p className="text-sm text-[#f5f4f0]/50">Clarity Score: {score}/100</p>
             </div>
           </div>
-          <p className="text-sm text-white/70 leading-relaxed">{desc}</p>
+          <p className="text-sm text-[#f5f4f0]/70 leading-relaxed">{desc}</p>
         </div>
         <div className="space-y-3">
           <div className="grid grid-cols-3 gap-3">
-            <div className="p-4 rounded-xl border border-white/5 bg-[#121212]">
+            <div className="p-4 rounded-xl border border-[#f5f4f0]/5 bg-[#221a18]">
               <FontAwesomeIcon icon={faSun} className="text-amber-400 text-lg mb-1" />
-              <p className="text-xs text-white/50 uppercase tracking-wider font-bold">Temperature</p>
-              <p className="text-lg font-bold text-white">{Math.round(temp)}°C</p>
+              <p className="text-xs text-[#f5f4f0]/50 uppercase tracking-wider font-bold">Temperature</p>
+              <p className="text-lg font-bold text-[#f5f4f0]">{Math.round(temp)}°C</p>
             </div>
-            <div className="p-4 rounded-xl border border-white/5 bg-[#121212]">
+            <div className="p-4 rounded-xl border border-[#f5f4f0]/5 bg-[#221a18]">
               <FontAwesomeIcon icon={faCloud} className="text-sky-400 text-lg mb-1" />
-              <p className="text-xs text-white/50 uppercase tracking-wider font-bold">Humidity</p>
-              <p className="text-lg font-bold text-white">{Math.round(humidity)}%</p>
+              <p className="text-xs text-[#f5f4f0]/50 uppercase tracking-wider font-bold">Humidity</p>
+              <p className="text-lg font-bold text-[#f5f4f0]">{Math.round(humidity)}%</p>
             </div>
-            <div className="p-4 rounded-xl border border-white/5 bg-[#121212]">
+            <div className="p-4 rounded-xl border border-[#f5f4f0]/5 bg-[#221a18]">
               <FontAwesomeIcon icon={faWind} className="text-sky-400 text-lg mb-1" />
-              <p className="text-xs text-white/50 uppercase tracking-wider font-bold">Wind Speed</p>
-              <p className="text-lg font-bold text-white">{Math.round(windSpeed)} km/h</p>
+              <p className="text-xs text-[#f5f4f0]/50 uppercase tracking-wider font-bold">Wind Speed</p>
+              <p className="text-lg font-bold text-[#f5f4f0]">{Math.round(windSpeed)} km/h</p>
             </div>
           </div>
           <button onClick={() => setIsSimulated(!isSimulated)} className="text-sm font-medium text-[#A3B18A] hover:text-[#8a9e75] underline transition-all cursor-pointer">
             {isSimulated ? "Use Live Weather Data" : "Simulate Conditions"}
           </button>
           {isSimulated && (
-            <div className="p-4 rounded-xl border border-white/5 bg-[#121212] space-y-3">
+            <div className="p-4 rounded-xl border border-[#f5f4f0]/5 bg-[#221a18] space-y-3">
               {[{ label: "Humidity", v: simHumidity, s: setSimHumidity, min: 30, max: 100, icon: faCloud },
                 { label: "Wind Speed", v: simWind, s: setSimWind, min: 0, max: 50, icon: faWind },
                 { label: "Temperature", v: simTemp, s: setSimTemp, min: -5, max: 30, icon: faSun },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm text-white/60 font-semibold"><FontAwesomeIcon icon={s.icon} className="mr-1.5 text-[10px]" />{s.label}</span>
-                    <span className="text-sm font-bold text-white">{s.v}{s.label === "Humidity" ? "%" : s.label === "Wind Speed" ? " km/h" : "°C"}</span>
+                    <span className="text-sm text-[#f5f4f0]/60 font-semibold"><FontAwesomeIcon icon={s.icon} className="mr-1.5 text-[10px]" />{s.label}</span>
+                    <span className="text-sm font-bold text-[#f5f4f0]">{s.v}{s.label === "Humidity" ? "%" : s.label === "Wind Speed" ? " km/h" : "°C"}</span>
                   </div>
                   <input type="range" min={s.min} max={s.max} value={s.v} onChange={e => s.s(Number(e.target.value))} className="w-full h-1.5 bg-white/10 rounded-full appearance-none cursor-pointer accent-[#A3B18A]" />
                 </div>

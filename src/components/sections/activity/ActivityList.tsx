@@ -35,9 +35,9 @@ const ActivityList = () => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-[#f5f4f0] text-black flex flex-col items-center justify-center px-4 sm:px-10 py-16">
+    <section className="w-full min-h-screen bg-[#f5f4f0] text-[#2D221F] flex flex-col items-center justify-center px-4 sm:px-10 py-16">
       
-      <h1 className="text-4xl sm:text-6xl md:text-[70px] font-black mb-12 md:mb-16 tracking-tight text-center uppercase max-w-full text-balance leading-none">
+      <h1 className="text-4xl sm:text-6xl md:text-[70px] text-editorial font-black mb-12 md:mb-16 tracking-tight text-center uppercase max-w-full text-balance leading-none">
         {t('activityList.title')}
       </h1>
 
@@ -46,13 +46,13 @@ const ActivityList = () => {
           <div
             key={index}
             onClick={() => handleNavigate(item)}
-            className="flex justify-between items-center border-b border-black/40 py-5 cursor-pointer group gap-4"
+            className="flex justify-between items-center border-b border-[#2D221F]/15 hover:border-[#2D221F]/30 py-5 cursor-pointer group gap-4"
           >
-            <h2 className="text-xl sm:text-3xl font-extrabold uppercase group-hover:translate-x-2 transition text-safe leading-snug">
+            <h2 className="text-editorial text-2xl sm:text-4xl uppercase tracking-wider group-hover:translate-x-2 transition text-safe leading-snug">
               {activityLabels[index]}
             </h2>
 
-            <span className="text-xs sm:text-sm uppercase tracking-widest opacity-70 group-hover:opacity-100 shrink-0 whitespace-nowrap">
+            <span className="text-swiss text-[10px] sm:text-xs uppercase tracking-[0.3em] opacity-70 group-hover:opacity-100 shrink-0 whitespace-nowrap">
               {t('activityList.viewMore')}
             </span>
           </div>

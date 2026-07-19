@@ -212,7 +212,7 @@ let loadPromise: Promise<void> | null = null;
 export function preloadModel(): void {
   if (classifier || loadPromise) return;
   loadPromise = pipeline('zero-shot-image-classification', 'Xenova/clip-vit-base-patch16')
-    .then(m => { classifier = m; })
+    .then((m: any) => { classifier = m; })
     .catch(() => { classifier = null; });
 }
 

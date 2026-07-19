@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Experience from "./components/Experience";
+
 import SmoothScroll from "./components/utils/SmoothScroll";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import "./App.css";
@@ -15,6 +16,9 @@ const PlaceDetail = lazy(() => import("./components/sections/activity/PlaceDetai
 const TechDetail = lazy(() => import("./components/sections/modern/TechDetail"));
 const CultureList = lazy(() => import("./components/sections/culture/CultureList"));
 const CultureDetail = lazy(() => import("./components/sections/culture/CultureDetail"));
+const TechModern = lazy(() => import("./components/sections/tech/TechModern"));
+const NewsList = lazy(() => import("./components/sections/news/NewsList"));
+const NewsDetail = lazy(() => import("./components/sections/news/NewsDetail"));
 
 function PageFallback() {
   return (
@@ -43,6 +47,9 @@ function App() {
           <Route path="/culture" element={<CultureList />} />
           <Route path="/culture/:slug" element={<CultureDetail />} />
           <Route path="/modern-malang" element={<TechDetail />} />
+          <Route path="/tech" element={<TechModern />} />
+          <Route path="/news" element={<NewsList />} />
+          <Route path="/news/:id" element={<NewsDetail />} />
         </Routes>
       </Suspense>
     </>

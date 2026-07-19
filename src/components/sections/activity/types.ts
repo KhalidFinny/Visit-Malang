@@ -1,6 +1,8 @@
 export type Activity = {
   title: string;
   desc: string;
+  difficulty?: string;
+  image?: string;
 };
 
 export type BestTime = {
@@ -17,16 +19,58 @@ export type Coordinates = {
   lng: number;
 };
 
+export type BasicInfo = {
+  location: string;
+  hours: string;
+  price: string;
+  ticketLink?: string;
+  rating: string;
+  category: string;
+};
+
+export type VisitorTips = {
+  bestTime: string;
+  bring: string[];
+  avoid: string[];
+  insiderTips: string[];
+};
+
+export type HowToGetThere = {
+  fromMalang?: string;
+  fromBatu?: string;
+  fromSurabaya?: string;
+  publicTransport?: string;
+  recommendations?: string;
+};
+
+export type NearbyPlace = {
+  name: string;
+  distance: string;
+  reason: string;
+};
+
 export type Place = {
   title: string;
+  tagline?: string;
   description: string;
   heroImage: string;
+  basicInfo?: BasicInfo;
+  gallery: any[]; // Supports both string[] and {src: string, desc: string}[]
+  story: string;
+  keyAttractions?: { title: string; desc: string }[];
   thingsToDo: Activity[];
+  visitorTips?: VisitorTips;
   tips: string[];
   bestTime: BestTime[];
+  howToGetThere?: HowToGetThere;
+  facilities?: string[];
+  foodNearby?: string[];
+  stayNearby?: string[];
+  contactInfo?: string;
+  funFacts?: string[];
+  nearbyPlaces?: NearbyPlace[];
+  closingCTA?: string;
   location: Coordinates;
-  story: string;
-  gallery: string[];
 };
 
 export type Category = {
@@ -50,6 +94,7 @@ export interface PlaceSafetyData {
   name: string;
   details: string;
   last_updated: string;
+  contextType?: 'trail' | 'urban';
 }
 
 export interface PlaceSafetyAdvisoryProps {
