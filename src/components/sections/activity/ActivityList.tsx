@@ -35,20 +35,20 @@ const ActivityList = () => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-[#f5f4f0] text-[#2D221F] flex flex-col items-center justify-center px-6 sm:px-10 py-20 md:py-24">
+    <section className="w-full bg-[#f5f4f0] text-[#2D221F] flex flex-col items-center justify-center py-10 md:py-14 px-4 sm:px-8 md:px-12 lg:px-16 border-b border-premium-black/5">
       
       <h1 className="text-3xl sm:text-5xl md:text-7xl text-editorial font-black mb-10 md:mb-16 tracking-tight text-center uppercase max-w-full text-balance leading-none">
         {t('activityList.title')}
       </h1>
 
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-[1400px] xl:max-w-[1700px] mx-auto">
         {activities.map((item, index) => (
           <div
             key={index}
             onClick={() => handleNavigate(item)}
             className="flex justify-between items-center border-b border-[#2D221F]/15 hover:border-[#2D221F]/30 py-6 sm:py-7 cursor-pointer group gap-4 transition-all duration-300"
           >
-            <h2 className="text-editorial text-xl sm:text-3xl md:text-4xl uppercase tracking-wider group-hover:translate-x-2 transition-transform duration-300 text-safe leading-snug">
+            <h2 className="text-editorial text-xl sm:text-3xl md:text-4xl xl:text-5xl uppercase tracking-wider group-hover:translate-x-2 transition-transform duration-300 leading-snug">
               {activityLabels[index]}
             </h2>
 

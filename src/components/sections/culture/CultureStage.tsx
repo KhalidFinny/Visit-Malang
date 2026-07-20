@@ -32,8 +32,8 @@ export default function CultureStage() {
   );
 
   return (
-    <section className="relative w-full bg-[#f5f4f0] py-32 md:py-44 min-h-[85vh] flex items-center overflow-hidden">
-      <div className="swiss-container w-full max-w-7xl">
+    <section className="relative w-full bg-[#f5f4f0] py-10 md:py-14 flex items-center overflow-hidden border-b border-premium-black/5">
+      <div className="w-full max-w-[1400px] xl:max-w-[1700px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
         {/* Header */}
         <div className="flex items-end justify-between mb-16 sm:mb-20 border-b-2 border-premium-black/10 pb-8 select-none">
           <span
@@ -55,10 +55,10 @@ export default function CultureStage() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-14 items-start"
+            className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-7 gap-8 lg:gap-14 items-start"
           >
             {/* Text — 3/5 on desktop, full width on mobile */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 xl:col-span-3">
               <span
                 className="inline-block text-sm font-black uppercase tracking-[0.25em] mb-4 px-3 py-1.5 rounded-full"
                 style={{
@@ -90,7 +90,7 @@ export default function CultureStage() {
               </div>
             </div>
             {/* Photo — 2/5 on desktop, full width on mobile */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 xl:col-span-4">
               {entry.imageUrl && (
                 <div
                   className="w-full rounded-xl overflow-hidden shadow-md aspect-[4/3]"

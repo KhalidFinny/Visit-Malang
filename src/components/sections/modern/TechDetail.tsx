@@ -80,7 +80,7 @@ const TechDetail: React.FC = () => {
           </svg>
         </button>
 
-        <div className="relative z-20 text-center swiss-container">
+        <div className="relative z-20 text-center swiss-container max-w-[1400px] xl:max-w-[1700px] mx-auto">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ const TechDetail: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-editorial text-[clamp(4.5rem,11vw,8rem)] text-balance leading-[0.85] uppercase tracking-tighter mb-10 text-[#0A0A0A]"
+            className="text-editorial text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-balance leading-[0.85] uppercase tracking-tighter mb-10 text-[#0A0A0A]"
           >
             {t('tech.hero.titleLine1')} <br /> {t('tech.hero.titleLine2')}
           </motion.h1>
@@ -100,7 +100,7 @@ const TechDetail: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-swiss text-sm md:text-base text-[#0A0A0A]/50 tracking-[0.5em] uppercase max-w-2xl mx-auto mb-14 font-medium"
+            className="text-swiss text-base md:text-lg text-[#0A0A0A]/50 tracking-[0.5em] uppercase max-w-2xl xl:max-w-3xl mx-auto mb-14 font-medium"
           >
             {t('tech.hero.subtitle')}
           </motion.p>
@@ -108,8 +108,8 @@ const TechDetail: React.FC = () => {
       </section>
 
       {/* 2. A CITY OF STUDENTS & CREATIVITY */}
-      <section className="py-32 -mt-1 relative z-20 bg-[#F2E9E4]">
-        <div className="swiss-container">
+      <section className="py-16 md:py-24 -mt-1 relative z-20 bg-[#F2E9E4]">
+        <div className="swiss-container max-w-[1400px] xl:max-w-[1700px] mx-auto">
           <div className="text-center mb-24">
             <motion.span
               initial={{ opacity: 0 }}
@@ -121,7 +121,7 @@ const TechDetail: React.FC = () => {
             <h2 className="text-editorial text-5xl md:text-7xl uppercase tracking-tighter leading-none text-[#0A0A0A] text-balance">{t('tech.creative.titleLine1')} <br /> {t('tech.creative.titleLine2')}</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
             {studentFeatures.map((f, i) => (
               <motion.div
                 key={i}
@@ -143,8 +143,8 @@ const TechDetail: React.FC = () => {
       </section>
 
       {/* 3. MALANG THROUGH THE YEARS */}
-      <section className="py-32 bg-[#0A0A0A]/5 relative">
-        <div className="swiss-container">
+      <section className="py-16 md:py-24 bg-[#0A0A0A]/5 relative">
+        <div className="swiss-container max-w-[1400px] xl:max-w-[1700px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
             <h2 className="text-editorial text-5xl md:text-7xl uppercase tracking-tighter leading-none text-[#0A0A0A] text-balance">{t('tech.timeline.titleLine1')} <br /> {t('tech.timeline.titleLine2')}</h2>
             <p className="text-swiss text-[#0A0A0A]/30 text-sm md:text-sm max-w-[200px] text-right uppercase tracking-[0.3em] font-black leading-relaxed">{t('tech.timeline.subtitle')}</p>
@@ -170,7 +170,7 @@ const TechDetail: React.FC = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                       >
                         <h3 className="text-swiss text-xl font-black uppercase mb-2 text-[#0A0A0A] text-balance">{item.event}</h3>
-                        <p className="text-[#0A0A0A]/50 text-sm max-w-xs ml-auto mr-auto md:mr-0 leading-relaxed">{item.desc}</p>
+                        <p className="text-[#0A0A0A]/50 text-sm max-w-xs xl:max-w-sm ml-auto mr-auto md:mr-0 leading-relaxed">{item.desc}</p>
                       </motion.div>
                     ) : <div className="hidden md:block" />}
                   </div>
@@ -190,7 +190,7 @@ const TechDetail: React.FC = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                       >
                         <h3 className="text-swiss text-xl font-black uppercase mb-2 text-[#0A0A0A] text-balance">{item.event}</h3>
-                        <p className="text-[#0A0A0A]/50 text-sm max-w-xs ml-auto mr-auto md:ml-0 leading-relaxed">{item.desc}</p>
+                        <p className="text-[#0A0A0A]/50 text-sm max-w-xs xl:max-w-sm ml-auto mr-auto md:ml-0 leading-relaxed">{item.desc}</p>
                       </motion.div>
                     ) : <div className="hidden md:block" />}
                   </div>
@@ -202,8 +202,8 @@ const TechDetail: React.FC = () => {
       </section>
 
       {/* 4. TOWARDS A SMARTER MALANG */}
-      <section className="py-32 overflow-hidden relative bg-white">
-        <div className="swiss-container relative z-10">
+      <section className="py-16 md:py-24 overflow-hidden relative bg-white">
+        <div className="swiss-container max-w-[1400px] xl:max-w-[1700px] mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-7">
               <motion.span
@@ -240,13 +240,13 @@ const TechDetail: React.FC = () => {
       </section>
 
       {/* 5. CLOSING CTA */}
-      <section className="py-48 bg-[#F2E9E4] relative overflow-hidden border-t border-[#0A0A0A]/5">
+      <section className="py-16 md:py-24 bg-[#F2E9E4] relative overflow-hidden border-t border-[#0A0A0A]/5">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#A3B18A]/10 blur-[150px] rounded-full" />
-        <div className="swiss-container relative z-10 text-center">
+        <div className="swiss-container max-w-[1400px] xl:max-w-[1700px] mx-auto relative z-10 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-editorial text-6xl md:text-[8rem] uppercase tracking-tighter mb-10 leading-none text-[#0A0A0A]"
+            className="text-editorial text-5xl sm:text-6xl md:text-7xl lg:text-[8rem] uppercase tracking-tighter mb-10 leading-none text-[#0A0A0A]"
           >
             {t('tech.closing.titleLine1')} <br /> {t('tech.closing.titleLine2')}
           </motion.h2>

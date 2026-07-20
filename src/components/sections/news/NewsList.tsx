@@ -89,7 +89,7 @@ const NewsList: React.FC = () => {
       <BackButton />
 
       {/* HEADER */}
-      <section className="pt-32 pb-16 px-8 md:px-16 lg:px-32 max-w-[1400px] mx-auto">
+      <section className="pt-32 pb-16 px-5 sm:px-8 md:px-16 lg:px-20 max-w-[1400px] xl:max-w-[1700px] mx-auto">
         <h1 className="text-editorial text-5xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-none mb-6">
           {t('news.title')}
         </h1>
@@ -99,13 +99,13 @@ const NewsList: React.FC = () => {
       </section>
 
       {/* NEWS GRID */}
-      <section className="pb-32 px-8 md:px-16 lg:px-32 max-w-[1400px] mx-auto">
+      <section className="pb-32 px-5 sm:px-8 md:px-16 lg:px-20 max-w-[1400px] xl:max-w-[1700px] mx-auto">
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="w-12 h-12 border-4 border-[#2D221F]/10 border-t-[#2D221F] rounded-full animate-spin"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 xl:gap-8">
             {news.map((article, i) => {
               const { title, source } = getArticleMeta(article);
               return (

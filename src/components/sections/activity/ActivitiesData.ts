@@ -24,7 +24,7 @@ export const activitiesData: Record<string, Category> = {
         "story": "Behind its dramatic landscape, Mount Bromo holds a deep cultural and spiritual story. For the Tenggerese people, this mountain is not just a destination, it is a sacred place tied to their beliefs and identity. The name “Bromo” comes from Brahma, the Hindu god of creation. To this day, the Tengger community continues to perform the Yadnya Kasada ritual, offering crops and prayers into the crater as a symbol of gratitude and devotion. This living tradition adds a deeper meaning to Bromo, where nature, culture, and belief come together in one unforgettable experience.",
         "keyAttractions": [
           {
-            "title": "Kawah",
+            "title": "Crater",
             "desc": "The active volcanic crater of Mount Bromo, emitting thick sulfur smoke and reachable via a staircase.",
             "image": "/locations/nature/gunung-bromo/kawah.webp"
           },
@@ -158,24 +158,24 @@ export const activitiesData: Record<string, Category> = {
         "story": "Tumpak Sewu, which translates to 'a thousand waterfalls' in Javanese, gets its name from the countless streams of water that flow down its semi-circular cliff. Unlike single-drop waterfalls, it forms a majestic curtain of water that plunges into a deep, misty ravine. For generations, the surrounding forests and springs have been preserved by the local community as a sacred source of life and agriculture, making it a beautiful marriage of raw volcanic terrain and pristine nature.",
         "keyAttractions": [
           {
-            "title": "Air Terjun",
+            "title": "Waterfall",
             "desc": "The majestic semi-circular volcanic canyon where hundreds of individual waterfall streams cascade down 120 meters.",
             "image": "/locations/nature/tumpak-sewu/air-terjun.webp"
           },
           {
-            "title": "Goa Tetes",
+            "title": "Drip Cave",
             "desc": "A unique limestone cave and cascade complex where water constantly drips through mossy stalactites.",
             "image": "/locations/nature/tumpak-sewu/goa-tetes.webp"
           },
           {
-            "title": "Panorama Atas",
+            "title": "Top Panorama",
             "desc": "The upper observation deck offering a spectacular 180-degree view of the semi-circular curtain waterfall dropping into the ravine.",
             "image": "/locations/nature/tumpak-sewu/panorama-atas.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Jalur Trecking",
+            "title": "Trekking Trail",
             "desc": "Hike down the steep bamboo ladders and wet rocky cliffs to stand right at the base of the massive curtain waterfall.",
             "difficulty": "Moderate",
             "image": "/locations/nature/tumpak-sewu/jalur-trecking.webp"
@@ -247,19 +247,19 @@ export const activitiesData: Record<string, Category> = {
         "story": "Pantai Tiga Warna is a pristine marine sanctuary located within the Clungup Mangrove Conservation (CMC) area. Its name is derived from the unique gradations of blue, green, and reddish-brown colors created by varying water depths and coral reef health. The beach is strictly managed with a daily visitor quota to prevent overtourism and preserve the rich marine ecosystem, making it a proud symbol of local conservation efforts.",
         "keyAttractions": [
           {
-            "title": "Hutan Mangrove",
+            "title": "Mangrove Forest",
             "desc": "The Clungup Mangrove Conservation forest protecting the estuary and hosting various coastal wildlife.",
             "image": "/locations/nature/pantai-3-warna/hutan-mangrove.webp"
           },
           {
-            "title": "Sea Creature",
+            "title": "Marine Life",
             "desc": "Observe diverse coastal marine fauna, crabs, and starfish residing in the shallow tide pools.",
             "image": "/locations/nature/pantai-3-warna/sea-creature.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Mendayung Kano",
+            "title": "Canoeing",
             "desc": "Rent a canoe to paddle across the calm, sheltered waters of the three-colored bay.",
             "difficulty": "Easy",
             "image": "/locations/nature/pantai-3-warna/mendayung-kano.webp"
@@ -337,25 +337,25 @@ export const activitiesData: Record<string, Category> = {
         "story": "Coban Pelangi is situated at an elevation of 1,299 meters above sea level on the slope of Mount Semeru. It is famous for the rainbow phenomenon that frequently appears in the morning mist between 9:00 AM and noon. As sunlight passes through the high-pressure water droplets cascading down the 110-meter cliff, it splits into a vibrant rainbow arch, casting a magical atmosphere over the lush pine valley.",
         "keyAttractions": [
           {
-            "title": "Air Terjun",
+            "title": "Waterfall",
             "desc": "The base of the 110-meter waterfall where the heavy cascade crashes down, generating refreshing cool mist.",
             "image": "/locations/nature/coban-pelangi/air-terjun.webp"
           },
           {
-            "title": "Perkemahan",
+            "title": "Camping Ground",
             "desc": "A peaceful riverside campground surrounded by pine forests, ideal for overnight stays under the stars.",
             "image": "/locations/nature/coban-pelangi/perkemahan.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Arung Jeram",
+            "title": "White Water Rafting",
             "desc": "Spot the beautiful rainbow arches appearing in the waterfall's mist when morning sunlight hits the valley.",
             "difficulty": "Easy",
             "image": "/locations/nature/coban-pelangi/arung-jeram.webp"
           },
           {
-            "title": "Jalur Trekking",
+            "title": "Trekking Trail",
             "desc": "Trek along the scenic forested trail alongside the flowing mountain river to reach the waterfall.",
             "difficulty": "Moderate",
             "image": "/locations/nature/coban-pelangi/jalur-trekking.webp"
@@ -427,19 +427,19 @@ export const activitiesData: Record<string, Category> = {
         "story": "Pulau Sempu is a strictly protected nature reserve separated from the southern coast of Malang by a narrow strait. Its greatest wonder is Segara Anakan, a secluded saltwater lagoon filled with azure waters, replenished by ocean waves breaking through a natural hole in the high cliffs. Due to its status as a nature reserve (Cagar Alam), tourist access is strictly regulated to protect endangered Javanese flora and fauna.",
         "keyAttractions": [
           {
-            "title": "Hutan Tropis",
+            "title": "Tropical Rainforest",
             "desc": "The dense, undisturbed tropical rainforest sanctuary covering the island, home to wild animals.",
             "image": "/locations/nature/pulau-sempu/hutan-tropis.webp"
           },
           {
-            "title": "Segara Anakan",
+            "title": "Segara Anakan Lagoon",
             "desc": "A beautiful hidden saltwater lagoon in the middle of the island, separated from the open sea by high rock cliffs.",
             "image": "/locations/nature/pulau-sempu/segara-anakan.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Meliihat Satwa",
+            "title": "Wildlife Spotting",
             "desc": "Spot endemic wildlife such as Javan langurs, eagles, and monitor lizards along the forest paths.",
             "difficulty": "Easy",
             "image": "/locations/nature/pulau-sempu/meliihat-satwa.webp"
@@ -511,7 +511,7 @@ export const activitiesData: Record<string, Category> = {
         "story": "Budug Asu is a scenic hilltop located at the foot of Mount Arjuno, Singosari. Historically a tracking route for local hunters, it has developed into a popular weekend getaway for young hikers, trail runners, and off-road motor enthusiasts. The main draw is the wooden viewing deck shaped like a wolf's head, which frames the towering peak of Mount Arjuno directly behind it.",
         "keyAttractions": [
           {
-            "title": "Puncak",
+            "title": "Summit Viewpoint",
             "desc": "The viewing deck summit at 1,400m altitude, offering sweeping views of Mount Arjuno's ridges.",
             "image": "/locations/nature/budug-asu/puncak.webp"
           }
@@ -602,12 +602,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Established in 1910 by a Dutch colonial company, Wonosari Tea Plantation sits beautifully on the slopes of Mount Arjuno. It offers a cool, refreshing climate and insight into traditional tea processing. Visitors can explore rolling green hills and witness a century-old heritage of East Java's tea industry.",
         "keyAttractions": [
           {
-            "title": "Kebun Teh",
+            "title": "Tea Plantation",
             "desc": "Scenic walking paths weaving through vast, rolling green tea bushes at the foothills of Mount Arjuno.",
             "image": "/locations/nature/wonosari-tea-plantation/kebun-teh.webp"
           },
           {
-            "title": "Pabrik Teh",
+            "title": "Tea Factory",
             "desc": "The historic processing facility built in 1910, where tea leaves are withered, rolled, and sorted.",
             "image": "/locations/nature/wonosari-tea-plantation/pabrik-teh.webp"
           }
@@ -620,7 +620,7 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/nature/wonosari-tea-plantation/atv.webp"
           },
           {
-            "title": "Petik Dan Olah Teh",
+            "title": "Tea Picking & Processing",
             "desc": "Learn how to harvest fresh tea leaves from local farmers and see the manufacturing process inside the factory.",
             "difficulty": "Easy",
             "image": "/locations/nature/wonosari-tea-plantation/petik-dan-olah-teh.webp"
@@ -779,7 +779,7 @@ export const activitiesData: Record<string, Category> = {
         "story": "Located on Mount Banyak, Paralayang Batu opened around the year 2000 as a premier paragliding launch site. It gained massive popularity for its breathtaking sunset views and sparkling night cityscapes of Batu. The addition of Omah Kayu's rustic treehouses transformed it into an iconic romantic and adventurous getaway.",
         "keyAttractions": [
           {
-            "title": "Area Paralayang",
+            "title": "Paragliding Zone",
             "desc": "The panoramic cliff summit at Banyak Hill, serving as the takeoff site for paragliders.",
             "image": "/locations/nature/paralayang-batu/area-paralayang.webp"
           },
@@ -794,22 +794,8 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/nature/paralayang-batu/omah-kayu.webp"
           },
           {
-            "title": "Spot Foto",
+            "title": "Photo Spot",
             "desc": "Discover the breathtaking sights at Spot Foto, one of the key landmarks in the destination.",
-            "image": "/locations/nature/paralayang-batu/spot-foto.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Sightseeing & Walks",
-            "desc": "Enjoy the pristine views and crisp highland air.",
-            "difficulty": "Easy",
-            "image": "/locations/nature/paralayang-batu/omah-kayu.webp"
-          },
-          {
-            "title": "Nature Photography",
-            "desc": "Capture the stunning natural landscapes and scenic backdrops.",
-            "difficulty": "Easy",
             "image": "/locations/nature/paralayang-batu/spot-foto.webp"
           }
         ],
@@ -877,12 +863,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Built in 1928 by a Dutchman named Ruyter de Wildt, Selecta was originally an exclusive retreat for colonial elites. Today, it remains a beloved historic park known for its meticulously landscaped flower gardens and cool mountain spring pools. It stands as a timeless piece of Batu's heritage.",
         "keyAttractions": [
           {
-            "title": "Kolam Renang",
+            "title": "Swimming Pool",
             "desc": "A historic public pool built in 1930, filled with refreshing natural mountain spring water.",
             "image": "/locations/nature/selecta/kolam-renang.webp"
           },
           {
-            "title": "Taman Bunga",
+            "title": "Flower Garden",
             "desc": "A massive, beautifully landscaped valley featuring vibrant, well-manicured flower beds.",
             "image": "/locations/nature/selecta/taman-bunga.webp"
           }
@@ -965,12 +951,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Formerly known as Coban Sabrangan, Coban Rais is a beautiful 20-meter waterfall hidden deep in the Batu hills. It recently surged in popularity with the addition of the Batu Flower Garden, which offers creative photo spots overlooking the lush valleys. It perfectly blends a nature trek with modern photogenic attractions.",
         "keyAttractions": [
           {
-            "title": "Batu Flower Garden",
+            "title": "Rock Flower Garden",
             "desc": "A popular photogenic garden featuring flower beds, swings, and viewing decks.",
             "image": "/locations/nature/coban-rais/batu-flower-garden.webp"
           },
           {
-            "title": "Taman Bunga",
+            "title": "Flower Garden",
             "desc": "A popular photogenic garden featuring flower beds, swings, and viewing decks.",
             "image": "/locations/nature/coban-rais/taman-bunga.webp"
           },
@@ -982,7 +968,7 @@ export const activitiesData: Record<string, Category> = {
         ],
         "thingsToDo": [
           {
-            "title": "Area Camping",
+            "title": "Camping Area",
             "desc": "Enjoy the thrill of Area Camping surrounded by the beautiful natural landscapes of this scenic spot.",
             "difficulty": "Easy",
             "image": "/locations/nature/coban-rais/area-camping.webp"
@@ -1058,25 +1044,25 @@ export const activitiesData: Record<string, Category> = {
         "story": "Jawa Timur Park 1 is the pioneer of modern tourism in Batu City. Combining theme park thrills with national culture, it features a massive cultural gallery that displays traditional houses, costumes, and musical instruments from all 34 provinces of Indonesia. In addition, its science center and outdoor waterpark make it a beloved educational hub for school trips and families.",
         "keyAttractions": [
           {
-            "title": "Galeri Budaya",
+            "title": "Cultural Gallery",
             "desc": "A grand exhibition gallery displaying traditional houses, ethnic costumes, and musical instruments from all across Indonesia.",
             "image": "/locations/fun/jatim-park-1/galeri-budaya.webp"
           },
           {
-            "title": "Museum Tubuh",
+            "title": "Body Museum",
             "desc": "A massive six-story interactive museum shaped like a human body where visitors can walk through organs to learn anatomy.",
             "image": "/locations/fun/jatim-park-1/museum-tubuh.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Kolam Renang",
+            "title": "Swimming Pool",
             "desc": "Splash and slide in the refreshing outdoor waterpark featuring giant tipping buckets and spiral water slides.",
             "difficulty": "Easy",
             "image": "/locations/fun/jatim-park-1/kolam-renang.webp"
           },
           {
-            "title": "Wahana Permainan",
+            "title": "Amusement Rides",
             "desc": "Experience adrenaline-pumping outdoor rides such as the roller coaster, flying tornado, and spinning pendulum.",
             "difficulty": "Easy",
             "image": "/locations/fun/jatim-park-1/wahana-permainan.webp"
@@ -1168,26 +1154,6 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/museum-angkut/zona-hollywood.webp"
           }
         ],
-        "thingsToDo": [
-          {
-            "title": "Auto Collection",
-            "desc": "Browse through over 300 classic and historical vehicles from traditional carriages to modern supercars.",
-            "difficulty": "Mudah",
-            "image": "/locations/fun/museum-angkut/koleksi-kendaraan.webp"
-          },
-          {
-            "title": "Hollywood Zone",
-            "desc": "Take photos alongside life-size movie character models and vintage vehicle replicas in Hollywood sets.",
-            "difficulty": "Mudah",
-            "image": "/locations/fun/museum-angkut/koleksi-kendaraan.webp"
-          },
-          {
-            "title": "European Walk",
-            "desc": "Stroll down the British, French, and Italian themed streets complete with vintage Vespas and retro backdrops.",
-            "difficulty": "Mudah",
-            "image": "/locations/fun/museum-angkut/koleksi-kendaraan.webp"
-          }
-        ],
         "visitorTips": {
           "bestTime": "Around 16:00 WIB when the Broadway-style carnival show starts on the main street.",
           "bring": [
@@ -1259,7 +1225,7 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/jatim-park-2/eco-green-park.webp"
           },
           {
-            "title": "Museum Satwa",
+            "title": "Wildlife Museum",
             "desc": "A grand dome building housing life-size wildlife dioramas, prehistoric fossil skeletons, and massive insectariums.",
             "image": "/locations/fun/jatim-park-2/museum-satwa.webp"
           }
@@ -1272,7 +1238,7 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/jatim-park-2/jungle-adventure.webp"
           },
           {
-            "title": "Melihat Hewan",
+            "title": "Animal Watching",
             "desc": "Enjoy the exciting Melihat Hewan activity, perfect for family fun and group entertainment.",
             "difficulty": "Easy",
             "image": "/locations/fun/jatim-park-2/melihat-hewan.webp"
@@ -1354,14 +1320,14 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/jatim-park-3/fun-tech-plaza.webp"
           },
           {
-            "title": "Ice Age",
+            "title": "Ice Age Zone",
             "desc": "Explore the amazing Ice Age, one of the key family-friendly highlights of the park.",
             "image": "/locations/fun/jatim-park-3/ice-age.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Wahana Permainan",
+            "title": "Amusement Rides",
             "desc": "Enjoy the exciting Wahana Permainan activity, perfect for family fun and group entertainment.",
             "difficulty": "Easy",
             "image": "/locations/fun/jatim-park-3/wahana-permainan.webp"
@@ -1432,7 +1398,7 @@ export const activitiesData: Record<string, Category> = {
         "story": "Opening its doors in 2008, Batu Night Spectacular (BNS) was the first dedicated night amusement park in the region. It revived Batu's evening economy by offering a vibrant mix of carnival rides, a spectacular lantern garden, and lively night markets. It remains a staple for families wanting to enjoy the cool highland nights.",
         "keyAttractions": [
           {
-            "title": "Lampion Garden",
+            "title": "Lantern Garden",
             "desc": "A romantic evening garden filled with thousands of glowing, colorful Chinese silk lanterns in various artistic shapes.",
             "image": "/locations/fun/batu-night-spectacular/lampion-garden.webp"
           },
@@ -1450,7 +1416,7 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/batu-night-spectacular/go-kart.webp"
           },
           {
-            "title": "Wahana Permainan",
+            "title": "Amusement Rides",
             "desc": "Enjoy the exciting Wahana Permainan activity, perfect for family fun and group entertainment.",
             "difficulty": "Easy",
             "image": "/locations/fun/batu-night-spectacular/wahana-permainan.webp"
@@ -1521,7 +1487,7 @@ export const activitiesData: Record<string, Category> = {
         "story": "In 2016, local university students transformed Jodipan from a neglected riverside slum into Indonesia's iconic 'Rainbow Village'. Every roof, wall, and alley was painted in vibrant hues, drastically improving local sanitation and the community's economy. Connected by a glass bridge, it is a testament to the power of creative urban revitalization.",
         "keyAttractions": [
           {
-            "title": "Area Foto",
+            "title": "Photo Area",
             "desc": "Explore the amazing Area Foto, one of the key family-friendly highlights of the park.",
             "image": "/locations/fun/kampung-warna-warni/area-foto.webp"
           },
@@ -1536,23 +1502,9 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/kampung-warna-warni/lorong-warna-warni.webp"
           },
           {
-            "title": "Mural",
+            "title": "Murals",
             "desc": "Vibrant murals and 3D street art painted on the walls of houses throughout the colorful neighborhood.",
             "image": "/locations/fun/kampung-warna-warni/mural.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Crossing the Glass Bridge",
-            "desc": "Cross the transparent glass bridge linking the Jodipan colorful village to the neighboring Tridi village.",
-            "difficulty": "Easy",
-            "image": "/locations/fun/kampung-warna-warni/jembatan-kaca.webp"
-          },
-          {
-            "title": "Mural Hunting & Photography",
-            "desc": "Discover and photograph 3D wall art and painted staircases.",
-            "difficulty": "Easy",
-            "image": "/locations/fun/kampung-warna-warni/lorong-warna-warni.webp"
           }
         ],
         "visitorTips": {
@@ -1621,12 +1573,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Opened in 2017, Malang Night Paradise is the city's largest glowing LED and lantern park. It features millions of colorful lights forming glowing flower gardens, tunnels, and a mesmerizing Magic Journey boat ride. The park offers a magical, fairytale-like atmosphere perfect for evening strolls and photography.",
         "keyAttractions": [
           {
-            "title": "Paradise Of Light",
+            "title": "Paradise of Light",
             "desc": "Explore the amazing Paradise Of Light, one of the key family-friendly highlights of the park.",
             "image": "/locations/fun/malang-night-paradise/paradise-of-light.webp"
           },
           {
-            "title": "Taman Dinosaurus",
+            "title": "Dinosaur Garden",
             "desc": "Explore the amazing Taman Dinosaurus, one of the key family-friendly highlights of the park.",
             "image": "/locations/fun/malang-night-paradise/taman-dinosaurus.webp"
           }
@@ -1639,7 +1591,7 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/malang-night-paradise/magic-journey.webp"
           },
           {
-            "title": "Perahu",
+            "title": "Boat Ride",
             "desc": "Enjoy the exciting Perahu activity, perfect for family fun and group entertainment.",
             "difficulty": "Easy",
             "image": "/locations/fun/malang-night-paradise/perahu.webp"
@@ -1715,12 +1667,12 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/hawai-waterpark/jet-coaster.webp"
           },
           {
-            "title": "Kolam Anak",
+            "title": "Kids Pool",
             "desc": "Explore the amazing Kolam Anak, one of the key family-friendly highlights of the park.",
             "image": "/locations/fun/hawai-waterpark/kolam-anak.webp"
           },
           {
-            "title": "Wakiki Beach",
+            "title": "Waikiki Beach",
             "desc": "Explore the amazing Wakiki Beach, one of the key family-friendly highlights of the park.",
             "image": "/locations/fun/hawai-waterpark/wakiki-beach.webp"
           }
@@ -1804,7 +1756,7 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/san-terra-del-fonte/dutch-village.webp"
           },
           {
-            "title": "Taman Bunga",
+            "title": "Flower Garden",
             "desc": "A vast upland garden featuring hundreds of colorful blooming flower varieties and green landscaping.",
             "image": "/locations/fun/san-terra-del-fonte/taman-bunga.webp"
           }
@@ -1817,7 +1769,7 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/san-terra-del-fonte/rainbow-slide.webp"
           },
           {
-            "title": "Wahana Permainan",
+            "title": "Amusement Rides",
             "desc": "Enjoy the exciting Wahana Permainan activity, perfect for family fun and group entertainment.",
             "difficulty": "Easy",
             "image": "/locations/fun/san-terra-del-fonte/wahana-permainan.webp"
@@ -1889,12 +1841,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Established in 2015, Predator Fun Park is a unique educational zoo dedicated to the world's apex predators, particularly crocodiles. It aims to demystify these feared reptiles through interactive galleries, feeding shows, and safe handling zones. The park balances education with fun by including a croco-themed waterpark and outbound games.",
         "keyAttractions": [
           {
-            "title": "Galeri Buaya",
+            "title": "Crocodile Gallery",
             "desc": "Explore the amazing Galeri Buaya, one of the key family-friendly highlights of the park.",
             "image": "/locations/fun/predator-fun-park/galeri-buaya.webp"
           },
           {
-            "title": "Kolam Buaya",
+            "title": "Crocodile Pool",
             "desc": "Explore the amazing Kolam Buaya, one of the key family-friendly highlights of the park.",
             "image": "/locations/fun/predator-fun-park/kolam-buaya.webp"
           }
@@ -1985,20 +1937,20 @@ export const activitiesData: Record<string, Category> = {
         "story": "Kayutangan Heritage represents the heart of old Malang town, dating back to the late 19th century when it was the central commercial street under Dutch East Indies rule. The area spans both the main cobblestone boulevard (Jalan Basuki Rahmat) and the hidden residential alleys inside Kampoeng Heritage. Many houses inside are still owned by descendants of original colonial clerks, maintaining their signature high-ceiling structure, vintage Dutch tiles, and historical family heirlooms.",
         "keyAttractions": [
           {
-            "title": "Gerbang Desa",
+            "title": "Village Gate",
             "desc": "The main decorative entrance gate leading into the historical residential alleys of Kampoeng Heritage Kayutangan.",
             "image": "/locations/heritage/kayutangan/gerbang-desa.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Kawasan Kuliner",
+            "title": "Culinary District",
             "desc": "Taste local traditional coffee and legendary snacks at vintage street vendors and retro cafes lining the corridor.",
             "difficulty": "Easy",
             "image": "/locations/heritage/kayutangan/kawasan-kuliner.webp"
           },
           {
-            "title": "Mural",
+            "title": "Murals",
             "desc": "Admire the beautiful retro-themed murals painted on historical walls depicting local life and Malang's colonial era.",
             "difficulty": "Easy",
             "image": "/locations/heritage/kayutangan/mural.webp"
@@ -2070,20 +2022,20 @@ export const activitiesData: Record<string, Category> = {
         "story": "Established in 1882 by the Dutch colonial government, Alun-alun Malang has served as the historic civic heart of the city for over a century. Surrounded by heritage buildings, a grand mosque, and a church, it symbolizes religious harmony. Today, its lush banyan trees and dancing fountains make it a beloved public gathering space.",
         "keyAttractions": [
           {
-            "title": "Air Mancur",
+            "title": "Fountain",
             "desc": "The iconic giant water fountain at the center of the park that puts on light and water shows in the evening.",
             "image": "/locations/heritage/alun-alun-malang/air-mancur.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Area Bersantai",
+            "title": "Relaxation Area",
             "desc": "Spacious green lawns shaded by century-old banyan trees, ideal for family picnics and relaxing in the cool breeze.",
             "difficulty": "Easy",
             "image": "/locations/heritage/alun-alun-malang/area-bersantai.webp"
           },
           {
-            "title": "Taman Bermain",
+            "title": "Playground",
             "desc": "A safe, dedicated recreation area equipped with swings, slides, and fun activities for children.",
             "difficulty": "Easy",
             "image": "/locations/heritage/alun-alun-malang/taman-bermain.webp"
@@ -2154,33 +2106,19 @@ export const activitiesData: Record<string, Category> = {
         "story": "Built around 1300 AD, Candi Singosari is a grand, unfinished Hindu-Buddhist temple honoring King Kertanegara, the last ruler of the Singhasari Dynasty. The temple is distinct for having its intricate carvings mostly on the lower levels, while the top remains bare stone. It is guarded by two massive, fiercely carved Dwarapala statues nearby.",
         "keyAttractions": [
           {
-            "title": "Arca Dwarpala",
+            "title": "Dvarapala Statues",
             "desc": "Two massive stone guardian statues standing at 3.7 meters tall, guarding the ancient entrance to the temple complex.",
             "image": "/locations/heritage/candi-singosari/arca-dwarpala.webp"
           },
           {
-            "title": "Gerbang Kawasan",
+            "title": "Temple Gate",
             "desc": "The welcoming entrance to the archaeological park showcasing the historic layout of the Singhasari kingdom.",
             "image": "/locations/heritage/candi-singosari/gerbang-kawasan.webp"
           },
           {
-            "title": "Tampak Depan Candi",
+            "title": "Temple Front View",
             "desc": "The front facade of the unfinished 13th-century red stone temple, showcasing beautiful Hindu-Buddhist architecture.",
             "image": "/locations/heritage/candi-singosari/tampak-depan-candi.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Relief Deciphering",
-            "desc": "Study the ancient stone carvings depicting Hindu mythology on the temple walls.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/candi-singosari/tampak-depan-candi.webp"
-          },
-          {
-            "title": "Exploring Local Food Stalls",
-            "desc": "Taste local Javanese snacks and fresh coconut sold near the entrance.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/candi-singosari/arca-dwarpala.webp"
           }
         ],
         "visitorTips": {
@@ -2248,33 +2186,19 @@ export const activitiesData: Record<string, Category> = {
         "story": "Tugu Malang was originally built in 1946 to commemorate Indonesian independence, but was destroyed by the Dutch during military aggression. It was rebuilt in 1953 and inaugurated by President Sukarno. Surrounded by a beautiful lotus pond, the monument stands proudly in front of the colonial City Hall as a symbol of resilience.",
         "keyAttractions": [
           {
-            "title": "Balai Kota",
+            "title": "City Hall",
             "desc": "The historic colonial Dutch town hall building flanking the circle, displaying beautiful European neo-classical facades.",
             "image": "/locations/heritage/tugu-malang/balai-kota.webp"
           },
           {
-            "title": "Kolam Teratai",
+            "title": "Lotus Pond",
             "desc": "The elegant ring of water surrounding the Tugu monument, filled with blooming pink and white lotus flowers.",
             "image": "/locations/heritage/tugu-malang/kolam-teratai.webp"
           },
           {
-            "title": "Taman",
+            "title": "Garden",
             "desc": "A beautifully manicured circular garden surrounding the monument, featuring century-old trees and colorful flower beds.",
             "image": "/locations/heritage/tugu-malang/taman.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Lotus Pond Photography",
-            "desc": "Capture close-up photos of blooming lotus flowers against the monument.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/tugu-malang/kolam-teratai.webp"
-          },
-          {
-            "title": "Tugu Circle Jogging",
-            "desc": "Jog or walk along the clean pedestrian pathway surrounding the roundabout park.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/tugu-malang/balai-kota.webp"
           }
         ],
         "visitorTips": {
@@ -2341,32 +2265,18 @@ export const activitiesData: Record<string, Category> = {
         "story": "Dating back to 760 AD, Candi Badut is recognized as the oldest known stone temple in East Java, built by King Gajayana of the Kanjuruhan Kingdom. Its architectural style closely resembles the older temples of Central Java with its simple, sturdy Andean stone structure. It remains a quiet, spiritual remnant of a largely forgotten early civilization.",
         "keyAttractions": [
           {
-            "title": "Bangunan Utama",
+            "title": "Main Structure",
             "desc": "The oldest temple in East Java, built in 760 AD, featuring an Andean style volcanic stone masonry.",
             "image": "/locations/heritage/candi-badut/bangunan-utama.webp"
           },
           {
-            "title": "Kompleks Candi",
+            "title": "Temple Complex",
             "desc": "A peaceful green courtyard surrounding the stone ruins, set in a quiet suburban residential neighborhood.",
             "image": "/locations/heritage/candi-badut/kompleks-candi.webp"
           },
           {
-            "title": "Relung Arca",
+            "title": "Statue Niches",
             "desc": "The stone niches on the temple walls which once housed statues of Hindu deities like Durga and Agastya.",
-            "image": "/locations/heritage/candi-badut/relung-arca.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Green Grass Picnic",
-            "desc": "Relax on the clean, grassy lawns surrounding the temple with family.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/candi-badut/relung-arca.webp"
-          },
-          {
-            "title": "Archaeological Study",
-            "desc": "Inspect the structural stones and foundations to learn about 8th-century construction.",
-            "difficulty": "Easy",
             "image": "/locations/heritage/candi-badut/relung-arca.webp"
           }
         ],
@@ -2433,33 +2343,19 @@ export const activitiesData: Record<string, Category> = {
         "story": "Officially named the Cathedral of Our Lady of Mount Carmel, Gereja Ijen was built in 1934 by Dutch architect L. Estourgie. It is widely celebrated for its pristine Neo-Gothic architecture and authentic European stained-glass windows. Positioned on the historic Ijen Boulevard, it has been a center of Catholic worship and an architectural landmark for decades.",
         "keyAttractions": [
           {
-            "title": "Altar Utama",
+            "title": "Main Altar",
             "desc": "The majestic white marble altar at the front of the cathedral, beautifully framed by high stained-glass windows.",
             "image": "/locations/heritage/gereja-ijen/altar-utama.webp"
           },
           {
-            "title": "Interior Gereja",
+            "title": "Church Interior",
             "desc": "The soaring Gothic cathedral interior, showing beautiful wooden ribs, rows of classic benches, and calm lighting.",
             "image": "/locations/heritage/gereja-ijen/interior-gereja.webp"
           },
           {
-            "title": "Menara Gereja",
+            "title": "Church Tower",
             "desc": "The twin Neo-Gothic spires rising high above Ijen Boulevard, serving as a signature landmark of Malang city.",
             "image": "/locations/heritage/gereja-ijen/menara-gereja.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Cathedral Silence Walk",
-            "desc": "Walk quietly inside the sanctuary to experience the spiritual stillness.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/gereja-ijen/altar-utama.webp"
-          },
-          {
-            "title": "Ijen Boulevard Architecture Tour",
-            "desc": "Explore the colonial-era villas lining the wide boulevard outside the church.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/gereja-ijen/interior-gereja.webp"
           }
         ],
         "visitorTips": {
@@ -2526,19 +2422,19 @@ export const activitiesData: Record<string, Category> = {
         "story": "Founded in 1825, Eng An Kiong ('The Temple of Eternal Peace') is one of the oldest Chinese temples in East Java. Serving the Tri Dharma faiths—Confucianism, Taoism, and Buddhism—it is a cornerstone of Malang's Chinese-Indonesian heritage. The temple is also famous for preserving the rare, traditional art of Wayang Potehi (glove puppetry).",
         "keyAttractions": [
           {
-            "title": "Altar Utama",
+            "title": "Main Altar",
             "desc": "The central sacred altar dedicated to the main deity Kongco Hok Tek Ceng Sin, adorned with red silk and gold.",
             "image": "/locations/heritage/klenteng-eng-an-kiong/altar-utama.webp"
           },
           {
-            "title": "Pelataran Klenteng",
+            "title": "Temple Courtyard",
             "desc": "The vibrant front courtyard filled with large dragon incense burners and bright red Chinese lanterns hanging overhead.",
             "image": "/locations/heritage/klenteng-eng-an-kiong/pelataran-klenteng.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Ruang Ibadah",
+            "title": "Prayer Hall",
             "desc": "Take a scenic walk and appreciate the historical value of the Ruang Ibadah area.",
             "difficulty": "Easy",
             "image": "/locations/heritage/klenteng-eng-an-kiong/ruang-ibadah.webp"
@@ -2608,20 +2504,20 @@ export const activitiesData: Record<string, Category> = {
         "story": "Located directly across from Malang's main railway station, Monumen Juang 45 was erected to honor the heroic struggles of the local army (TRIM) against colonial forces. The massive bronze relief vividly depicts 19 freedom fighters in intense battle poses. It serves as a dramatic, powerful reminder of the city's fight for independence.",
         "keyAttractions": [
           {
-            "title": "Monument Juang 45",
+            "title": "Monument of Struggle",
             "desc": "The massive copper sculpture depicting local freedom fighters pushing back colonial forces, located in front of the station.",
             "image": "/locations/heritage/monumen-juang-45/monument-juang-45.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Panel Sejarah",
+            "title": "History Panel",
             "desc": "Take a scenic walk and appreciate the historical value of the Panel Sejarah area.",
             "difficulty": "Easy",
             "image": "/locations/heritage/monumen-juang-45/panel-sejarah.webp"
           },
           {
-            "title": "Relief Perjuangan",
+            "title": "Struggle Relief",
             "desc": "Take a scenic walk and appreciate the historical value of the Relief Perjuangan area.",
             "difficulty": "Easy",
             "image": "/locations/heritage/monumen-juang-45/relief-perjuangan.webp"
@@ -2689,32 +2585,18 @@ export const activitiesData: Record<string, Category> = {
         "story": "Built in 1248 AD to honor King Anusapati of the Singhasari Kingdom, Candi Kidal is renowned for its slender profile and highly detailed carvings. Its most significant features are the Garudeya reliefs at its base, which depict the mythical bird Garuda freeing his mother from slavery. This specific carving heavily inspired Indonesia's national emblem, Garuda Pancasila.",
         "keyAttractions": [
           {
-            "title": "Bangunan Utama",
+            "title": "Main Structure",
             "desc": "A slender and elegant 13th-century stone temple built as a dedication to King Anusapati of the Singhasari Dynasty.",
             "image": "/locations/heritage/candi-kidal/bangunan-utama.webp"
           },
           {
-            "title": "Ornamen Kala",
+            "title": "Kala Ornament",
             "desc": "The masterpiece stone carving of Kala's head above the temple portal, showing fierce, detailed expressions to ward off evil.",
             "image": "/locations/heritage/candi-kidal/ornamen-kala.webp"
           },
           {
-            "title": "Relief Garuda",
+            "title": "Garuda Relief",
             "desc": "The iconic stone relief panels telling the mythological story of Garudeya's struggle to free his mother from slavery.",
-            "image": "/locations/heritage/candi-kidal/relief-garuda.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Garudeya Legend Study",
-            "desc": "Read the detailed storyboards explaining the legend of Garuda carved on the walls.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/candi-kidal/relief-garuda.webp"
-          },
-          {
-            "title": "Serene Garden Relaxation",
-            "desc": "Sit under the trees of the quiet gardens and enjoy the fresh rural breeze.",
-            "difficulty": "Easy",
             "image": "/locations/heritage/candi-kidal/relief-garuda.webp"
           }
         ],
@@ -2781,33 +2663,19 @@ export const activitiesData: Record<string, Category> = {
         "story": "Constructed in 1268 AD as a shrine for King Vishnuwardhana, Candi Jago features a unique step-pyramid terrace design mixing Tantric Buddhist and Hindu elements. It is famous for its intricate, two-dimensional 'Wayang Kulit' style stone reliefs. These carvings tell epic moral tales, including the journey of Kunjarakarna, meant to be read by walking counter-clockwise.",
         "keyAttractions": [
           {
-            "title": "Ornamen Kala",
+            "title": "Kala Ornament",
             "desc": "Intricate stone carvings of Kala faces and mythical creatures adorning the corners of the temple's terraces.",
             "image": "/locations/heritage/candi-jago/ornamen-kala.webp"
           },
           {
-            "title": "Relief Candi",
+            "title": "Temple Reliefs",
             "desc": "Unique Wayang-style reliefs carved into the temple base, depicting the Buddhist story of Kunjarakarna's journey.",
             "image": "/locations/heritage/candi-jago/relief-candi.webp"
           },
           {
-            "title": "Tampak Depan",
+            "title": "Front Facade",
             "desc": "The unique multi-tiered step-pyramid terrace facade, showcasing a blend of Hindu and Buddhist architectural elements.",
             "image": "/locations/heritage/candi-jago/tampak-depan.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Stone Terrace Climbing",
-            "desc": "Walk up the ancient stone platforms to inspect the carvings closely.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/candi-jago/tampak-depan.webp"
-          },
-          {
-            "title": "Studying Wayang Murals",
-            "desc": "Examine the puppet-style carvings that represent early Javanese storytelling.",
-            "difficulty": "Easy",
-            "image": "/locations/heritage/candi-jago/ornamen-kala.webp"
           }
         ],
         "visitorTips": {
@@ -2873,20 +2741,20 @@ export const activitiesData: Record<string, Category> = {
         "story": "Originally started as an independent gallery in 2009, the Museum Musik Indonesia is the nation's premier archive of musical history. It houses over 25,000 items, including rare vinyl records, cassettes, and traditional ethnic instruments from all over the archipelago. It stands as a vital cultural institution preserving a century of Indonesian soundscapes.",
         "keyAttractions": [
           {
-            "title": "Koridor Musik",
+            "title": "Music Corridor",
             "desc": "A timeline corridor documenting the evolution of Indonesian popular music and famous national artists.",
             "image": "/locations/heritage/museum-music-indonesia/koridor-musik.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Galeri Alat Musik",
+            "title": "Instrument Gallery",
             "desc": "Take a scenic walk and appreciate the historical value of the Galeri Alat Musik area.",
             "difficulty": "Easy",
             "image": "/locations/heritage/museum-music-indonesia/galeri-alat-musik.webp"
           },
           {
-            "title": "Koleksi Vinyl",
+            "title": "Vinyl Collection",
             "desc": "Take a scenic walk and appreciate the historical value of the Koleksi Vinyl area.",
             "difficulty": "Easy",
             "image": "/locations/heritage/museum-music-indonesia/koleksi-vinyl.webp"
@@ -2955,20 +2823,20 @@ export const activitiesData: Record<string, Category> = {
         "story": "Established in 1968, Museum Brawijaya chronicles the grueling military history of East Java during the Indonesian National Revolution. Its most harrowing artifact is the 'Gerbong Maut' (Death Wagon), a freight car where dozens of captured freedom fighters tragically suffocated in 1947. The museum offers a sobering, deeply moving look at the price of independence.",
         "keyAttractions": [
           {
-            "title": "Gerbong Maut",
+            "title": "Death Carriage",
             "desc": "The historic freight car where 100 Indonesian freedom fighters were locked in by the Dutch, leading to tragic deaths.",
             "image": "/locations/heritage/museum-brawijaya/gerbong-maut.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Koleksi Kendaraan Perang",
+            "title": "War Vehicles",
             "desc": "Take a scenic walk and appreciate the historical value of the Koleksi Kendaraan Perang area.",
             "difficulty": "Easy",
             "image": "/locations/heritage/museum-brawijaya/koleksi-kendaraan-perang.webp"
           },
           {
-            "title": "Koleksi Senjata",
+            "title": "Weapons Collection",
             "desc": "Take a scenic walk and appreciate the historical value of the Koleksi Senjata area.",
             "difficulty": "Easy",
             "image": "/locations/heritage/museum-brawijaya/koleksi-senjata.webp"
@@ -3048,7 +2916,7 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/culinary/toko-oen/bitterballen.webp"
           },
           {
-            "title": "Vintage Ice Cream Bar",
+            "title": "Ice Cream Bar",
             "desc": "The original marble counter serving homemade ice creams since the 1930s.",
             "image": "/locations/culinary/toko-oen/ice-cream.webp"
           }
@@ -3238,12 +3106,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Originating in the 1940s from the border town of Nguling, this family recipe has become the gold standard for East Javanese rawon. The soup's signature black color and earthy flavor come from the fermented keluak nut. Served with generous cuts of beef and crispy fried lungs, it is a deeply comforting, historic local dish.",
         "keyAttractions": [
           {
-            "title": "Rawon Serving Station",
+            "title": "Rawon Station",
             "desc": "The fast-paced kitchen counter where bowls of hot, black beef soup are freshly prepared.",
             "image": "/locations/culinary/rawon-nguling/nasi-rawon.webp"
           },
           {
-            "title": "Side Dishes Platter",
+            "title": "Side Dishes",
             "desc": "Trays of salted eggs, fried beef lungs (babat/paru), and crispy tempeh.",
             "image": "/locations/culinary/rawon-nguling/paru-goreng.webp"
           }
@@ -3425,12 +3293,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Madam Wang Secret Garden is a whimsical boutique cafe known for its lush, glasshouse garden dining area. Blending vintage European aesthetics with local craftsmanship, it also supports local female weavers through its attached boutique. The cafe is celebrated for its cozy afternoon tea atmosphere and creative fusion menu.",
         "keyAttractions": [
           {
-            "title": "Backyard Garden Pavilions",
+            "title": "Garden Pavilions",
             "desc": "A beautiful, secluded greenhouse garden dining area filled with plants and flowers.",
             "image": "/locations/culinary/madam-wang-secret-garden/bingsoo.webp"
           },
           {
-            "title": "Vintage Boutique Room",
+            "title": "Boutique Room",
             "desc": "An indoor dining salon showcasing unique vintage crafts and boutique clothes.",
             "image": "/locations/culinary/madam-wang-secret-garden/nasi-goreng.webp"
           }
@@ -3523,12 +3391,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Set on the banks of the historic Bango River, Taman Indie provides a premium traditional Javanese dining experience. The restaurant's architecture utilizes authentic reclaimed teak wood to form grand Joglo pavilions and intimate riverside gazebos (saung). It beautifully captures the essence of a serene, rural Javanese village in the modern era.",
         "keyAttractions": [
           {
-            "title": "Riverside Gazebos (Saung)",
+            "title": "Riverside Gazebos",
             "desc": "Traditional open-air wooden gazebos situated directly alongside the flowing Brantas River.",
             "image": "/locations/culinary/taman-indie-resto/nasi-buk-madura.webp"
           },
           {
-            "title": "Antique Javanese Joglo",
+            "title": "Antique Joglo",
             "desc": "The main dining hall built inside a massive, beautifully carved teak Joglo house.",
             "image": "/locations/culinary/taman-indie-resto/nasi-campur-bali.webp"
           }
@@ -3622,12 +3490,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Opening in 2008, Java Dancer was a pioneer of the specialty coffee movement in Malang. It distinguishes itself by celebrating Indonesian single-origin beans within a beautiful, traditional Javanese wooden Joglo setting. The cafe's atmosphere is rich with cultural elements, featuring Wayang shadow puppet aesthetics and local wood carvings.",
         "keyAttractions": [
           {
-            "title": "Traditional Joglo Pavilion",
+            "title": "Joglo Pavilion",
             "desc": "A quiet, open-air wooden pavilion featuring traditional Javanese carvings.",
             "image": "/locations/culinary/java-dancer-coffee/affogato.webp"
           },
           {
-            "title": "Specialty Coffee Bar",
+            "title": "Coffee Bar",
             "desc": "A modern bar showcasing manual brewing equipment and single-origin beans.",
             "image": "/locations/culinary/java-dancer-coffee/manual-brew.webp"
           }
@@ -3720,12 +3588,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Cafe Litchi brings a bright, Mediterranean beach-club aesthetic to the cool highlands of Malang. Featuring white Santorini-style walls, tropical plants, and a central turquoise pool, it is one of the city's most visually stunning hangout spots. It has quickly become a favorite for modern brunch dates and social media photography.",
         "keyAttractions": [
           {
-            "title": "Mediterranean Poolside Deck",
+            "title": "Poolside Deck",
             "desc": "A gorgeous outdoor dining deck decorated in white plaster and light wood, surrounding a small pool.",
             "image": "/locations/culinary/cafe-litchi/chicken-grill-pesto.webp"
           },
           {
-            "title": "Cozy Study Nooks",
+            "title": "Cozy Nooks",
             "desc": "Indoor booths equipped with charging outlets and comfortable seating.",
             "image": "/locations/culinary/cafe-litchi/pizza.webp"
           }
@@ -3818,7 +3686,7 @@ export const activitiesData: Record<string, Category> = {
         "story": "Pecel Kawi Hj Musilah was founded in 1975. Starting as a small street-side stall on Jalan Kawi, it has become one of Malang's most famous culinary landmarks, renowned for its thick, spicy, and savory peanut sauce.",
         "keyAttractions": [
           {
-            "title": "Signature Peanut Sauce",
+            "title": "Peanut Sauce",
             "desc": "A legendary family recipe featuring hand-ground peanuts and a complex blend of aromatic spices.",
             "image": "/locations/culinary/pecel-kawi-malang-hj-musilah/nasi-pecel.webp"
           }
@@ -3890,7 +3758,7 @@ export const activitiesData: Record<string, Category> = {
         "story": "Established in 1967 near Batu Town Square (Alun-Alun Batu), Pos Ketan Legenda started as a simple gathering place for locals. It has since become a famous culinary phenomenon, drawing lines of tourists every evening.",
         "keyAttractions": [
           {
-            "title": "Late Night Sticky Rice",
+            "title": "Sticky Rice",
             "desc": "A popular night hangout serving warm, fresh sticky rice topped with grated coconut and brown sugar.",
             "image": "/locations/culinary/pos-ketan-legenda-1967/ketan-susu-durian.webp"
           }
@@ -3975,14 +3843,14 @@ export const activitiesData: Record<string, Category> = {
         "story": "Sumber Sirah is a hidden natural spring famous for its astonishingly clear water. The water is so transparent that visitors can look down to see green freshwater algae growing like a miniature pine forest on the sandy pool bed, with schools of tiny fish darting among the leaves. The spring is a natural source of irrigation for the surrounding rice paddies and has been kept clean by the local farmers who protect the spring head.",
         "keyAttractions": [
           {
-            "title": "Tanaman Air",
+            "title": "Aquatic Plants",
             "desc": "A surreal underwater forest of bright green freshwater algae growing on the sandy bed like miniature pines.",
             "image": "/locations/hidden-gem/sumber-sirah/tanaman-air.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Berenang",
+            "title": "Swimming",
             "desc": "Swim gently in the cool, crystal-clear natural spring pool to appreciate the rich aquatic ecosystem.",
             "difficulty": "Easy",
             "image": "/locations/hidden-gem/sumber-sirah/berenang.webp"
@@ -4060,12 +3928,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Sumber Maron is a refreshing natural spring located in the rural Pagelaran area. Famous for its clear water flowing directly through local rice fields, it offers visitors the chance to float down a natural river on inner tubes, ending near a picturesque half-cascade waterfall.",
         "keyAttractions": [
           {
-            "title": "Panorama Bersawah",
+            "title": "Rice Field View",
             "desc": "Beautiful views of terraced green rice fields lining the banks of the clear, flowing river.",
             "image": "/locations/hidden-gem/sumber-maron/panorama-bersawah.webp"
           },
           {
-            "title": "Pemandangan Sumber Maron",
+            "title": "Sumber Maron View",
             "desc": "A wide, gentle 5-meter-high river cascade where water rushes over flat, mossy rocks.",
             "image": "/locations/hidden-gem/sumber-maron/pemandangan-sumber-maron.webp"
           }
@@ -4143,12 +4011,12 @@ export const activitiesData: Record<string, Category> = {
         "story": "Sumber Jenon is a serene, deep-water spring tucked away in the Tajinan district. The spring is legendary for its vibrant blue hue and the ancient, giant tree trunk that has lain fossilized on the pool floor for centuries, creating a fascinating sight for snorkelers.",
         "keyAttractions": [
           {
-            "title": "Ikan Hitam",
+            "title": "Black Fish",
             "desc": "Observe the ancient, sacred black Sengkaring fish swimming among the submerged fossilized logs.",
             "image": "/locations/hidden-gem/sumber-jenon/ikan-hitam.webp"
           },
           {
-            "title": "Kolam Alami",
+            "title": "Natural Pool",
             "desc": "A deep, clear natural freshwater spring pool showing beautiful turquoise and emerald green gradations.",
             "image": "/locations/hidden-gem/sumber-jenon/kolam-alami.webp"
           }
@@ -4225,14 +4093,14 @@ export const activitiesData: Record<string, Category> = {
         "story": "Coban Sumber Pitu (Seven Springs Waterfall) is one of the most spectacular hidden waterfalls in East Java. Located high in the Pujon hills, the water emerges directly from a subterranean spring, bursting out from a mossy cliffside to form seven parallel falls cascading into a lush, misty gorge.",
         "keyAttractions": [
           {
-            "title": "Aliran Air Terjun",
+            "title": "Waterfall Stream",
             "desc": "A spectacular wall of water featuring seven distinct streams emerging directly from a lush, mossy cliffside.",
             "image": "/locations/hidden-gem/coban-sumber-pitu-pujon/aliran-air-terjun.webp"
           }
         ],
         "thingsToDo": [
           {
-            "title": "Jalur Pendakian",
+            "title": "Hiking Trail",
             "desc": "Hike up the steep forest trails and cross shallow streams to reach the hidden cliffside waterfall.",
             "difficulty": "Easy",
             "image": "/locations/hidden-gem/coban-sumber-pitu-pujon/jalur-pendakian.webp"
@@ -4303,32 +4171,18 @@ export const activitiesData: Record<string, Category> = {
         "story": "Pantai Gatra is a protected conservation beach located in the Clungup Mangrove Conservation area. Protected by a ring of small limestone islands just off the shore, it has calm, wave-free waters that make it a rare beach in Southern Malang where visitors can safely swim and canoe.",
         "keyAttractions": [
           {
-            "title": "Hutan Mangrove",
+            "title": "Mangrove Forest",
             "desc": "A protected green mangrove estuary along the bay, serving as a breeding ground for local marine life.",
             "image": "/locations/hidden-gem/pantai-gatra/hutan-mangrove.webp"
           },
           {
-            "title": "Panorama Pesisir",
+            "title": "Coastal Panorama",
             "desc": "A scenic viewpoint showing the quiet turquoise bay dotted with green karst rocky islets resembling Raja Ampat.",
             "image": "/locations/hidden-gem/pantai-gatra/panorama-pesisir.webp"
           },
           {
-            "title": "Pantai Pasir Putih",
+            "title": "White Sand Beach",
             "desc": "A clean, peaceful white sand beach with calm waves protected by offshore coral reefs, ideal for swimming.",
-            "image": "/locations/hidden-gem/pantai-gatra/pantai-pasir-putih.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Sea Canoeing",
-            "desc": "Paddle a rented canoe in the calm, wave-free waters around the limestone islets.",
-            "difficulty": "Easy",
-            "image": "/locations/hidden-gem/pantai-gatra/panorama-pesisir.webp"
-          },
-          {
-            "title": "Eco-Audited Beach Camping",
-            "desc": "Camp overnight on the clean white sand under a strict zero-plastic-waste regulation.",
-            "difficulty": "Easy",
             "image": "/locations/hidden-gem/pantai-gatra/pantai-pasir-putih.webp"
           }
         ],
@@ -4397,33 +4251,19 @@ export const activitiesData: Record<string, Category> = {
         "story": "Candi Sumberawan is a unique historical relic located in a quiet pine forest at the foot of Mount Arjuno. Unlike other Javanese temples, it is a pure bell-shaped Buddhist stupa. The temple sits next to a crystal-clear spring water source believed by locals to hold spiritual healing properties.",
         "keyAttractions": [
           {
-            "title": "Stupa Utama",
+            "title": "Main Stupa",
             "desc": "The unique 14th-century bell-shaped stone stupa, the only Buddhist stupa temple of its kind in East Java.",
             "image": "/locations/hidden-gem/candi-sumberawan/stupa-utama.webp"
           },
           {
-            "title": "Sumber Mata Air",
+            "title": "Holy Spring",
             "desc": "A crystal-clear natural spring flowing directly beside the temple, believed by locals to have healing properties.",
             "image": "/locations/hidden-gem/candi-sumberawan/sumber-mata-air.webp"
           },
           {
-            "title": "Tampak Atas",
+            "title": "Aerial View",
             "desc": "The peaceful upper canopy view of the temple nestled inside a dense, cool pine forest at the foot of Mt. Arjuno.",
             "image": "/locations/hidden-gem/candi-sumberawan/tampak-atas.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Pine Forest Trekking",
-            "desc": "Trek along the scenic dirt paths through the tall, aromatic pine forest to discover the hidden temple ruins.",
-            "difficulty": "Easy",
-            "image": "/locations/hidden-gem/candi-sumberawan/tampak-atas.webp"
-          },
-          {
-            "title": "Washing in Holy Water",
-            "desc": "Drink or wash your face in the cool, sacred spring pool believed to bring health and blessings.",
-            "difficulty": "Easy",
-            "image": "/locations/hidden-gem/candi-sumberawan/sumber-mata-air.webp"
           }
         ],
         "visitorTips": {
@@ -4495,28 +4335,14 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/hidden-gem/lembah-indah-malang/dome-glamping.webp"
           },
           {
-            "title": "Panorama Lembah",
+            "title": "Valley Panorama",
             "desc": "The beautiful 360-degree panorama of rolling green pasture hills on the lower slopes of Mount Kawi.",
             "image": "/locations/hidden-gem/lembah-indah-malang/panorama-lembah.webp"
           },
           {
-            "title": "Tempat Makan",
+            "title": "Dining Area",
             "desc": "A farm-to-table restaurant serving fresh dishes made from organic ingredients harvested directly from the resort's greenhouse.",
             "image": "/locations/hidden-gem/lembah-indah-malang/tempat-makan.webp"
-          }
-        ],
-        "thingsToDo": [
-          {
-            "title": "Strawberry Harvesting",
-            "desc": "Pick fresh organic strawberries and vegetables inside the resort's modern hydroponic greenhouses.",
-            "difficulty": "Easy",
-            "image": "/locations/hidden-gem/lembah-indah-malang/panorama-lembah.webp"
-          },
-          {
-            "title": "Petting Farm Feeding",
-            "desc": "Feed sheep and goats in the family-friendly petting ranch on the valley pastures.",
-            "difficulty": "Easy",
-            "image": "/locations/hidden-gem/lembah-indah-malang/dome-glamping.webp"
           }
         ],
         "visitorTips": {

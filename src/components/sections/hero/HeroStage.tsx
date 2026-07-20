@@ -59,12 +59,12 @@ export default function HeroStage() {
   }
 
   return (
-    <section className="relative w-full bg-[#f5f4f0] flex flex-col overflow-visible min-h-[600px]">
+    <section className="relative w-full bg-[#f5f4f0] flex flex-col overflow-visible">
 
-      {/* ── Banner ─────────────────────────────────────────── */}
-      <div className="relative w-full h-[55vh] min-h-[420px] md:h-[58vh] md:min-h-[460px] lg:min-h-[500px] xl:h-[65vh] xl:min-h-[560px] flex-shrink-0 overflow-visible">
+      {/* ── Banner (Full Bleed Top) ─────────────────────────── */}
+      <div className="relative w-full h-[62vh] min-h-[460px] sm:h-[68vh] sm:min-h-[520px] md:h-[72vh] md:min-h-[580px] lg:h-[78vh] lg:min-h-[640px] xl:h-[82vh] xl:min-h-[720px] flex-shrink-0 overflow-visible">
         {/* Video + overlay */}
-        <div className="absolute inset-0 rounded-b-[2rem] md:rounded-b-[3.5rem] overflow-hidden">
+        <div className="absolute inset-0 rounded-b-[2.5rem] md:rounded-b-[4rem] overflow-hidden bg-black">
           <video
             autoPlay
             loop
@@ -80,20 +80,21 @@ export default function HeroStage() {
             <source src="/malang.webm" type="video/webm" />
             <track kind="captions" src="/hero-captions.vtt" srcLang="en" label="English captions" />
           </video>
-          <div className="absolute inset-0 bg-black/65" />
+          {/* Subtle gradient overlay to make top controls & center typography pop */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/70 z-10" />
         </div>
 
         {/* Live Weather + Time Widget in top-left banner */}
-        <div className="absolute left-4 top-24 sm:left-6 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-sm sm:text-sm tracking-wider select-none">
+        <div className="absolute left-4 top-4 sm:left-6 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-xs sm:text-sm tracking-wider select-none">
           <div className="flex flex-col">
-            <span className="text-sm sm:text-sm text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
-            <span className="font-semibold text-white mt-1 text-sm sm:text-sm md:text-sm">{currentTime || "--:--:--"} WIB</span>
+            <span className="text-[10px] sm:text-xs text-white/60 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
+            <span className="font-semibold text-white mt-1 text-xs sm:text-sm">{currentTime || "--:--:--"} WIB</span>
           </div>
           <div className="h-5 sm:h-6 w-px bg-white/20" />
           {weatherData && (
             <div className="flex flex-col">
-              <span className="text-sm sm:text-sm text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.malangWeather")}</span>
-              <span className="font-semibold text-white mt-1 text-sm sm:text-sm md:text-sm">
+              <span className="text-[10px] sm:text-xs text-white/60 font-bold uppercase tracking-widest leading-none">{t("hero.custom.malangWeather")}</span>
+              <span className="font-semibold text-white mt-1 text-xs sm:text-sm">
                 {Math.round(weatherData.temp)}°C · {getWeatherFromCode(weatherData.weatherCode)}
               </span>
             </div>
@@ -131,8 +132,8 @@ export default function HeroStage() {
       </div>
 
       {/* ── Consolidated Hero Console Dock — 40% overlap, 90% centered ─────── */}
-      <div className="relative z-20 w-full -mt-[110px] md:-mt-[135px] px-4 md:px-8">
-        <div className="w-full max-w-[1400px] mx-auto bg-[#f5f4f0] rounded-xl border-2 border-premium-black/20 relative overflow-hidden shadow-lg">
+      <div className="relative z-20 w-full -mt-[110px] md:-mt-[135px] px-4 sm:px-8 md:px-12 lg:px-16">
+        <div className="w-full max-w-[1400px] xl:max-w-[1700px] mx-auto bg-[#f5f4f0] rounded-xl border-2 border-premium-black/20 relative overflow-hidden shadow-lg">
           {/* Subtle background dot grid pattern for extra texture */}
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#1c1c1c_1px,transparent_1px)] [background-size:16px_16px]" />
           

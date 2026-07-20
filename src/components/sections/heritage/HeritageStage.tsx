@@ -32,9 +32,9 @@ export default function HeritageStage() {
 
   return (
     <motion.section 
-      className="relative w-full bg-[#f5f4f0] py-32 md:py-44 min-h-[85vh] flex items-center overflow-hidden"
+      className="relative w-full bg-[#f5f4f0] py-10 md:py-14 flex items-center overflow-hidden border-b border-premium-black/5"
     >
-      <div className="swiss-container w-full max-w-7xl">
+      <div className="w-full max-w-[1400px] xl:max-w-[1700px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
         
         {/* Header Block */}
         <div className="flex items-end justify-between mb-20 border-b-2 border-premium-black pb-8 select-none">
@@ -60,22 +60,27 @@ export default function HeritageStage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-start w-full"
+              className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-16 w-full"
             >
-              {/* Category Tag (Minimum size: md) */}
-              <span className="text-swiss text-sm md:text-base tracking-[0.25em] font-extrabold uppercase text-[#4e653c] mb-6 block">
-                // {activeFact.tag}
-              </span>
+              {/* Tag + Number */}
+              <div className="lg:w-1/3 shrink-0">
+                <span className="text-swiss text-sm md:text-base tracking-[0.25em] font-extrabold uppercase text-[#4e653c] mb-6 block">
+                  // {activeFact.tag}
+                </span>
+                <span className="text-editorial text-[clamp(4rem,8vw,8rem)] text-[#4e653c]/15 font-black leading-none hidden lg:block">
+                  {activeFact.num}
+                </span>
+              </div>
 
-              {/* Majestic Editorial Title (Scaled down a bit) */}
-              <h3 className="text-editorial text-[clamp(2rem,5vw,4rem)] text-premium-black leading-[1.05] tracking-tighter mb-8 uppercase text-balance font-black">
-                {activeFact.title}
-              </h3>
-
-              {/* Readable Description (Scaled down a bit) */}
-              <p className="text-swiss text-xl md:text-2xl lg:text-3xl text-premium-black/80 leading-[1.4] font-bold text-pretty transition-colors duration-300">
-                {activeFact.description}
-              </p>
+              {/* Title + Description */}
+              <div className="lg:w-2/3">
+                <h3 className="text-editorial text-[clamp(2rem,5vw,4rem)] text-premium-black leading-[1.05] tracking-tighter mb-8 uppercase text-balance font-black">
+                  {activeFact.title}
+                </h3>
+                <p className="text-swiss text-xl md:text-2xl lg:text-3xl text-premium-black/80 leading-[1.4] font-bold text-pretty transition-colors duration-300">
+                  {activeFact.description}
+                </p>
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>

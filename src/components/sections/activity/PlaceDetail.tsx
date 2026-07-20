@@ -649,13 +649,13 @@ const PlaceDetail = () => {
     });
 
     // If we filtered out too many, add back from the zero-distance pool (sorted alphabetically)
-    if (filtered.length < 3) {
+    if (filtered.length < 4) {
       const zeroDistance = withDistance.filter((p) => p.distanceKm <= 0).sort((a, b) => a.title.localeCompare(b.title));
       filtered.push(...zeroDistance);
     }
 
-    // Always return exactly 3 (or all available if fewer than 3)
-    return filtered.slice(0, 3);
+    // Always return exactly 4 (or all available if fewer)
+    return withDistance.slice(0, 4);
   };
 
   const nearbyPlacesList = getNearbyPlacesList();
@@ -741,11 +741,14 @@ const PlaceDetail = () => {
             className="absolute inset-0 w-full h-full object-cover opacity-80"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#f5f4f0] from-0% via-[#2D221F]/30 via-35% to-[#2D221F]/40 to-100%" />
+        {/* Dark left fade for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2D221F]/70 via-[#2D221F]/20 to-transparent" />
+        {/* Bottom edge blend into content */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#f5f4f0] to-transparent" />
 
         <div className="absolute inset-4 md:inset-6 lg:inset-8 border border-white/10 z-10 pointer-events-none rounded-2xl mix-blend-overlay hidden md:block" />
 
-        <div className="absolute inset-0 px-5 sm:px-8 md:px-16 lg:px-32 z-10 flex flex-col justify-end h-full max-w-[1400px] mx-auto w-full pb-12 sm:pb-24 md:pb-32">
+        <div className="absolute inset-0 px-5 sm:px-8 md:px-16 lg:px-20 z-10 flex flex-col justify-end h-full max-w-[1400px] xl:max-w-[1700px] mx-auto w-full pb-12 sm:pb-24 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -779,7 +782,7 @@ const PlaceDetail = () => {
           >
             <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
           </svg>
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32 relative z-10">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 relative z-10">
             <SectionTitle title={categoryKey === "culinary" ? t("placeDetail.openingHours") : t("placeDetail.ticketHours")} />
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-center">
               <div className="flex flex-col md:flex-row gap-8 md:gap-16 flex-1">
@@ -863,7 +866,7 @@ const PlaceDetail = () => {
       {/* 2.5 TRAVEL ADVISORIES & WIDGETS */}
       {categoryKey !== "culinary" && (safety || fees || altitude || (isMountain && data.location)) && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
             {(categoryKey === "nature-seeker" || categoryKey === "hidden-gem") && (
               <SectionTitle title={t("placeDetail.safetyInfo")} />
             )}
@@ -910,7 +913,7 @@ const PlaceDetail = () => {
         <>
           {/* A. Dining Details Grid */}
           <section className="py-8 md:py-12">
-            <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
+            <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
               <SectionTitle title={t("placeDetail.diningInfoTitle") || "Dining Details"} />
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
                 
@@ -921,7 +924,7 @@ const PlaceDetail = () => {
                       {t("placeDetail.openingHours")}
                     </div>
                     <h4 className="text-xl font-bold text-[#2D221F] mb-2">
-                      Hours of Operation
+                      Jam Operasional
                     </h4>
                     <p className="text-sm text-[#2D221F]/70">
                       {data.basicInfo?.hours || "10:00 - 22:00"}
@@ -929,14 +932,14 @@ const PlaceDetail = () => {
                   </div>
                 </div>
 
-                {/* Price Range */}
+                {/* Kisaran Harga */}
                 <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
                   <div>
                     <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
-                      Price Range
+                      Kisaran Harga
                     </div>
                     <h4 className="text-xl font-bold text-[#2D221F] mb-2">
-                      Per Person
+                      Per Orang
                     </h4>
                     <p className="text-sm text-[#2D221F]/70">
                       {data.priceRange || "Rp 25.000 - Rp 60.000"}
@@ -948,10 +951,10 @@ const PlaceDetail = () => {
                 <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
                   <div>
                     <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
-                      Ambience & Vibe
+                      Suasana
                     </div>
                     <h4 className="text-xl font-bold text-[#2D221F] mb-2">
-                      Atmosphere
+                      Atmosfer
                     </h4>
                     <p className="text-sm text-[#2D221F]/70">
                       {data.ambience || "Casual Dining"}
@@ -963,10 +966,10 @@ const PlaceDetail = () => {
                 <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
                   <div>
                     <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
-                      Payment Methods
+                      Metode Pembayaran
                     </div>
                     <h4 className="text-xl font-bold text-[#2D221F] mb-2">
-                      Accepted Types
+                      Jenis yang Diterima
                     </h4>
                     <div className="flex flex-wrap gap-1.5 mt-2">
                       {(data.paymentMethods || ["Cash", "QRIS"]).map((pm, i) => (
@@ -987,7 +990,7 @@ const PlaceDetail = () => {
       {/* 4. SEJARAH & ASAL USUL */}
       {data.story && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1014,9 +1017,9 @@ const PlaceDetail = () => {
       {/* 3. RUTE & LOKASI */}
       {data.location && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
             <SectionTitle title={t("placeDetail.routeLocation")} />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12">
               <div className="h-full flex flex-col">
                 <div className="bg-white p-8 md:p-10 rounded-2xl h-full flex flex-col relative overflow-hidden group border border-[#2D221F]/10 hover:border-[#A3B18A]/50 transition-colors duration-500">
                   <svg
@@ -1200,8 +1203,8 @@ const PlaceDetail = () => {
       {/* 5. EKSPLORASI AREA & AKTIVITAS (GALERI VISUAL & KEGIATAN) */}
       {items.length > 0 && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32 relative">
-            <div className="sticky top-0 z-30 bg-[#f5f4f0] pt-8 pb-6 mb-8 -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-16 md:px-16 lg:-mx-32 lg:px-32">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 relative">
+            <div className="sticky top-0 z-30 bg-[#f5f4f0] pt-8 pb-6 mb-8 -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-16 md:px-16 lg:-mx-20 lg:px-20">
               <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F]">
                 {categoryKey === "culinary" ? (t("placeDetail.signatureDishesTitle") || "Signature Dishes") : t("placeDetail.exploreArea")}
               </h2>
@@ -1242,9 +1245,9 @@ const PlaceDetail = () => {
       {/* 6. WAKTU TERBAIK KUNJUNGAN */}
       {categoryKey !== "culinary" && data.bestTime && data.bestTime.length > 0 && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
             <SectionTitle title={t("placeDetail.bestTime")} />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-8">
               {data.bestTime.map((bt: any, i: number) => (
                 <div
                   key={i}
@@ -1294,8 +1297,8 @@ const PlaceDetail = () => {
       {/* 7. DO'S & DON'TS */}
       {categoryKey !== "culinary" && data.visitorTips && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 xl:gap-24">
               {/* Do's Column */}
               <div className="flex flex-col">
                 <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F] mb-8">
@@ -1366,7 +1369,7 @@ const PlaceDetail = () => {
       {/* 8. FUN FACTS */}
       {data.funFacts && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32 relative">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 relative">
             <SectionTitle title="Fun Facts" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               {data.funFacts.map((fact: string, i: number) => (
@@ -1390,7 +1393,7 @@ const PlaceDetail = () => {
       {/* 9.5 JELAJAHI SEKITAR */}
       {nearbyPlacesList.length > 0 && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
+          <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
             <div className="mb-2">
               <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F]">
                 {t("placeDetail.nearbyTitle")}
@@ -1399,12 +1402,12 @@ const PlaceDetail = () => {
             <p className="text-[#2D221F]/60 text-xs md:text-sm leading-relaxed max-w-xl">
               {t("placeDetail.nearbyDesc")}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-6 mt-8">
               {nearbyPlacesList.map((place: any, i: number) => (
                 <div
                   key={i}
                   onClick={() => navigate(`/place/${toSlug(place.title)}`)}
-                  className="group bg-white rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-all duration-300 cursor-pointer flex flex-col h-full"
+                  className={`group bg-white rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-all duration-300 cursor-pointer flex flex-col h-full ${i >= 3 ? 'hidden 2xl:flex' : ''}`}
                 >
                   {/* Image Header with subtle hover zoom */}
                   <div className="h-44 overflow-hidden relative">

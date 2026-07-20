@@ -45,8 +45,8 @@ export default function HistoryStage() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative w-full bg-[#f5f4f0] overflow-hidden min-h-[400px]">
-      <div className="swiss-container py-16 sm:py-20 lg:py-28">
+    <section className="relative w-full bg-[#f5f4f0] overflow-hidden min-h-[400px] border-b border-premium-black/5">
+      <div className="w-full max-w-[1400px] xl:max-w-[1700px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 py-10 md:py-14">
         <div className="mb-12 sm:mb-16">
           <span className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.2em] text-[#3A5A3A] mb-4">
             <span className="w-2 h-2 rounded-full bg-[#3A5A3A]" />
@@ -55,7 +55,7 @@ export default function HistoryStage() {
           <h2 className="text-editorial text-[clamp(2.5rem,5vw,4.5rem)] text-[#0A0A0A] leading-[0.92] tracking-tight mb-4">
             {t('history.howMalang')}<br /><span className="text-[#3A5A3A]">{t('history.cameToBe')}</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#0A0A0A]/60 font-medium leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base text-[#0A0A0A]/60 font-medium leading-relaxed max-w-2xl xl:max-w-4xl">
             {t('history.pageDescription')}
           </p>
         </div>

@@ -53,7 +53,7 @@ const NewsDetail: React.FC = () => {
       <BackButton />
 
       {/* Hero Header */}
-      <section className="pt-32 pb-8 md:pb-16 px-8 md:px-16 lg:px-32 max-w-[1400px] mx-auto text-center">
+      <section className="pt-32 pb-8 md:pb-16 px-5 sm:px-8 md:px-16 lg:px-20 max-w-[1400px] xl:max-w-[1700px] mx-auto text-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
@@ -70,7 +70,7 @@ const NewsDetail: React.FC = () => {
       </section>
 
       {/* Article Content / Summary */}
-      <section className="px-8 md:px-16 lg:px-32 max-w-[1400px] mx-auto">
+      <section className="px-5 sm:px-8 md:px-16 lg:px-20 max-w-[1400px] xl:max-w-[1700px] mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 

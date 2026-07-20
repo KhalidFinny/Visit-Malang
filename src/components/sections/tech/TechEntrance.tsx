@@ -8,11 +8,11 @@ const TechEntrance: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full bg-[#f5f4f0] py-32 border-t border-black/5 overflow-hidden">
-      <div className="swiss-container mx-auto">
+    <section className="w-full bg-[#f5f4f0] py-10 md:py-14 border-y border-black/5 overflow-hidden">
+      <div className="w-full max-w-[1400px] xl:max-w-[1700px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-16">
 
-          <div className="max-w-4xl">
+          <div className="max-w-4xl xl:max-w-5xl">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -1,884 +1,1602 @@
 [
   {
-    "id": "nature_001",
+    "id": "nature-seeker_001",
     "name": "Mount Bromo",
-    "category": "Nature",
+    "category": "nature-seeker",
     "semanticCategory": "Nature",
     "description": "The crown jewel of East Java. Witness a surreal sunrise over the Sea of Sand and the active crater, a breathtaking drive from Malang.",
     "idealWeather": "Sunny",
     "idealTime": [
-      "Morning"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/nature/gunung-bromo/cover.webp",
     "type": "outdoor",
-    "popularity": 0.98
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.8,
+    "reviewsCount": 350,
+    "image": "/locations/nature/gunung-bromo/cover.webp",
+    "address": "Taman Nasional Bromo Tengger Semeru, Jawa Timur",
+    "openingHours": "Buka 24 Jam",
+    "priceRange": "Rp 29.000 (Domestic, Weekday) / Rp 34.500 (Domestic, Weekend) / Rp 220.000 (Foreign Tourist)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "nature_002",
-    "name": "Tumpak Sewu Waterfall",
-    "category": "Nature",
+    "id": "nature-seeker_002",
+    "name": "Tumpak Sewu",
+    "category": "nature-seeker",
     "semanticCategory": "Nature",
     "description": "Indonesia's 'Little Niagara'. A massive, curtain-like waterfall tucked deep in the lush tropical highlands.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/nature/tumpak-sewu/cover.webp",
     "type": "outdoor",
-    "popularity": 0.95
-  },
-  {
-    "id": "nature_003",
-    "name": "Wonosari Tea Plantation",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "Rolling green hills of tea leaves on the slopes of Mt. Arjuno. Breath clean air and enjoy sweeping panoramic views from Bukit Kuneer.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Morning"
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.7,
+    "reviewsCount": 350,
+    "image": "/locations/nature/tumpak-sewu/cover.webp",
+    "address": "Sidomulyo, Pronojiwo, Kabupaten Lumajang, Jawa Timur",
+    "openingHours": "07:00 – 17:00 WIB",
+    "priceRange": "Rp 10.000 (Domestic) / Rp 20.000 (Foreign Tourist)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
     ],
-    "imageUrl": "/locations/nature/wonosari-tea-plantation/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.88
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "nature_004",
-    "name": "Coban Rondo Waterfall",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "A majestic 84-meter waterfall surrounded by lush pine forests, featuring a famous garden labyrinth.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon"
-    ],
-    "imageUrl": "/locations/nature/coban-rondo/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "nature_005",
-    "name": "Coban Pelangi",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "The 'Rainbow Waterfall'. When the mist catches the morning light, it creates beautiful iridescent arches in the forest.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning"
-    ],
-    "imageUrl": "/locations/nature/coban-pelangi/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.85
-  },
-  {
-    "id": "nature_006",
-    "name": "Pantai Tiga Warna",
-    "category": "Nature",
+    "id": "nature-seeker_003",
+    "name": "Pantai 3 Warna",
+    "category": "nature-seeker",
     "semanticCategory": "Nature",
     "description": "A pristine conservation beach known for its three distinct water colors and vibrant coral reefs, accessible via a light trek.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/nature/pantai-3-warna/cover.webp",
     "type": "outdoor",
-    "popularity": 0.92
-  },
-  {
-    "id": "nature_007",
-    "name": "Alun-Alun Malang",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "The historic heart of the city. A lush green square perfect for people-watching and enjoying the cool evening breeze.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Evening",
-      "Night"
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.6,
+    "reviewsCount": 350,
+    "image": "/locations/nature/pantai-3-warna/cover.webp",
+    "address": "Sendang Biru, Sumbermanjing Wetan, Kabupaten Malang, Jawa Timur",
+    "openingHours": "06:00 – 16:00 WIB",
+    "priceRange": "Rp 15.000 / person + Mandatory guide fee (Rp 150.000 per group of 10)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
     ],
-    "imageUrl": "/locations/heritage/alun-alun-malang/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.94
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "nature_008",
-    "name": "Mount Semeru Viewpoint",
-    "category": "Nature",
+    "id": "nature-seeker_004",
+    "name": "Coban Pelangi",
+    "category": "nature-seeker",
     "semanticCategory": "Nature",
-    "description": "Catch a glimpse of the highest volcano in Java as it puffs smoke into the clear blue sky from a distance.",
+    "description": "The 'Rainbow Waterfall'. When the mist catches the morning light, it creates beautiful iridescent arches in the forest.",
     "idealWeather": "Sunny",
     "idealTime": [
-      "Morning"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/nature/coban-pelangi/cover.webp",
     "type": "outdoor",
-    "popularity": 0.87
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/nature/coban-pelangi/cover.webp",
+    "address": "Gubugklakah, Poncokusumo, Kabupaten Malang, Jawa Timur",
+    "openingHours": "08:00 – 17:00 WIB",
+    "priceRange": "Rp 10.000 (Weekday) / Rp 15.000 (Weekend)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "nature_009",
-    "name": "Paralayang Batu (Omah Kayu)",
-    "category": "Nature",
+    "id": "nature-seeker_005",
+    "name": "Pulau Sempu",
+    "category": "nature-seeker",
+    "semanticCategory": "Nature",
+    "description": "A remote tropical island nature reserve sheltering a stunning hidden lagoon — Segara Anakan — with crystal-clear turquoise water ringed by cliffs and dense jungle.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/nature/pulau-sempu/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.7,
+    "reviewsCount": 350,
+    "image": "/locations/nature/pulau-sempu/cover.webp",
+    "address": "Kecamatan Sumbermanjing Wetan, Kabupaten Malang, Jawa Timur",
+    "openingHours": "Perizinan Khusus BKSDA (Akses Terbatas)",
+    "priceRange": "Free entrance (Sendangbiru beach fee + boat rental ±Rp 150.000/boat + BKSDA permit required)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "nature-seeker_006",
+    "name": "Budug Asu",
+    "category": "nature-seeker",
+    "semanticCategory": "Nature",
+    "description": "A challenging yet rewarding highland trek to a peak with sweeping 360° views of Mt. Arjuno, surrounded by dense pine forest and ideal for stargazing.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/nature/budug-asu/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.4,
+    "reviewsCount": 350,
+    "image": "/locations/nature/budug-asu/cover.webp",
+    "address": "Kreweh, Gunungrejo, Singosari, Kabupaten Malang, Jawa Timur",
+    "openingHours": "Buka 24 Jam",
+    "priceRange": "Rp 10.000 – Rp 15.000 / person",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "nature-seeker_007",
+    "name": "Wonosari Tea Plantation",
+    "category": "nature-seeker",
+    "semanticCategory": "Nature",
+    "description": "Rolling green hills of tea leaves on the slopes of Mt. Arjuno. Breath clean air and enjoy sweeping panoramic views from Bukit Kuneer.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/nature/wonosari-tea-plantation/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/nature/wonosari-tea-plantation/cover.webp",
+    "address": "Wonosari Tea Plantation, Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 15.000 (Weekday) / Rp 20.000 (Weekend)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "nature-seeker_008",
+    "name": "Coban Rondo Waterfall",
+    "category": "nature-seeker",
+    "semanticCategory": "Nature",
+    "description": "A majestic 84-meter waterfall surrounded by lush pine forests, featuring a famous garden labyrinth.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/nature/coban-rondo/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/nature/coban-rondo/cover.webp",
+    "address": "Coban Rondo Waterfall, Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 35.000 – Rp 40.000 (includes access to several park attractions)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "nature-seeker_009",
+    "name": "Paralayang Batu (omah Kayu)",
+    "category": "nature-seeker",
     "semanticCategory": "Nature",
     "description": "High above the clouds. Stunning treehouse stays and paragliding launch spots overlooking the twinkling lights of Batu city.",
     "idealWeather": "Sunny",
     "idealTime": [
+      "Morning",
       "Afternoon",
       "Evening"
     ],
     "imageUrl": "/locations/nature/paralayang-batu/cover.webp",
     "type": "outdoor",
-    "popularity": 0.91
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/nature/paralayang-batu/cover.webp",
+    "address": "Paralayang Batu (omah Kayu), Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 5.000 – Rp 15.000 (area entrance) / Rp 400.000 – Rp 500.000 (tandem paragliding)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "nature_010",
-    "name": "Sumber Sirah",
-    "category": "Nature",
+    "id": "nature-seeker_010",
+    "name": "Selecta Park",
+    "category": "nature-seeker",
     "semanticCategory": "Nature",
-    "description": "Crystal clear freshwater springs. Swim through underwater gardens of river grass and schools of small fish.",
+    "description": "A historic flower garden and recreational park in the highlands. Iconic for its vibrant flower beds and cool climate.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Morning",
-      "Afternoon"
-    ],
-    "imageUrl": "/locations/hidden-gem/sumber-sirah/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.84
-  },
-  {
-    "id": "nature_011",
-    "name": "Selecta Park",
-    "category": "Nature",
-    "semanticCategory": "Nature",
-    "description": "A historic flower garden and recreational park in the highlands. Iconic for its vibrant flower beds and cool climate.",
-    "idealWeather": "Overcast",
-    "idealTime": [
-      "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/nature/selecta/cover.webp",
     "type": "outdoor",
-    "popularity": 0.89
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/nature/selecta/cover.webp",
+    "address": "Selecta Park, Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 50.000 / person",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "nature_012",
+    "id": "nature-seeker_011",
     "name": "Coban Rais",
-    "category": "Nature",
+    "category": "nature-seeker",
     "semanticCategory": "Nature",
     "description": "A beautiful waterfall combined with 'Stone Flower Garden' for incredible photo opportunities high in the Batu hills.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/nature/coban-rais/cover.webp",
     "type": "outdoor",
-    "popularity": 0.86
-  },
-  {
-    "id": "culinary_001",
-    "name": "Toko Oen",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "Step back into the 1930s. A legendary colonial restaurant serving world-famous homemade ice cream and Dutch-Indonesian pastries.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/nature/coban-rais/cover.webp",
+    "address": "Coban Rais, Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 10.000 – Rp 12.500 (park entrance) / +Rp 25.000 (Batu Flower Garden)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
     ],
-    "imageUrl": "/locations/culinary/toko-oen/cover.webp",
-    "type": "indoor",
-    "popularity": 0.99,
-    "averagePrice": 60000
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "culinary_002",
-    "name": "Bakso President",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "The dining experience of a lifetime. Enjoy Malang's most famous meatballs right next to the active railway tracks.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon"
-    ],
-    "imageUrl": "/locations/culinary/bakso-president/cover.webp",
-    "type": "indoor",
-    "popularity": 0.97,
-    "averagePrice": 20000
-  },
-  {
-    "id": "culinary_003",
-    "name": "Melati Restaurant",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "Malang Tempo Doeloe (Old Malang) vibe at Hotel Tugu. High-end Peranakan and Dutch-colonial style cuisine in a museum-like setting.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1550966841-3ee7adac1661?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.95,
-    "averagePrice": 150000
-  },
-  {
-    "id": "culinary_004",
-    "name": "Java Dancer Coffee",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "Pioneering specialty coffee in Malang. Enjoy authentic Indonesian beans in a beautiful Javanese-themed wooden joglo.",
-    "idealWeather": "Overcast",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "/locations/culinary/java-dancer-coffee/cover.webp",
-    "type": "indoor",
-    "popularity": 0.93,
-    "averagePrice": 55000
-  },
-  {
-    "id": "culinary_005",
-    "name": "Madam Wang Secret Garden",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A whimsical, hidden gem featuring a lush garden interior and artisanal pasta, perfect for a cozy afternoon escape.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Afternoon"
-    ],
-    "imageUrl": "/locations/culinary/madam-wang-secret-garden/cover.webp",
-    "type": "indoor",
-    "popularity": 0.9,
-    "averagePrice": 120000
-  },
-  {
-    "id": "culinary_006",
-    "name": "Taman Indie Resto",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "Dine alongside the Brantas river in traditional Javanese pavilions. A serene atmosphere focused on classic local heritage dishes.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "/locations/culinary/taman-indie-resto/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.92,
-    "averagePrice": 70000
-  },
-  {
-    "id": "culinary_007",
-    "name": "Cafe Litchi",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "Mediterranean vibes in the heart of Malang. Modern aesthetics, refreshing drinks, and one of the most Instagrammable spots in town.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Afternoon"
-    ],
-    "imageUrl": "/locations/culinary/cafe-litchi/cover.webp",
-    "type": "indoor",
-    "popularity": 0.88,
-    "averagePrice": 50000
-  },
-  {
-    "id": "culinary_008",
-    "name": "Rawon Nguling",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "The quintessential black beef soup of East Java. Authentic flavors and tender meat that have been famous for generations.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Morning",
-      "Afternoon"
-    ],
-    "imageUrl": "/locations/culinary/rawon-nguling/cover.webp",
-    "type": "indoor",
-    "popularity": 0.94,
-    "averagePrice": 25000
-  },
-  {
-    "id": "culinary_009",
-    "name": "Rawon Rampal",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A historic rawon stall frequented by presidents. Pure, robust flavors cooked with traditional charcoal fires.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Morning"
-    ],
-    "imageUrl": "/locations/culinary/rawon-rampal/cover.webp",
-    "type": "indoor",
-    "popularity": 0.96,
-    "averagePrice": 25000
-  },
-  {
-    "id": "culinary_010",
-    "name": "Mi Gacoan Sawojajar",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "The local spicy noodle phenomenon. Energetic, loud, and incredibly popular with the younger generation for a budget spicy meal.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.91,
-    "averagePrice": 15000
-  },
-  {
-    "id": "culinary_011",
-    "name": "Alice Tea Room",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "A fairytale wonderland in the middle of the city. High tea service and Victorian-themed decor for a refined afternoon.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Afternoon"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1520174691701-bc555a3404ca?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.85,
-    "averagePrice": 100000
-  },
-  {
-    "id": "culinary_012",
-    "name": "Pasar Oro-Oro Dowo",
-    "category": "Culinary",
-    "semanticCategory": "Culinary",
-    "description": "The cleanest traditional market in Malang. A treasure trove of legendary street snacks and authentic local breakfast.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Morning"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1488459711615-228f0974ccf7?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.89,
-    "averagePrice": 15000
-  },
-  {
-    "id": "attraction_001",
-    "name": "Museum Angkut",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "Southeast Asia’s first world-class transportation museum. Explore over 300 vintage vehicles through cinematic global zones.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "/locations/fun/museum-angkut/cover.webp",
-    "type": "indoor",
-    "popularity": 0.99
-  },
-  {
-    "id": "attraction_002",
+    "id": "fun-entertainment_012",
     "name": "Jatim Park 1",
-    "category": "Attraction",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "A high-energy cultural theme park combining Indonesian science and heritage with massive amusement rides.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/fun/jatim-park-1/cover.webp",
     "type": "outdoor",
-    "popularity": 0.94
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.6,
+    "reviewsCount": 350,
+    "image": "/locations/fun/jatim-park-1/cover.webp",
+    "address": "Jl. Kartika No. 2, Sisir, Kecamatan Batu, Kota Batu, Jawa Timur",
+    "openingHours": "08:30 – 16:30 WIB",
+    "priceRange": "Rp 115.000 – Rp 125.000 (JP1 + Museum Tubuh combo) / Rp 150.000 – Rp 170.000 (JP1 + Museum Angkut combo)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "attraction_003",
-    "name": "Jatim Park 2 (Secret Zoo)",
-    "category": "Attraction",
+    "id": "fun-entertainment_013",
+    "name": "Museum Angkut",
+    "category": "fun-entertainment",
+    "semanticCategory": "Attraction",
+    "description": "Southeast Asia's first world-class transportation museum. Explore over 300 vintage vehicles through cinematic global zones.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/fun/museum-angkut/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.8,
+    "reviewsCount": 350,
+    "image": "/locations/fun/museum-angkut/cover.webp",
+    "address": "Jl. Terusan Sultan Agung No. 2, Ngaglik, Kota Batu, Jawa Timur",
+    "openingHours": "12:00 – 20:00 WIB",
+    "priceRange": "Rp 110.000 – Rp 120.000 / person (weekday / weekend)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "fun-entertainment_014",
+    "name": "Jatim Park 2 (secret Zoo)",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "A stunning, modern zoo experience that prioritizes conservation and education in a world-class facility.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/fun/jatim-park-2/cover.webp",
     "type": "outdoor",
-    "popularity": 0.96
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/fun/jatim-park-2/cover.webp",
+    "address": "Jatim Park 2 (secret Zoo), Malang, Jawa Timur",
+    "openingHours": "09:30 – 17:30 WIB",
+    "priceRange": "From Rp 125.000 (includes Museum Satwa) / Combo packages available",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "attraction_004",
-    "name": "Jatim Park 3 (Dino Park)",
-    "category": "Attraction",
+    "id": "fun-entertainment_015",
+    "name": "Jatim Park 3 (dino Park)",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "Jurassic world comes to Batu. Interactive dinosaur museums and high-tech amusement zones for an unforgettable family day.",
-    "idealWeather": "Any",
+    "idealWeather": "Sunny",
     "idealTime": [
+      "Morning",
       "Afternoon",
       "Evening"
     ],
     "imageUrl": "/locations/fun/jatim-park-3/cover.webp",
-    "type": "indoor",
-    "popularity": 0.93
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/fun/jatim-park-3/cover.webp",
+    "address": "Jatim Park 3 (dino Park), Malang, Jawa Timur",
+    "openingHours": "11:00 – 20:00 WIB",
+    "priceRange": "Rp 100.000 – Rp 190.000 (depending on zone & day type) / Combo packages available",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "attraction_005",
+    "id": "fun-entertainment_016",
     "name": "Batu Night Spectacular",
-    "category": "Attraction",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "The city’s evening carnival. Enjoy neon light gardens, family rides, and night markets in the cool mountain air.",
     "idealWeather": "Sunny",
     "idealTime": [
-      "Night"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/fun/batu-night-spectacular/cover.webp",
     "type": "outdoor",
-    "popularity": 0.95
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/fun/batu-night-spectacular/cover.webp",
+    "address": "Batu Night Spectacular, Malang, Jawa Timur",
+    "openingHours": "15:00 – 23:00 WIB",
+    "priceRange": "Rp 35.000 (Weekday) / Rp 40.000 (Weekend) entrance / Rp 110.000 (Weekday) / Rp 120.000 (Weekend) all-ride pass",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "attraction_006",
+    "id": "fun-entertainment_017",
     "name": "Kampung Warna Warni Jodipan",
-    "category": "Attraction",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "The iconic 'Rainbow Village'. A transformed riverside community now famous for its vibrant walls and creative energy.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/fun/kampung-warna-warni/cover.webp",
     "type": "outdoor",
-    "popularity": 0.97
-  },
-  {
-    "id": "attraction_007",
-    "name": "Kampung Biru Arema",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "Inspired by Chefchaouen, this all-blue village celebrates the spirit of Malang's legendary football club, Arema FC.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Afternoon"
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/fun/kampung-warna-warni/cover.webp",
+    "address": "Kampung Warna Warni Jodipan, Malang, Jawa Timur",
+    "openingHours": "07:00 – 18:00 WIB",
+    "priceRange": "Rp 5.000 / person",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bafa?auto=format&fit=crop&q=80&w=800",
-    "type": "outdoor",
-    "popularity": 0.88
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "attraction_008",
+    "id": "fun-entertainment_018",
     "name": "Malang Night Paradise",
-    "category": "Attraction",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "A dazzling neon forest featuring lanterns, magic rivers, and dancing fountains that light up the Malang night.",
     "idealWeather": "Sunny",
     "idealTime": [
-      "Night"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/fun/malang-night-paradise/cover.webp",
     "type": "outdoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "attraction_009",
-    "name": "Eco Green Park",
-    "category": "Attraction",
-    "semanticCategory": "Attraction",
-    "description": "Focusing on ecosystem education. Get up close with exotic birds and learn about sustainable living in a fun, natural setting.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning",
-      "Afternoon"
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/fun/malang-night-paradise/cover.webp",
+    "address": "Malang Night Paradise, Malang, Jawa Timur",
+    "openingHours": "17:45 – 23:00 WIB",
+    "priceRange": "Rp 75.000 (Weekday) / Rp 80.000 (Weekend) / All-ride pass from Rp 160.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
     ],
-    "imageUrl": "/locations/fun/jatim-park-3/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.86
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "attraction_010",
+    "id": "fun-entertainment_019",
     "name": "Hawai Waterpark",
-    "category": "Attraction",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "Island-themed water park featuring a massive wave pool and high-speed slides for an adrenaline-fueled afternoon.",
     "idealWeather": "Sunny",
     "idealTime": [
-      "Afternoon"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/fun/hawai-waterpark/cover.webp",
     "type": "outdoor",
-    "popularity": 0.89
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/fun/hawai-waterpark/cover.webp",
+    "address": "Hawai Waterpark, Malang, Jawa Timur",
+    "openingHours": "09:00 – 17:00 WIB",
+    "priceRange": "Rp 85.000 (Weekday) / Rp 120.000 (Weekend / High Season)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "attraction_011",
+    "id": "fun-entertainment_020",
     "name": "San Terra Del Fonte",
-    "category": "Attraction",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "European architecture meets Javanese landscapes. Explore miniature Dutch canals and colorful replica villages.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/fun/san-terra-del-fonte/cover.webp",
     "type": "outdoor",
-    "popularity": 0.91
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/fun/san-terra-del-fonte/cover.webp",
+    "address": "San Terra Del Fonte, Malang, Jawa Timur",
+    "openingHours": "08:00 – 17:00 WIB",
+    "priceRange": "Rp 25.000 (Weekday) / Rp 30.000 – Rp 35.000 (Weekend) + pay-per-ride attractions",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "attraction_012",
+    "id": "fun-entertainment_021",
     "name": "Predator Fun Park",
-    "category": "Attraction",
+    "category": "fun-entertainment",
     "semanticCategory": "Attraction",
     "description": "An educational park dedicated to the world's most misunderstood predators, featuring crocodiles and interactive galleries.",
     "idealWeather": "Sunny",
     "idealTime": [
-      "Afternoon"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/fun/predator-fun-park/cover.webp",
     "type": "outdoor",
-    "popularity": 0.84
-  },
-  {
-    "id": "indoor_001",
-    "name": "Malang Town Square (MATOS)",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "The city's vibrant lifestyle hub. A multi-level shopping destination filled with international brands and diverse food courts.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/fun/predator-fun-park/cover.webp",
+    "address": "Predator Fun Park, Malang, Jawa Timur",
+    "openingHours": "08:30 – 16:30 WIB",
+    "priceRange": "Free entrance / Pay-per-ride attractions (approx Rp 10.000 – Rp 30.000 per ride)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.95
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "indoor_002",
-    "name": "Olympic Garden (MOG)",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "The largest and most complete mall in Malang, featuring a massive selection of tech, fashion, and an indoor ice rink.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.96
-  },
-  {
-    "id": "indoor_003",
-    "name": "Museum Musik Indonesia",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "A unique, independent archive celebrating the rich history of Indonesian music from traditional to modern pop.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Morning",
-      "Afternoon"
-    ],
-    "imageUrl": "/locations/heritage/museum-music-indonesia/cover.webp",
-    "type": "indoor",
-    "popularity": 0.85
-  },
-  {
-    "id": "indoor_004",
-    "name": "Museum Brawijaya",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "Essential for history enthusiasts. Documents East Java's military history and the struggle for Indonesian independence.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon"
-    ],
-    "imageUrl": "/locations/heritage/museum-brawijaya/cover.webp",
-    "type": "indoor",
-    "popularity": 0.92
-  },
-  {
-    "id": "indoor_005",
-    "name": "Malang Creative Center (MCC)",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "The city's modern crown. A multi-story creative hub for arts, co-working, and futuristic rooftop views.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.88
-  },
-  {
-    "id": "indoor_006",
-    "name": "Museum Tubuh",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "The Bagong Adventure. A world-class educational journey through interactive, giant-scale human anatomy exhibits.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1532187875605-7fe358a71ecd?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.9
-  },
-  {
-    "id": "indoor_007",
-    "name": "Cinepolis Matos",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "Premium cinematic experience. The perfect rainy day retreat to catch the latest global blockbusters in comfort.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Evening",
-      "Night"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.87
-  },
-  {
-    "id": "indoor_008",
-    "name": "Lippo Plaza Batu",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "Modern shopping destination with a grand view of the Arjuna mountains. Excellent cafes and children's entertainment.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Afternoon",
-      "Evening"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.91
-  },
-  {
-    "id": "indoor_009",
-    "name": "Transmart Malang",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "Shopping and play in one. Features a large supermarket and an indoor mini-theme park with high-altitude views.",
-    "idealWeather": "Rainy",
-    "idealTime": [
-      "Afternoon"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.89
-  },
-  {
-    "id": "indoor_010",
-    "name": "Cyber Mall",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "The digital pulse of the city. Malang's go-to spot for gadgets, laptops, and all thing high-tech inside a compact mall.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Afternoon"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.84
-  },
-  {
-    "id": "indoor_011",
-    "name": "Museum Pendidikan",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "Trace the evolution of Indonesian education from ancient palm leaf manuscripts to the digital era in a serene setting.",
+    "id": "heritage_022",
+    "name": "Kayutangan Heritage",
+    "category": "heritage",
+    "semanticCategory": "Historical",
+    "description": "Malang's historic corridor. Explore preserved colonial streets, vintage shopfronts, and hidden riverside heritage alleys.",
     "idealWeather": "Any",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/kayutangan/cover.webp",
     "type": "indoor",
-    "popularity": 0.82
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.6,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/kayutangan/cover.webp",
+    "address": "Jalan Jenderal Basuki Rahmat, Klojen, Kota Malang, Jawa Timur",
+    "openingHours": "Open 24 Hours",
+    "priceRange": "Free (street-level access) / Rp 5.000 (heritage alley entrance)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "indoor_012",
-    "name": "Museum Kesehatan Jiwa",
-    "category": "Indoor",
-    "semanticCategory": "Indoor",
-    "description": "One of Southeast Asia’s only psychiatry museums. A fascinating, sober look into the history of mental healthcare in East Java.",
-    "idealWeather": "Overcast",
+    "id": "heritage_023",
+    "name": "Alun-alun Malang",
+    "category": "heritage",
+    "semanticCategory": "Historical",
+    "description": "The historic heart of the city. A lush green square perfect for people-watching and enjoying the cool evening breeze.",
+    "idealWeather": "Any",
     "idealTime": [
-      "Morning"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/alun-alun-malang/cover.webp",
     "type": "indoor",
-    "popularity": 0.8
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/alun-alun-malang/cover.webp",
+    "address": "Alun-alun Malang, Malang, Jawa Timur",
+    "openingHours": "Open 24 Hours",
+    "priceRange": "Free",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_001",
+    "id": "heritage_024",
     "name": "Candi Singosari",
-    "category": "Historical",
+    "category": "heritage",
     "semanticCategory": "Historical",
     "description": "The 13th-century funerary temple of King Kertanegara. A masterpiece of Hindu-Buddhist architecture and the pride of Malang.",
-    "idealWeather": "Sunny",
+    "idealWeather": "Any",
     "idealTime": [
-      "Morning"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/heritage/candi-singosari/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.94
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/candi-singosari/cover.webp",
+    "address": "Candi Singosari, Malang, Jawa Timur",
+    "openingHours": "08:00 – 17:00 WIB",
+    "priceRange": "Free (voluntary donation)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_002",
+    "id": "heritage_025",
     "name": "Tugu Malang",
-    "category": "Historical",
+    "category": "heritage",
     "semanticCategory": "Historical",
     "description": "The symbol of Malang’s independence. A beautiful monument surrounded by a lotus pond and lush, classic Javanese gardens.",
     "idealWeather": "Any",
     "idealTime": [
+      "Morning",
+      "Afternoon",
       "Evening"
     ],
     "imageUrl": "/locations/heritage/tugu-malang/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.97
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/tugu-malang/cover.webp",
+    "address": "Tugu Malang, Malang, Jawa Timur",
+    "openingHours": "Open 24 Hours",
+    "priceRange": "Free",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_003",
+    "id": "heritage_026",
     "name": "Candi Badut",
-    "category": "Historical",
+    "category": "heritage",
     "semanticCategory": "Historical",
     "description": "The oldest temple in East Java, built in 760 AD. A simple yet powerful stone structure surrounded by a quiet residential neighborhood.",
-    "idealWeather": "Sunny",
+    "idealWeather": "Any",
     "idealTime": [
-      "Afternoon"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/heritage/candi-badut/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.88
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/candi-badut/cover.webp",
+    "address": "Candi Badut, Malang, Jawa Timur",
+    "openingHours": "08:00 – 17:00 WIB",
+    "priceRange": "Free",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_004",
+    "id": "heritage_027",
     "name": "Gereja Ijen",
-    "category": "Historical",
+    "category": "heritage",
     "semanticCategory": "Historical",
     "description": "Our Lady of Mount Carmel Cathedral. A stunning piece of neo-gothic architecture located on the historic Ijen Boulevard.",
     "idealWeather": "Any",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/heritage/gereja-ijen/cover.webp",
     "type": "indoor",
-    "popularity": 0.93
-  },
-  {
-    "id": "historical_005",
-    "name": "Kayutangan Heritage",
-    "category": "Historical",
-    "semanticCategory": "Historical",
-    "description": "Malang’s historic corridor. Explore preserved colonial streets, vintage shopfronts, and hidden riverside heritage alleys.",
-    "idealWeather": "Any",
-    "idealTime": [
-      "Evening"
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/gereja-ijen/cover.webp",
+    "address": "Gereja Ijen, Malang, Jawa Timur",
+    "openingHours": "06:00 – 19:00 WIB",
+    "priceRange": "Free",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
     ],
-    "imageUrl": "/locations/heritage/kayutangan/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.96
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_006",
+    "id": "heritage_028",
     "name": "Klenteng Eng An Kiong",
-    "category": "Historical",
+    "category": "heritage",
     "semanticCategory": "Historical",
     "description": "A 200-year-old Chinese temple. Vibrant red colors, incense-filled courtyards, and a living symbol of Malang's multi-cultural history.",
     "idealWeather": "Any",
     "idealTime": [
-      "Morning"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/heritage/klenteng-eng-an-kiong/cover.webp",
     "type": "indoor",
-    "popularity": 0.9
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/klenteng-eng-an-kiong/cover.webp",
+    "address": "Klenteng Eng An Kiong, Malang, Jawa Timur",
+    "openingHours": "07:00 – 17:00 WIB",
+    "priceRange": "Free",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_007",
+    "id": "heritage_029",
     "name": "Monumen Juang 45",
-    "category": "Historical",
+    "category": "heritage",
     "semanticCategory": "Historical",
     "description": "An epic, high-relief bronze sculpture depicting the heroes of the independence movement right in front of the Central Station.",
     "idealWeather": "Any",
     "idealTime": [
       "Morning",
-      "Afternoon"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/heritage/monumen-juang-45/monument-juang-45.webp",
-    "type": "outdoor",
-    "popularity": 0.85
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/monumen-juang-45/monument-juang-45.webp",
+    "address": "Monumen Juang 45, Malang, Jawa Timur",
+    "openingHours": "Open 24 Hours",
+    "priceRange": "Free",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_008",
-    "name": "Great Mosque of Malang",
-    "category": "Historical",
+    "id": "heritage_030",
+    "name": "Candi Kidal",
+    "category": "heritage",
     "semanticCategory": "Historical",
-    "description": "Built in 1890, this grand mosque features a unique blend of Arabic and Javanese architecture overlooking the city square.",
+    "description": "Built to honor King Anusapati. Famous for its intricate Garuda carvings that tell the story of a hero's devotion.",
     "idealWeather": "Any",
     "idealTime": [
       "Morning",
-      "Afternoon"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1564769049479-797371542159?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.92
-  },
-  {
-    "id": "historical_009",
-    "name": "Candi Kidal",
-    "category": "Historical",
-    "semanticCategory": "Historical",
-    "description": "Built to honor King Anusapati. Famous for its intricate Garuda carvings that tell the story of a hero's devotion.",
-    "idealWeather": "Sunny",
-    "idealTime": [
-      "Morning"
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/heritage/candi-kidal/cover.webp",
-    "type": "outdoor",
-    "popularity": 0.86
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/candi-kidal/cover.webp",
+    "address": "Candi Kidal, Malang, Jawa Timur",
+    "openingHours": "08:00 – 17:00 WIB",
+    "priceRange": "Free (voluntary donation for conservation)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_010",
+    "id": "heritage_031",
     "name": "Candi Jago",
-    "category": "Historical",
+    "category": "heritage",
     "semanticCategory": "Historical",
     "description": "A unique terraced temple structure featuring exquisite reliefs that mix Hindu and Buddhist myths and legends.",
-    "idealWeather": "Sunny",
+    "idealWeather": "Any",
     "idealTime": [
-      "Afternoon"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
     "imageUrl": "/locations/heritage/candi-jago/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/candi-jago/cover.webp",
+    "address": "Candi Jago, Malang, Jawa Timur",
+    "openingHours": "08:00 – 17:00 WIB",
+    "priceRange": "Rp 10.000 (Weekday) / Rp 15.000 (Weekend)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "heritage_032",
+    "name": "Museum Musik Indonesia",
+    "category": "heritage",
+    "semanticCategory": "Historical",
+    "description": "A unique, independent archive celebrating the rich history of Indonesian music from traditional to modern pop.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/heritage/museum-music-indonesia/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/museum-music-indonesia/cover.webp",
+    "address": "Museum Musik Indonesia, Malang, Jawa Timur",
+    "openingHours": "10:00 – 17:00 WIB (Tuesday – Sunday)",
+    "priceRange": "Rp 10.000 / person (includes one vinyl record play session)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "heritage_033",
+    "name": "Museum Brawijaya",
+    "category": "heritage",
+    "semanticCategory": "Historical",
+    "description": "Essential for history enthusiasts. Documents East Java's military history and the struggle for Indonesian independence.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/heritage/museum-brawijaya/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/heritage/museum-brawijaya/cover.webp",
+    "address": "Museum Brawijaya, Malang, Jawa Timur",
+    "openingHours": "08:00 – 15:00 WIB",
+    "priceRange": "Rp 5.000 (Adult) / Rp 3.000 (Child)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "culinary_034",
+    "name": "Toko Oen",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "Step back into the 1930s. A legendary colonial restaurant serving world-famous homemade ice cream and Dutch-Indonesian pastries.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/toko-oen/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/toko-oen/cover.webp",
+    "address": "Toko Oen, Malang, Jawa Timur",
+    "openingHours": "08:00 – 20:00 WIB",
+    "priceRange": "Rp 35.000 – Rp 95.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.9776,
+      "lng": 112.6311
+    }
+  },
+  {
+    "id": "culinary_035",
+    "name": "Bakso President",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "The dining experience of a lifetime. Enjoy Malang's most famous meatballs right next to the active railway tracks.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/bakso-president/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/bakso-president/cover.webp",
+    "address": "Bakso President, Malang, Jawa Timur",
+    "openingHours": "08:45 – 21:30 WIB",
+    "priceRange": "Rp 20.000 – Rp 60.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.9827,
+      "lng": 112.6281
+    }
+  },
+  {
+    "id": "culinary_036",
+    "name": "Rawon Nguling",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "The quintessential black beef soup of East Java. Authentic flavors and tender meat that have been famous for generations.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/rawon-nguling/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/rawon-nguling/cover.webp",
+    "address": "Rawon Nguling, Malang, Jawa Timur",
+    "openingHours": "07:00 – 15:30 WIB",
+    "priceRange": "Rp 30.000 – Rp 75.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.984,
+      "lng": 112.6305
+    }
+  },
+  {
+    "id": "culinary_037",
+    "name": "Rawon Rampal",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "A historic rawon stall frequented by presidents. Pure, robust flavors cooked with traditional charcoal fires.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/rawon-rampal/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/rawon-rampal/cover.webp",
+    "address": "Rawon Rampal, Malang, Jawa Timur",
+    "openingHours": "07:00 – 14:00 WIB",
+    "priceRange": "Rp 35.000 – Rp 80.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -8.0023,
+      "lng": 112.6345
+    }
+  },
+  {
+    "id": "culinary_038",
+    "name": "Madam Wang Secret Garden",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "A whimsical, hidden gem featuring a lush garden interior and artisanal pasta, perfect for a cozy afternoon escape.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/madam-wang-secret-garden/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/madam-wang-secret-garden/cover.webp",
+    "address": "Madam Wang Secret Garden, Malang, Jawa Timur",
+    "openingHours": "10:00 – 21:00 WIB",
+    "priceRange": "Rp 35.000 – Rp 110.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.97,
+      "lng": 112.619
+    }
+  },
+  {
+    "id": "culinary_039",
+    "name": "Taman Indie Resto",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "Dine alongside the Brantas river in traditional Javanese pavilions. A serene atmosphere focused on classic local heritage dishes.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/taman-indie-resto/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/taman-indie-resto/cover.webp",
+    "address": "Taman Indie Resto, Malang, Jawa Timur",
+    "openingHours": "10:00 – 21:00 WIB",
+    "priceRange": "Rp 50.000 – Rp 150.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.9395,
+      "lng": 112.6646
+    }
+  },
+  {
+    "id": "culinary_040",
+    "name": "Java Dancer Coffee",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "Pioneering specialty coffee in Malang. Enjoy authentic Indonesian beans in a beautiful Javanese-themed wooden joglo.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/java-dancer-coffee/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/java-dancer-coffee/cover.webp",
+    "address": "Java Dancer Coffee, Malang, Jawa Timur",
+    "openingHours": "08:00 – 23:00 WIB",
+    "priceRange": "Rp 30.000 – Rp 85.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.966,
+      "lng": 112.623
+    }
+  },
+  {
+    "id": "culinary_041",
+    "name": "Cafe Litchi",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "Mediterranean vibes in the heart of Malang. Modern aesthetics, refreshing drinks, and one of the most Instagrammable spots in town.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/cafe-litchi/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/cafe-litchi/cover.webp",
+    "address": "Cafe Litchi, Malang, Jawa Timur",
+    "openingHours": "10:00 – 22:00 WIB",
+    "priceRange": "Rp 35.000 – Rp 110.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.9747,
+      "lng": 112.6133
+    }
+  },
+  {
+    "id": "culinary_042",
+    "name": "Pecel Kawi Malang Hj Musilah",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "Savor authentic Javanese mixed salad with a rich, nutty peanut sauce recipe passed down since 1975, accompanied by traditional Javanese side dishes.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/pecel-kawi-malang-hj-musilah/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.6,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/pecel-kawi-malang-hj-musilah/cover.webp",
+    "address": "Jl. Kawi No.43B, Bareng, Kec. Klojen, Kota Malang",
+    "openingHours": "06:00 – 20:00 WIB",
+    "priceRange": "Rp 15.000 – Rp 40.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.9782,
+      "lng": 112.6234
+    }
+  },
+  {
+    "id": "culinary_043",
+    "name": "Pos Ketan Legenda 1967",
+    "category": "culinary",
+    "semanticCategory": "Culinary",
+    "description": "A legendary street food stall offering soft, warm sticky rice topped with unique combinations like grated coconut, durian, and cheese.",
+    "idealWeather": "Any",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/culinary/pos-ketan-legenda-1967/cover.webp",
+    "type": "indoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/culinary/pos-ketan-legenda-1967/cover.webp",
+    "address": "Jl. Kartini No.6, Ngaglik, Kec. Batu, Kota Batu",
+    "openingHours": "15:00 – 23:00 WIB",
+    "priceRange": "Rp 10.000 – Rp 25.000",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.8711,
+      "lng": 112.5268
+    }
+  },
+  {
+    "id": "hidden-gem_044",
+    "name": "Sumber Sirah",
+    "category": "hidden-gem",
+    "semanticCategory": "Nature",
+    "description": "Crystal clear freshwater springs. Swim through underwater gardens of river grass and schools of small fish.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/hidden-gem/sumber-sirah/cover.webp",
     "type": "outdoor",
-    "popularity": 0.87
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/hidden-gem/sumber-sirah/cover.webp",
+    "address": "Gondanglegi Kulon, Gondanglegi, Kabupaten Malang, Jawa Timur",
+    "openingHours": "07:00 – 17:00 WIB",
+    "priceRange": "Rp 5.000 / person",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_011",
-    "name": "Balai Kota Malang",
-    "category": "Historical",
-    "semanticCategory": "Historical",
-    "description": "The majestic colonial City Hall. A monumental example of Dutch 'Indische' architecture fronting the beautiful Tugu circle.",
-    "idealWeather": "Any",
+    "id": "hidden-gem_045",
+    "name": "Sumber Maron",
+    "category": "hidden-gem",
+    "semanticCategory": "Nature",
+    "description": "A beautiful natural spring surrounded by green rice fields, featuring a gentle waterfall and an active river tubing track popular with locals.",
+    "idealWeather": "Sunny",
     "idealTime": [
-      "Morning"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
-    "imageUrl": "/locations/heritage/candi-badut/cover.webp",
-    "type": "indoor",
-    "popularity": 0.89
+    "imageUrl": "/locations/hidden-gem/sumber-maron/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.6,
+    "reviewsCount": 350,
+    "image": "/locations/hidden-gem/sumber-maron/cover.webp",
+    "address": "Pagelaran, Kabupaten Malang, Jawa Timur",
+    "openingHours": "07:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 5.000 (Weekday) / Rp 10.000 (Weekend)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   },
   {
-    "id": "historical_012",
-    "name": "Bank Indonesia Building",
-    "category": "Historical",
-    "semanticCategory": "Historical",
-    "description": "A historic pillar of Malang's commerce. This beautifully preserved colonial edifice stands as a gatekeeper to Heritage Kajoetangan.",
-    "idealWeather": "Any",
+    "id": "hidden-gem_046",
+    "name": "Sumber Jenon",
+    "category": "hidden-gem",
+    "semanticCategory": "Nature",
+    "description": "A mysterious natural spring with a bright turquoise-blue hue, featuring an ancient fossilized tree trunk resting at the bottom of its deep waters.",
+    "idealWeather": "Sunny",
     "idealTime": [
-      "Afternoon"
+      "Morning",
+      "Afternoon",
+      "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800",
-    "type": "indoor",
-    "popularity": 0.84
+    "imageUrl": "/locations/hidden-gem/sumber-jenon/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/hidden-gem/sumber-jenon/cover.webp",
+    "address": "Tajinan, Kabupaten Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 10.000 / person",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "hidden-gem_047",
+    "name": "Coban Sumber Pitu Pujon",
+    "category": "hidden-gem",
+    "semanticCategory": "Nature",
+    "description": "An extraordinary natural wonder where seven waterfalls cascade side-by-side directly from a vertical, moss-covered green cliff face.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/hidden-gem/coban-sumber-pitu-pujon/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.7,
+    "reviewsCount": 350,
+    "image": "/locations/hidden-gem/coban-sumber-pitu-pujon/cover.webp",
+    "address": "Pujon, Kabupaten Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 16:00 WIB",
+    "priceRange": "Rp 5.000 – Rp 10.000 / person",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.9278,
+      "lng": 112.3551
+    }
+  },
+  {
+    "id": "hidden-gem_048",
+    "name": "Pantai Gatra",
+    "category": "hidden-gem",
+    "semanticCategory": "Nature",
+    "description": "A pristine, eco-protected white sand beach dotted with small green coral islands, offering calm waters ideal for canoeing.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/hidden-gem/pantai-gatra/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.6,
+    "reviewsCount": 350,
+    "image": "/locations/hidden-gem/pantai-gatra/cover.webp",
+    "address": "Sitiarjo, Kabupaten Malang, Jawa Timur",
+    "openingHours": "Open 24 Hours",
+    "priceRange": "Rp 10.000 / person",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "hidden-gem_049",
+    "name": "Candi Sumberawan",
+    "category": "hidden-gem",
+    "semanticCategory": "Nature",
+    "description": "The only bell-shaped Buddhist stupa temple in East Java, built in the 14th century and hidden deep inside a peaceful pine forest with a natural spring.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/hidden-gem/candi-sumberawan/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.6,
+    "reviewsCount": 350,
+    "image": "/locations/hidden-gem/candi-sumberawan/cover.webp",
+    "address": "Singosari, Kabupaten Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 5.000 / person",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
+  },
+  {
+    "id": "hidden-gem_050",
+    "name": "Lembah Indah Malang",
+    "category": "hidden-gem",
+    "semanticCategory": "Nature",
+    "description": "A gorgeous, lush green agricultural resort tucked in a valley at Mt. Kawi's foot, featuring organic farms and iconic white dome glamping sites.",
+    "idealWeather": "Sunny",
+    "idealTime": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+    ],
+    "imageUrl": "/locations/hidden-gem/lembah-indah-malang/cover.webp",
+    "type": "outdoor",
+    "popularity": 90,
+    "averagePrice": 25000,
+    "rating": 4.5,
+    "reviewsCount": 350,
+    "image": "/locations/hidden-gem/lembah-indah-malang/cover.webp",
+    "address": "Kepanjen, Kabupaten Malang, Jawa Timur",
+    "openingHours": "08:00 WIB - 17:00 WIB",
+    "priceRange": "Rp 20.000 / person (area access, excludes accommodation)",
+    "features": [
+      "Parking",
+      "Restroom",
+      "Photo Spot"
+    ],
+    "coordinates": {
+      "lat": -7.98,
+      "lng": 112.63
+    }
   }
 ]

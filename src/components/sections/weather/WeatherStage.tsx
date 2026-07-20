@@ -310,21 +310,21 @@ export default function WeatherStage() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative w-full min-h-screen bg-[#f5f4f0] overflow-hidden"
+        className="relative w-full bg-[#f5f4f0] py-10 md:py-14 border-b border-black/5"
       >
-        <div className="max-w-[1400px] mx-auto h-full min-h-screen flex flex-col lg:flex-row">
+        <div className="w-full max-w-[1400px] xl:max-w-[1700px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 flex flex-col lg:flex-row">
           {/* ════════════════════════════════════════════════════════════
               LEFT PANEL — Weather Info
           ════════════════════════════════════════════════════════════ */}
-          <div className="lg:w-[380px] shrink-0 flex flex-col py-16 lg:py-20 lg:pr-12">
+          <div className="lg:w-[380px] shrink-0 flex flex-col py-8 lg:py-12 lg:pr-8">
             {/* Label */}
-            <span className="text-[14px] font-black tracking-[0.3em] text-[#1a1a1a]/30 uppercase mb-10">
+            <span className="text-[14px] font-black tracking-[0.3em] text-[#1a1a1a]/30 uppercase mb-6">
               {t('weather.recommendation')}
             </span>
 
             {/* Temperature Row */}
             <div className="flex items-start gap-3 mb-3">
-              <span className="font-thin text-[80px] leading-[0.85] text-[#1a1a1a] tabular-nums tracking-tighter">
+              <span className="font-thin text-[64px] leading-[0.85] text-[#1a1a1a] tabular-nums tracking-tighter">
                 {todayWeather.temp}°
               </span>
               <FontAwesomeIcon
@@ -334,15 +334,15 @@ export default function WeatherStage() {
             </div>
 
             {/* Condition */}
-            <span className="text-[18px] font-medium text-[#1a1a1a]/70 mb-8">
+            <span className="text-[18px] font-medium text-[#1a1a1a]/70 mb-4">
               {t('weather.condition.' + todayWeather.condition.toLowerCase())}
             </span>
 
             {/* Divider */}
-            <div className="w-full h-px bg-[#1a1a1a]/10 mb-8" />
+            <div className="w-full h-px bg-[#1a1a1a]/10 mb-4" />
 
             {/* Weather Stats — Vertical Rows */}
-            <div className="flex flex-col gap-5 mb-8">
+            <div className="flex flex-col gap-3 mb-4">
               <div className="flex items-center justify-between">
                 <span className="text-[14px] font-black uppercase tracking-[0.2em] text-[#1a1a1a]/30">
                   {t('weather.wind')}
@@ -370,10 +370,10 @@ export default function WeatherStage() {
             </div>
 
             {/* Divider */}
-            <div className="w-full h-px bg-[#1a1a1a]/10 mb-8" />
+            <div className="w-full h-px bg-[#1a1a1a]/10 mb-4" />
 
             {/* Date & Location */}
-            <div className="mb-8">
+            <div className="mb-4">
               <p className="text-[14px] font-bold uppercase tracking-[0.15em] text-[#1a1a1a]/50 mb-1">
                 {formattedDate}
               </p>
@@ -383,17 +383,17 @@ export default function WeatherStage() {
             </div>
 
             {/* Description */}
-            <p className="text-[16px] text-[#1a1a1a]/60 font-medium leading-relaxed max-w-[280px] mb-10 text-pretty">
+            <p className="text-[16px] text-[#1a1a1a]/60 font-medium leading-relaxed max-w-[280px] mb-4 text-pretty">
               {t('weather.prediction.' + currentCondition.toLowerCase() + '0' + (new Date().getDate() % 3 + 1))}
             </p>
 
             {/* Spacer fills remaining space naturally */}
-            <div className="flex-1 min-h-[40px]" />
+            <div className="flex-1 min-h-[20px]" />
 
             {/* See All Link */}
             <button
               onClick={() => setShowAllModal(true)}
-              className="group flex items-center gap-2 text-[14px] font-black uppercase tracking-[0.2em] text-[#1a1a1a]/50 hover:text-[#1a1a1a] transition-colors mb-10"
+              className="group flex items-center gap-2 text-[14px] font-black uppercase tracking-[0.2em] text-[#1a1a1a]/50 hover:text-[#1a1a1a] transition-colors"
             >
               {t('weather.seeAll')}
               <FontAwesomeIcon
@@ -404,16 +404,16 @@ export default function WeatherStage() {
           </div>
 
           {/* Vertical Divider */}
-          <div className="hidden lg:block w-px bg-[#1a1a1a]/8 self-stretch my-16" />
+          <div className="hidden lg:block w-px bg-[#1a1a1a]/8 self-stretch my-8" />
 
           {/* ════════════════════════════════════════════════════════════
               RIGHT PANEL — Featured Card + Info Bar
           ════════════════════════════════════════════════════════════ */}
-          <div className="flex-1 flex flex-col py-16 lg:py-20 lg:pl-12">
+          <div className="flex-1 flex flex-col py-8 lg:py-12 lg:pl-8">
             {/* Image Card */}
-            <div className="relative flex-1 min-h-[450px] rounded-[32px] overflow-hidden">
+            <div className="relative flex-1 min-h-[340px] lg:h-[380px] xl:h-[460px] rounded-[32px] overflow-hidden">
               {loading ? (
-                <div className="w-full h-full min-h-[450px] bg-[#1a1a1a]/5 animate-pulse" />
+                <div className="w-full h-full min-h-[340px] lg:h-[380px] xl:h-[460px] bg-[#1a1a1a]/5 animate-pulse" />
               ) : rec ? (
                 <>
                   {/* Image */}
@@ -439,66 +439,66 @@ export default function WeatherStage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
 
                   {/* Nav Arrows — Inside Card Top-Right */}
-                  <div className="absolute top-6 right-6 z-30 flex items-center gap-2">
+                  <div className="absolute top-3 right-3 sm:top-6 sm:right-6 z-30 flex items-center gap-1.5 sm:gap-2">
                     <button
                       onClick={prev}
                       aria-label="Previous"
-                      className="w-10 h-10 rounded-full border border-white/25 text-white/70 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/25 text-white/70 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
                     >
-                      <FontAwesomeIcon icon={faChevronLeft} className="text-sm" />
+                      <FontAwesomeIcon icon={faChevronLeft} className="text-[10px] sm:text-sm" />
                     </button>
                     <button
                       onClick={next}
                       aria-label="Next"
-                      className="w-10 h-10 rounded-full border border-white/25 text-white/70 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
+                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/25 text-white/70 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
                     >
-                      <FontAwesomeIcon icon={faChevronRight} className="text-sm" />
+                      <FontAwesomeIcon icon={faChevronRight} className="text-[10px] sm:text-sm" />
                     </button>
                   </div>
 
                   {/* Content */}
-                  <div className="absolute inset-0 z-20 p-8 lg:p-10 flex flex-col">
+                  <div className="absolute inset-0 z-20 p-4 sm:p-6 lg:p-10 flex flex-col">
                     {/* Top: Badge */}
-                    <div className="flex items-center gap-3">
-                      <span className="flex items-center gap-2 text-sm tracking-[0.2em] text-white uppercase bg-black/30 backdrop-blur-md px-4 py-2 border border-white/15 font-black rounded-full">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                      <span className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] text-white uppercase bg-black/30 backdrop-blur-md px-2.5 py-1.5 sm:px-4 sm:py-2 border border-white/15 font-black rounded-full">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="hidden sm:block">
                           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                         </svg>
                         {t('weather.matchForToday')}
                       </span>
-                      <span className="text-[14px] tracking-[0.2em] text-white/80 uppercase font-black">
+                      <span className="text-[9px] sm:text-[11px] lg:text-[14px] tracking-[0.15em] sm:tracking-[0.2em] text-white/80 uppercase font-black">
                         {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
                       </span>
                     </div>
 
                     {/* Bottom Content */}
-                    <div className="mt-auto pt-[25%]">
-                      <h2 className="text-[40px] lg:text-[52px] font-black text-white uppercase leading-[0.9] tracking-tight mb-4">
+                    <div className="mt-auto">
+                      <h2 className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] xl:text-[52px] font-black text-white uppercase leading-[0.9] tracking-tight mb-2 sm:mb-4">
                         {rec.name}
                       </h2>
-                      <p className="text-[16px] text-white/80 font-medium leading-relaxed max-w-lg mb-8">
+                      <p className="text-[11px] sm:text-[14px] lg:text-[16px] text-white/80 font-medium leading-relaxed max-w-lg mb-4 sm:mb-6 line-clamp-2 sm:line-clamp-none">
                         {rec.description}
                       </p>
 
-                      {/* Buttons: View Details + Google Maps icon only */}
-                      <div className="flex items-center gap-3">
+                      {/* Buttons */}
+                      <div className="flex items-center gap-2 sm:gap-3">
                         <a
                           href={getGoogleMapsSearchUrl(rec.name)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#1a1a1a] text-[14px] font-black uppercase tracking-[0.15em] rounded-full hover:bg-white/90 transition-all"
+                          className="inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-4 bg-white text-[#1a1a1a] text-[10px] sm:text-[12px] lg:text-[14px] font-black uppercase tracking-[0.1em] sm:tracking-[0.15em] rounded-full hover:bg-white/90 transition-all"
                         >
                           {t('weather.viewDetails')}
-                          <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
+                          <FontAwesomeIcon icon={faArrowRight} className="text-[10px] sm:text-sm" />
                         </a>
                         <a
                           href={getGoogleMapsSearchUrl(rec.name)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-12 h-12 rounded-full border border-white/40 text-white/80 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
+                          className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full border border-white/40 text-white/80 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
                           aria-label="Open in Google Maps"
                         >
-                          <FontAwesomeIcon icon={faMapLocationDot} className="text-sm" />
+                          <FontAwesomeIcon icon={faMapLocationDot} className="text-[10px] sm:text-sm" />
                         </a>
                       </div>
                     </div>
@@ -509,25 +509,23 @@ export default function WeatherStage() {
 
             {/* Info Bar — Outside the card, single row, no distance */}
             {!loading && rec && (
-              <div className="mt-6 flex items-center justify-between">
-                <div className="flex items-center gap-10">
-                  <div className="flex items-center gap-3">
-                    <FontAwesomeIcon icon={faClock} className="text-[#1a1a1a]/25 text-base" />
-                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">{t('weather.timeToGo')}</span>
-                    <span className="text-[16px] font-bold text-[#1a1a1a]">{rec.idealTime.map((time: string) => t('weather.time.' + time.toLowerCase())).join(" / ")}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <FontAwesomeIcon icon={faCloudSun} className="text-[#1a1a1a]/25 text-base" />
-                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">{t('weather.bestFor')}</span>
-                    <span className="text-[16px] font-bold text-[#1a1a1a]">{t('weather.condition.' + displayWeather(rec.idealWeather).toLowerCase())}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <FontAwesomeIcon icon={faUsers} className="text-[#1a1a1a]/25 text-base" />
-                    <span className="text-[14px] font-black uppercase tracking-[0.15em] text-[#1a1a1a]/40">{t('weather.crowdLevel')}</span>
-                    <span className="text-[16px] font-bold text-[#1a1a1a]">
-                      {rec.popularity > 0.9 ? t('weather.high') : rec.popularity > 0.8 ? t('weather.medium') : t('weather.low')}
-                    </span>
-                  </div>
+              <div className="mt-4 sm:mt-6 flex items-center gap-4 md:gap-6 lg:gap-10">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <FontAwesomeIcon icon={faClock} className="text-[#1a1a1a]/25 text-xs sm:text-sm lg:text-base" />
+                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-black uppercase tracking-[0.1em] sm:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.timeToGo')}</span>
+                  <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-bold text-[#1a1a1a] whitespace-nowrap">{rec.idealTime.map((time: string) => t('weather.time.' + time.toLowerCase())).join(" / ")}</span>
+                </div>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <FontAwesomeIcon icon={faCloudSun} className="text-[#1a1a1a]/25 text-xs sm:text-sm lg:text-base" />
+                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-black uppercase tracking-[0.1em] sm:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.bestFor')}</span>
+                  <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-bold text-[#1a1a1a] whitespace-nowrap">{t('weather.condition.' + displayWeather(rec.idealWeather).toLowerCase())}</span>
+                </div>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <FontAwesomeIcon icon={faUsers} className="text-[#1a1a1a]/25 text-xs sm:text-sm lg:text-base" />
+                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-black uppercase tracking-[0.1em] sm:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.crowdLevel')}</span>
+                  <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-bold text-[#1a1a1a] whitespace-nowrap">
+                    {rec.popularity > 0.9 ? t('weather.high') : rec.popularity > 0.8 ? t('weather.medium') : t('weather.low')}
+                  </span>
                 </div>
               </div>
             )}

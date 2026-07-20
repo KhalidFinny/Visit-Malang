@@ -151,9 +151,6 @@ const ActivityDetail = () => {
                   <h3 className="text-white font-bold text-xs sm:text-sm truncate uppercase font-sans">
                     {place.title}
                   </h3>
-                  <p className="text-white/70 text-[9px] sm:text-[10px] truncate font-sans">
-                    {place.tagline || place.basicInfo?.location || ""}
-                  </p>
                 </div>
               </div>
             );

@@ -41,7 +41,9 @@ export default function HistoryDetail() {
     <div className="min-h-screen" style={{ backgroundColor: eraBg }}>
       <BackButton to={`/history?period=${story.period}`} />
 
-      <div className="mx-auto max-w-[80%] py-12 sm:py-16 lg:py-20">
+      <div className="w-full max-w-[1400px] xl:max-w-[1700px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 lg:gap-16 xl:gap-24">
+          <div>
         <motion.h1
           {...fade(0)}
           className="text-3xl sm:text-4xl lg:text-[3rem] font-bold text-[#1a1a1a] leading-[1.1] tracking-tight mb-4"
@@ -83,12 +85,14 @@ export default function HistoryDetail() {
           ))}
         </div>
 
-          <div className="w-10 h-0.5 my-10 sm:my-14" style={{ backgroundColor: accent.hex + "40" }} />
+          </div>
 
+          <div className="lg:pt-2">
+            <div className="lg:sticky lg:top-24 space-y-6">
         {siblings.length > 0 && (
           <div>
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#1a1a1a]/40 mb-6">{t('history.continueReading')}</h3>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
               {siblings.map((s) => (
                 <button key={s.slug} onClick={() => navigate(`/history/${s.slug}`)} className="flex items-center gap-4 text-left group">
                   <div className="w-16 h-16 rounded-lg overflow-hidden bg-black/5 shrink-0">
@@ -96,13 +100,16 @@ export default function HistoryDetail() {
                   </div>
                   <div className="min-w-0">
                     <h4 className="text-base font-bold text-[#1a1a1a] leading-snug group-hover:opacity-70 transition-opacity">{s.title}</h4>
-                    <p className="text-sm text-[#1a1a1a]/50 mt-1">{s.hook}</p>
+                    <p className="text-sm text-[#1a1a1a]/50 mt-1 line-clamp-2">{s.hook}</p>
                   </div>
                 </button>
               ))}
             </div>
           </div>
         )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

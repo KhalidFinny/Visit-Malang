@@ -19,7 +19,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
     const getNews = async () => {
       setLoading(true);
       const articles = await fetchMalangNews(query);
-      setNews(articles.slice(0, 3)); // Only take top 3
+      setNews(articles.slice(0, 4)); // Show up to 4
       setLoading(false);
     };
     getNews();
@@ -62,7 +62,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
 
   return (
     <section className="py-8 md:py-12 relative overflow-hidden bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32">
+      <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div>
             <div className="mb-2">
@@ -70,7 +70,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
                 {t('news.sectionTitle')}
               </h2>
             </div>
-            <p className="text-[#2D221F]/60 text-sm md:text-sm leading-relaxed max-w-xl">
+            <p className="text-[#2D221F]/60 text-xs md:text-sm leading-relaxed max-w-xl">
               {t('news.sectionSubtitle', { place: query })}
             </p>
           </div>
@@ -87,7 +87,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
             <div className="w-8 h-8 border-2 border-[#2D221F]/10 border-t-[#2D221F] rounded-full animate-spin"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8">
             {news.map((article, i) => {
               const { title, source } = getArticleMeta(article);
               return (
@@ -98,7 +98,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
                   onClick={() => handleArticleClick(article)}
-                  className="group cursor-pointer flex flex-col bg-white rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-all duration-300"
+                  className={`group cursor-pointer flex flex-col bg-white rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-all duration-300 ${i >= 3 ? 'hidden 2xl:flex' : ''}`}
                 >
                   <div className="p-6 md:p-8 flex flex-col h-full justify-between">
                     <div>

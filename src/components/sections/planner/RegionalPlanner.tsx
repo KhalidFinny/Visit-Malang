@@ -108,7 +108,7 @@ export default function RegionalPlanner() {
                     onClick={() => setStep(prev => prev - 1)}
                     className="px-6 py-3.5 bg-black/[0.04] hover:bg-black/[0.08] text-black text-base font-semibold rounded-2xl transition-all cursor-pointer"
                   >
-                    Back
+                    {t('planner.modal.back')}
                   </button>
                 )}
                 
@@ -117,7 +117,7 @@ export default function RegionalPlanner() {
                     onClick={() => setStep(prev => prev + 1)}
                     className="flex-1 py-3.5 bg-black hover:bg-[#7a9e64] text-white text-base font-semibold rounded-2xl transition-all cursor-pointer"
                   >
-                    Next Step
+                    {t('planner.modal.next')}
                   </button>
                 ) : (
                   <button
