@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { fetchMalangNews } from './NewsList';
 import type { NewsArticle } from './NewsList';
 
@@ -10,6 +11,7 @@ interface NewsEntranceProps {
 
 const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,7 +36,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
       const source = article.title.substring(lastHyphenIndex + 3).trim();
       return { title, source };
     }
-    return { title: article.title, source: article.author || "News Update" };
+    return { title: article.title, source: article.author || t('news.fallbackSource') };
   };
 
   const handleArticleClick = (article: NewsArticle) => {
@@ -49,9 +51,14 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
   };
 
   const formatDate = (dateString: string) => {
+    const locale = i18n.language || 'en';
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('id-ID', options);
+    return new Date(dateString).toLocaleDateString(locale, options);
   };
+
+  if (!loading && news.length === 0) {
+    return null;
+  }
 
   return (
     <section className="py-8 md:py-12 relative overflow-hidden bg-transparent">
@@ -60,18 +67,18 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
           <div>
             <div className="mb-2">
               <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F]">
-                Berita Terkini
+                {t('news.sectionTitle')}
               </h2>
             </div>
             <p className="text-[#2D221F]/60 text-xs md:text-sm leading-relaxed max-w-xl">
-              Dapatkan kabar terbaru dan pembaruan seputar {query} secara real-time.
+              {t('news.sectionSubtitle', { place: query })}
             </p>
           </div>
           <button 
             onClick={() => navigate(`/news?q=${encodeURIComponent(query)}`)}
             className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border border-[#2D221F]/20 text-[#2D221F] text-[10px] font-black uppercase tracking-wider rounded-full hover:bg-[#2D221F] hover:text-white hover:border-[#2D221F] transition-all duration-300 whitespace-nowrap self-start md:self-auto cursor-pointer"
           >
-            Lihat Semua Berita
+            {t('news.viewAll')}
           </button>
         </div>
 
@@ -105,7 +112,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
                     <div className="mt-8 flex items-center justify-between border-t border-[#2D221F]/5 pt-4">
                       <span className="text-swiss text-[10px] font-bold uppercase tracking-wider text-[#2D221F]/40">{formatDate(article.pubDate)}</span>
                       <span className="text-swiss text-[9px] font-black tracking-wider bg-[#f5f4f0] text-[#2D221F]/80 px-3.5 py-1.5 rounded-full border border-[#2D221F]/5 group-hover:bg-[#A3B18A] group-hover:text-white group-hover:border-[#A3B18A] transition-all duration-300">
-                        Baca
+                        {t('news.read')}
                       </span>
                     </div>
                   </div>

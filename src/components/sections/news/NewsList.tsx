@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import BackButton from '../../shared/parts/BackButton';
 
 export interface NewsArticle {
@@ -30,6 +31,7 @@ export const fetchMalangNews = async (query: string = "Malang"): Promise<NewsArt
 const NewsList: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t, i18n } = useTranslation();
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get('q') || "Malang";
 
@@ -58,7 +60,7 @@ const NewsList: React.FC = () => {
       const source = article.title.substring(lastHyphenIndex + 3).trim();
       return { title, source };
     }
-    return { title: article.title, source: article.author || "News Update" };
+    return { title: article.title, source: article.author || t('news.fallbackSource') };
   };
 
   const handleArticleClick = (article: NewsArticle) => {
@@ -73,9 +75,14 @@ const NewsList: React.FC = () => {
   };
 
   const formatDate = (dateString: string) => {
+    const locale = i18n.language || 'en';
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('id-ID', options);
+    return new Date(dateString).toLocaleDateString(locale, options);
   };
+
+  const subtitle = query === "Malang"
+    ? t('news.subtitleMalang')
+    : t('news.subtitle', { place: query });
 
   return (
     <div className="min-h-screen bg-[#f5f4f0] text-[#2D221F] font-sans">
@@ -84,10 +91,10 @@ const NewsList: React.FC = () => {
       {/* HEADER */}
       <section className="pt-32 pb-16 px-8 md:px-16 lg:px-32 max-w-[1400px] mx-auto">
         <h1 className="text-editorial text-5xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-none mb-6">
-          Berita Terkini
+          {t('news.title')}
         </h1>
         <p className="text-lg md:text-xl opacity-70 max-w-2xl">
-          Kabar dan pembaruan terbaru seputar {query === "Malang" ? "Malang Raya" : query}, langsung dari berbagai sumber tepercaya.
+          {subtitle}
         </p>
       </section>
 
@@ -123,7 +130,7 @@ const NewsList: React.FC = () => {
                     <div className="mt-8 flex items-center justify-between border-t border-[#2D221F]/5 pt-4">
                       <span className="text-swiss text-[10px] font-bold uppercase tracking-wider text-[#2D221F]/40">{formatDate(article.pubDate)}</span>
                       <span className="text-swiss text-[9px] font-black tracking-wider bg-[#f5f4f0] text-[#2D221F]/80 px-3.5 py-1.5 rounded-full border border-[#2D221F]/5 group-hover:bg-[#A3B18A] group-hover:text-white group-hover:border-[#A3B18A] transition-all duration-300">
-                        Baca
+                        {t('news.read')}
                       </span>
                     </div>
                   </div>

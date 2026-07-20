@@ -36,6 +36,180 @@ import PlaceCashAdvisor from "./parts/PlaceCashAdvisor";
 import NewsEntrance from "../news/NewsEntrance";
 import type { Place, PlaceSafetyData, PlaceFeeData, PlaceAltitudeAdvisorData } from "./types";
 
+const FALLBACK_SAFETY: Record<string, Omit<PlaceSafetyData, 'contextType'>> = {
+  "mount-bromo": {
+    name: "Mount Bromo Crater Viewpoint",
+    status: "open",
+    details: "Weather clear. Normal activity. All main viewpoints (Penanjakan, King Kong Hill) accessible.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "tumpak-sewu": {
+    name: "Tumpak Sewu Waterfall Ravine Trail",
+    status: "caution",
+    details: "Water levels elevated due to afternoon rainfall. Use caution on the lower descent paths.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "pantai-3-warna": {
+    name: "Pantai 3 Warna Conservation Path",
+    status: "open",
+    details: "All beach pathways open. Swimming allowed in designated colored zones.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "coban-pelangi": {
+    name: "Coban Pelangi Waterfall Trail",
+    status: "open",
+    details: "Trail open and dry. Safe for walking down to the river bed.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "pulau-sempu": {
+    name: "Pulau Sempu Nature Trail",
+    status: "caution",
+    details: "Hutan trail path is muddy and slick. Only allowed with registered local guides.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "budug-asu": {
+    name: "Budug Asu Ridge Road",
+    status: "open",
+    details: "Dry, clear conditions on the dirt track. Accessible to offroad vehicles.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "jatim-park-1": {
+    name: "Jatim Park 1 Walkways",
+    status: "open",
+    details: "Amusement park trails completely open and safe.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "museum-angkut": {
+    name: "Museum Angkut Exhibit Halls",
+    status: "open",
+    details: "Indoor and outdoor vintage galleries open to visitors.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "kayutangan-heritage": {
+    name: "Kayutangan Heritage Zone",
+    status: "open",
+    details: "Colonial residential streets and historic buildings open to the public.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "sumber-sirah": {
+    name: "Sumber Sirah Springs",
+    status: "open",
+    details: "Spring pool and surrounding paddy paths open and clear.",
+    last_updated: "2026-07-15T12:00:00Z"
+  },
+  "nakoa-coffee": {
+    name: "Nakoa Coffee space",
+    status: "open",
+    details: "Workspace completely open.",
+    last_updated: "2026-07-15T12:00:00Z"
+  }
+};
+
+const FALLBACK_FEES: Record<string, PlaceFeeData> = {
+  "mount-bromo": {
+    domestic_entry: 34000,
+    foreign_entry: 220000,
+    transport_cost: 650000,
+    parking_cost: 10000,
+    notes: "Jeep hire is cash-only and mandatory to navigate the sea of sand to the crater. Entrance tickets are also checked at gates.",
+    atm_info: "Last reliable ATMs are located in Sukapura (18km) or Tumpang (22km). No ATMs exist near the crater.",
+  },
+  "tumpak-sewu": {
+    domestic_entry: 10000,
+    foreign_entry: 50000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Descent trail safety guides at the bottom cost approximately IDR 100,000 in cash. Fully optional.",
+    atm_info: "Nearest ATM is at the Pronojiwo local market (3km away).",
+  },
+  "pantai-3-warna": {
+    domestic_entry: 10000,
+    foreign_entry: 100000,
+    transport_cost: 150000,
+    parking_cost: 10000,
+    notes: "Pre-booking is mandatory. Guide is required for ecological protection of conservation zone.",
+    atm_info: "Nearest ATM is in Sendang Biru village (2.5km away) but it frequently runs out of cash.",
+  },
+  "coban-pelangi": {
+    domestic_entry: 15000,
+    foreign_entry: 50000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Traditional food and hot drinks stalls near the entrance are cash-only.",
+    atm_info: "Last reliable ATM is at Poncokusumo village center (8km away).",
+  },
+  "pulau-sempu": {
+    domestic_entry: 20000,
+    foreign_entry: 150000,
+    transport_cost: 150000,
+    parking_cost: 10000,
+    notes: "Permit must be obtained at the Sendang Biru conservation office. Boat transport is cash-only.",
+    atm_info: "ATM availability at Sendang Biru is extremely limited. Withdraw cash in Malang or Turen.",
+  },
+  "budug-asu": {
+    domestic_entry: 15000,
+    foreign_entry: 50000,
+    transport_cost: 200000,
+    parking_cost: 5000,
+    notes: "Motorcycle trail access fee is IDR 20,000. Spot is heavily cash-only.",
+    atm_info: "Nearest ATMs are at Lawang town center (12km away).",
+  },
+  "jatim-park-1": {
+    domestic_entry: 100000,
+    foreign_entry: 120000,
+    transport_cost: 0,
+    parking_cost: 10000,
+    notes: "Cards and electronic payments (QRIS) are accepted at the main ticket counters.",
+    atm_info: "Several major banks have ATM kiosks directly at the main entrance gate.",
+  },
+  "museum-angkut": {
+    domestic_entry: 110000,
+    foreign_entry: 130000,
+    transport_cost: 0,
+    parking_cost: 10000,
+    notes: "QRIS and card payment options are widely available at all ticketing points.",
+    atm_info: "There are ATMs located inside the floating market area and near the ticket boxes.",
+  },
+  "kayutangan-heritage": {
+    domestic_entry: 5000,
+    foreign_entry: 15000,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "Kawasan Heritage is open to the public; fee is for the inside residential kampung tour.",
+    atm_info: "Located in Malang city center. Dozens of ATMs are accessible within a 5-minute walk.",
+  },
+  "sumber-sirah": {
+    domestic_entry: 5000,
+    foreign_entry: 15000,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "River tube rental is IDR 10,000 in cash. Bring plastic bags for wet money.",
+    atm_info: "Nearest ATM is at the Gondanglegi district main road (4.5km away).",
+  },
+  "nakoa-coffee": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Cafe space. Payment can be fully made via Credit/Debit cards or QRIS.",
+    atm_info: "There is an ATM kiosk at the convenience store right across the street.",
+  }
+};
+
+const FALLBACK_ALTITUDES: Record<string, PlaceAltitudeAdvisorData> = {
+  "mount-bromo": { altitude: 2329, temp_range: "3°C - 15°C", packing_list: "Thick Winter Jacket, Gloves, Beanie, Scarf, Closed Hiking Shoes" },
+  "tumpak-sewu": { altitude: 500, temp_range: "20°C - 28°C", packing_list: "Waterproof Shoes/Sandals, Change of Clothes, Dry Bag, Raincoat" },
+  "pantai-3-warna": { altitude: 5, temp_range: "25°C - 32°C", packing_list: "Swimwear, Sunscreen, Change of Clothes, Waterproof Bag, Sandals" },
+  "coban-pelangi": { altitude: 1300, temp_range: "14°C - 21°C", packing_list: "Light Jacket, Non-slip Sneakers, Umbrella/Raincoat" },
+  "pulau-sempu": { altitude: 5, temp_range: "24°C - 31°C", packing_list: "Sturdy Hiking Shoes, Mosquito Repellent, Tent (if camping), Headlamp" },
+  "budug-asu": { altitude: 1400, temp_range: "13°C - 20°C", packing_list: "Windbreaker, Hiking boots, Warm Layer" },
+  "jatim-park-1": { altitude: 900, temp_range: "18°C - 25°C", packing_list: "Comfortable Sneakers, Cap, Light Casual clothing" },
+  "museum-angkut": { altitude: 900, temp_range: "18°C - 25°C", packing_list: "Casual Walking Shoes, Camera, Light Clothes" },
+  "kayutangan-heritage": { altitude: 440, temp_range: "22°C - 30°C", packing_list: "Comfortable Sandals/Shoes, Camera, Light Summer clothing" },
+  "sumber-sirah": { altitude: 350, temp_range: "23°C - 30°C", packing_list: "Towels, Change of Clothes, Swimming gear, Goggles" },
+  "nakoa-coffee": { altitude: 440, temp_range: "22°C - 28°C", packing_list: "Laptop, Casual Wear, Charger" }
+};
+
 const PlaceDetail = () => {
   const { t } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
@@ -57,58 +231,97 @@ const PlaceDetail = () => {
 
   useEffect(() => {
     if (!slug) return;
+
+    const setSafetyWithContext = (data: Omit<PlaceSafetyData, 'contextType'>) => {
+      const isMtn =
+        slug?.includes("bromo") ||
+        slug?.includes("semeru") ||
+        slug?.includes("budug") ||
+        slug?.includes("asu");
+      setSafety({
+        ...data,
+        contextType: isMtn ? "trail" : "urban",
+      } as PlaceSafetyData);
+    };
+
+    // 1. Fetch Safety Status with Fallback
     fetch("/api/safety")
       .then((r) => r.json())
       .then((d: unknown) => {
         if (Array.isArray(d)) {
           const m = d.find((i: Record<string, unknown>) => i.slug === slug);
           if (m) {
-            const isMtn =
-              slug?.includes("bromo") ||
-              slug?.includes("semeru") ||
-              slug?.includes("budug") ||
-              slug?.includes("asu");
-            setSafety({
-              ...(m as PlaceSafetyData),
-              contextType: isMtn ? "trail" : "urban",
-            } as PlaceSafetyData);
+            setSafetyWithContext(m as PlaceSafetyData);
+            return;
           }
         }
+        if (FALLBACK_SAFETY[slug]) {
+          setSafetyWithContext(FALLBACK_SAFETY[slug]);
+        }
       })
-      .catch(() => {});
+      .catch(() => {
+        if (FALLBACK_SAFETY[slug]) {
+          setSafetyWithContext(FALLBACK_SAFETY[slug]);
+        }
+      });
 
+    // 2. Fetch Attraction Fees with Fallback
     fetch("/api/fees")
       .then((r) => r.json())
       .then((d: unknown) => {
         if (Array.isArray(d)) {
           const m = d.find((i: Record<string, unknown>) => i.slug === slug);
-          if (m) setFees(m as PlaceFeeData);
+          if (m) {
+            setFees(m as PlaceFeeData);
+            return;
+          }
+        }
+        if (FALLBACK_FEES[slug]) {
+          setFees(FALLBACK_FEES[slug]);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        if (FALLBACK_FEES[slug]) {
+          setFees(FALLBACK_FEES[slug]);
+        }
+      });
 
+    // 3. Fetch Altitude Advisor with Fallback
     fetch("/api/altitudes")
       .then((r) => r.json())
       .then((d: unknown) => {
         if (Array.isArray(d)) {
           const m = d.find((i: Record<string, unknown>) => i.slug === slug);
-          if (m) setAltitude(m as PlaceAltitudeAdvisorData);
+          if (m) {
+            setAltitude(m as PlaceAltitudeAdvisorData);
+            return;
+          }
+        }
+        if (FALLBACK_ALTITUDES[slug]) {
+          setAltitude(FALLBACK_ALTITUDES[slug]);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        if (FALLBACK_ALTITUDES[slug]) {
+          setAltitude(FALLBACK_ALTITUDES[slug]);
+        }
+      });
   }, [slug]);
 
   const toSlug = (text: string) =>
     text
       .toLowerCase()
       .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9-]/g, "");
+      .replace(/[^a-z0-9-]/g, "")
+      .replace(/-+/g, "-");
 
   let found: Place | null = null;
-  for (const cat of Object.values(activitiesData)) {
-    const p = cat.places.find((pl) => toSlug(pl.title) === slug);
+  let categoryKey = "";
+  for (const catKey of Object.keys(activitiesData)) {
+    const p = activitiesData[catKey].places.find((pl) => toSlug(pl.title) === slug);
     if (p) {
       found = p;
+      categoryKey = catKey;
       break;
     }
   }
@@ -160,18 +373,25 @@ const PlaceDetail = () => {
   const nearbyPlacesList = getNearbyPlacesList();
 
   const items = data
-    ? [
-        ...(data.keyAttractions || []).map((attr: any) => ({
-          ...attr,
-          badge: t("placeDetail.attractionBadge"),
-          title: attr.title,
-        })),
-        ...(data.thingsToDo || []).map((act: any) => ({
-          ...act,
-          badge: act.difficulty ? `${t("placeDetail.activityBadge")} • ${act.difficulty}` : t("placeDetail.activityBadge"),
-          title: act.title || act.name,
-        })),
-      ]
+    ? categoryKey === "culinary"
+      ? (data.signatureDishes || []).map((dish: any) => ({
+          title: dish.name,
+          desc: dish.desc,
+          image: dish.image,
+          badge: `${t("placeDetail.signatureDishesTitle") || "Signature Dish"} • ${dish.price}`,
+        }))
+      : [
+          ...(data.keyAttractions || []).map((attr: any) => ({
+            ...attr,
+            badge: t("placeDetail.attractionBadge"),
+            title: attr.title,
+          })),
+          ...(data.thingsToDo || []).map((act: any) => ({
+            ...act,
+            badge: act.difficulty ? `${t("placeDetail.activityBadge")} • ${act.difficulty}` : t("placeDetail.activityBadge"),
+            title: act.title || act.name,
+          })),
+        ]
     : [];
 
 
@@ -225,7 +445,7 @@ const PlaceDetail = () => {
       <BackButton />
 
       {/* 1. HERO */}
-      <section className="relative w-full h-screen overflow-hidden bg-[#2D221F]">
+      <section className="relative w-full min-h-[85vh] md:h-screen overflow-hidden bg-[#2D221F]">
         {data.heroImage && (
           <img
             src={data.heroImage}
@@ -237,7 +457,7 @@ const PlaceDetail = () => {
 
         <div className="absolute inset-4 md:inset-6 lg:inset-8 border border-white/10 z-10 pointer-events-none rounded-2xl mix-blend-overlay hidden md:block" />
 
-        <div className="absolute inset-0 px-8 md:px-16 lg:px-32 z-10 flex flex-col justify-end h-full max-w-[1400px] mx-auto w-full pb-24 md:pb-32">
+        <div className="absolute inset-0 px-5 sm:px-8 md:px-16 lg:px-32 z-10 flex flex-col justify-end h-full max-w-[1400px] mx-auto w-full pb-12 sm:pb-24 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -245,16 +465,16 @@ const PlaceDetail = () => {
             className="max-w-4xl flex flex-col items-start"
           >
             {data.tagline && (
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-swiss text-[10px] md:text-xs font-bold tracking-[0.3em] text-[#A3B18A] uppercase">
+              <div className="flex items-center gap-3 mb-3 md:mb-4">
+                <span className="text-swiss text-[9px] sm:text-[10px] md:text-xs font-bold tracking-[0.25em] sm:tracking-[0.3em] text-[#A3B18A] uppercase">
                   {data.tagline}
                 </span>
               </div>
             )}
-            <h1 className="text-5xl md:text-7xl lg:text-[8rem] text-editorial font-black uppercase tracking-tighter leading-[0.85] text-white text-balance mb-6">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[8rem] text-editorial font-black uppercase tracking-tighter leading-[0.9] md:leading-[0.85] text-white text-balance mb-4 md:mb-6">
               {data.title}
             </h1>
-            <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-xl font-medium text-balance py-1">
+            <p className="text-white/70 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl font-medium text-balance py-1">
               {data.description}
             </p>
           </motion.div>
@@ -262,7 +482,7 @@ const PlaceDetail = () => {
       </section>
 
       {/* 2. TIKET & JAM OPERASIONAL */}
-      {data.basicInfo && (
+      {categoryKey !== "culinary" && data.basicInfo && (
         <section className="py-8 md:py-12 relative overflow-hidden">
           <svg
             className="absolute top-0 right-0 w-[400px] h-[400px] text-[#2D221F] opacity-[0.02] translate-x-1/4 -translate-y-1/4 pointer-events-none"
@@ -271,8 +491,8 @@ const PlaceDetail = () => {
           >
             <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
           </svg>
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32 relative z-10">
-            <SectionTitle title={t("placeDetail.ticketHours")} />
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32 relative z-10">
+            <SectionTitle title={categoryKey === "culinary" ? t("placeDetail.openingHours") : t("placeDetail.ticketHours")} />
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-center">
               <div className="flex flex-col md:flex-row gap-8 md:gap-16 flex-1">
                 <div className="flex gap-4 items-start">
@@ -298,29 +518,31 @@ const PlaceDetail = () => {
                     </span>
                   </div>
                 </div>
-                <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-xl bg-[#A3B18A]/10 border border-[#A3B18A]/20 flex items-center justify-center text-[#A3B18A] shrink-0">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
+                {categoryKey !== "culinary" && (
+                  <div className="flex gap-4 items-start">
+                    <div className="w-12 h-12 rounded-xl bg-[#A3B18A]/10 border border-[#A3B18A]/20 flex items-center justify-center text-[#A3B18A] shrink-0">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-swiss text-[10px] font-bold tracking-[0.15em] uppercase text-[#2D221F]/40 mb-1">
+                        {t("placeDetail.ticketPrice")}
+                      </h4>
+                      <span className="text-lg md:text-xl font-medium text-[#2D221F] leading-snug block whitespace-pre-wrap">
+                        {data.basicInfo.price}
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-swiss text-[10px] font-bold tracking-[0.15em] uppercase text-[#2D221F]/40 mb-1">
-                      {t("placeDetail.ticketPrice")}
-                    </h4>
-                    <span className="text-lg md:text-xl font-medium text-[#2D221F] leading-snug block whitespace-pre-wrap">
-                      {data.basicInfo.price}
-                    </span>
-                  </div>
-                </div>
+                )}
               </div>
               {data.basicInfo.ticketLink && (
                 <div className="shrink-0">
@@ -351,13 +573,13 @@ const PlaceDetail = () => {
       )}
 
       {/* 2.5 TRAVEL ADVISORIES & WIDGETS */}
-      {(safety || fees || altitude || (isMountain && data.location)) && (
-        <section className="py-8 md:py-12 bg-white/40 border-y border-[#2D221F]/5">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32">
+      {categoryKey !== "culinary" && (safety || fees || altitude || (isMountain && data.location)) && (
+        <section className="py-8 md:py-12">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
             <SectionTitle title={t("placeDetail.safetyInfo")} />
 
             {safety && (
-              <div className="mb-8 bg-[#2D221F] text-[#f5f4f0] rounded-2xl overflow-hidden border border-[#2D221F]/10 shadow-md">
+              <div className="mb-8 bg-white text-[#2D221F] rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-colors duration-300">
                 <PlaceSafetyAdvisory safety={safety} />
               </div>
             )}
@@ -365,7 +587,7 @@ const PlaceDetail = () => {
             <div className="space-y-6 md:space-y-8 mt-8">
               {/* Row 1: Mountain Sunrise Predictor (Full width if active) */}
               {isMountain && data.location && (
-                <div className="bg-[#2D221F] text-[#f5f4f0] rounded-2xl overflow-hidden border border-[#2D221F]/10 shadow-md w-full">
+                <div className="bg-white text-[#2D221F] rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-colors duration-300 w-full">
                   <MountainSunrisePredictor lat={data.location.lat} lng={data.location.lng} />
                 </div>
               )}
@@ -376,12 +598,12 @@ const PlaceDetail = () => {
                   (fees && slug) && altitude ? "md:grid-cols-2" : "grid-cols-1"
                 } gap-6 lg:gap-8`}>
                   {fees && slug && (
-                    <div className="bg-[#2D221F] text-[#f5f4f0] rounded-2xl overflow-hidden border border-[#2D221F]/10 shadow-md">
+                    <div className="bg-white text-[#2D221F] rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-colors duration-300">
                       <PlaceCashAdvisor slug={slug} fees={fees} />
                     </div>
                   )}
                   {altitude && (
-                    <div className="bg-[#2D221F] text-[#f5f4f0] rounded-2xl overflow-hidden border border-[#2D221F]/10 shadow-md">
+                    <div className="bg-white text-[#2D221F] rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-colors duration-300">
                       <PlaceAltitudeAdvisor altitude={altitude} />
                     </div>
                   )}
@@ -392,10 +614,116 @@ const PlaceDetail = () => {
         </section>
       )}
 
+      {/* CULINARY-SPECIFIC SECTION: DINING DETAILS & SIGNATURE DISHES */}
+      {categoryKey === "culinary" && (
+        <>
+          {/* A. Dining Details Grid */}
+          <section className="py-8 md:py-12">
+            <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
+              <SectionTitle title={t("placeDetail.diningInfoTitle") || "Dining Details"} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                
+                {/* Opening Hours */}
+                <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
+                  <div>
+                    <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
+                      {t("placeDetail.openingHours")}
+                    </div>
+                    <h4 className="text-xl font-bold text-[#2D221F] mb-2">
+                      Hours of Operation
+                    </h4>
+                    <p className="text-sm text-[#2D221F]/70">
+                      {data.basicInfo?.hours || "10:00 - 22:00"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Price Range */}
+                <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
+                  <div>
+                    <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
+                      Price Range
+                    </div>
+                    <h4 className="text-xl font-bold text-[#2D221F] mb-2">
+                      Per Person
+                    </h4>
+                    <p className="text-sm text-[#2D221F]/70">
+                      {data.priceRange || "Rp 25.000 - Rp 60.000"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Ambience / Vibe */}
+                <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
+                  <div>
+                    <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
+                      Ambience & Vibe
+                    </div>
+                    <h4 className="text-xl font-bold text-[#2D221F] mb-2">
+                      Atmosphere
+                    </h4>
+                    <p className="text-sm text-[#2D221F]/70">
+                      {data.ambience || "Casual Dining"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Payment Options */}
+                <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
+                  <div>
+                    <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
+                      Payment Methods
+                    </div>
+                    <h4 className="text-xl font-bold text-[#2D221F] mb-2">
+                      Accepted Types
+                    </h4>
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {(data.paymentMethods || ["Cash", "QRIS"]).map((pm, i) => (
+                        <span key={i} className="px-2.5 py-1 bg-[#f5f4f0] border border-[#2D221F]/5 rounded-full text-xs font-semibold text-[#2D221F]/80">
+                          {pm}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* 4. SEJARAH & ASAL USUL */}
+      {data.story && (
+        <section className="py-8 md:py-12">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <SectionTitle title={t("placeDetail.historyOrigin")} />
+              <div className="relative mt-6">
+                <svg
+                  className="absolute -top-6 -left-6 text-[#A3B18A]/10 w-16 h-16 pointer-events-none"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <p className="text-lg md:text-2xl text-editorial leading-[1.6] text-[#2D221F]/80 font-medium text-balance relative z-10 max-w-4xl border-l-4 border-[#A3B18A] pl-6 py-3">
+                  {data.story}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* 3. RUTE & LOKASI */}
       {data.location && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
             <SectionTitle title={t("placeDetail.routeLocation")} />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="h-full flex flex-col">
@@ -587,40 +915,13 @@ const PlaceDetail = () => {
         </section>
       )}
 
-      {/* 4. SEJARAH & ASAL USUL */}
-      {data.story && (
-        <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <SectionTitle title={t("placeDetail.historyOrigin")} />
-              <div className="relative mt-6">
-                <svg
-                  className="absolute -top-6 -left-6 text-[#A3B18A]/10 w-16 h-16 pointer-events-none"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p className="text-lg md:text-2xl text-editorial leading-[1.6] text-[#2D221F]/80 font-medium text-balance relative z-10 max-w-4xl border-l-4 border-[#A3B18A] pl-6 py-3">
-                  {data.story}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      )}
-
       {/* 5. EKSPLORASI AREA & AKTIVITAS (GALERI VISUAL & KEGIATAN) */}
       {items.length > 0 && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32 relative">
-            <div className="sticky top-0 z-30 bg-[#f5f4f0] pt-8 pb-6 mb-8 -mx-8 px-8 md:-mx-16 md:px-16 lg:-mx-32 lg:px-32">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32 relative">
+            <div className="sticky top-0 z-30 bg-[#f5f4f0] pt-8 pb-6 mb-8 -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-16 md:px-16 lg:-mx-32 lg:px-32">
               <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F]">
-                {t("placeDetail.exploreArea")}
+                {categoryKey === "culinary" ? (t("placeDetail.signatureDishesTitle") || "Signature Dishes") : t("placeDetail.exploreArea")}
               </h2>
             </div>
             <div className="relative w-full space-y-6 md:space-y-8">
@@ -650,7 +951,7 @@ const PlaceDetail = () => {
                       src={exp.image || `https://picsum.photos/seed/bromo${i}/800/600`}
                       alt={exp.title}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-white/50 to-transparent pointer-events-none z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-white/30 via-[25%] to-transparent pointer-events-none z-10" />
                   </div>
                 </div>
               ))}
@@ -660,9 +961,9 @@ const PlaceDetail = () => {
       )}
 
       {/* 6. WAKTU TERBAIK KUNJUNGAN */}
-      {data.bestTime && data.bestTime.length > 0 && (
+      {categoryKey !== "culinary" && data.bestTime && data.bestTime.length > 0 && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
             <SectionTitle title={t("placeDetail.bestTime")} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
               {data.bestTime.map((bt: any, i: number) => (
@@ -712,9 +1013,9 @@ const PlaceDetail = () => {
 
 
       {/* 7. DO'S & DON'TS */}
-      {data.visitorTips && (
+      {categoryKey !== "culinary" && data.visitorTips && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
               {/* Do's Column */}
               <div className="flex flex-col">
@@ -786,7 +1087,7 @@ const PlaceDetail = () => {
       {/* 8. FUN FACTS */}
       {data.funFacts && (
         <section className="py-8 md:py-12">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32 relative">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32 relative">
             <SectionTitle title="Fun Facts" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               {data.funFacts.map((fact: string, i: number) => (
@@ -809,8 +1110,8 @@ const PlaceDetail = () => {
 
       {/* 9.5 JELAJAHI SEKITAR */}
       {nearbyPlacesList.length > 0 && (
-        <section className="py-8 md:py-16 border-t border-[#2D221F]/5 bg-[#f5f4f0]/40">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32">
+        <section className="py-8 md:py-12">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
             <SectionTitle title={t("placeDetail.nearbyTitle")} />
             <p className="text-xs md:text-sm leading-relaxed text-[#2D221F]/60 mt-2 max-w-md">
               {t("placeDetail.nearbyDesc")}
@@ -861,7 +1162,7 @@ const PlaceDetail = () => {
       {/* 10. CLOSING CTA */}
       {data.closingCTA && (
         <section className="py-24 md:py-32 bg-[#A3B18A] text-[#2D221F]">
-          <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-32 flex flex-col items-center text-center">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32 flex flex-col items-center text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

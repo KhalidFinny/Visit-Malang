@@ -5,6 +5,13 @@ export type Activity = {
   image?: string;
 };
 
+export type SignatureDish = {
+  name: string;
+  desc: string;
+  price: string;
+  image: string;
+};
+
 export type BestTime = {
   icon: string;
   badge: string;
@@ -57,7 +64,7 @@ export type Place = {
   basicInfo?: BasicInfo;
   gallery: any[]; // Supports both string[] and {src: string, desc: string}[]
   story: string;
-  keyAttractions?: { title: string; desc: string }[];
+  keyAttractions?: { title: string; desc: string; image?: string }[];
   thingsToDo: Activity[];
   visitorTips?: VisitorTips;
   tips: string[];
@@ -71,6 +78,11 @@ export type Place = {
   nearbyPlaces?: NearbyPlace[];
   closingCTA?: string;
   location: Coordinates;
+  priceRange?: string;
+  ambience?: string;
+  paymentMethods?: string[];
+  bestFor?: string;
+  signatureDishes?: SignatureDish[];
 };
 
 export type Category = {

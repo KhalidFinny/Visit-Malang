@@ -67,23 +67,23 @@ const ActivityDetail = () => {
           loading="eager"
           fetchPriority="high"
         />
-        {/* overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#f5f4f0] via-[#f5f4f0]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f5f4f0]/60 via-transparent to-transparent" />
+        {/* overlay using dark theme color #2D221F */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2D221F]/80 via-[#2D221F]/30 to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2D221F]/50 via-transparent to-transparent pointer-events-none z-10" />
 
         {/* TEXT */}
-        <div className="absolute inset-0 flex flex-col justify-end px-6 pb-8 sm:px-12 sm:pb-12 md:px-16 md:pb-14 max-w-full sm:max-w-[80%]">
-          <h1 className="text-[clamp(28px,6vw,72px)] text-editorial font-black leading-tight sm:leading-none tracking-tight mb-3 uppercase text-balance text-[#2D221F]">
+        <div className="absolute inset-0 flex flex-col justify-end px-6 pb-14 sm:px-12 sm:pb-16 md:px-16 md:pb-18 max-w-full sm:max-w-[70%] z-20">
+          <h1 className="text-[clamp(28px,6vw,64px)] text-editorial font-black leading-tight sm:leading-none tracking-tight mb-3 uppercase text-white">
             {currentPlace.title}
           </h1>
 
-          <p className="text-[#2D221F]/70 text-xs sm:text-[14px] leading-relaxed mb-4 sm:mb-6 max-w-[420px] font-sans">
+          <p className="text-white/80 text-xs sm:text-[14px] leading-relaxed mb-4 sm:mb-6 max-w-[420px] font-sans">
             {currentPlace.description}
           </p>
 
           <button
             onClick={handleExplore}
-            className="flex items-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 bg-[#2D221F] text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-[#A3B18A] transition-all w-fit cursor-pointer shadow-md"
+            className="flex items-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-[#2D221F] text-xs font-black uppercase tracking-widest rounded-full hover:bg-[#A3B18A] hover:text-white transition-all w-fit cursor-pointer shadow-md"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
@@ -94,8 +94,8 @@ const ActivityDetail = () => {
       </div>
 
       {/* ================= DESTINASI ================= */}
-      <div className="w-full bg-[#f5f4f0] px-4 sm:px-10 h-[210px] sm:h-[240px] flex-shrink-0 overflow-hidden border-t border-[#2D221F]/5">
-        <div className="flex items-center justify-between mb-3 pt-3">
+      <div className="w-full bg-[#f5f4f0] px-4 sm:px-10 h-[200px] sm:h-[220px] flex-shrink-0 overflow-hidden rounded-t-[2rem] sm:rounded-t-[2.5rem] border-t border-[#2D221F]/5 z-20 relative -mt-6 sm:-mt-8 pt-4 sm:pt-6">
+        <div className="flex items-center justify-between mb-3">
           <h2 className="text-editorial text-xs sm:text-sm font-bold uppercase tracking-wide text-[#2D221F]">
             {t('activityDetail.otherDestinations')}
           </h2>
