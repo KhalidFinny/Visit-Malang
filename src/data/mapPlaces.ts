@@ -21,16 +21,23 @@ export function getGoogleMapsUrl(lat: number, lng: number): string {
 }
 
 /**
- * Google Maps directions URL from origin to destination, with optional travel mode.
+ * Google Maps directions URL for direct navigation.
+ * When origin is omitted, Google Maps uses the device's current location.
  */
 export function getGoogleMapsDirectionsUrl(
-  originLat: number, originLng: number,
   destLat: number, destLng: number,
-  mode?: 'driving' | 'walking' | 'transit' | 'bicycling',
+  mode: 'driving' | 'walking' | 'transit' | 'bicycling' = 'driving',
+  origin?: { lat: number; lng: number },
 ): string {
-  let url = `https://www.google.com/maps/dir/${originLat},${originLng}/${destLat},${destLng}`;
-  if (mode) url += `?travelmode=${mode}`;
-  return url;
+  const params = new URLSearchParams({
+    api: '1',
+    destination: `${destLat},${destLng}`,
+    travelmode: mode,
+  });
+  if (origin) {
+    params.set('origin', `${origin.lat},${origin.lng}`);
+  }
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
 }
 
 export const MAP_PLACES: MapPlace[] = [

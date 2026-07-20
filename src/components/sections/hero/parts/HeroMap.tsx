@@ -13,8 +13,7 @@ import {
   faMap,
 } from '@fortawesome/free-solid-svg-icons';
 import MapCard from './MapCard';
-import RoutePreview from './RoutePreview';
-import { MAP_PLACES, CATEGORY_META, type MapCategory, type MapPlace } from '../../../../data/mapPlaces';
+import { MAP_PLACES, CATEGORY_META, getGoogleMapsDirectionsUrl, type MapCategory, type MapPlace } from '../../../../data/mapPlaces';
 import type { HeroMapProps } from '../types';
 import { useScrollLock } from '../../../hooks/useScrollLock';
 import 'leaflet/dist/leaflet.css';
@@ -51,7 +50,6 @@ export default function HeroMap({ category: initialCategory, onClose }: HeroMapP
   const markersRef = useRef<Marker[]>([]);
   const [activeCategory, setActiveCategory] = useState<MapCategory>(initialCategory);
   const [selectedPlace, setSelectedPlace] = useState<MapPlace | null>(null);
-  const [showRoute, setShowRoute] = useState(false);
   const [showControls, setShowControls] = useState(false);
   const [mapReady, setMapReady] = useState(false);
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
@@ -70,11 +68,19 @@ export default function HeroMap({ category: initialCategory, onClose }: HeroMapP
     );
   }, []);
 
-  const handleOpenDirections = useCallback(() => setShowRoute(true), []);
-  const handleBackFromRoute = useCallback(() => setShowRoute(false), []);
+  const handleOpenDirections = useCallback(() => {
+    if (!selectedPlace) return;
+    const url = getGoogleMapsDirectionsUrl(
+      selectedPlace.coordinates.lat,
+      selectedPlace.coordinates.lng,
+      'driving',
+      userPos ?? undefined,
+    );
+    window.location.href = url;
+  }, [selectedPlace, userPos]);
+
   const handleCloseMapCard = useCallback(() => {
     setSelectedPlace(null);
-    setShowRoute(false);
   }, []);
 
   // Init map once with full zoom freedom
@@ -258,20 +264,11 @@ export default function HeroMap({ category: initialCategory, onClose }: HeroMapP
       {/* ── Beautiful Split-Card Place Overlay ─────────────────── */}
       {/* ── Place Card / Route Preview Overlay ───────────────── */}
       <div className="absolute inset-0 z-[500] pointer-events-none">
-        {showRoute && selectedPlace ? (
-          <RoutePreview
-            place={selectedPlace}
-            userPos={userPos}
-            onClose={handleCloseMapCard}
-            onBack={handleBackFromRoute}
-          />
-        ) : (
-          <MapCard
-            place={selectedPlace}
-            onClose={handleCloseMapCard}
-            onOpenDirections={handleOpenDirections}
-          />
-        )}
+        <MapCard
+          place={selectedPlace}
+          onClose={handleCloseMapCard}
+          onOpenDirections={handleOpenDirections}
+        />
       </div>
 
       {/* ── Toggleable Map Guide/Controls Legend ────────────────── */}

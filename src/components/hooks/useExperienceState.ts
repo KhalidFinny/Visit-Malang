@@ -16,7 +16,6 @@ export function useExperienceState() {
       return "landing";
     }
 
-    sessionStorage.setItem("malangIntroSeen", "true");
     return "flight";
   });
 
@@ -27,13 +26,15 @@ export function useExperienceState() {
 
   useEffect(() => {
     sessionStorage.setItem("malangPhase", phase);
+    if (phase === "landing") {
+      sessionStorage.setItem("malangIntroSeen", "true");
+    }
   }, [phase]);
 
   const { mouseX, mouseY, springX, springY, pOrigin } = useCameraPhysics();
 
   const handleDescend = () => {
     setPhase("landing");
-    sessionStorage.setItem("malangPhase", "landing");
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {

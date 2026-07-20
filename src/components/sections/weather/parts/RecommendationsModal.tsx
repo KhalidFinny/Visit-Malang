@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from "framer-motion";
 import { faXmark, faMapLocationDot, faMountain } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +6,7 @@ import type { RecommendationsModalProps } from "../types";
 import { useResponsiveScale } from "../../../hooks/useResponsiveScale";
 import { ImageWithSkeleton } from "../../../shared/Skeleton";
 import { useScrollLock } from "../../../hooks/useScrollLock";
+import { FALLBACK_ALTITUDE_ENTRIES } from "../../activity/placeFallbackData";
 
 function getGoogleMapsSearchUrl(name: string): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ' Malang Indonesia')}`;
@@ -19,22 +19,9 @@ export default function RecommendationsModal({
 }: RecommendationsModalProps) {
   const { t } = useTranslation();
   const { isPhone } = useResponsiveScale();
-  const [altitudes, setAltitudes] = useState<any[]>([]);
+  const altitudes = FALLBACK_ALTITUDE_ENTRIES;
 
   useScrollLock(isOpen);
-
-  useEffect(() => {
-    if (isOpen) {
-      fetch("/api/altitudes")
-        .then((res) => res.json())
-        .then((data) => {
-          if (Array.isArray(data)) {
-            setAltitudes(data);
-          }
-        })
-        .catch((err) => console.error("Error fetching altitudes:", err));
-    }
-  }, [isOpen]);
 
   return (
     <AnimatePresence>

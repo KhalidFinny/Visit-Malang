@@ -2,16 +2,16 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Only eagerly load English (primary + fallback). All other languages
+// Only eagerly load Indonesian (primary + fallback). All other languages
 // are loaded on demand via the i18next-chained-backend or dynamic import.
 //
 // This drops ~200KB from the main bundle (9 unused locale files).
 
-import en from './en/translation.json';
+import id from './id/translation.json';
 
 // Map of language → dynamic import for on-demand loading
 const localeLoaders: Record<string, () => Promise<unknown>> = {
-  id: () => import('./id/translation.json'),
+  en: () => import('./en/translation.json'),
   zh: () => import('./zh/translation.json'),
   ja: () => import('./ja/translation.json'),
   ko: () => import('./ko/translation.json'),
@@ -29,7 +29,7 @@ const lazyBackend = {
   read(language: string, _namespace: string, callback: (err: Error | null, data: unknown) => void) {
     const loader = localeLoaders[language];
     if (!loader) {
-      // Unknown language — fall back to English (already loaded)
+      // Unknown language — fall back to Indonesian (already loaded)
       callback(null, {});
       return;
     }
@@ -39,7 +39,7 @@ const lazyBackend = {
         callback(null, data);
       })
       .catch((err) => {
-        console.warn(`Failed to load locale "${language}", falling back to English`, err);
+        console.warn(`Failed to load locale "${language}", falling back to Indonesian`, err);
         callback(null, {});
       });
   },
@@ -50,14 +50,16 @@ i18n
   .use(lazyBackend)
   .use(initReactI18next)
   .init({
-    // Seed with English so it's available immediately
+    // Seed with Indonesian so it's available immediately
     resources: {
-      en: { translation: en },
+      id: { translation: id },
     },
     fallbackLng: 'id',
     partialBundledLanguages: true,
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      // Skip 'navigator' to ensure Indonesian is the default for new visits,
+      // while still respecting manual choices stored in 'localStorage'.
+      order: ['localStorage', 'htmlTag'],
       caches: ['localStorage'],
     },
     interpolation: {

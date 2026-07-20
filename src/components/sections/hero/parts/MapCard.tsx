@@ -70,9 +70,9 @@ export default function MapCard({ place, onClose, onOpenDirections }: MapCardPro
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 30, scale: 0.97 }}
           transition={{ type: 'spring', damping: 24, stiffness: 220 }}
-          className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[1000] w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] max-w-3xl max-h-[82vh] overflow-y-auto md:overflow-visible pointer-events-auto rounded-2xl"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[1000] w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] max-w-3xl max-h-[calc(100vh-1rem)] sm:max-h-[calc(100vh-2rem)] md:max-h-[calc(100vh-4rem)] overflow-y-auto pointer-events-auto rounded-2xl"
         >
-          <div className="bg-[#f5f4f0] rounded-2xl overflow-hidden border border-premium-black/15 flex flex-col md:flex-row md:h-[290px] relative">
+          <div className="bg-[#f5f4f0] rounded-2xl overflow-hidden border border-premium-black/15 flex flex-col md:flex-row md:min-h-[320px] relative">
             
             {/* Left side: Landscape cover */}
             <div className="w-full md:w-[40%] h-52 md:h-full relative overflow-hidden shrink-0">

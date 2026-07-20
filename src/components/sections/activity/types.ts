@@ -128,6 +128,5 @@ export interface PlaceFeeData {
 }
 
 export interface PlaceCashAdvisorProps {
-  slug: string;
   fees: PlaceFeeData;
 }

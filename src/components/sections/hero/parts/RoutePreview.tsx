@@ -38,11 +38,11 @@ export default function RoutePreview({ place, userPos, onClose, onBack }: RouteP
   const drivingTime = distanceKm ? estimateDrivingTime(distanceKm) : null;
 
   function handleStartNavigation(mode: 'driving' | 'walking' | 'transit') {
-    if (!userPos) return;
     const url = getGoogleMapsDirectionsUrl(
-      userPos.lat, userPos.lng,
-      place.coordinates.lat, place.coordinates.lng,
+      place.coordinates.lat,
+      place.coordinates.lng,
       mode,
+      userPos ?? undefined,
     );
     window.open(url, '_blank', 'noopener,noreferrer');
   }

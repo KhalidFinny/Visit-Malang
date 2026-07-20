@@ -18,10 +18,33 @@ export interface NewsArticle {
 export const fetchMalangNews = async (query: string = "Malang"): Promise<NewsArticle[]> => {
   try {
     const RSS_URL = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=id&gl=ID&ceid=ID:id`;
-    const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    return data.items || [];
+    const PROXY_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(RSS_URL)}`;
+    const response = await fetch(PROXY_URL);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const xmlText = await response.text();
+    const xml = new DOMParser().parseFromString(xmlText, "text/xml");
+    if (xml.querySelector("parsererror")) throw new Error("Invalid RSS payload");
+
+    return Array.from(xml.querySelectorAll("item")).map((item, index) => {
+      const title = item.querySelector("title")?.textContent?.trim() || "";
+      const link = item.querySelector("link")?.textContent?.trim() || "";
+      const pubDate = item.querySelector("pubDate")?.textContent?.trim() || new Date().toISOString();
+      const guid = item.querySelector("guid")?.textContent?.trim() || `${title}-${index}`;
+      const author = item.querySelector("source")?.textContent?.trim() || "";
+      const description = item.querySelector("description")?.textContent?.trim() || "";
+
+      return {
+        title,
+        pubDate,
+        link,
+        guid,
+        author,
+        thumbnail: "",
+        description,
+        content: description,
+      };
+    });
   } catch (error) {
     console.error("Failed to fetch news:", error);
     return [];

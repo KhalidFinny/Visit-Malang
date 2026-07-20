@@ -1,9 +1,9 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import Experience from "./components/Experience";
 
 import SmoothScroll from "./components/utils/SmoothScroll";
-import ScrollToTop from "./components/utils/ScrollToTop";
 import "./App.css";
 
 // ── Lazy-loaded detail pages ─────────────────────────────────────
@@ -28,36 +28,48 @@ function PageFallback() {
   );
 }
 
+function PageTransition({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, zIndex: 0 }}
+      animate={{ opacity: 1, zIndex: 0 }}
+      exit={{ opacity: 0, zIndex: 1 }}
+      transition={{ duration: 0.32, ease: "easeInOut" }}
+      className="w-full relative bg-[#f5f4f0]"
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function App() {
-  const { pathname } = useLocation();
-  const isPlaceDetailRoute = pathname.startsWith("/place/");
+  const location = useLocation();
 
   const routedContent = (
-    <>
-      <ScrollToTop />
-      <Suspense fallback={<PageFallback />}>
-        <Routes>
+    <Suspense fallback={<PageFallback />}>
+      <AnimatePresence initial={false} mode="popLayout">
+        <Routes location={location} key={location.pathname}>
           {/* HOME */}
-          <Route path="/" element={<Experience />} />
-          <Route path="/history" element={<HistoryList />} />
-          <Route path="/history/:slug" element={<HistoryDetail />} />
-          <Route path="/activity" element={<ActivityList />} />
-          <Route path="/activity/:name" element={<ActivityDetail />} />
-          <Route path="/place/:slug" element={<PlaceDetail />} />
-          <Route path="/culture" element={<CultureList />} />
-          <Route path="/culture/:slug" element={<CultureDetail />} />
-          <Route path="/modern-malang" element={<TechDetail />} />
-          <Route path="/tech" element={<TechModern />} />
-          <Route path="/news" element={<NewsList />} />
-          <Route path="/news/:id" element={<NewsDetail />} />
+          <Route path="/" element={<PageTransition><Experience /></PageTransition>} />
+          <Route path="/history" element={<PageTransition><HistoryList /></PageTransition>} />
+          <Route path="/history/:slug" element={<PageTransition><HistoryDetail /></PageTransition>} />
+          <Route path="/activity" element={<PageTransition><ActivityList /></PageTransition>} />
+          <Route path="/activity/:name" element={<PageTransition><ActivityDetail /></PageTransition>} />
+          <Route path="/place/:slug" element={<PageTransition><PlaceDetail /></PageTransition>} />
+          <Route path="/culture" element={<PageTransition><CultureList /></PageTransition>} />
+          <Route path="/culture/:slug" element={<PageTransition><CultureDetail /></PageTransition>} />
+          <Route path="/modern-malang" element={<PageTransition><TechDetail /></PageTransition>} />
+          <Route path="/tech" element={<PageTransition><TechModern /></PageTransition>} />
+          <Route path="/news" element={<PageTransition><NewsList /></PageTransition>} />
+          <Route path="/news/:id" element={<PageTransition><NewsDetail /></PageTransition>} />
         </Routes>
-      </Suspense>
-    </>
+      </AnimatePresence>
+    </Suspense>
   );
 
   return (
     <main>
-      {isPlaceDetailRoute ? routedContent : <SmoothScroll>{routedContent}</SmoothScroll>}
+      <SmoothScroll>{routedContent}</SmoothScroll>
     </main>
   );
 }

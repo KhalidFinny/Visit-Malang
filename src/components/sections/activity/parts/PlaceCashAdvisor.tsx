@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWallet, faCar, faParking, faFlag } from "@fortawesome/free-solid-svg-icons";
 import type { PlaceCashAdvisorProps } from "../types";
 
-export default function PlaceCashAdvisor({ slug, fees: initialFees }: PlaceCashAdvisorProps) {
+export default function PlaceCashAdvisor({ fees: initialFees }: PlaceCashAdvisorProps) {
   const [fees, setFees] = useState(initialFees);
   const [isForeigner, setIsForeigner] = useState(false);
   const [showReportForm, setShowReportForm] = useState(false);
@@ -13,6 +13,7 @@ export default function PlaceCashAdvisor({ slug, fees: initialFees }: PlaceCashA
   const [parkingInput, setParkingInput] = useState(initialFees.parking_cost.toString());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     setFees(initialFees);
@@ -20,22 +21,28 @@ export default function PlaceCashAdvisor({ slug, fees: initialFees }: PlaceCashA
     setForeignInput(initialFees.foreign_entry.toString());
     setTransportInput(initialFees.transport_cost.toString());
     setParkingInput(initialFees.parking_cost.toString());
-    setSubmitSuccess(false); setShowReportForm(false);
+    setSubmitSuccess(false);
+    setSubmitError(null);
+    setShowReportForm(false);
   }, [initialFees]);
 
   const entryCost = isForeigner ? fees.foreign_entry : fees.domestic_entry;
   const totalCost = fees.parking_cost + fees.transport_cost + entryCost;
 
   const handleSubmitReport = async (e: React.FormEvent) => {
-    e.preventDefault(); setIsSubmitting(true);
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitSuccess(false);
+    setSubmitError(null);
     try {
-      const res = await fetch("/api/fees/report", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ slug, domestic_entry: parseInt(domesticInput) || 0, foreign_entry: parseInt(foreignInput) || 0, transport_cost: parseInt(transportInput) || 0, parking_cost: parseInt(parkingInput) || 0 }) });
-      const result = await res.json();
-      if (result.success && result.updated) {
-        setFees(p => ({ ...p, domestic_entry: result.updated.domestic_entry, foreign_entry: result.updated.foreign_entry, transport_cost: result.updated.transport_cost, parking_cost: result.updated.parking_cost }));
-        setSubmitSuccess(true); setTimeout(() => { setShowReportForm(false); setSubmitSuccess(false); }, 3000);
+      throw new Error("Price reporting is unavailable in this static deployment.");
+    } catch (err) {
+      if (err instanceof Error) {
+        setSubmitError(err.message);
       }
-    } catch (err) { console.error(err); } finally { setIsSubmitting(false); }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -117,7 +124,13 @@ export default function PlaceCashAdvisor({ slug, fees: initialFees }: PlaceCashA
             ))}
           </div>
           <div className="flex items-center justify-between gap-4 pt-2">
-            {submitSuccess ? <span className="text-xs font-black tracking-wider uppercase text-[#A3B18A] font-swiss">Submitted! Thank you!</span> : <span className="text-xs text-[#2D221F]/40 font-semibold font-swiss">Prices aggregated automatically</span>}
+            {submitSuccess ? (
+              <span className="text-xs font-black tracking-wider uppercase text-[#A3B18A] font-swiss">Submitted! Thank you!</span>
+            ) : submitError ? (
+              <span className="text-xs font-semibold text-rose-600 font-swiss">{submitError}</span>
+            ) : (
+              <span className="text-xs text-[#2D221F]/40 font-semibold font-swiss">Prices aggregated automatically</span>
+            )}
             <button type="submit" disabled={isSubmitting} className="bg-[#2D221F] hover:bg-[#A3B18A] disabled:bg-[#2D221F]/10 text-white text-[9px] font-black tracking-[0.15em] uppercase px-6 py-3 rounded-full transition-all cursor-pointer">
               {isSubmitting ? "Submitting..." : "Submit"}
             </button>
