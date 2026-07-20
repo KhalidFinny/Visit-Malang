@@ -15,10 +15,10 @@ export interface NewsArticle {
   content: string;
 }
 
-export const fetchMalangNews = async (_query: string = "Malang"): Promise<NewsArticle[]> => {
-  // Browser-side Google News RSS fetching is blocked by CORS.
-  // Return a quiet empty result instead of issuing broken network requests.
-  return [];
+export const fetchMalangNews = async (query: string = "Malang"): Promise<NewsArticle[]> => {
+  const response = await fetch(`/api/news?q=${encodeURIComponent(query)}`);
+  if (!response.ok) return [];
+  return response.json();
 };
 
 const NewsList: React.FC = () => {

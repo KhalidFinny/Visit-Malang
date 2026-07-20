@@ -688,5 +688,6 @@
     "weather.altitudeWarningBody": "Temperature drops to {{tempRange}}. Dress warmly. Recommended gear: {{packingList}}.",
     "weather.next": "Next",
     "weather.openInGoogleMaps": "Open in Google Maps",
-    "weather.previous": "Previous"
+    "weather.previous": "Previous",
+    "hero.custom.timeless": "timeless"
 }

@@ -119,7 +119,7 @@ export default function HeroStage() {
             <span className="text-white">lang</span>
             {/* Script accent — overlapping slightly for classic Swiss editorial look */}
             <span className="font-script text-[clamp(2.5rem,5vw,4.5rem)] xl:text-[clamp(3.5rem,7.5vw,6.5rem)] text-[#D88A6E] absolute bottom-[-0.15em] right-[8%] -rotate-6 select-none pointer-events-none z-20 normal-case tracking-normal">
-              timeless
+              {t("hero.custom.timeless")}
             </span>
           </h1>
 

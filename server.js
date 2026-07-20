@@ -316,6 +316,83 @@ db.serialize(() => {
   });
 });
 
+
+function decodeXmlText(value = "") {
+  return value
+    .replace(/^<!\[CDATA\[|\]\]>$/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, "\"")
+    .replace(/&#39;/g, "'")
+    .trim();
+}
+
+function extractXmlTag(block, tag) {
+  const match = block.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
+  return decodeXmlText(match?.[1] || "");
+}
+
+// GET /api/news?q=... (cached-aside, TTL 10 min)
+app.get("/api/news", async (req, res) => {
+  const query = String(req.query.q || "Malang").trim() || "Malang";
+  const cacheKey = `news:${query.toLowerCase()}`;
+  res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=120");
+
+  try {
+    const cached = await getCache(cacheKey);
+    if (cached) {
+      res.json(cached);
+      return;
+    }
+  } catch (err) {
+    console.warn("Error reading news cache:", err.message);
+  }
+
+  try {
+    const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=id&gl=ID&ceid=ID:id`;
+    const response = await fetch(rssUrl, {
+      headers: {
+        "User-Agent": "visitmalang-news-proxy/1.0",
+        "Accept": "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8"
+      }
+    });
+
+    if (!response.ok) {
+      res.json([]);
+      return;
+    }
+
+    const xml = await response.text();
+    const items = xml.match(/<item>[\s\S]*?<\/item>/gi) || [];
+    const articles = items.map((item, index) => {
+      const title = extractXmlTag(item, "title");
+      const link = extractXmlTag(item, "link");
+      const pubDate = extractXmlTag(item, "pubDate");
+      const guid = extractXmlTag(item, "guid") || `${query}-${index}`;
+      const author = extractXmlTag(item, "source");
+      const description = extractXmlTag(item, "description");
+
+      return {
+        title,
+        pubDate,
+        link,
+        guid,
+        author,
+        thumbnail: "",
+        description,
+        content: description,
+      };
+    });
+
+    await setCache(cacheKey, articles, 600);
+    res.json(articles);
+  } catch (err) {
+    console.warn("Error fetching news feed:", err.message);
+    res.json([]);
+  }
+});
+
 // ── ROUTES ──
 // GET /api/safety (cached-aside, TTL 5 min)
 app.get("/api/safety", async (req, res) => {

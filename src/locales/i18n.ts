@@ -56,7 +56,7 @@ i18n
       id: { translation: id },
     },
     lng: initialLanguage,
-    fallbackLng: 'id',
+    fallbackLng: (code) => (code && code.split('-')[0] !== 'id' ? ['en', 'id'] : ['id']),
     partialBundledLanguages: true,
     interpolation: {
       escapeValue: false,
