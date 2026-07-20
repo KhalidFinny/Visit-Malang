@@ -799,6 +799,20 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/nature/paralayang-batu/spot-foto.webp"
           }
         ],
+        "thingsToDo": [
+          {
+            "title": "Paragliding Tandem Flight",
+            "desc": "Soar above the lush pine forests and Batu city skyline with professional tandem paragliding instructors.",
+            "difficulty": "Easy",
+            "image": "/locations/nature/paralayang-batu/area-paralayang.webp"
+          },
+          {
+            "title": "Sunset & City Lights Photography",
+            "desc": "Capture dramatic sunset panoramas over Mount Arjuno and the sparkling evening lights of Batu city.",
+            "difficulty": "Easy",
+            "image": "/locations/nature/paralayang-batu/citilight.webp"
+          }
+        ],
         "visitorTips": {
           "bestTime": "Dry season (May to September) for the best weather.",
           "bring": [
@@ -1154,6 +1168,20 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/fun/museum-angkut/zona-hollywood.webp"
           }
         ],
+        "thingsToDo": [
+          {
+            "title": "Vehicle Collection Tour",
+            "desc": "Explore over 300 vintage vehicles arranged in cinematic global zones, from horse carriages to a real Boeing 737.",
+            "difficulty": "Easy",
+            "image": "/locations/fun/museum-angkut/koleksi-kendaraan.webp"
+          },
+          {
+            "title": "Broadway Show & Zone Walk",
+            "desc": "Stroll through the Gangster Town, Hollywood, and European Walk zones and watch the spectacular Broadway parade show.",
+            "difficulty": "Easy",
+            "image": "/locations/fun/museum-angkut/gangster-town.webp"
+          }
+        ],
         "visitorTips": {
           "bestTime": "Around 16:00 WIB when the Broadway-style carnival show starts on the main street.",
           "bring": [
@@ -1505,6 +1533,20 @@ export const activitiesData: Record<string, Category> = {
             "title": "Murals",
             "desc": "Vibrant murals and 3D street art painted on the walls of houses throughout the colorful neighborhood.",
             "image": "/locations/fun/kampung-warna-warni/mural.webp"
+          }
+        ],
+        "thingsToDo": [
+          {
+            "title": "Rainbow Alley Walk",
+            "desc": "Wander through the vibrantly painted alleyways and discover colorful murals and 3D street art around every corner.",
+            "difficulty": "Easy",
+            "image": "/locations/fun/kampung-warna-warni/lorong-warna-warni.webp"
+          },
+          {
+            "title": "Glass Bridge Crossing",
+            "desc": "Cross the iconic yellow steel bridge with a transparent glass floor suspended high over the Brantas River.",
+            "difficulty": "Easy",
+            "image": "/locations/fun/kampung-warna-warni/jembatan-kaca.webp"
           }
         ],
         "visitorTips": {
@@ -2121,6 +2163,20 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/heritage/candi-singosari/tampak-depan-candi.webp"
           }
         ],
+        "thingsToDo": [
+          {
+            "title": "Temple Architecture Tour",
+            "desc": "Walk around the grand 13th-century unfinished Hindu-Buddhist temple and study its intricate lower-level stone carvings.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/candi-singosari/tampak-depan-candi.webp"
+          },
+          {
+            "title": "Dwarapala Statue Visit",
+            "desc": "Walk 300 meters west to see the two colossal 3.7-meter-tall stone guardian statues depicting fearsome temple protectors.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/candi-singosari/arca-dwarpala.webp"
+          }
+        ],
         "visitorTips": {
           "bestTime": "Morning hours between 08:00 and 10:00 WIB for gentle lighting.",
           "bring": [
@@ -2199,6 +2255,20 @@ export const activitiesData: Record<string, Category> = {
             "title": "Garden",
             "desc": "A beautifully manicured circular garden surrounding the monument, featuring century-old trees and colorful flower beds.",
             "image": "/locations/heritage/tugu-malang/taman.webp"
+          }
+        ],
+        "thingsToDo": [
+          {
+            "title": "Lotus Pond & Monument Walk",
+            "desc": "Stroll around the iconic monument surrounded by a serene lotus pond and manicured gardens.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/tugu-malang/kolam-teratai.webp"
+          },
+          {
+            "title": "Colonial Architecture Photography",
+            "desc": "Capture stunning shots of the neo-classical Malang City Hall framed together with the Tugu monument.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/tugu-malang/balai-kota.webp"
           }
         ],
         "visitorTips": {
@@ -2280,6 +2350,20 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/heritage/candi-badut/relung-arca.webp"
           }
         ],
+        "thingsToDo": [
+          {
+            "title": "Ancient Temple Tour",
+            "desc": "Walk around the oldest stone temple in East Java, built in 760 AD, and study its distinctive Andean-style stone masonry.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/candi-badut/bangunan-utama.webp"
+          },
+          {
+            "title": "Inscription & Artifact Study",
+            "desc": "Ask the caretaker to see the ancient inscription stone and examine the Hindu deity statue niches on the temple walls.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/candi-badut/relung-arca.webp"
+          }
+        ],
         "visitorTips": {
           "bestTime": "Morning for quiet reflection and soft natural light.",
           "bring": [
@@ -2355,6 +2439,20 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Church Tower",
             "desc": "The twin Neo-Gothic spires rising high above Ijen Boulevard, serving as a signature landmark of Malang city.",
+            "image": "/locations/heritage/gereja-ijen/menara-gereja.webp"
+          }
+        ],
+        "thingsToDo": [
+          {
+            "title": "Cathedral Interior Visit",
+            "desc": "Step inside the soaring Neo-Gothic cathedral to admire the stained-glass windows, white marble altar, and wooden ribbed ceiling.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/gereja-ijen/interior-gereja.webp"
+          },
+          {
+            "title": "Ijen Boulevard Walk",
+            "desc": "Stroll along the historic Ijen Boulevard lined with preserved Dutch-era villas and palm-lined avenues.",
+            "difficulty": "Easy",
             "image": "/locations/heritage/gereja-ijen/menara-gereja.webp"
           }
         ],
@@ -2600,6 +2698,20 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/heritage/candi-kidal/relief-garuda.webp"
           }
         ],
+        "thingsToDo": [
+          {
+            "title": "Garuda Relief Study",
+            "desc": "Examine the three iconic Garudeya relief panels at the base of the temple that inspired Indonesia's national emblem.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/candi-kidal/relief-garuda.webp"
+          },
+          {
+            "title": "Temple Grounds Photography",
+            "desc": "Capture the elegant slender profile of the 13th-century temple and its intricate Kala ornaments from every angle.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/candi-kidal/bangunan-utama.webp"
+          }
+        ],
         "visitorTips": {
           "bestTime": "Morning hours for crisp lighting on the detailed stone reliefs.",
           "bring": [
@@ -2675,6 +2787,20 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Front Facade",
             "desc": "The unique multi-tiered step-pyramid terrace facade, showcasing a blend of Hindu and Buddhist architectural elements.",
+            "image": "/locations/heritage/candi-jago/tampak-depan.webp"
+          }
+        ],
+        "thingsToDo": [
+          {
+            "title": "Wayang Relief Walk",
+            "desc": "Follow the counter-clockwise path around the temple base to read the unique Wayang-style stone reliefs telling the story of Kunjarakarna.",
+            "difficulty": "Easy",
+            "image": "/locations/heritage/candi-jago/relief-candi.webp"
+          },
+          {
+            "title": "Temple Terrace Photography",
+            "desc": "Capture the unique multi-tiered step-pyramid terrace facade showcasing a blend of Hindu and Buddhist architectural elements.",
+            "difficulty": "Easy",
             "image": "/locations/heritage/candi-jago/tampak-depan.webp"
           }
         ],
@@ -4186,6 +4312,20 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/hidden-gem/pantai-gatra/pantai-pasir-putih.webp"
           }
         ],
+        "thingsToDo": [
+          {
+            "title": "Swimming & Snorkeling",
+            "desc": "Swim in the calm, wave-free turquoise waters protected by the offshore coral reefs and limestone islets.",
+            "difficulty": "Easy",
+            "image": "/locations/hidden-gem/pantai-gatra/pantai-pasir-putih.webp"
+          },
+          {
+            "title": "Mangrove Forest Walk",
+            "desc": "Explore the protected Clungup Mangrove Conservation area and learn about the community-led marine conservation efforts.",
+            "difficulty": "Easy",
+            "image": "/locations/hidden-gem/pantai-gatra/hutan-mangrove.webp"
+          }
+        ],
         "visitorTips": {
           "bestTime": "Early mornings for peaceful waters and cool temperatures.",
           "bring": [
@@ -4266,6 +4406,20 @@ export const activitiesData: Record<string, Category> = {
             "image": "/locations/hidden-gem/candi-sumberawan/tampak-atas.webp"
           }
         ],
+        "thingsToDo": [
+          {
+            "title": "Stupa & Sacred Spring Visit",
+            "desc": "Walk around the only bell-shaped Buddhist stupa in East Java and drink directly from the crystal-clear sacred spring beside it.",
+            "difficulty": "Easy",
+            "image": "/locations/hidden-gem/candi-sumberawan/stupa-utama.webp"
+          },
+          {
+            "title": "Pine Forest Trekking",
+            "desc": "Enjoy a peaceful walk through the dense pine forest at the foot of Mount Arjuno surrounding the temple area.",
+            "difficulty": "Easy",
+            "image": "/locations/hidden-gem/candi-sumberawan/tampak-atas.webp"
+          }
+        ],
         "visitorTips": {
           "bestTime": "Late afternoons when the sunlight filters softly through the tall pine trees.",
           "bring": [
@@ -4343,6 +4497,20 @@ export const activitiesData: Record<string, Category> = {
             "title": "Dining Area",
             "desc": "A farm-to-table restaurant serving fresh dishes made from organic ingredients harvested directly from the resort's greenhouse.",
             "image": "/locations/hidden-gem/lembah-indah-malang/tempat-makan.webp"
+          }
+        ],
+        "thingsToDo": [
+          {
+            "title": "Valley Panorama Walk",
+            "desc": "Stroll through the rolling green valley floor surrounded by the ridges of Mount Kawi and capture panoramic photos.",
+            "difficulty": "Easy",
+            "image": "/locations/hidden-gem/lembah-indah-malang/panorama-lembah.webp"
+          },
+          {
+            "title": "Organic Farm Tour",
+            "desc": "Visit the hydroponic greenhouses and organic strawberry farms to pick fresh produce straight from the plants.",
+            "difficulty": "Easy",
+            "image": "/locations/hidden-gem/lembah-indah-malang/dome-glamping.webp"
           }
         ],
         "visitorTips": {
