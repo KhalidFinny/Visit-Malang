@@ -7,14 +7,10 @@ import {
   faUtensils,
   faCompass,
   faTimes,
-  faMap,
-  faCheck,
-  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useTrip } from '../../../../context/TripContext';
 import type { MapCategory } from '../../../../data/mapPlaces';
-import { CATEGORY_META, getGoogleMapsUrl } from '../../../../data/mapPlaces';
+import { CATEGORY_META } from '../../../../data/mapPlaces';
 import type { MapCardProps } from '../types';
 
 
@@ -25,24 +21,16 @@ const CATEGORY_ICONS: Record<MapCategory, any> = {
   Attraction: faCompass,
 };
 
+const CATEGORY_LOCALE_KEY: Record<MapCategory, string> = {
+  Nature: "hero.categories.nature",
+  Historical: "hero.categories.heritage",
+  Culinary: "hero.categories.culinary",
+  Attraction: "hero.categories.attractions",
+};
+
 export default function MapCard({ place, onClose, onOpenDirections }: MapCardProps) {
   const { t } = useTranslation();
 
-  const { addToTrip, removeFromTrip, isInTrip } = useTrip();
-  const inTrip = place ? isInTrip(place.id) : false;
-
-  function handleTrip() {
-    if (!place) return;
-    if (inTrip) {
-      removeFromTrip(place.id);
-    } else {
-      addToTrip({ id: place.id, name: place.name, coordinates: place.coordinates });
-    }
-  }
-
-  const mapsLink = place
-    ? getGoogleMapsUrl(place.coordinates.lat, place.coordinates.lng)
-    : '#';
 
   const BEST_VISIT_TIMES: Record<MapCategory, string> = {
     Nature: "05:00 - 09:00",
@@ -75,7 +63,7 @@ export default function MapCard({ place, onClose, onOpenDirections }: MapCardPro
           <div className="bg-[#f5f4f0] rounded-2xl overflow-hidden border border-premium-black/15 flex flex-col md:flex-row md:min-h-[320px] relative">
             
             {/* Left side: Landscape cover */}
-            <div className="w-full md:w-[40%] h-52 md:h-full relative overflow-hidden shrink-0">
+            <div className="w-full md:w-[40%] h-52 md:h-auto md:min-h-full self-stretch relative overflow-hidden shrink-0">
               <img
                 src={place.imageUrl}
                 alt={place.name}
@@ -98,7 +86,7 @@ export default function MapCard({ place, onClose, onOpenDirections }: MapCardPro
                 style={{ backgroundColor: CATEGORY_META[place.category].color + 'dd' }}
               >
                 <FontAwesomeIcon icon={CATEGORY_ICONS[place.category]} className="text-sm" />
-                <span>{t('hero.categories.' + place.category.toLowerCase())}</span>
+                <span>{t(CATEGORY_LOCALE_KEY[place.category])}</span>
               </div>
             </div>
 
@@ -124,7 +112,7 @@ export default function MapCard({ place, onClose, onOpenDirections }: MapCardPro
                 <div className="grid grid-cols-3 gap-3 border-t border-b border-premium-black/10 py-3 select-none font-mono text-sm uppercase tracking-wider text-premium-black/75">
                   <div>
                     <span className="block text-premium-black/40 mb-0.5">{t('hero.map.meta.location')}</span>
-                    <span className="font-extrabold text-premium-black">Malang, ID</span>
+                    <span className="font-extrabold text-premium-black">{t('hero.map.meta.region')}</span>
                   </div>
                   <div>
                     <span className="block text-premium-black/40 mb-0.5">{t('hero.map.meta.coordinates')}</span>
@@ -139,33 +127,13 @@ export default function MapCard({ place, onClose, onOpenDirections }: MapCardPro
               </div>
 
               {/* Actions */}
-              <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+              <div className="mt-auto">
                 <button
                   onClick={onOpenDirections}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 px-5 text-sm md:text-sm font-bold uppercase tracking-widest bg-[#3e5355] text-white hover:bg-[#2d4042] rounded-xl transition-all cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-5 text-sm md:text-sm font-bold uppercase tracking-widest bg-[#3e5355] text-white hover:bg-[#2d4042] rounded-xl transition-all cursor-pointer"
                 >
                   <FontAwesomeIcon icon={faMapLocationDot} className="text-sm" />
                   {t('hero.map.directions')}
-                </button>
-                <a
-                  href={mapsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 py-3 px-5 text-sm md:text-sm font-bold uppercase tracking-widest border border-premium-black/15 text-premium-black/65 hover:text-premium-black hover:border-premium-black/35 rounded-xl transition-all"
-                >
-                  <FontAwesomeIcon icon={faMap} className="text-sm" />
-                  {t('weather.googleMaps')}
-                </a>
-                <button
-                  onClick={handleTrip}
-                  className={`flex-1 flex items-center justify-center gap-1.5 py-3 px-5 text-sm md:text-sm font-bold uppercase tracking-widest rounded-xl transition-all cursor-pointer ${
-                    inTrip
-                      ? 'bg-[#3e5355] text-white border border-[#3e5355]'
-                      : 'bg-transparent text-[#3e5355] border border-[#3e5355] hover:bg-[#3e5355] hover:text-white'
-                  }`}
-                >
-                  <FontAwesomeIcon icon={inTrip ? faCheck : faPlus} />
-                  {inTrip ? t('hero.trip.added') : t('hero.trip.addToTrip')}
                 </button>
               </div>
             </div>

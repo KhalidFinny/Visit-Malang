@@ -71,6 +71,7 @@ const TechModern: React.FC = () => {
         <button
           onClick={() => navigate("/")}
           className="fixed top-8 left-8 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-white/50 backdrop-blur-md border border-black/10 hover:bg-black/10 transition"
+          aria-label={t("techModern.closing.back")}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2D221F" strokeWidth="2.5">
             <path d="M19 12H5M12 19l-7-7 7-7" />

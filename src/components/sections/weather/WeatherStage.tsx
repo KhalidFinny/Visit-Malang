@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -12,10 +12,9 @@ import { useWeatherState } from "./hooks/useWeatherState";
 import RecommendationsModal from "./parts/RecommendationsModal";
 import { useResponsiveScale } from "../../hooks/useResponsiveScale";
 import { ImageWithSkeleton } from "../../shared/Skeleton";
+import { getPlaceDirectionsUrl } from "./utils/distance";
 
-function getGoogleMapsSearchUrl(name: string): string {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ' Malang Indonesia')}`;
-}
+
 
 export default function WeatherStage() {
   const { t, i18n } = useTranslation();
@@ -40,13 +39,20 @@ export default function WeatherStage() {
   const [showAllModal, setShowAllModal] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    recommendations.forEach((recommendation) => {
+      const image = new Image();
+      image.src = recommendation.imageUrl;
+    });
+  }, [recommendations]);
+
   const rec = recommendations[activeIndex];
   const mobileRecommendations = recommendations.slice(0, 4);
   const mobileFeatured = mobileRecommendations[0];
   const mobileSecondary = mobileRecommendations.slice(1);
 
   const formattedDate = new Intl.DateTimeFormat(
-    i18n.language || 'en',
+    i18n.language || 'id',
     { weekday: 'long', day: 'numeric', month: 'long' }
   ).format(date);
 
@@ -184,9 +190,6 @@ export default function WeatherStage() {
                         <span>{mobileFeatured.idealTime.slice(0, 2).map((time: string) => t('weather.time.' + time.toLowerCase())).join(' • ')}</span>
                       </div>
 
-                      <div className="mt-4 inline-flex w-fit rounded-full bg-[#A3B18A]/16 px-3 py-1.5 text-sm font-black uppercase tracking-[0.16em] text-[#4a5e3a]">
-                        {Math.round(mobileFeatured.popularity * 100)}%
-                      </div>
 
                       <p className="mt-4 text-sm font-medium leading-relaxed text-[#4a5e3a]/78">
                         {displayWeather(mobileFeatured.idealWeather) === 'Sunny'
@@ -197,7 +200,7 @@ export default function WeatherStage() {
                       </p>
 
                       <a
-                        href={getGoogleMapsSearchUrl(mobileFeatured.name)}
+                        href={getPlaceDirectionsUrl(mobileFeatured.name)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-auto ml-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#A3B18A]/28 bg-[#f5f4f0] text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10"
@@ -258,11 +261,8 @@ export default function WeatherStage() {
                       </div>
 
                       <div className="flex shrink-0 flex-col items-end gap-3">
-                        <span className="rounded-full bg-[#A3B18A]/16 px-3 py-1 text-sm font-black uppercase tracking-[0.14em] text-[#4a5e3a]">
-                          {Math.round(rec.popularity * 100)}%
-                        </span>
                         <a
-                          href={getGoogleMapsSearchUrl(rec.name)}
+                          href={getPlaceDirectionsUrl(rec.name)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex h-10 w-10 items-center justify-center rounded-full border border-[#A3B18A]/25 text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10"
@@ -417,40 +417,38 @@ export default function WeatherStage() {
               ) : rec ? (
                 <>
                   {/* Image */}
-                  <AnimatePresence mode="wait">
-                    <motion.div
+                  <AnimatePresence initial={false}>
+                    <motion.img
                       key={rec.id}
+                      src={rec.imageUrl}
+                      alt={rec.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="sync"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="absolute inset-0 w-full h-full"
-                    >
-                      <ImageWithSkeleton
-                        src={rec.imageUrl}
-                        alt={rec.name}
-                        className="w-full h-full object-cover"
-                        wrapperClassName="w-full h-full"
-                      />
-                    </motion.div>
+                      transition={{ duration: 0.22, ease: "easeInOut" }}
+                    />
                   </AnimatePresence>
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10 z-10" />
 
                   {/* Nav Arrows — Inside Card Top-Right */}
                   <div className="absolute top-3 right-3 sm:top-6 sm:right-6 z-30 flex items-center gap-1.5 sm:gap-2">
                     <button
                       onClick={prev}
-                      aria-label="Previous"
-                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/25 text-white/70 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
+                      aria-label={t('weather.previous')}
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/88 text-[#1a1a1a] shadow-lg ring-1 ring-black/8 hover:bg-white hover:scale-[1.04] flex items-center justify-center transition-all"
                     >
                       <FontAwesomeIcon icon={faChevronLeft} className="text-[10px] sm:text-sm" />
                     </button>
                     <button
                       onClick={next}
-                      aria-label="Next"
-                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/25 text-white/70 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
+                      aria-label={t('weather.next')}
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/88 text-[#1a1a1a] shadow-lg ring-1 ring-black/8 hover:bg-white hover:scale-[1.04] flex items-center justify-center transition-all"
                     >
                       <FontAwesomeIcon icon={faChevronRight} className="text-[10px] sm:text-sm" />
                     </button>
@@ -466,7 +464,7 @@ export default function WeatherStage() {
                         </svg>
                         {t('weather.matchForToday')}
                       </span>
-                      <span className="text-[9px] sm:text-[11px] lg:text-[14px] tracking-[0.15em] sm:tracking-[0.2em] text-white/80 uppercase font-black">
+                      <span className="inline-flex items-center rounded-full bg-black/30 backdrop-blur-md px-2.5 py-1.5 sm:px-4 sm:py-2 text-[9px] sm:text-[11px] lg:text-[14px] tracking-[0.15em] sm:tracking-[0.2em] text-white/90 uppercase font-black border border-white/15">
                         {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
                       </span>
                     </div>
@@ -483,11 +481,11 @@ export default function WeatherStage() {
                       {/* Buttons */}
                       <div className="flex items-center gap-2 sm:gap-3">
                         <a
-                          href={getGoogleMapsSearchUrl(rec.name)}
+                          href={getPlaceDirectionsUrl(rec.name)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full border border-white/40 text-white/80 hover:bg-white/15 hover:text-white flex items-center justify-center transition-all"
-                          aria-label="Open in Google Maps"
+                          aria-label={t('weather.openInGoogleMaps')}
                         >
                           <FontAwesomeIcon icon={faMapLocationDot} className="text-[10px] sm:text-sm" />
                         </a>

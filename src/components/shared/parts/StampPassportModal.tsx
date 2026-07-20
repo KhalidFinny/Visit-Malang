@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useScrollLock } from "../../hooks/useScrollLock";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,12 +34,15 @@ function getDistanceKm(lat1: number, lon1: number, lat2: number, lon2: number): 
   const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLon / 2) ** 2;
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
+type StatusTone = "success" | "error" | "info";
+type StatusState = { tone: StatusTone; message: string };
 
 export default function StampPassportModal({ isOpen, onClose }: StampPassportModalProps) {
+  const { t } = useTranslation();
   const [tab, setTab] = useState<"daily" | "collection">("daily");
   const [unlocked, setUnlocked] = useState<string[]>([]);
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
-  const [status, setStatus] = useState<string | null>(null);
+  const [status, setStatus] = useState<StatusState | null>(null);
   const [photos, setPhotos] = useState<Record<string, string>>({});
   const [verifs, setVerifs] = useState<Record<string, VerificationResult>>({});
   const [confirm, setConfirm] = useState<{ msg: string; fn: () => void } | null>(null);
@@ -97,13 +101,14 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
       const data = ev.target.result as string;
       localStorage.setItem(`stamp_photo_${slug}`, data);
       setPhotos(p => ({ ...p, [slug]: data }));
-      setStatus("Analyzing photo...");
+      setStatus({ tone: "info", message: t("shared.passport.status.analyzingPhoto") });
       const vr = await verifyLandmarkImage(slug, data, file.name);
       setVerifs(v => ({ ...v, [slug]: vr }));
       localStorage.setItem(`stamp_verif_${slug}`, JSON.stringify(vr));
-      const pn = ALL_PLACES.find(x => x.slug === slug)?.name;
-      setStatus(vr.isVerified ? `${pn} verified! (${Math.round(vr.confidence)}%)` : vr.reason);
-      setUploading(null);
+      const pn = ALL_PLACES.find(x => x.slug === slug)?.name ?? slug;
+      setStatus(vr.isVerified
+        ? { tone: "success", message: t("shared.passport.status.verified", { place: pn, confidence: Math.round(vr.confidence) }) }
+        : { tone: "error", message: t("shared.passport.status.photoMismatch", { reason: vr.reason }) });
       e.target.value = "";
     };
     reader.readAsDataURL(file);
@@ -111,31 +116,31 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
 
   const collect = (slug: string) => {
     if (unlocked.includes(slug)) return;
-    if (!userLocation) { setStatus("Enable GPS to collect."); return; }
+    if (!userLocation) { setStatus({ tone: "error", message: t("shared.passport.status.enableGps") }); return; }
     const pl = ALL_PLACES.find(x => x.slug === slug);
     if (!pl) return;
-    if (!photos[slug]) { setStatus("Upload a photo first."); return; }
+    if (!photos[slug]) { setStatus({ tone: "error", message: t("shared.passport.status.uploadPhotoFirst") }); return; }
     const v = verifs[slug];
-    if (v && !v.isVerified) { setStatus(`Photo doesn't match: ${v.reason}`); return; }
+    if (v && !v.isVerified) { setStatus({ tone: "error", message: t("shared.passport.status.photoMismatch", { reason: v.reason }) }); return; }
     const d = getDistanceKm(userLocation.lat, userLocation.lng, pl.lat, pl.lng);
-    if (d > 2.0) { setStatus(`You're ${d.toFixed(1)}km away. Must be within 2km.`); return; }
+    if (d > 2.0) { setStatus({ tone: "error", message: t("shared.passport.status.tooFar", { distance: d.toFixed(1) }) }); return; }
     const u = [...unlocked, slug];
     setUnlocked(u);
     localStorage.setItem("malang_stamps", JSON.stringify(u));
-    setStatus(`Collected! ${pl.name} added.`);
+    setStatus({ tone: "success", message: t("shared.passport.status.collected", { place: pl.name }) });
   };
 
   const delPhoto = (slug: string) => {
     const pl = ALL_PLACES.find(x => x.slug === slug);
     setConfirm({
-      msg: `Delete photo for ${pl?.name || slug}? Stamp will lock.`,
+      msg: t("shared.passport.confirm.deletePhoto", { place: pl?.name || slug }),
       fn: () => {
         localStorage.removeItem(`stamp_photo_${slug}`);
         localStorage.removeItem(`stamp_verif_${slug}`);
         setPhotos(p => { const n = { ...p }; delete n[slug]; return n; });
         setVerifs(v => { const n = { ...v }; delete n[slug]; return n; });
         setUnlocked(u => { const n = u.filter(s => s !== slug); localStorage.setItem("malang_stamps", JSON.stringify(n)); return n; });
-        setStatus("Photo removed.");
+        setStatus({ tone: "info", message: t("shared.passport.status.photoRemoved") });
         setConfirm(null);
       },
     });
@@ -143,7 +148,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
 
   const resetAll = () => {
     setConfirm({
-      msg: "Clear everything? All stamps and photos will be deleted.",
+      msg: t("shared.passport.confirm.resetAll"),
       fn: () => {
         setUnlocked([]);
         localStorage.setItem("malang_stamps", JSON.stringify([]));
@@ -153,7 +158,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
         });
         setPhotos({});
         setVerifs({});
-        setStatus("Cleared.");
+        setStatus({ tone: "info", message: t("shared.passport.status.cleared") });
         setConfirm(null);
       },
     });
@@ -190,13 +195,13 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                   <FontAwesomeIcon icon={faTrophy} className="text-sm sm:text-lg" />
                 </div>
                 <div>
-                  <h2 className="text-base sm:text-xl font-bold text-[#0A0A0A] tracking-tight">Malang Passport</h2>
-                  <p className="text-sm sm:text-sm text-black/50">{unlocked.length} places collected</p>
+                  <h2 className="text-base sm:text-xl font-bold text-[#0A0A0A] tracking-tight">{t("shared.passport.title")}</h2>
+                  <p className="text-sm sm:text-sm text-black/50">{t("shared.passport.collectedCount", { count: unlocked.length })}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 <button onClick={() => { if (navigator.geolocation) navigator.geolocation.getCurrentPosition(p => setUserLocation({ lat: p.coords.latitude, lng: p.coords.longitude })); }}
-                  className="w-9 h-9 rounded-full border border-black/10 hover:bg-black/5 text-black/50 hover:text-black flex items-center justify-center transition-all cursor-pointer" title="Refresh GPS">
+                  className="w-9 h-9 rounded-full border border-black/10 hover:bg-black/5 text-black/50 hover:text-black flex items-center justify-center transition-all cursor-pointer" title={t("shared.passport.refreshGps")} aria-label={t("shared.passport.refreshGps")}>
                   <FontAwesomeIcon icon={faLocationCrosshairs} className="text-sm" />
                 </button>
                 <CloseButton onClick={onClose} />
@@ -208,12 +213,12 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
               <button onClick={() => setTab("daily")}
                 className={`flex-1 sm:px-5 py-2.5 sm:py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 ${tab === "daily" ? "bg-[#0A0A0A] text-white" : "bg-white border border-black/10 text-black/60 hover:text-black"}`}>
                 <FontAwesomeIcon icon={faShuffle} />
-                Today's Spots ({dailyPlaces.length})
+                {t("shared.passport.tabs.daily", { count: dailyPlaces.length })}
               </button>
               <button onClick={() => setTab("collection")}
                 className={`flex-1 sm:px-5 py-2.5 sm:py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 ${tab === "collection" ? "bg-[#0A0A0A] text-white" : "bg-white border border-black/10 text-black/60 hover:text-black"}`}>
                 <FontAwesomeIcon icon={faTrophy} />
-                Collection ({unlocked.length})
+                {t("shared.passport.tabs.collection", { count: unlocked.length })}
               </button>
             </div>
 
@@ -221,12 +226,12 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
             {status && (
               <div className="px-4 sm:px-8 pt-2 shrink-0">
                 <div className={`px-4 py-3 rounded-xl text-sm font-medium border ${
-                  status.includes("verified") || status.includes("Collected")
+                  status.tone === "success"
                     ? "bg-[#A3B18A]/10 border-[#A3B18A]/20 text-[#4a5e3a]"
-                    : status.includes("doesn't") || status.includes("away")
+                    : status.tone === "error"
                     ? "bg-rose-500/10 border-rose-500/20 text-rose-700"
                     : "bg-black/[0.02] border-black/10 text-black/60"
-                }`}>{status}</div>
+                }`}>{status.message}</div>
               </div>
             )}
 
@@ -242,7 +247,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                   className="flex-1 overflow-y-auto px-4 sm:px-8 py-3 sm:py-5 space-y-3 sm:space-y-3 [overscroll-behavior:contain]" data-lenis-prevent="true"
                 >
                 <div className="flex items-center justify-between mb-1">
-                  <p className="text-sm text-black/40">New spots appear daily. Visit, snap, collect.</p>
+                  <p className="text-sm text-black/40">{t("shared.passport.dailyIntro")}</p>
                 </div>
                 {dailyPlaces.map(pl => {
                   const unlocked2 = unlocked.includes(pl.slug);
@@ -278,11 +283,11 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                           <p className="hidden sm:block text-sm text-black/50 mt-0.5 mb-2">{pl.desc}</p>
                           <div className="flex flex-wrap items-center gap-1.5 mt-1">
                             <span className={`px-2.5 py-1 rounded-lg text-sm font-bold border ${d !== null && d <= 2.0 ? 'bg-[#A3B18A]/10 text-[#4a5e3a] border-[#A3B18A]/20' : 'bg-black/[0.03] text-black/40 border-black/[0.08]'}`}>
-                              {d !== null ? `${d < 1 ? Math.round(d * 1000) + 'm' : d.toFixed(1) + 'km'}` : 'GPS...'}
+                              {d !== null ? `${d < 1 ? Math.round(d * 1000) + 'm' : d.toFixed(1) + 'km'}` : t("shared.passport.gpsPending")}
                             </span>
                             {v && (
                               <span className={`px-2.5 py-1 rounded-lg text-sm font-bold border ${v.isVerified ? 'bg-[#A3B18A]/10 text-[#4a5e3a] border-[#A3B18A]/20' : 'bg-rose-500/10 text-rose-600 border-rose-500/20'}`}>
-                                {v.isVerified ? `${Math.round(v.confidence)}%` : 'No match'}
+                                {v.isVerified ? `${Math.round(v.confidence)}%` : t("shared.passport.noMatch")}
                               </span>
                             )}
                           </div>
@@ -290,7 +295,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
 
                         {/* Delete button — inline on mobile when photo exists */}
                         {hasPhoto && (
-                          <button onClick={() => delPhoto(pl.slug)} className="w-12 h-12 sm:hidden bg-white border border-rose-500/15 hover:border-rose-500/30 text-rose-400 rounded-xl flex items-center justify-center transition-all cursor-pointer shadow-sm shrink-0" title="Delete photo">
+                          <button onClick={() => delPhoto(pl.slug)} className="w-12 h-12 sm:hidden bg-white border border-rose-500/15 hover:border-rose-500/30 text-rose-400 rounded-xl flex items-center justify-center transition-all cursor-pointer shadow-sm shrink-0" title={t("shared.passport.deletePhoto")} aria-label={t("shared.passport.deletePhoto")}>
                             <FontAwesomeIcon icon={faTrash} className="text-sm" />
                           </button>
                         )}
@@ -302,24 +307,24 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                           <button onClick={() => { uploadSlugRef.current = pl.slug; fileRef.current?.click(); }}
                             className="flex-1 px-5 py-4 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black rounded-xl flex items-center justify-center gap-2.5 transition-all cursor-pointer shadow-sm text-sm font-bold uppercase tracking-wider">
                             <FontAwesomeIcon icon={faUpload} className="text-[#A3B18A] text-base" />
-                            Upload Photo
+                            {t("shared.passport.uploadPhoto")}
                           </button>
                         ) : !unlocked2 ? (
                           <>
                             <button onClick={() => collect(pl.slug)} disabled={!can}
                               className={`flex-1 px-5 py-4 rounded-xl flex items-center justify-center gap-2.5 transition-all cursor-pointer text-sm font-bold uppercase tracking-wider ${can ? 'bg-[#A3B18A] hover:bg-[#8a9e75] text-white shadow-sm' : 'bg-white border border-black/10 text-black/30 cursor-not-allowed'}`}>
                               <FontAwesomeIcon icon={faCheck} className="text-base" />
-                              {uploading === pl.slug ? '...' : 'Collect'}
+                              {uploading === pl.slug ? "..." : t("shared.passport.collect")}
                             </button>
                             <button onClick={() => { uploadSlugRef.current = pl.slug; fileRef.current?.click(); }}
                               className="flex-1 px-5 py-4 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black rounded-xl flex items-center justify-center gap-2.5 transition-all cursor-pointer shadow-sm text-sm font-bold uppercase tracking-wider">
                               <FontAwesomeIcon icon={faUpload} className="text-[#A3B18A] text-base" />
-                              New Photo
+                              {t("shared.passport.newPhoto")}
                             </button>
                           </>
                         ) : unlocked2 ? (
                           <div className="flex-1 text-center py-3 text-sm font-bold text-[#4a5e3a] bg-[#A3B18A]/10 border border-[#A3B18A]/20 rounded-xl uppercase tracking-wider">
-                            ✓ Collected
+                            {t("shared.passport.collectedBadge")}
                           </div>
                         ) : null}
                       </div>
@@ -330,18 +335,18 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                           <button onClick={() => { uploadSlugRef.current = pl.slug; fileRef.current?.click(); }}
                             className="sm:px-4 sm:py-2.5 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm text-sm font-bold uppercase tracking-wider">
                             <FontAwesomeIcon icon={faUpload} className="text-[#A3B18A] text-sm" />
-                            Photo
+                            {t("shared.passport.photo")}
                           </button>
                         ) : (
                           <>
-                            <button onClick={() => delPhoto(pl.slug)} className="sm:w-8 sm:h-8 bg-white border border-rose-500/15 hover:border-rose-500/30 text-rose-400 rounded-xl flex items-center justify-center transition-all cursor-pointer shadow-sm" title="Delete photo">
+                            <button onClick={() => delPhoto(pl.slug)} className="sm:w-8 sm:h-8 bg-white border border-rose-500/15 hover:border-rose-500/30 text-rose-400 rounded-xl flex items-center justify-center transition-all cursor-pointer shadow-sm" title={t("shared.passport.deletePhoto")} aria-label={t("shared.passport.deletePhoto")}>
                               <FontAwesomeIcon icon={faTrash} className="text-sm" />
                             </button>
                             {!unlocked2 && (
                               <button onClick={() => collect(pl.slug)} disabled={!can}
                                 className={`sm:px-4 sm:py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer text-sm font-bold uppercase tracking-wider ${can ? 'bg-[#A3B18A] hover:bg-[#8a9e75] text-white shadow-sm' : 'bg-white border border-black/10 text-black/30 cursor-not-allowed'}`}>
                                 <FontAwesomeIcon icon={faCheck} className="sm:text-sm" />
-                                <span>{uploading === pl.slug ? '...' : 'Collect'}</span>
+                                <span>{uploading === pl.slug ? "..." : t("shared.passport.collect")}</span>
                               </button>
                             )}
                           </>
@@ -369,8 +374,8 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                 {unlocked.length === 0 && (
                   <div className="text-center py-16 text-black/30">
                     <FontAwesomeIcon icon={faTrophy} className="text-4xl mb-3 opacity-40" />
-                    <p className="text-sm font-medium">No places collected yet</p>
-                    <p className="text-sm mt-1">Visit a spot, upload your photo, and collect your stamp!</p>
+                    <p className="text-sm font-medium">{t("shared.passport.emptyTitle")}</p>
+                    <p className="text-sm mt-1">{t("shared.passport.emptyDescription")}</p>
                   </div>
                 )}
                 {ALL_PLACES.filter(p => unlocked.includes(p.slug)).map(pl => {
@@ -388,9 +393,9 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                       <div className="flex-1 min-w-0">
                         <h4 className="text-sm sm:text-base font-bold text-[#0A0A0A]">{pl.name}</h4>
                         <p className="text-sm text-black/50">{pl.desc}</p>
-                        {v && <span className="text-sm text-[#4a5e3a] font-semibold block mt-0.5">Verified {Math.round(v.confidence)}%</span>}
+                        {v && <span className="text-sm text-[#4a5e3a] font-semibold block mt-0.5">{t("shared.passport.verified", { confidence: Math.round(v.confidence) })}</span>}
                       </div>
-                      <button onClick={() => delPhoto(pl.slug)} className="w-8 h-8 bg-white border border-rose-500/15 hover:border-rose-500/30 text-rose-400 rounded-lg flex items-center justify-center transition-all cursor-pointer shrink-0" title="Remove">
+                      <button onClick={() => delPhoto(pl.slug)} className="w-8 h-8 bg-white border border-rose-500/15 hover:border-rose-500/30 text-rose-400 rounded-lg flex items-center justify-center transition-all cursor-pointer shrink-0" title={t("shared.passport.removePhoto")} aria-label={t("shared.passport.removePhoto")}>
                         <FontAwesomeIcon icon={faTrash} className="text-sm" />
                       </button>
                     </div>
@@ -398,7 +403,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                 })}
                 {unlocked.length > 0 && (
                   <button onClick={resetAll} className="w-full py-3 text-sm font-bold text-rose-500/60 hover:text-rose-500 uppercase tracking-wider transition-all cursor-pointer">
-                    Clear all progress
+                    {t("shared.passport.clearAllProgress")}
                   </button>
                 )}
               </motion.div>
@@ -415,8 +420,8 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                     transition={{ duration: 0.15 }} className="bg-[#f5f4f0] rounded-2xl p-6 max-w-sm w-full shadow-xl border border-black/10 text-center">
                     <p className="text-sm text-black/80 leading-relaxed mb-5">{confirm.msg}</p>
                     <div className="flex items-center justify-center gap-3">
-                      <button onClick={() => setConfirm(null)} className="px-5 py-2.5 bg-white border border-black/10 hover:border-black/20 text-black/70 text-sm font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer">Cancel</button>
-                      <button onClick={confirm.fn} className="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-sm">Confirm</button>
+                      <button onClick={() => setConfirm(null)} className="px-5 py-2.5 bg-white border border-black/10 hover:border-black/20 text-black/70 text-sm font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer">{t("shared.passport.cancel")}</button>
+                      <button onClick={confirm.fn} className="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-sm">{t("shared.passport.confirmAction")}</button>
                     </div>
                   </motion.div>
                 </motion.div>

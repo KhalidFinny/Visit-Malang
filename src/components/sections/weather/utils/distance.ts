@@ -1,4 +1,4 @@
-import { MAP_PLACES } from "../../../../data/mapPlaces";
+import { MAP_PLACES, getGoogleMapsDirectionsUrl } from "../../../../data/mapPlaces";
 import type { MapPlace } from "../../../../data/mapPlaces";
 
 /**
@@ -33,6 +33,19 @@ export function getPlaceCoordinates(name: string): { lat: number; lng: number } 
       name.toLowerCase().includes(p.name.toLowerCase())
   );
   return place ? place.coordinates : null;
+}
+
+export function getPlaceDirectionsUrl(name: string): string {
+  const coords = getPlaceCoordinates(name);
+  if (coords) {
+    return getGoogleMapsDirectionsUrl(coords.lat, coords.lng, 'driving');
+  }
+  const params = new URLSearchParams({
+    api: '1',
+    destination: `${name} Malang Indonesia`,
+    travelmode: 'driving',
+  });
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
 }
 
 /**

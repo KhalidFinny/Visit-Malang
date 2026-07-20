@@ -184,7 +184,7 @@ const PlaceDetail = () => {
           title: dish.name,
           desc: dish.desc,
           image: dish.image,
-          badge: `${t("placeDetail.signatureDishesTitle") || "Signature Dish"} • ${dish.price}`,
+          badge: `${t("placeDetail.signatureDishesTitle")} • ${dish.price}`,
         }))
       : [
           ...(data.keyAttractions || []).map((attr: any) => ({
@@ -244,6 +244,16 @@ const PlaceDetail = () => {
       </h2>
     </div>
   );
+  const translatePaymentMethod = (paymentMethod: string) => {
+    switch (paymentMethod.toLowerCase()) {
+      case "cash":
+        return t("placeDetail.paymentMethods.cash");
+      case "qris":
+        return t("placeDetail.paymentMethods.qris");
+      default:
+        return paymentMethod;
+    }
+  };
 
   return (
     <div className="w-full min-h-screen bg-[#f5f4f0] text-[#2D221F] font-sans selection:bg-[#2D221F]/10">
@@ -432,7 +442,7 @@ const PlaceDetail = () => {
           {/* A. Dining Details Grid */}
           <section className="py-8 md:py-12">
             <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
-              <SectionTitle title={t("placeDetail.diningInfoTitle") || "Dining Details"} />
+              <SectionTitle title={t("placeDetail.diningInfoTitle")} />
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
                 
                 {/* Opening Hours */}
@@ -442,10 +452,10 @@ const PlaceDetail = () => {
                       {t("placeDetail.openingHours")}
                     </div>
                     <h4 className="text-xl font-bold text-[#2D221F] mb-2">
-                      Jam Operasional
+                      {t("placeDetail.dining.hoursLabel")}
                     </h4>
                     <p className="text-sm text-[#2D221F]/70">
-                      {data.basicInfo?.hours || "10:00 - 22:00"}
+                      {data.basicInfo?.hours || t("placeDetail.defaults.hours")}
                     </p>
                   </div>
                 </div>
@@ -454,13 +464,13 @@ const PlaceDetail = () => {
                 <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
                   <div>
                     <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
-                      Kisaran Harga
+                      {t("placeDetail.dining.priceRangeLabel")}
                     </div>
                     <h4 className="text-xl font-bold text-[#2D221F] mb-2">
-                      Per Orang
+                      {t("placeDetail.dining.perPerson")}
                     </h4>
                     <p className="text-sm text-[#2D221F]/70">
-                      {data.priceRange || "Rp 25.000 - Rp 60.000"}
+                      {data.priceRange || t("placeDetail.defaults.priceRange")}
                     </p>
                   </div>
                 </div>
@@ -469,13 +479,13 @@ const PlaceDetail = () => {
                 <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
                   <div>
                     <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
-                      Suasana
+                      {t("placeDetail.dining.ambienceLabel")}
                     </div>
                     <h4 className="text-xl font-bold text-[#2D221F] mb-2">
-                      Atmosfer
+                      {t("placeDetail.dining.atmosphere")}
                     </h4>
                     <p className="text-sm text-[#2D221F]/70">
-                      {data.ambience || "Casual Dining"}
+                      {data.ambience || t("placeDetail.defaults.ambience")}
                     </p>
                   </div>
                 </div>
@@ -484,15 +494,15 @@ const PlaceDetail = () => {
                 <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
                   <div>
                     <div className="text-[10px] font-black uppercase tracking-wider text-[#A3B18A] mb-1">
-                      Metode Pembayaran
+                      {t("placeDetail.dining.paymentMethodsLabel")}
                     </div>
                     <h4 className="text-xl font-bold text-[#2D221F] mb-2">
-                      Jenis yang Diterima
+                      {t("placeDetail.dining.acceptedMethods")}
                     </h4>
                     <div className="flex flex-wrap gap-1.5 mt-2">
-                      {(data.paymentMethods || ["Cash", "QRIS"]).map((pm, i) => (
+                      {(data.paymentMethods || [t("placeDetail.paymentMethods.cash"), t("placeDetail.paymentMethods.qris")]).map((pm, i) => (
                         <span key={i} className="px-2.5 py-1 bg-[#f5f4f0] border border-[#2D221F]/5 rounded-full text-xs font-semibold text-[#2D221F]/80">
-                          {pm}
+                          {translatePaymentMethod(pm)}
                         </span>
                       ))}
                     </div>
@@ -678,7 +688,7 @@ const PlaceDetail = () => {
                   <div className="bg-white p-6 md:p-8 rounded-2xl border border-[#2D221F]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                     <div className="flex-1 pr-6 sm:border-r border-[#2D221F]/10">
                       <h4 className="text-swiss text-[9px] font-black tracking-[0.15em] uppercase text-[#2D221F]/40 mb-2">
-                        Location
+                        {t("placeDetail.location")}
                       </h4>
                       <p className="text-[#2D221F] font-bold text-sm md:text-base leading-snug">
                         {data.basicInfo?.location || data.title}
@@ -687,7 +697,7 @@ const PlaceDetail = () => {
                     {data.basicInfo?.rating && (
                       <div className="shrink-0">
                         <h4 className="text-swiss text-[9px] font-black tracking-[0.15em] uppercase text-[#2D221F]/40 mb-2">
-                          Rating
+                          {t("placeDetail.rating")}
                         </h4>
                         <div className="flex items-center gap-1.5 text-[#A3B18A] font-black text-xl">
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -701,7 +711,7 @@ const PlaceDetail = () => {
                   <div className="rounded-2xl overflow-hidden border border-[#2D221F]/10 bg-white p-2 flex-1 min-h-[350px]">
                     <div className="rounded-xl overflow-hidden relative h-full bg-[#f5f4f0]">
                       <iframe
-                        title="Map"
+                        title={t("placeDetail.mapTitle", { place: data.title })}
                         width="100%"
                         height="100%"
                         style={{ border: 0, minHeight: "100%" }}
@@ -724,7 +734,7 @@ const PlaceDetail = () => {
           <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 relative">
             <div className="sticky top-0 z-30 bg-[#f5f4f0] pt-8 pb-6 mb-8 -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-16 md:px-16 lg:-mx-20 lg:px-20">
               <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F]">
-                {categoryKey === "culinary" ? (t("placeDetail.signatureDishesTitle") || "Signature Dishes") : t("placeDetail.exploreArea")}
+                {categoryKey === "culinary" ? t("placeDetail.signatureDishesTitle") : t("placeDetail.exploreArea")}
               </h2>
             </div>
             <div className="relative w-full space-y-6 md:space-y-8">
@@ -820,7 +830,7 @@ const PlaceDetail = () => {
               {/* Do's Column */}
               <div className="flex flex-col">
                 <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F] mb-8">
-                  DO
+                  {t("placeDetail.doTitle")}
                 </h2>
                 <div className="flex flex-col gap-6">
                   {[...data.visitorTips.bring, ...(data.visitorTips.insiderTips || [])]
@@ -852,7 +862,7 @@ const PlaceDetail = () => {
               {/* Don'ts Column */}
               <div className="flex flex-col mt-12 md:mt-0">
                 <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F] mb-8">
-                  DON'T
+                  {t("placeDetail.dontTitle")}
                 </h2>
                 <div className="flex flex-col gap-6">
                   {data.visitorTips.avoid.slice(0, 4).map((item, i) => (
@@ -888,7 +898,7 @@ const PlaceDetail = () => {
       {data.funFacts && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20 relative">
-            <SectionTitle title="Fun Facts" />
+            <SectionTitle title={t("placeDetail.funFactsTitle")} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               {data.funFacts.map((fact: string, i: number) => (
                 <div key={i} className="border-l-2 border-[#2D221F]/10 pl-6">

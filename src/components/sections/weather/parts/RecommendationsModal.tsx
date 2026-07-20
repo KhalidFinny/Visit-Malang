@@ -6,11 +6,10 @@ import type { RecommendationsModalProps } from "../types";
 import { useResponsiveScale } from "../../../hooks/useResponsiveScale";
 import { ImageWithSkeleton } from "../../../shared/Skeleton";
 import { useScrollLock } from "../../../hooks/useScrollLock";
+import { getPlaceDirectionsUrl } from "../utils/distance";
 import { FALLBACK_ALTITUDE_ENTRIES } from "../../activity/placeFallbackData";
 
-function getGoogleMapsSearchUrl(name: string): string {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ' Malang Indonesia')}`;
-}
+
 
 export default function RecommendationsModal({
   isOpen,
@@ -82,7 +81,7 @@ export default function RecommendationsModal({
               <button
                 onClick={onClose}
                 className="w-10 h-10 rounded-full border border-black/15 text-premium-black/50 hover:bg-premium-black hover:text-white flex items-center justify-center transition-all shrink-0"
-                aria-label="Close modal"
+                aria-label={t('weather.close')}
               >
                 <FontAwesomeIcon icon={faXmark} className="text-sm" />
               </button>
@@ -138,7 +137,7 @@ export default function RecommendationsModal({
                               </div>
                             </div>
                             <a
-                              href={getGoogleMapsSearchUrl(rec.name)}
+                              href={getPlaceDirectionsUrl(rec.name)}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="mt-3 flex w-full items-center justify-center gap-2.5 rounded-[16px] border border-[#A3B18A]/40 bg-white px-4 py-3.5 text-sm font-black uppercase tracking-[0.16em] text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10 active:bg-[#A3B18A]/20"
@@ -187,7 +186,7 @@ export default function RecommendationsModal({
                                   </p>
                                 </div>
                                 <a
-                                  href={getGoogleMapsSearchUrl(rec.name)}
+                                  href={getPlaceDirectionsUrl(rec.name)}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="inline-flex items-center gap-1.5 mt-2 text-sm font-black uppercase tracking-[0.2em] text-premium-black/40 hover:text-premium-black transition-colors"
@@ -201,8 +200,8 @@ export default function RecommendationsModal({
                               <div className="mt-3 p-2.5 rounded-xl bg-amber-500/[0.04] border border-amber-500/15 text-sm leading-relaxed text-amber-700 font-medium flex items-start gap-2">
                                 <span className="shrink-0 text-sm">❄️</span>
                                 <div>
-                                  <span className="font-extrabold uppercase tracking-wider text-amber-800">Altitude Weather Warning: </span>
-                                  Temp drops to {altData.temp_range}. Dress warm! Recommended gear: {altData.packing_list}.
+                                  <span className="font-extrabold uppercase tracking-wider text-amber-800">{t('weather.altitudeWarningTitle')} </span>
+                                  {t('weather.altitudeWarningBody', { tempRange: altData.temp_range, packingList: altData.packing_list })}
                                 </div>
                               </div>
                             )}

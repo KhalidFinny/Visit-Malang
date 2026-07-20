@@ -1,7 +1,5 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-
 // Only eagerly load Indonesian (primary + fallback). All other languages
 // are loaded on demand via the i18next-chained-backend or dynamic import.
 //
@@ -44,9 +42,12 @@ const lazyBackend = {
       });
   },
 };
+const initialLanguage =
+  typeof window !== 'undefined'
+    ? localStorage.getItem('malangLanguage')?.split('-')[0] || 'id'
+    : 'id';
 
 i18n
-  .use(LanguageDetector)
   .use(lazyBackend)
   .use(initReactI18next)
   .init({
@@ -54,14 +55,9 @@ i18n
     resources: {
       id: { translation: id },
     },
+    lng: initialLanguage,
     fallbackLng: 'id',
     partialBundledLanguages: true,
-    detection: {
-      // Skip 'navigator' to ensure Indonesian is the default for new visits,
-      // while still respecting manual choices stored in 'localStorage'.
-      order: ['localStorage', 'htmlTag'],
-      caches: ['localStorage'],
-    },
     interpolation: {
       escapeValue: false,
     },

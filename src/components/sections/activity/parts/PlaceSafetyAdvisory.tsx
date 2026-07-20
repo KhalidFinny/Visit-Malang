@@ -1,17 +1,23 @@
+import { useTranslation } from "react-i18next";
 import type { PlaceSafetyAdvisoryProps } from "../types";
 
-const CONTEXT_NOTES: Record<string, string> = {
-  trail: "Check trail conditions before heading out. Weather at higher elevations can change rapidly.",
-  urban: "Standard safety precautions apply. Stay aware of your surroundings.",
-  coastal: "Tide conditions and weather can change. Check local forecasts before visiting.",
-  indoor: "Venue operates under standard safety protocols.",
+const CONTEXT_NOTE_KEYS: Record<string, string> = {
+  trail: "placeDetail.safety.context.trail",
+  urban: "placeDetail.safety.context.urban",
+  coastal: "placeDetail.safety.context.coastal",
+  indoor: "placeDetail.safety.context.indoor",
 };
 
 export default function PlaceSafetyAdvisory({ safety }: PlaceSafetyAdvisoryProps) {
+  const { t } = useTranslation();
   const ctx = (safety as unknown as Record<string, string>).contextType || "urban";
   const isOpen = safety.status === "open";
   const isCaution = safety.status === "caution";
-  const statusText = isOpen ? "Open & Safe" : isCaution ? "Advisory Warning" : "Closed / Restricted";
+  const statusText = isOpen
+    ? t("placeDetail.safety.status.open")
+    : isCaution
+      ? t("placeDetail.safety.status.caution")
+      : t("placeDetail.safety.status.closed");
 
   return (
     <div className="p-6 lg:p-8 flex items-start gap-5 bg-transparent font-sans">
@@ -45,7 +51,7 @@ export default function PlaceSafetyAdvisory({ safety }: PlaceSafetyAdvisoryProps
         </div>
         <p className="text-sm md:text-base text-[#2D221F]/80 leading-relaxed font-medium">{safety.details}</p>
         <span className="mt-3 text-[10px] font-black tracking-[0.1em] uppercase text-[#2D221F]/40 border-l-2 border-[#A3B18A] pl-3 py-0.5 block max-w-xl font-swiss">
-          {CONTEXT_NOTES[ctx] || CONTEXT_NOTES.urban}
+          {t(CONTEXT_NOTE_KEYS[ctx] || CONTEXT_NOTE_KEYS.urban)}
         </span>
       </div>
     </div>

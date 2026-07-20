@@ -65,7 +65,7 @@ const TechDetail: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#F2E9E4] z-10" />
           <ImageWithSkeleton
             src="/this.jpg"
-            alt="Modern Malang"
+            alt={t('tech.hero.imageAlt')}
             className="w-full h-full object-cover opacity-40 grayscale-[0.2]"
             wrapperClassName="absolute inset-0 w-full h-full"
           />
@@ -74,6 +74,7 @@ const TechDetail: React.FC = () => {
         <button
           onClick={() => navigate("/")}
           className="absolute top-8 left-8 z-30 w-10 h-10 flex items-center justify-center rounded-full bg-black/5 border border-black/10 hover:bg-black/10 transition"
+          aria-label={t('tech.closing.cta')}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" strokeWidth="2.5">
             <path d="M19 12H5M12 19l-7-7 7-7" />

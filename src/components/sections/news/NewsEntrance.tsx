@@ -51,7 +51,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
   };
 
   const formatDate = (dateString: string) => {
-    const locale = i18n.language || 'en';
+    const locale = i18n.language || 'id';
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(locale, options);
   };

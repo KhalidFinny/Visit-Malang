@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollLock } from "../../hooks/useScrollLock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,6 +9,7 @@ import { preloadModel, zeroShotClassify, type MLMatchResult } from "../utils/len
 import CloseButton from "./CloseButton";
 
 export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProps) {
+  const { t } = useTranslation();
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [scanning, setScanning] = useState(false);
   const [result, setResult] = useState<MLMatchResult | null>(null);
@@ -74,7 +76,7 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
             <div className="w-full md:w-1/2 bg-[#f0ebe6] border-b md:border-b-0 md:border-r border-black/[0.06] relative flex flex-col items-center justify-center p-6 h-[240px] md:h-full">
               {imageSrc ? (
                 <div className="w-full h-full relative rounded-2xl overflow-hidden bg-white border border-black/[0.06]">
-                  <img src={imageSrc} alt="Preview" className="w-full h-full object-cover" />
+                  <img src={imageSrc} alt={t("shared.visualLens.previewAlt")} className="w-full h-full object-cover" />
                   {scanning && <div className="absolute inset-0 bg-sky-500/5 flex items-center justify-center"><div className="w-8 h-8 rounded-full border-2 border-[#A3B18A] border-t-transparent animate-spin" /></div>}
                 </div>
               ) : (
@@ -82,8 +84,8 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
                   <div className="w-14 h-14 rounded-full bg-[#A3B18A]/10 border border-[#A3B18A]/20 flex items-center justify-center text-[#A3B18A] mb-3">
                     <FontAwesomeIcon icon={faCamera} className="text-xl" />
                   </div>
-                  <h5 className="text-sm font-bold text-[#0A0A0A] uppercase tracking-wider mb-1">Tap to Upload</h5>
-                  <p className="text-sm text-black/50 max-w-[180px] leading-relaxed">Upload a photo to discover its Malang location</p>
+                  <h5 className="text-sm font-bold text-[#0A0A0A] uppercase tracking-wider mb-1">{t("shared.visualLens.uploadTitle")}</h5>
+                  <p className="text-sm text-black/50 max-w-[180px] leading-relaxed">{t("shared.visualLens.uploadDescription")}</p>
                 </div>
               )}
               <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" className="hidden" />
@@ -93,22 +95,22 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#A3B18A]" />
-                  <span className="text-sm font-black uppercase tracking-widest text-[#A3B18A]">Malang Photo Finder</span>
+                  <span className="text-sm font-black uppercase tracking-widest text-[#A3B18A]">{t("shared.visualLens.title")}</span>
                 </div>
                 {scanning && (
                   <div className="space-y-3 py-4">
                     <div className="flex items-center gap-2 text-sm text-black/60 font-medium">
                       <FontAwesomeIcon icon={faSpinner} className="animate-spin text-[#A3B18A]" />
-                      <span>Identifying location...</span>
+                      <span>{t("shared.visualLens.identifying")}</span>
                     </div>
-                    <div className="bg-white border border-black/[0.06] p-4 rounded-xl text-sm text-black/50">Comparing your photo against known Malang landmarks...</div>
+                    <div className="bg-white border border-black/[0.06] p-4 rounded-xl text-sm text-black/50">{t("shared.visualLens.identifyingDescription")}</div>
                   </div>
                 )}
                 {!scanning && isUnknown && (
-                  <div className="py-8 text-center"><h4 className="text-base font-bold text-[#0A0A0A] mb-2">Not Recognized</h4><p className="text-sm text-black/50">This photo doesn't match any Malang landmark.</p></div>
+                  <div className="py-8 text-center"><h4 className="text-base font-bold text-[#0A0A0A] mb-2">{t("shared.visualLens.notRecognizedTitle")}</h4><p className="text-sm text-black/50">{t("shared.visualLens.notRecognizedDescription")}</p></div>
                 )}
                 {!scanning && !result && !isUnknown && (
-                  <div className="py-8 text-center"><p className="text-sm text-black/50">Upload a photo to identify which Malang landmark it is.</p></div>
+                  <div className="py-8 text-center"><p className="text-sm text-black/50">{t("shared.visualLens.emptyDescription")}</p></div>
                 )}
                 {!scanning && result && !isUnknown && (
                   <div className="space-y-4">
@@ -123,7 +125,7 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
                     <p className="text-sm text-black/70">{result.description}</p>
                     {candidates.length > 0 && (
                       <div className="pt-2 border-t border-black/[0.06]">
-                        <span className="block text-sm font-bold text-black/40 uppercase mb-2">Other possibilities</span>
+                        <span className="block text-sm font-bold text-black/40 uppercase mb-2">{t("shared.visualLens.otherPossibilities")}</span>
                         {candidates.map((cand) => (
                           <button key={cand.slug} onClick={() => setResult(cand)}
                             className="flex items-center justify-between w-full p-2.5 rounded-xl bg-white hover:bg-black/[0.02] border border-black/[0.06] text-left transition-all cursor-pointer mb-1.5">
@@ -141,12 +143,12 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
                   <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(result.name + ' Malang Indonesia')}`} target="_blank" rel="noopener noreferrer"
                     className="w-full px-4 py-3 bg-[#A3B18A] hover:bg-[#8a9e75] text-white text-sm font-bold uppercase rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
                     <FontAwesomeIcon icon={faMapLocationDot} />
-                    <span>Navigate in Google Maps</span>
+                    <span>{t("shared.visualLens.navigate")}</span>
                   </a>
                   <a href={`/place/${result.slug}`} onClick={onClose}
                     className="w-full px-4 py-3 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black text-sm font-bold uppercase rounded-xl flex items-center justify-center gap-2 transition-all">
                     <FontAwesomeIcon icon={faEye} />
-                    <span>Explore Details</span>
+                    <span>{t("shared.visualLens.exploreDetails")}</span>
                   </a>
                 </div>
               )}
@@ -154,7 +156,7 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
                 <button onClick={() => fileInputRef.current?.click()}
                   className="w-full px-4 py-3 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black text-sm font-bold uppercase rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
                   <FontAwesomeIcon icon={faCamera} className="text-[#A3B18A]" />
-                  <span>Select Image</span>
+                  <span>{t("shared.visualLens.selectImage")}</span>
                 </button>
               )}
             </div>

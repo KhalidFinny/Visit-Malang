@@ -216,13 +216,13 @@ export default function HeroMap({ category: initialCategory, onClose }: HeroMapP
       `}</style>
 
       {/* ── Top Header Controls Overlay ────────────────────────── */}
-      <div className="absolute top-4 inset-x-4 z-[600] flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between pointer-events-none">
+      <div className="absolute top-20 sm:top-4 inset-x-3 sm:inset-x-4 z-[600] flex flex-col md:flex-row gap-2 sm:gap-3 items-stretch md:items-center justify-between pointer-events-none">
         
-        {/* Back Button (Highly Seeable, Solid Swiss layout, No arrow) */}
+        {/* Back Button */}
         {onClose && (
           <button
             onClick={onClose}
-            className="pointer-events-auto flex items-center justify-center px-6 py-3 bg-[#0A0A0A] border border-[#0A0A0A] text-white hover:bg-white hover:text-[#0A0A0A] rounded-xl text-sm font-black uppercase tracking-[0.16em] transition-all duration-300 cursor-pointer shadow-md select-none"
+            className="pointer-events-auto self-start md:self-auto flex items-center justify-center px-3.5 py-2 sm:px-6 sm:py-3 bg-[#0A0A0A] border border-[#0A0A0A] text-white hover:bg-white hover:text-[#0A0A0A] rounded-xl text-[11px] sm:text-sm font-black uppercase tracking-[0.14em] sm:tracking-[0.16em] transition-all duration-300 cursor-pointer shadow-md select-none"
           >
             <span>{t('activityDetail.back')}</span>
           </button>

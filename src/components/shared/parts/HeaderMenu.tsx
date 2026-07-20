@@ -13,31 +13,32 @@ import {
 import type { HeaderMenuProps } from '../types';
 
 const LANGUAGES = [
-  { code: 'en', label: 'English', abbr: 'EN' },
-  { code: 'id', label: 'Indonesian', abbr: 'ID' },
-  { code: 'zh', label: 'Chinese', abbr: '中文' },
-  { code: 'ja', label: 'Japanese', abbr: '日本語' },
-  { code: 'ko', label: 'Korean', abbr: '한국어' },
-  { code: 'fr', label: 'French', abbr: 'FR' },
-  { code: 'nl', label: 'Dutch', abbr: 'NL' },
-  { code: 'de', label: 'German', abbr: 'DE' },
-  { code: 'ru', label: 'Russian', abbr: 'RU' },
-  { code: 'es', label: 'Spanish', abbr: 'ES' },
+  { code: 'en', labelKey: 'shared.header.languages.en', abbr: 'EN' },
+  { code: 'id', labelKey: 'shared.header.languages.id', abbr: 'ID' },
+  { code: 'zh', labelKey: 'shared.header.languages.zh', abbr: '中文' },
+  { code: 'ja', labelKey: 'shared.header.languages.ja', abbr: '日本語' },
+  { code: 'ko', labelKey: 'shared.header.languages.ko', abbr: '한국어' },
+  { code: 'fr', labelKey: 'shared.header.languages.fr', abbr: 'FR' },
+  { code: 'nl', labelKey: 'shared.header.languages.nl', abbr: 'NL' },
+  { code: 'de', labelKey: 'shared.header.languages.de', abbr: 'DE' },
+  { code: 'ru', labelKey: 'shared.header.languages.ru', abbr: 'RU' },
+  { code: 'es', labelKey: 'shared.header.languages.es', abbr: 'ES' },
 ];
 
 export default function HeaderMenu({
   onOpenPassport,
   onOpenPostcard,
 }: HeaderMenuProps) {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
 
   const toolsRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
 
-  const currentLangCode = i18n.language?.split('-')[0] || 'en';
-  const currentLang = LANGUAGES.find((l) => l.code === currentLangCode) || LANGUAGES[0];
+  const currentLangCode = i18n.language?.split('-')[0] || 'id';
+  const currentLang = LANGUAGES.find((l) => l.code === currentLangCode) || LANGUAGES[1];
+  const currentLangLabel = t(currentLang.labelKey);
 
   // Close dropdowns on click outside or ESC key
   useEffect(() => {
@@ -68,6 +69,8 @@ export default function HeaderMenu({
   }, [isToolsOpen, isLangOpen]);
 
   const changeLanguage = (code: string) => {
+    localStorage.setItem('malangLanguage', code);
+    document.documentElement.lang = code;
     i18n.changeLanguage(code);
     setIsLangOpen(false);
   };
@@ -91,8 +94,8 @@ export default function HeaderMenu({
           aria-expanded={isToolsOpen}
         >
           <FontAwesomeIcon icon={faSliders} className="text-sm text-[#7a9e64]" />
-          <span className="hidden sm:inline">Exploration Tools</span>
-          <span className="sm:hidden">Tools</span>
+          <span className="hidden sm:inline">{t('shared.header.tools')}</span>
+          <span className="sm:hidden">{t('shared.header.toolsShort')}</span>
           <FontAwesomeIcon
             icon={faChevronDown}
             className={`text-sm opacity-60 transition-transform duration-300 ${
@@ -113,7 +116,7 @@ export default function HeaderMenu({
             >
               <div className="mb-3">
                 <span className="text-sm font-black uppercase tracking-widest text-black/45">
-                  Interactive Features
+                  {t('shared.header.interactiveFeatures')}
                 </span>
               </div>
 
@@ -131,10 +134,10 @@ export default function HeaderMenu({
                     </div>
                     <div>
                       <span className="text-sm font-black uppercase tracking-wider block leading-tight text-black">
-                        Stamp Passport
+                        {t('shared.header.passport.title')}
                       </span>
                       <span className="text-sm text-black/45 font-medium block mt-0.5">
-                        GPS & Photo Landmark Stamps
+                        {t('shared.header.passport.description')}
                       </span>
                     </div>
                   </div>
@@ -154,10 +157,10 @@ export default function HeaderMenu({
                     </div>
                     <div>
                       <span className="text-sm font-black uppercase tracking-wider block leading-tight text-black">
-                        Postcard Maker
+                        {t('shared.header.postcard.title')}
                       </span>
                       <span className="text-sm text-black/45 font-medium block mt-0.5">
-                        Custom Visual Souvenirs
+                        {t('shared.header.postcard.description')}
                       </span>
                     </div>
                   </div>
@@ -206,14 +209,14 @@ export default function HeaderMenu({
             >
               <div className="flex items-center justify-between mb-1">
                 <span className="text-sm font-black uppercase tracking-widest text-[#7a9e64]">
-                  🌐 Guide Language
+                  {t('shared.header.guideLanguage')}
                 </span>
                 <span className="text-sm font-mono font-bold text-black/50">
-                  {currentLang.label}
+                  {currentLangLabel}
                 </span>
               </div>
               <p className="text-sm text-black/45 font-medium leading-normal mb-3">
-                Translate all maps, history timelines, and travel advisor details instantly.
+                {t('shared.header.guideLanguageDescription')}
               </p>
 
               <div className="grid grid-cols-2 gap-1.5 max-h-[160px] overflow-y-auto pr-1">
@@ -229,7 +232,7 @@ export default function HeaderMenu({
                           : 'bg-black/[0.02] border border-black/5 text-black/75 hover:bg-black/8 hover:text-black'
                       }`}
                     >
-                      <span className="truncate">{lang.label}</span>
+                      <span className="truncate">{t(lang.labelKey)}</span>
                       {isSelected && (
                         <FontAwesomeIcon icon={faCheck} className="text-sm text-[#7a9e64]" />
                       )}

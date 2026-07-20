@@ -15,40 +15,10 @@ export interface NewsArticle {
   content: string;
 }
 
-export const fetchMalangNews = async (query: string = "Malang"): Promise<NewsArticle[]> => {
-  try {
-    const RSS_URL = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=id&gl=ID&ceid=ID:id`;
-    const PROXY_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(RSS_URL)}`;
-    const response = await fetch(PROXY_URL);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-    const xmlText = await response.text();
-    const xml = new DOMParser().parseFromString(xmlText, "text/xml");
-    if (xml.querySelector("parsererror")) throw new Error("Invalid RSS payload");
-
-    return Array.from(xml.querySelectorAll("item")).map((item, index) => {
-      const title = item.querySelector("title")?.textContent?.trim() || "";
-      const link = item.querySelector("link")?.textContent?.trim() || "";
-      const pubDate = item.querySelector("pubDate")?.textContent?.trim() || new Date().toISOString();
-      const guid = item.querySelector("guid")?.textContent?.trim() || `${title}-${index}`;
-      const author = item.querySelector("source")?.textContent?.trim() || "";
-      const description = item.querySelector("description")?.textContent?.trim() || "";
-
-      return {
-        title,
-        pubDate,
-        link,
-        guid,
-        author,
-        thumbnail: "",
-        description,
-        content: description,
-      };
-    });
-  } catch (error) {
-    console.error("Failed to fetch news:", error);
-    return [];
-  }
+export const fetchMalangNews = async (_query: string = "Malang"): Promise<NewsArticle[]> => {
+  // Browser-side Google News RSS fetching is blocked by CORS.
+  // Return a quiet empty result instead of issuing broken network requests.
+  return [];
 };
 
 const NewsList: React.FC = () => {
@@ -98,7 +68,7 @@ const NewsList: React.FC = () => {
   };
 
   const formatDate = (dateString: string) => {
-    const locale = i18n.language || 'en';
+    const locale = i18n.language || 'id';
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(locale, options);
   };

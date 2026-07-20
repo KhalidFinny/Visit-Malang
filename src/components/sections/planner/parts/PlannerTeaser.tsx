@@ -15,7 +15,7 @@ export default function PlannerTeaser({ onOpen }: PlannerTeaserProps) {
         <div className="absolute inset-0">
           <img 
             src="/locations/nature/gunung-bromo/cover.webp"
-            alt="Mt. Bromo Landscape" 
+            alt={t('planner.teaser.imageAlt')}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
           {/* Dark Gradient Overlay for optimal legibility */}
@@ -87,7 +87,7 @@ export default function PlannerTeaser({ onOpen }: PlannerTeaserProps) {
         {/* 3. Small Subtle Credit Footer */}
         <div className="relative z-20 w-full pt-8 text-center select-none">
           <p className="text-[10px] sm:text-xs font-semibold text-white/40 tracking-widest uppercase">
-            {t('planner.teaser.footer')} &bull; &copy; {new Date().getFullYear()} Team Khalid &amp; Resty. All rights reserved.
+            {t('planner.teaser.footer')} &bull; &copy; {new Date().getFullYear()} Team Khalid &amp; Resty. {t('planner.teaser.rightsReserved')}
           </p>
         </div>
 

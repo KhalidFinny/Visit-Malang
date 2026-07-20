@@ -27,7 +27,7 @@ export default function CultureStage() {
         backgroundColor: i === index ? palette.primary : "rgba(0,0,0,0.15)",
         transform: i === index ? "scale(1.4)" : "scale(1)",
       }}
-      aria-label={`Go to ${CULTURE_ENTRIES[i].title}`}
+      aria-label={t("culture.goToStory", { title: CULTURE_ENTRIES[i].title })}
     />
   );
 

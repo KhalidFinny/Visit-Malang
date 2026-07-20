@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -10,16 +10,13 @@ const NewsDetail: React.FC = () => {
   const { t, i18n } = useTranslation();
   const article = location.state?.article as NewsArticle;
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   if (!article) {
     return <Navigate to="/news" replace />;
   }
 
   const formatDate = (dateString: string) => {
-    const locale = i18n.language || 'en';
+    const locale = i18n.language || 'id';
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
     return new Date(dateString).toLocaleDateString(locale, options);
   };

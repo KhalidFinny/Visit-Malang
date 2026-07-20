@@ -28,7 +28,7 @@ export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const currentLang = LANGUAGES.find(l => l.code === (i18n.language?.split('-')[0] || 'en')) || LANGUAGES[0];
+  const currentLang = LANGUAGES.find(l => l.code === (i18n.language?.split('-')[0] || 'id')) || LANGUAGES[1];
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -70,6 +70,8 @@ export default function LanguageSwitcher() {
               <button
                 key={lang.code}
                 onClick={() => {
+                  localStorage.setItem('malangLanguage', lang.code);
+                  document.documentElement.lang = lang.code;
                   i18n.changeLanguage(lang.code);
                   setIsOpen(false);
                 }}

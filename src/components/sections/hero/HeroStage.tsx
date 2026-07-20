@@ -85,10 +85,10 @@ export default function HeroStage() {
         </div>
 
         {/* Live Weather + Time Widget in top-left banner */}
-        <div className="absolute left-4 top-4 sm:left-6 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-xs sm:text-sm tracking-wider select-none">
+        <div className="absolute left-1/2 -translate-x-1/2 top-20 sm:left-6 sm:translate-x-0 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-xs sm:text-sm tracking-wider select-none rounded-full bg-black/25 backdrop-blur-md px-4 py-2 sm:rounded-none sm:bg-transparent sm:px-0 sm:py-0 sm:backdrop-blur-0">
           <div className="flex flex-col">
             <span className="text-[10px] sm:text-xs text-white/60 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
-            <span className="font-semibold text-white mt-1 text-xs sm:text-sm">{currentTime || "--:--:--"} WIB</span>
+            <span className="font-semibold text-white mt-1 text-xs sm:text-sm">{currentTime || "--:--:--"} {t("hero.map.timeZone")}</span>
           </div>
           <div className="h-5 sm:h-6 w-px bg-white/20" />
           {weatherData && (

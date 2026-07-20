@@ -55,7 +55,7 @@ export default function HistoryList() {
                     : 'bg-white/50 border-black/10 text-black/55 hover:border-black/20 hover:bg-white/70'
                 }`}
               >
-                {period.label}
+                {t(`history.periods.${period.key}.label`)}
               </button>
             );
           })}
@@ -64,10 +64,10 @@ export default function HistoryList() {
         {/* Section Header */}
         <div className="mb-10 sm:mb-14">
           <h1 className="text-editorial text-[clamp(2.75rem,5.5vw,5.5rem)] text-[#1a1a1a] leading-[0.9] tracking-tight mb-4 font-black uppercase">
-            {activePeriod.label}
+            {t(`history.periods.${activePeriod.key}.label`)}
           </h1>
           <p className="text-base sm:text-lg text-[#1a1a1a]/60 font-medium leading-relaxed max-w-3xl">
-            {activePeriod.summary}
+            {t(`history.periods.${activePeriod.key}.summary`)}
           </p>
         </div>
 

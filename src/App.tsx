@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef } from "react";
+import { Routes, Route, useLocation, useNavigationType } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Experience from "./components/Experience";
 
@@ -44,7 +44,40 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 
 function App() {
   const location = useLocation();
+  const navigationType = useNavigationType();
+  const scrollPositions = useRef<Record<string, number>>({});
+  const scrollKey = `${location.pathname}${location.search}`;
+  
+  useEffect(() => {
+    return () => {
+      scrollPositions.current[scrollKey] = window.scrollY;
+    };
+  }, [scrollKey]);
 
+  useLayoutEffect(() => {
+    if (navigationType !== "POP") return;
+    const restoreY = scrollPositions.current[scrollKey];
+    if (typeof restoreY !== "number") return;
+
+    let frameId = 0;
+    let attempts = 0;
+    const restore = () => {
+      const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      const targetY = Math.min(restoreY, maxScroll);
+      window.scrollTo(0, targetY);
+
+      if (attempts < 12 && Math.abs(window.scrollY - targetY) > 2) {
+        attempts += 1;
+        frameId = requestAnimationFrame(restore);
+      }
+    };
+
+    frameId = requestAnimationFrame(() => {
+      frameId = requestAnimationFrame(restore);
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [navigationType, scrollKey]);
   const routedContent = (
     <Suspense fallback={<PageFallback />}>
       <AnimatePresence initial={false} mode="popLayout">

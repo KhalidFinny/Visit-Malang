@@ -95,9 +95,9 @@ export default function PlannerInputs({
       {step === 1 && (
         <div className="flex flex-col gap-5 text-center max-w-2xl mx-auto w-full px-4">
           <div className="flex flex-col gap-1">
-            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">Step 1 of 3</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">{t('planner.input.stepLabel', { current: 1, total: 3 })}</span>
             <h3 className="text-xl font-bold text-black uppercase tracking-tight">{t('planner.input.month')}</h3>
-            <p className="text-sm text-black/40 font-medium">When do you plan to explore Malang?</p>
+            <p className="text-sm text-black/40 font-medium">{t('planner.input.monthPrompt')}</p>
           </div>
           <div className="grid grid-cols-3 gap-2 sm:gap-2.5 pt-2">
             {MONTH_SHORT_KEYS.map((key, idx) => (
@@ -121,9 +121,9 @@ export default function PlannerInputs({
       {step === 2 && (
         <div className="flex flex-col gap-5 text-center max-w-3xl mx-auto w-full px-4">
           <div className="flex flex-col gap-1">
-            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">Step 2 of 3</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">{t('planner.input.stepLabel', { current: 2, total: 3 })}</span>
             <h3 className="text-xl font-bold text-black uppercase tracking-tight">{t('planner.input.travelStyle')}</h3>
-            <p className="text-sm text-black/40 font-medium">Choose a style that matches your budget and comfort preference.</p>
+            <p className="text-sm text-black/40 font-medium">{t('planner.input.travelStylePrompt')}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             {(["backpacker", "balanced", "luxury"] as BudgetTier[]).map((tier) => {
@@ -165,7 +165,7 @@ export default function PlannerInputs({
       {step === 3 && (
         <div className="flex flex-col gap-5 text-center max-w-2xl mx-auto w-full px-4">
           <div className="flex flex-col gap-1">
-            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">Step 3 of 3</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">{t('planner.input.stepLabel', { current: 3, total: 3 })}</span>
             <h3 className="text-xl font-bold text-black uppercase tracking-tight">{t('planner.input.currency')}</h3>
             <p className="text-sm text-black/45 font-medium">{t('planner.input.estimatesAdapt')}</p>
           </div>

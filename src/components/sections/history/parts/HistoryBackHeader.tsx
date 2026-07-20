@@ -14,7 +14,7 @@ export default function HistoryBackHeader({ onBack }: HistoryBackHeaderProps) {
         icon={faArrowLeft}
         onClick={onBack}
         direction="left"
-        ariaLabel="Back"
+        ariaLabel={t('history.backToHistory')}
         className="text-[#0A0A0A]/40 hover:text-[#0A0A0A]"
       />
       <span className="text-sm font-black uppercase tracking-[0.2em] text-[#3A5A3A]">
