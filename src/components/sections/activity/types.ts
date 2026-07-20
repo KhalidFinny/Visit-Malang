@@ -68,7 +68,7 @@ export type Place = {
   thingsToDo: Activity[];
   visitorTips?: VisitorTips;
   tips: string[];
-  bestTime: BestTime[];
+  bestTime?: BestTime[];
   howToGetThere?: HowToGetThere;
   facilities?: string[];
   foodNearby?: string[];

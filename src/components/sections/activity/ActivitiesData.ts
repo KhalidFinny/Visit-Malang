@@ -13,7 +13,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Taman Nasional Bromo Tengger Semeru, Jawa Timur",
           "hours": "Buka 24 Jam",
-          "price": "Rp 29.000 (Lokal, Weekday) / Rp 220.000 (Mancanegara)",
+          "price": "Rp 29.000 (Domestic, Weekday) / Rp 34.500 (Domestic, Weekend) / Rp 220.000 (Foreign Tourist)",
           "ticketLink": "https://bookingbromo.bromotenggersemeru.org/",
           "rating": "4.8/5",
           "category": "Alam / Petualangan / Budaya"
@@ -148,7 +148,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Sidomulyo, Pronojiwo, Kabupaten Lumajang, Jawa Timur",
           "hours": "07:00 – 17:00 WIB",
-          "price": "Rp 10.000 (Domestik) / Rp 20.000 (Mancanegara)",
+          "price": "Rp 10.000 (Domestic) / Rp 20.000 (Foreign Tourist)",
           "rating": "4.7/5",
           "category": "Alam / Air Terjun"
         },
@@ -237,7 +237,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Sendang Biru, Sumbermanjing Wetan, Kabupaten Malang, Jawa Timur",
           "hours": "06:00 – 16:00 WIB",
-          "price": "Rp 15.000 / orang + Pemandu Wajib (Rp 150.000 per 10 orang)",
+          "price": "Rp 15.000 / person + Mandatory guide fee (Rp 150.000 per group of 10)",
           "rating": "4.6/5",
           "category": "Pantai / Konservasi"
         },
@@ -417,7 +417,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Kecamatan Sumbermanjing Wetan, Kabupaten Malang, Jawa Timur",
           "hours": "Perizinan Khusus BKSDA (Akses Terbatas)",
-          "price": "Sewa Perahu Nelayan Sendang Biru (± Rp 150.000) + Registrasi Perizinan",
+          "price": "Free entrance (Sendangbiru beach fee + boat rental ±Rp 150.000/boat + BKSDA permit required)",
           "rating": "4.7/5",
           "category": "Pulau / Cagar Alam"
         },
@@ -501,7 +501,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Kreweh, Gunungrejo, Singosari, Kabupaten Malang, Jawa Timur",
           "hours": "Buka 24 Jam",
-          "price": "Rp 10.000 / orang",
+          "price": "Rp 10.000 – Rp 15.000 / person",
           "rating": "4.4/5",
           "category": "Bukit / Pendakian / Camping"
         },
@@ -592,7 +592,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Wonosari Tea Plantation, Malang, Jawa Timur",
           "hours": "08:00 WIB - 17:00 WIB",
-          "price": "Rp 15.000",
+          "price": "Rp 15.000 (Weekday) / Rp 20.000 (Weekend)",
           "rating": "4.5/5",
           "category": "Nature Seeker"
         },
@@ -646,12 +646,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Golden Hour",
+            "label": "Early Morning",
+            "value": "06:00 – 09:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "90%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – September",
+            "value": "Best plantation conditions",
+            "color": "#378ADD",
+            "intensity": "70%"
           }
         ],
         "location": {
@@ -672,7 +680,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Coban Rondo Waterfall, Malang, Jawa Timur",
           "hours": "08:00 WIB - 17:00 WIB",
-          "price": "Rp 15.000",
+          "price": "Rp 35.000 – Rp 40.000 (includes access to several park attractions)",
           "rating": "4.5/5",
           "category": "Nature Seeker"
         },
@@ -727,12 +735,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Best Light",
+            "label": "Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Clearer skies & trails",
+            "color": "#378ADD",
+            "intensity": "65%"
           }
         ],
         "location": {
@@ -753,7 +769,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Paralayang Batu (omah Kayu), Malang, Jawa Timur",
           "hours": "08:00 WIB - 17:00 WIB",
-          "price": "Rp 15.000",
+          "price": "Rp 5.000 – Rp 15.000 (area entrance) / Rp 400.000 – Rp 500.000 (tandem paragliding)",
           "rating": "4.5/5",
           "category": "Nature Seeker"
         },
@@ -788,13 +804,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Sightseeing & Walks",
             "desc": "Enjoy the pristine views and crisp highland air.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+            "image": "/locations/nature/paralayang-batu/omah-kayu.webp"
           },
           {
             "title": "Nature Photography",
             "desc": "Capture the stunning natural landscapes and scenic backdrops.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+            "image": "/locations/nature/paralayang-batu/spot-foto.webp"
           }
         ],
         "visitorTips": {
@@ -818,16 +834,24 @@ export const activitiesData: Record<string, Category> = {
         "bestTime": [
           {
             "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "badge": "Thermal Winds",
+            "label": "Mid Morning",
+            "value": "09:00 – 13:00 WIB",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "90%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – September",
+            "value": "Stable thermals & clear skies",
+            "color": "#378ADD",
+            "intensity": "70%"
           }
         ],
         "location": {
-          "lat": -7.87,
-          "lng": 112.525
+          "lat": -7.85494,
+          "lng": 112.49728
         },
         "funFacts": [
           "Mount Banyak, where the launch site is located, is one of the highest points in Batu, offering a nearly 360-degree view of the Malang highland basin.",
@@ -843,7 +867,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Selecta Park, Malang, Jawa Timur",
           "hours": "08:00 WIB - 17:00 WIB",
-          "price": "Rp 15.000",
+          "price": "Rp 50.000 / person",
           "rating": "4.5/5",
           "category": "Nature Seeker"
         },
@@ -897,17 +921,25 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "icon": "sunrise",
+            "badge": "Best Light",
+            "label": "Morning",
+            "value": "08:00 – 11:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Less crowded",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "60%"
           }
         ],
         "location": {
-          "lat": -7.87,
-          "lng": 112.525
+          "lat": -7.82322,
+          "lng": 112.52793
         },
         "funFacts": [
           "Selecta was built in 1928 by Dutch settler Ruyter de Wildt, originally as a private highland resort for colonial European elites who sought cool mountain air.",
@@ -923,7 +955,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Coban Rais, Malang, Jawa Timur",
           "hours": "08:00 WIB - 17:00 WIB",
-          "price": "Rp 15.000",
+          "price": "Rp 10.000 – Rp 12.500 (park entrance) / +Rp 25.000 (Batu Flower Garden)",
           "rating": "4.5/5",
           "category": "Nature Seeker"
         },
@@ -976,12 +1008,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Best Light",
+            "label": "Morning",
+            "value": "07:30 – 10:30 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Clear paths & waterfalls",
+            "color": "#378ADD",
+            "intensity": "65%"
           }
         ],
         "location": {
@@ -1008,7 +1048,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Jl. Kartika No. 2, Sisir, Kecamatan Batu, Kota Batu, Jawa Timur",
           "hours": "08:30 – 16:30 WIB",
-          "price": "Rp 100.000 (Weekday) / Rp 120.000 (Weekend)",
+          "price": "Rp 115.000 – Rp 125.000 (JP1 + Museum Tubuh combo) / Rp 150.000 – Rp 170.000 (JP1 + Museum Angkut combo)",
           "rating": "4.6/5",
           "category": "Amusement Park / Educational Site"
         },
@@ -1098,7 +1138,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Jl. Terusan Sultan Agung No. 2, Ngaglik, Kota Batu, Jawa Timur",
           "hours": "12:00 – 20:00 WIB",
-          "price": "Rp 100.000 (General) + Camera Ticket (Rp 30.000)",
+          "price": "Rp 110.000 – Rp 120.000 / person (weekday / weekend)",
           "rating": "4.8/5",
           "category": "Transportation Museum / Interactive Arts"
         },
@@ -1133,19 +1173,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Auto Collection",
             "desc": "Browse through over 300 classic and historical vehicles from traditional carriages to modern supercars.",
             "difficulty": "Mudah",
-            "image": "https://images.unsplash.com/photo-1551522435-a13afa10f103?auto=format&fit=crop&q=80&w=800"
+            "image": "/locations/fun/museum-angkut/koleksi-kendaraan.webp"
           },
           {
             "title": "Hollywood Zone",
             "desc": "Take photos alongside life-size movie character models and vintage vehicle replicas in Hollywood sets.",
             "difficulty": "Mudah",
-            "image": "https://images.unsplash.com/photo-1551522435-a13afa10f103?auto=format&fit=crop&q=80&w=800"
+            "image": "/locations/fun/museum-angkut/koleksi-kendaraan.webp"
           },
           {
             "title": "European Walk",
             "desc": "Stroll down the British, French, and Italian themed streets complete with vintage Vespas and retro backdrops.",
             "difficulty": "Mudah",
-            "image": "https://images.unsplash.com/photo-1551522435-a13afa10f103?auto=format&fit=crop&q=80&w=800"
+            "image": "/locations/fun/museum-angkut/koleksi-kendaraan.webp"
           }
         ],
         "visitorTips": {
@@ -1204,7 +1244,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Jatim Park 2 (secret Zoo), Malang, Jawa Timur",
           "hours": "09:30 – 17:30 WIB",
-          "price": "Rp 140.000 (Weekday) / Rp 170.000 (Weekend - Combo)",
+          "price": "From Rp 125.000 (includes Museum Satwa) / Combo packages available",
           "rating": "4.5/5",
           "category": "Modern Zoo / Natural History Museum"
         },
@@ -1259,21 +1299,30 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "icon": "sunrise",
+            "badge": "Animal Feeding",
+            "label": "Morning",
+            "value": "09:30 – 12:00 WIB",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Shorter queues & cooler air",
+            "color": "#378ADD",
+            "intensity": "60%"
           }
         ],
         "location": {
-          "lat": -7.87,
-          "lng": 112.525
+          "lat": -7.888,
+          "lng": 112.5296
         },
         "funFacts": [
           "Batu Secret Zoo is consistently ranked as one of the best and cleanest modern zoos in Asia.",
-          "Museum Satwa contains a giant replica of a prehistoric T-Rex skeleton and mammoth fossils."
+          "Museum Satwa contains a giant replica of a prehistoric T-Rex skeleton and mammoth fossils.",
+          "The zoo features a unique water park and custom-designed animal-shaped boats to sail around the central primate island."
         ],
         "closingCTA": "Explore a world-class modern zoo and marvel at wildlife diversity from all over the globe!"
       },
@@ -1285,7 +1334,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Jatim Park 3 (dino Park), Malang, Jawa Timur",
           "hours": "11:00 – 20:00 WIB",
-          "price": "Rp 100.000 (Dino Park) / Combo tickets available",
+          "price": "Rp 100.000 – Rp 190.000 (depending on zone & day type) / Combo packages available",
           "rating": "4.5/5",
           "category": "Dinosaur Theme Park / Wax Museum"
         },
@@ -1339,20 +1388,29 @@ export const activitiesData: Record<string, Category> = {
         "bestTime": [
           {
             "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "badge": "Best Lighting",
+            "label": "Late Afternoon",
+            "value": "15:00 – 18:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "80%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Avoid weekend crowd peaks",
+            "color": "#378ADD",
+            "intensity": "60%"
           }
         ],
         "location": {
-          "lat": -7.87,
-          "lng": 112.525
+          "lat": -7.8969,
+          "lng": 112.5532
         },
         "funFacts": [
           "The animatronic dinosaurs in Dino Park are built to scale and move dynamically with authentic sound effects.",
-          "The Legend Star wax figures are crafted by professional artists with high-fidelity details."
+          "The Legend Star wax figures are crafted by professional artists with high-fidelity details.",
+          "The park's signature '5 Eras of Dinosaurs' ride takes visitors on a large train through highly realistic animatronic dinosaur eras."
         ],
         "closingCTA": "Travel back in time to the age of dinosaurs and stand next to world icons at Jatim Park 3!"
       },
@@ -1364,7 +1422,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Batu Night Spectacular, Malang, Jawa Timur",
           "hours": "15:00 – 23:00 WIB",
-          "price": "Rp 40.000 (Entrance) / Rp 120.000 (All-inclusive ride pass)",
+          "price": "Rp 35.000 (Weekday) / Rp 40.000 (Weekend) entrance / Rp 110.000 (Weekday) / Rp 120.000 (Weekend) all-ride pass",
           "rating": "4.5/5",
           "category": "Night Amusement Park / Light Show"
         },
@@ -1418,12 +1476,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "moon",
+            "badge": "Full Lights",
+            "label": "Night",
+            "value": "18:30 – 22:00 WIB",
+            "color": "#6C63FF",
+            "intensity": "95%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Thu",
+            "value": "Fewer crowds, faster entry",
+            "color": "#378ADD",
+            "intensity": "55%"
           }
         ],
         "location": {
@@ -1432,7 +1498,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "It is the first night-themed amusement park in Malang Raya, operating fully after dark.",
-          "The Lampion Garden features a giant lantern castle that serves as a popular photo background."
+          "The Lampion Garden features a giant lantern castle that serves as a popular photo background.",
+          "BNS features a stunning Lantern Garden filled with elaborate, glowing light installations shaped like castles, animals, and flowers."
         ],
         "closingCTA": "Experience the magic of Batu City at night with thrilling carnival rides and glowing lantern gardens!"
       },
@@ -1444,7 +1511,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Kampung Warna Warni Jodipan, Malang, Jawa Timur",
           "hours": "07:00 – 18:00 WIB",
-          "price": "Rp 5.000 (Entrance / includes souvenir)",
+          "price": "Rp 5.000 / person",
           "rating": "4.5/5",
           "category": "Vibrant Art Village / Urban Landmark"
         },
@@ -1479,13 +1546,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Crossing the Glass Bridge",
             "desc": "Cross the transparent glass bridge linking the Jodipan colorful village to the neighboring Tridi village.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/fun/kampung-warna-warni/jembatan-kaca.webp"
           },
           {
             "title": "Mural Hunting & Photography",
             "desc": "Discover and photograph 3D wall art and painted staircases.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/fun/kampung-warna-warni/lorong-warna-warni.webp"
           }
         ],
         "visitorTips": {
@@ -1509,12 +1576,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "icon": "sunrise",
+            "badge": "Golden Light",
+            "label": "Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "90%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Quieter streets, better photos",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "60%"
           }
         ],
         "location": {
@@ -1523,7 +1598,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "The village was once a neglected riverside slum before local university students collaborated to paint it.",
-          "It is now recognized as one of the most successful community-driven urban revitalizations in Indonesia."
+          "It is now recognized as one of the most successful community-driven urban revitalizations in Indonesia.",
+          "The village was once a slum area before 8 public relations students from a local university initiated the painting project in 2016 to improve sanitation and tourism."
         ],
         "closingCTA": "Stroll through the most colorful alleys in Indonesia and cross the thrilling glass bridge over Brantas River!"
       },
@@ -1535,7 +1611,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Malang Night Paradise, Malang, Jawa Timur",
           "hours": "17:45 – 23:00 WIB",
-          "price": "Rp 50.000 (Weekday) / Rp 65.000 (Weekend)",
+          "price": "Rp 75.000 (Weekday) / Rp 80.000 (Weekend) / All-ride pass from Rp 160.000",
           "rating": "4.5/5",
           "category": "LED Theme Park / Night Carnival"
         },
@@ -1589,21 +1665,30 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "moon",
+            "badge": "Full Illumination",
+            "label": "Night",
+            "value": "17:30 – 22:00 WIB",
+            "color": "#6C63FF",
+            "intensity": "95%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Thu",
+            "value": "Shorter queues for river ride",
+            "color": "#378ADD",
+            "intensity": "55%"
           }
         ],
         "location": {
-          "lat": -7.973,
-          "lng": 112.635
+          "lat": -7.92369,
+          "lng": 112.65795
         },
         "funFacts": [
           "It is one of the largest LED light installations in East Java, featuring millions of high-efficiency color-changing lights.",
-          "The Magic Journey features nine different themed light zones including Japan, Jungle, and Avatar."
+          "The Magic Journey features nine different themed light zones including Japan, Jungle, and Avatar.",
+          "The park features a 500-meter-long glowing Magic Journey river ride where visitors can float through themed illuminated tunnels on inflatable rafts."
         ],
         "closingCTA": "Immerse yourself in a glowing fairytale world of LED forest tunnels and magic river cruises!"
       },
@@ -1615,7 +1700,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Hawai Waterpark, Malang, Jawa Timur",
           "hours": "09:00 – 17:00 WIB",
-          "price": "Rp 75.000 (Weekday) / Rp 100.000 (Weekend)",
+          "price": "Rp 85.000 (Weekday) / Rp 120.000 (Weekend / High Season)",
           "rating": "4.5/5",
           "category": "Hawaiian-themed Waterpark / Wave Pool"
         },
@@ -1670,20 +1755,29 @@ export const activitiesData: Record<string, Category> = {
         "bestTime": [
           {
             "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "badge": "Peak Fun",
+            "label": "Midday",
+            "value": "10:00 – 14:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Much shorter slide queues",
+            "color": "#378ADD",
+            "intensity": "65%"
           }
         ],
         "location": {
-          "lat": -7.9784,
-          "lng": 112.634
+          "lat": -7.92369,
+          "lng": 112.65795
         },
         "funFacts": [
           "The tsunami wave pool uses advanced wave-generation tech to simulate realistic ocean surges safely.",
-          "All slides and pools are monitored continuously by certified lifeguards."
+          "All slides and pools are monitored continuously by certified lifeguards.",
+          "Its main attraction is the Waikiki Wave pool, which produces giant artificial tsunami waves up to 3.5 meters high, making it one of the largest wave pools in Indonesia."
         ],
         "closingCTA": "Experience the ultimate water adventure and ride the massive tsunami waves at Hawai Waterpark!"
       },
@@ -1695,7 +1789,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "San Terra Del Fonte, Malang, Jawa Timur",
           "hours": "08:00 – 17:00 WIB",
-          "price": "Rp 30.000 (Weekday) / Rp 40.000 (Weekend)",
+          "price": "Rp 25.000 (Weekday) / Rp 30.000 – Rp 35.000 (Weekend) + pay-per-ride attractions",
           "rating": "4.5/5",
           "category": "Floral Park / European & Asian Replicas"
         },
@@ -1750,21 +1844,30 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "icon": "sunrise",
+            "badge": "Soft Light",
+            "label": "Morning",
+            "value": "08:00 – 11:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Uncrowded garden & photo spots",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "60%"
           }
         ],
         "location": {
-          "lat": -7.87,
-          "lng": 112.525
+          "lat": -7.816,
+          "lng": 112.472
         },
         "funFacts": [
           "The park hosts over 700 varieties of highland flowers, kept in blooming condition year-round by botanists.",
-          "The replicas of the Dutch windmills and Korean buildings are built in realistic colors and proportions."
+          "The replicas of the Dutch windmills and Korean buildings are built in realistic colors and proportions.",
+          "The park features highly photogenic replicas of colorful European and Korean streets surrounded by massive gardens of seasonal flowers."
         ],
         "closingCTA": "Walk through vibrant European canals and historic Asian streets in a massive upland garden paradise!"
       },
@@ -1776,7 +1879,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Predator Fun Park, Malang, Jawa Timur",
           "hours": "08:30 – 16:30 WIB",
-          "price": "Rp 50.000 (Weekday) / Rp 65.000 (Weekend)",
+          "price": "Free entrance / Pay-per-ride attractions (approx Rp 10.000 – Rp 30.000 per ride)",
           "rating": "4.5/5",
           "category": "Reptile Educational Park / Water Play"
         },
@@ -1832,20 +1935,29 @@ export const activitiesData: Record<string, Category> = {
         "bestTime": [
           {
             "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "badge": "Feeding Time",
+            "label": "Morning",
+            "value": "09:00 – 11:30 WIB",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Crocodiles most active, fewer visitors",
+            "color": "#378ADD",
+            "intensity": "60%"
           }
         ],
         "location": {
-          "lat": -7.87,
-          "lng": 112.525
+          "lat": -7.91307,
+          "lng": 112.54841
         },
         "funFacts": [
           "The park houses over a hundred crocodiles of different species, including saltwater and freshwater crocodiles.",
-          "It is designed to educate families and children about reptiles in a safe and highly engaging setting."
+          "It is designed to educate families and children about reptiles in a safe and highly engaging setting.",
+          "In addition to live crocodiles, the park has a specialized water playground and educational gallery detailing the biology of ancient reptiles."
         ],
         "closingCTA": "Get up close with ancient reptiles and enjoy a fun splash at the crocodile-themed waterpark!"
       }
@@ -1863,7 +1975,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Jalan Jenderal Basuki Rahmat, Klojen, Kota Malang, Jawa Timur",
           "hours": "Open 24 Hours",
-          "price": "Free (General) / Rp 5.000 (Alley Entrance Fee)",
+          "price": "Free (street-level access) / Rp 5.000 (heritage alley entrance)",
           "rating": "4.6/5",
           "category": "Heritage Site / Urban Tourism"
         },
@@ -1998,11 +2110,19 @@ export const activitiesData: Record<string, Category> = {
         "bestTime": [
           {
             "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "badge": "Evening Glow",
+            "label": "Late Afternoon",
+            "value": "16:00 – 19:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "80%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Calm atmosphere, less crowded",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "55%"
           }
         ],
         "location": {
@@ -2011,7 +2131,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "Alun-alun Malang was redesigned as a modern green park, featuring wifi spots, bird cages, and running tracks.",
-          "The central banyan trees in the square have stood for over a century, providing massive shade."
+          "The central banyan trees in the square have stood for over a century, providing massive shade.",
+          "The square is famous for its large populations of friendly pigeons and is surrounded by historic colonial-era landmarks like the Great Mosque."
         ],
         "closingCTA": "Relax in the green heart of Malang and soak in the city's historic ambiance."
       },
@@ -2023,7 +2144,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Candi Singosari, Malang, Jawa Timur",
           "hours": "08:00 – 17:00 WIB",
-          "price": "Rp 10.000",
+          "price": "Free (voluntary donation)",
           "rating": "4.5/5",
           "category": "Historical Temple / Archaeological Site"
         },
@@ -2053,13 +2174,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Relief Deciphering",
             "desc": "Study the ancient stone carvings depicting Hindu mythology on the temple walls.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1568402102990-bc541580b59f?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/candi-singosari/tampak-depan-candi.webp"
           },
           {
             "title": "Exploring Local Food Stalls",
             "desc": "Taste local Javanese snacks and fresh coconut sold near the entrance.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1568402102990-bc541580b59f?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/candi-singosari/arca-dwarpala.webp"
           }
         ],
         "visitorTips": {
@@ -2082,12 +2203,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Morning Calm",
+            "label": "Early Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Clear skies, best for photography",
+            "color": "#378ADD",
+            "intensity": "65%"
           }
         ],
         "location": {
@@ -2096,7 +2225,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "Candi Singosari is an unfinished temple built to honor King Kertanegara, the last king of the Singhasari Dynasty.",
-          "The two giant Dwarapala statues guarding the area are among the largest ancient stone guardians in Indonesia."
+          "The two giant Dwarapala statues guarding the area are among the largest ancient stone guardians in Indonesia.",
+          "The temple is historically significant as the resting place of King Kertanegara, the last king of the Singhasari Kingdom, who was assassinated in 1292 AD."
         ],
         "closingCTA": "Discover the grand history of the 13th-century Singhasari Kingdom at this majestic red stone site."
       },
@@ -2138,13 +2268,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Lotus Pond Photography",
             "desc": "Capture close-up photos of blooming lotus flowers against the monument.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/tugu-malang/kolam-teratai.webp"
           },
           {
             "title": "Tugu Circle Jogging",
             "desc": "Jog or walk along the clean pedestrian pathway surrounding the roundabout park.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/tugu-malang/balai-kota.webp"
           }
         ],
         "visitorTips": {
@@ -2166,12 +2296,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Golden Hour",
+            "label": "Morning",
+            "value": "07:00 – 09:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "moon",
+            "badge": "Night Glow",
+            "label": "Evening",
+            "value": "19:00 – 21:00 WIB",
+            "color": "#6C63FF",
+            "intensity": "75%"
           }
         ],
         "location": {
@@ -2180,7 +2318,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "Tugu Malang was originally built in 1946, destroyed during the revolution, and rebuilt by President Sukarno in 1953.",
-          "The lotus pond surrounding the monument features red and white water lilies representing national unity."
+          "The lotus pond surrounding the monument features red and white water lilies representing national unity.",
+          "Designed in 1946 by Mr. Anwari, the monument was destroyed during the Dutch Military Aggression but rebuilt and officially inaugurated by President Sukarno in 1953."
         ],
         "closingCTA": "Stand at the historic center of Malang and admire the iconic lotus monument and colonial architecture."
       },
@@ -2192,7 +2331,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Candi Badut, Malang, Jawa Timur",
           "hours": "08:00 – 17:00 WIB",
-          "price": "Rp 5.000",
+          "price": "Free",
           "rating": "4.5/5",
           "category": "Ancient Temple / Archaeological Site"
         },
@@ -2222,13 +2361,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Green Grass Picnic",
             "desc": "Relax on the clean, grassy lawns surrounding the temple with family.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1568402102990-bc541580b59f?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/candi-badut/relung-arca.webp"
           },
           {
             "title": "Archaeological Study",
             "desc": "Inspect the structural stones and foundations to learn about 8th-century construction.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1568402102990-bc541580b59f?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/candi-badut/relung-arca.webp"
           }
         ],
         "visitorTips": {
@@ -2249,12 +2388,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Soft Light",
+            "label": "Morning",
+            "value": "07:30 – 10:30 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "No rain, stable temple site",
+            "color": "#378ADD",
+            "intensity": "65%"
           }
         ],
         "location": {
@@ -2263,7 +2410,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "Candi Badut dates back to 760 AD, making it older than Borobudur and the oldest known stone temple in East Java.",
-          "The name 'Badut' comes from the Sanskrit word 'Bhadraya', meaning the noble star Agastya."
+          "The name 'Badut' comes from the Sanskrit word 'Bhadraya', meaning the noble star Agastya.",
+          "Dating back to 760 AD, Candi Badut is widely recognized as the oldest temple in East Java and was built during the reign of King Gajayana of the Kanjuruhan Kingdom."
         ],
         "closingCTA": "Uncover East Java's oldest civilization at this peaceful 8th-century sanctuary."
       },
@@ -2305,13 +2453,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Cathedral Silence Walk",
             "desc": "Walk quietly inside the sanctuary to experience the spiritual stillness.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1548625361-155de6c7f54a?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/gereja-ijen/altar-utama.webp"
           },
           {
             "title": "Ijen Boulevard Architecture Tour",
             "desc": "Explore the colonial-era villas lining the wide boulevard outside the church.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1548625361-155de6c7f54a?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/gereja-ijen/interior-gereja.webp"
           }
         ],
         "visitorTips": {
@@ -2333,12 +2481,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "icon": "sunrise",
+            "badge": "Soft Morning Light",
+            "label": "Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Sat",
+            "value": "Open for visitors, no mass service",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "60%"
           }
         ],
         "location": {
@@ -2347,7 +2503,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "Built in 1934 by Dutch architect L. Estourgie, it is one of the finest examples of Neo-Gothic architecture in Indonesia.",
-          "The cathedral features genuine stained-glass windows imported from Europe during the colonial period."
+          "The cathedral features genuine stained-glass windows imported from Europe during the colonial period.",
+          "Formally known as Our Lady of Mount Carmel Cathedral, the church features twin neo-gothic spires and a historic pipe organ brought directly from Europe."
         ],
         "closingCTA": "Admire the soaring Neo-Gothic architecture and serene atmosphere of Malang's most famous cathedral."
       },
@@ -2406,12 +2563,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Morning Prayers",
+            "label": "Early Morning",
+            "value": "07:00 – 09:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Festival",
+            "label": "Chinese New Year",
+            "value": "Late Jan – Feb",
+            "color": "#EF4423",
+            "intensity": "95%"
           }
         ],
         "location": {
@@ -2420,7 +2585,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "Founded in 1825 by Chinese immigrants, Eng An Kiong means 'The Temple of Eternal Peace'.",
-          "It is famous for preserving the rare traditional art of Wayang Potehi (Chinese glove puppetry)."
+          "It is famous for preserving the rare traditional art of Wayang Potehi (Chinese glove puppetry).",
+          "The temple was founded in 1825 by a Chinese merchant named Lizae, making it one of the oldest active Tri Dharma (Taoist, Buddhist, Confucian) places of worship in East Java."
         ],
         "closingCTA": "Immerse yourself in two centuries of vibrant Chinese-Indonesian heritage and spiritual culture."
       },
@@ -2478,21 +2644,30 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Morning Light",
+            "label": "Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "80%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "National Day",
+            "label": "Aug 17 Area",
+            "value": "Best patriotic atmosphere",
+            "color": "#C0392B",
+            "intensity": "90%"
           }
         ],
         "location": {
-          "lat": -7.9784,
-          "lng": 112.634
+          "lat": -7.9775,
+          "lng": 112.6361
         },
         "funFacts": [
           "The monument stands 19 meters long, depicting nineteen freedom fighters in dramatic battle poses.",
-          "It honors the heroics of the TRIM (Tentara Republik Indonesia Malang) forces during the Independence War."
+          "It honors the heroics of the TRIM (Tentara Republik Indonesia Malang) forces during the Independence War.",
+          "The massive monument depicts a giant soldier stepping on a broken chain, symbolizing the Indonesian people breaking free from the shackles of colonialism."
         ],
         "closingCTA": "Honor the fierce bravery of Malang's freedom fighters at this dramatic railway plaza monument."
       },
@@ -2504,7 +2679,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Candi Kidal, Malang, Jawa Timur",
           "hours": "08:00 – 17:00 WIB",
-          "price": "Rp 5.000",
+          "price": "Free (voluntary donation for conservation)",
           "rating": "4.5/5",
           "category": "Historical Temple / Archaeological Site"
         },
@@ -2534,13 +2709,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Garudeya Legend Study",
             "desc": "Read the detailed storyboards explaining the legend of Garuda carved on the walls.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1568402102990-bc541580b59f?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/candi-kidal/relief-garuda.webp"
           },
           {
             "title": "Serene Garden Relaxation",
             "desc": "Sit under the trees of the quiet gardens and enjoy the fresh rural breeze.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1568402102990-bc541580b59f?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/candi-kidal/relief-garuda.webp"
           }
         ],
         "visitorTips": {
@@ -2561,12 +2736,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Morning Calm",
+            "label": "Early Morning",
+            "value": "07:30 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Clear sky for carvings photography",
+            "color": "#378ADD",
+            "intensity": "65%"
           }
         ],
         "location": {
@@ -2575,7 +2758,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "Candi Kidal was built in 1248 AD to house the ashes of King Anusapati of the Singhasari Kingdom.",
-          "The Garudeya relief carved here is the inspiration for Indonesia's national emblem, Garuda Pancasila."
+          "The Garudeya relief carved here is the inspiration for Indonesia's national emblem, Garuda Pancasila.",
+          "The temple was constructed in 1248 AD to honor King Anusapati of Singhasari, and is famous for its rich Garudeya carvings which later inspired the Indonesian national emblem."
         ],
         "closingCTA": "Behold the legendary Garuda reliefs that inspired Indonesia's national emblem."
       },
@@ -2587,7 +2771,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Candi Jago, Malang, Jawa Timur",
           "hours": "08:00 – 17:00 WIB",
-          "price": "Rp 5.000",
+          "price": "Rp 10.000 (Weekday) / Rp 15.000 (Weekend)",
           "rating": "4.5/5",
           "category": "Historical Temple / Archaeological Site"
         },
@@ -2617,13 +2801,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Stone Terrace Climbing",
             "desc": "Walk up the ancient stone platforms to inspect the carvings closely.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1568402102990-bc541580b59f?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/candi-jago/tampak-depan.webp"
           },
           {
             "title": "Studying Wayang Murals",
             "desc": "Examine the puppet-style carvings that represent early Javanese storytelling.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1568402102990-bc541580b59f?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/heritage/candi-jago/ornamen-kala.webp"
           }
         ],
         "visitorTips": {
@@ -2644,12 +2828,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Soft Light",
+            "label": "Morning",
+            "value": "08:00 – 10:30 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Low humidity, ideal for reliefs",
+            "color": "#378ADD",
+            "intensity": "65%"
           }
         ],
         "location": {
@@ -2658,7 +2850,8 @@ export const activitiesData: Record<string, Category> = {
         },
         "funFacts": [
           "Built in 1268 AD, Candi Jago combines Tantric Buddhist and Hindu architecture in a unique step-pyramid design.",
-          "Its stone reliefs are drawn in the two-dimensional 'Wayang Kulit' puppet art style, unique to East Javanese temples."
+          "Its stone reliefs are drawn in the two-dimensional 'Wayang Kulit' puppet art style, unique to East Javanese temples.",
+          "Uniquely built in a terraced style (punden berundak), Candi Jago exhibits a mixture of Buddhist and Hindu relief carvings, depicting stories like the Kunjarakarna and Mahabharata."
         ],
         "closingCTA": "Explore the unique step-pyramid terraces and wayang-style stone reliefs of Candi Jago."
       },
@@ -2670,7 +2863,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Museum Musik Indonesia, Malang, Jawa Timur",
           "hours": "10:00 – 17:00 WIB (Tuesday – Sunday)",
-          "price": "Rp 10.000",
+          "price": "Rp 10.000 / person (includes one vinyl record play session)",
           "rating": "4.5/5",
           "category": "Music Museum / Cultural Archive"
         },
@@ -2719,19 +2912,28 @@ export const activitiesData: Record<string, Category> = {
           {
             "icon": "sun",
             "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
+            "label": "Morning",
+            "value": "09:00 – 12:00 WIB",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "80%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Tue – Sun",
+            "value": "Quieter, more guide availability",
+            "color": "#378ADD",
+            "intensity": "55%"
           }
         ],
         "location": {
-          "lat": -7.9784,
-          "lng": 112.634
+          "lat": -7.98798,
+          "lng": 112.62664
         },
         "funFacts": [
           "It is the first and only officially recognized music museum in Indonesia, housing over 25,000 physical media items.",
-          "The collection includes rare recordings from every Indonesian province and traditional ethnic music archives."
+          "The collection includes rare recordings from every Indonesian province and traditional ethnic music archives.",
+          "It is the only official music museum in Indonesia, housing a massive collection of over 20,000 physical music records, cassettes, vinyls, and instruments."
         ],
         "closingCTA": "Journey through a century of Indonesian sound, song, and musical heritage."
       },
@@ -2743,7 +2945,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Museum Brawijaya, Malang, Jawa Timur",
           "hours": "08:00 – 15:00 WIB",
-          "price": "Rp 10.000",
+          "price": "Rp 5.000 (Adult) / Rp 3.000 (Child)",
           "rating": "4.5/5",
           "category": "Military History Museum"
         },
@@ -2790,21 +2992,30 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Peak Hours",
-            "label": "Morning / Afternoon",
-            "value": "Optimal lighting",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Opening Hours",
+            "label": "Morning",
+            "value": "08:00 – 11:30 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Thu",
+            "value": "Quieter, guides available",
+            "color": "#378ADD",
+            "intensity": "55%"
           }
         ],
         "location": {
-          "lat": -7.9784,
-          "lng": 112.634
+          "lat": -7.97203,
+          "lng": 112.62089
         },
         "funFacts": [
           "Museum Brawijaya houses the famous 'Gerbong Maut' (Death Carriage), a grim reminder of the 1947 independence struggle.",
-          "The outdoor plaza displays original tanks and cannons captured during wartime operations."
+          "The outdoor plaza displays original tanks and cannons captured during wartime operations.",
+          "The museum houses the infamous 'Gerbong Maut' (Death Car), a railway cargo container used by Dutch forces to transport 100 Indonesian prisoners, resulting in 46 deaths."
         ],
         "closingCTA": "Experience the heroic struggle for Indonesian independence through authentic wartime relics."
       }
@@ -2834,12 +3045,12 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Vintage Dining Room",
             "desc": "A grand dining hall decorated with classic rattan chairs, retro photographs, and high colonial ceilings.",
-            "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/toko-oen/bitterballen.webp"
           },
           {
             "title": "Vintage Ice Cream Bar",
             "desc": "The original marble counter serving homemade ice creams since the 1930s.",
-            "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/toko-oen/ice-cream.webp"
           }
         ],
         "thingsToDo": [
@@ -2847,20 +3058,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Tasting Classic Ice Cream",
             "desc": "Try Toko Oen's famous ice cream symphony or classic Tutti Frutti scoops made with their original 1930s recipe.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/toko-oen/steak-lidah-sapi.webp"
           },
           {
             "title": "Sampling Dutch Pastries",
             "desc": "Enjoy traditional Dutch pastries such as Speculaas, Bitterballen, and Apple Strudel.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/toko-oen/bitterballen.webp"
           }
         ],
         "tips": [
           "Try their signature chocolate ice cream scoops",
           "Check out the antique furniture and colonial pictures on the walls"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.9776,
           "lng": 112.6311
@@ -2895,7 +3105,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "Toko Oen originally started in Yogyakarta in 1910 before expanding to Semarang and Malang in the 1930s.",
-          "The restaurant still uses vintage manual ice cream churning machines from Italy to maintain their authentic texture."
+          "The restaurant still uses vintage manual ice cream churning machines from Italy to maintain their authentic texture.",
+          "The restaurant retains its original Dutch colonial atmosphere, using 1930s wicker chairs, vintage tableware, and serving ice creams made using recipes unchanged for nearly a century."
         ],
         "visitorTips": {
           "bestTime": "Afternoon around 15:00 WIB for a relaxed teatime and dessert experience.",
@@ -2932,12 +3143,12 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Railway Tracks Dining",
             "desc": "Outdoor dining tables set up directly alongside the active railway line, offering a unique thrill.",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/bakso-president/bakso-bakar.webp"
           },
           {
             "title": "Bakso Selection Bar",
             "desc": "A food station displaying a wide variety of meatballs, tofu, fried wontons, and noodles.",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/bakso-president/bakso-komplit.webp"
           }
         ],
         "thingsToDo": [
@@ -2945,20 +3156,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Dining Beside the Train",
             "desc": "Eat hot bowls of bakso and watch the passenger train rumble directly next to your table.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/bakso-president/keripik-bakso.webp"
           },
           {
             "title": "Customizing your Bakso Bowl",
             "desc": "Choose your own combination of fried meatballs, steamed meatballs, and crispy wontons.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/bakso-president/bakso-bakar.webp"
           }
         ],
         "tips": [
           "Always check for train warning sirens before standing near the tracks",
           "Order the grilled meatballs (Bakso Bakar) together with the hot soup"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.9827,
           "lng": 112.6281
@@ -2992,7 +3202,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "The restaurant is named 'President' because it was originally founded behind the old President Cinema in Malang.",
-          "Trains pass by just meters away from the dining tables several times a day, making it a globally famous sensory dining spot."
+          "Trains pass by just meters away from the dining tables several times a day, making it a globally famous sensory dining spot.",
+          "The restaurant is famously located right next to an active railway track, offering diners the unique thrill of eating meatball soup while trains pass inches away."
         ],
         "visitorTips": {
           "bestTime": "Lunch or early evening before the daily soup inventory runs out.",
@@ -3029,12 +3240,12 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Rawon Serving Station",
             "desc": "The fast-paced kitchen counter where bowls of hot, black beef soup are freshly prepared.",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/rawon-nguling/nasi-rawon.webp"
           },
           {
             "title": "Side Dishes Platter",
             "desc": "Trays of salted eggs, fried beef lungs (babat/paru), and crispy tempeh.",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/rawon-nguling/paru-goreng.webp"
           }
         ],
         "thingsToDo": [
@@ -3042,20 +3253,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Savoring Black Beef Soup",
             "desc": "Enjoy Malang's iconic Rawon soup, rich in black keluak nut spice.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/rawon-nguling/paru-goreng.webp"
           },
           {
             "title": "Adding Fried Lungs Side",
             "desc": "Pair your rawon with crispy fried lungs, salted egg yolk, and spicy sambal.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/rawon-nguling/paru-goreng.webp"
           }
         ],
         "tips": [
           "Try their signature thick-cut beef lung side dish",
           "Pour a spoonful of local spicy sambal for a spicy kick"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.984,
           "lng": 112.6305
@@ -3083,7 +3293,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "Rawon Nguling originated on the border of Probolinggo and Pasuruan before opening their famous branch in Malang.",
-          "The dark color of the soup comes from keluak, a tropical seed that must be fermented to remove toxins and unlock its rich flavor."
+          "The dark color of the soup comes from keluak, a tropical seed that must be fermented to remove toxins and unlock its rich flavor.",
+          "Famous for its dark, savory broth made with local kluwek nuts, Rawon Nguling has been a culinary staple of the Malang region since its inception in the 1940s."
         ],
         "visitorTips": {
           "bestTime": "Breakfast or early lunch as they close early in the afternoon.",
@@ -3120,12 +3331,12 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Charcoal Kitchen",
             "desc": "The open kitchen where large rawon pots are cooked slowly over traditional charcoal fires.",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/rawon-rampal/nasi-pecel.webp"
           },
           {
             "title": "Historic Dining Hall",
             "desc": "A simple, heritage dining space filled with photos of old Malang.",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/rawon-rampal/nasi-rawon.webp"
           }
         ],
         "thingsToDo": [
@@ -3133,20 +3344,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Charcoal Cooked Rawon Tasting",
             "desc": "Enjoy rawon with a distinct, smoky flavor developed from slow charcoal cooking.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/rawon-rampal/soto-daging.webp"
           },
           {
             "title": "Savoring Sweet Beef Empal",
             "desc": "Try the famous sweet and savory beef empal side dish.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/rawon-rampal/nasi-rawon.webp"
           }
         ],
         "tips": [
           "Order the Empal cutlet as a side dish",
           "Arrive early before 11:00 WIB"
         ],
-        "bestTime": [],
         "location": {
           "lat": -8.0023,
           "lng": 112.6345
@@ -3180,7 +3390,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "Founded in 1957 by Mbah Muji, Rawon Rampal still uses traditional wood-burning stoves to cook its soup broth.",
-          "President Indonesia Sukarno and subsequent presidents have famously dined at this heritage rawon stall."
+          "President Indonesia Sukarno and subsequent presidents have famously dined at this heritage rawon stall.",
+          "The restaurant has been cooking its signature beef soup over traditional charcoal burners since 1957, preserving a smoky flavor that modern gas stoves cannot replicate."
         ],
         "visitorTips": {
           "bestTime": "Morning between 07:30 and 10:00 WIB for fresh, hot wood-fired rawon broth.",
@@ -3216,12 +3427,12 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Backyard Garden Pavilions",
             "desc": "A beautiful, secluded greenhouse garden dining area filled with plants and flowers.",
-            "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/madam-wang-secret-garden/bingsoo.webp"
           },
           {
             "title": "Vintage Boutique Room",
             "desc": "An indoor dining salon showcasing unique vintage crafts and boutique clothes.",
-            "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/madam-wang-secret-garden/nasi-goreng.webp"
           }
         ],
         "thingsToDo": [
@@ -3229,20 +3440,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Garden Afternoon Tea",
             "desc": "Sip herbal teas and enjoy homemade cakes in the quiet backyard greenhouse.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/madam-wang-secret-garden/salad.webp"
           },
           {
             "title": "Creative Photography",
             "desc": "Capture photos in the colorful, glass-walled garden booths.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/madam-wang-secret-garden/salad.webp"
           }
         ],
         "tips": [
           "Try their signature Gudeg Jogja or Rendang Pizza",
           "Order a teapot of floral herbal tea"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.97,
           "lng": 112.619
@@ -3277,7 +3487,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "The venue doubles as an artisan boutique supporting local women crafters and traditional weavers in East Java.",
-          "The greenhouse garden houses over 50 varieties of tropical plants and succulents."
+          "The greenhouse garden houses over 50 varieties of tropical plants and succulents.",
+          "In addition to its eclectic garden dining areas, the cafe features a hidden vintage boutique and a cozy indoor room decorated with colorful hand-woven threads."
         ],
         "visitorTips": {
           "bestTime": "Late afternoon around 16:30 WIB for high tea in the sunlit greenhouse.",
@@ -3314,12 +3525,12 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Riverside Gazebos (Saung)",
             "desc": "Traditional open-air wooden gazebos situated directly alongside the flowing Brantas River.",
-            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/taman-indie-resto/nasi-buk-madura.webp"
           },
           {
             "title": "Antique Javanese Joglo",
             "desc": "The main dining hall built inside a massive, beautifully carved teak Joglo house.",
-            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/taman-indie-resto/nasi-campur-bali.webp"
           }
         ],
         "thingsToDo": [
@@ -3327,20 +3538,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Riverside Javanese Dining",
             "desc": "Enjoy traditional Javanese meals while listening to the river flow.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/taman-indie-resto/nasi-tempong.webp"
           },
           {
             "title": "Exploring the Gardens",
             "desc": "Walk through the large, well-manicured tropical gardens surrounding the pavilions.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/taman-indie-resto/nasi-tempong.webp"
           }
         ],
         "tips": [
           "Reserve a riverside gazebo (saung) in advance",
           "Try their signature Gurame Bakar charcoal grilled fish"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.9395,
           "lng": 112.6646
@@ -3376,7 +3586,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "Taman Indie was built with authentic reclaimed teak wood from traditional Javanese Limasan houses.",
-          "The restaurant overlooks the historic Bango River, which has flowed through Malang since ancient Singhasari times."
+          "The restaurant overlooks the historic Bango River, which has flowed through Malang since ancient Singhasari times.",
+          "The restaurant is designed as an open-air Javanese village, featuring traditional wooden gazebos set along the banks of the scenic Bango River."
         ],
         "visitorTips": {
           "bestTime": "Sunset around 17:30 WIB to experience romantic lighting along the riverbank.",
@@ -3413,12 +3624,12 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Traditional Joglo Pavilion",
             "desc": "A quiet, open-air wooden pavilion featuring traditional Javanese carvings.",
-            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/java-dancer-coffee/affogato.webp"
           },
           {
             "title": "Specialty Coffee Bar",
             "desc": "A modern bar showcasing manual brewing equipment and single-origin beans.",
-            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/java-dancer-coffee/manual-brew.webp"
           }
         ],
         "thingsToDo": [
@@ -3426,20 +3637,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Manual Brew Tasting",
             "desc": "Sample premium Indonesian single-origin coffees brewed using V60 or Syphon.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/java-dancer-coffee/sop-buntut.webp"
           },
           {
             "title": "Remote Working",
             "desc": "Connect to the Wi-Fi and work in the comfortable, quiet wooden booths.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/java-dancer-coffee/affogato.webp"
           }
         ],
         "tips": [
           "Try their signature Arabica Java estate pour-over",
           "Order the cheese-topped fried bananas"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.966,
           "lng": 112.623
@@ -3474,7 +3684,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "Java Dancer Coffee was one of the pioneers of specialty coffee roasteries in Malang, celebrating Indonesian bean origins.",
-          "The interior design is heavily inspired by classical Javanese wayang theater and teak craftsmanship."
+          "The interior design is heavily inspired by classical Javanese wayang theater and teak craftsmanship.",
+          "Established in 2008, Java Dancer is a pioneer of specialty coffee shops in Malang, decorated with classic Javanese puppet characters (Wayang)."
         ],
         "visitorTips": {
           "bestTime": "Morning for fresh coffee or late night for a relaxed hangout.",
@@ -3511,12 +3722,12 @@ export const activitiesData: Record<string, Category> = {
           {
             "title": "Mediterranean Poolside Deck",
             "desc": "A gorgeous outdoor dining deck decorated in white plaster and light wood, surrounding a small pool.",
-            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/cafe-litchi/chicken-grill-pesto.webp"
           },
           {
             "title": "Cozy Study Nooks",
             "desc": "Indoor booths equipped with charging outlets and comfortable seating.",
-            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/cafe-litchi/pizza.webp"
           }
         ],
         "thingsToDo": [
@@ -3524,20 +3735,19 @@ export const activitiesData: Record<string, Category> = {
             "title": "Poolside Brunch",
             "desc": "Enjoy aesthetic smoothies, breakfast bowls, and Western-Asian fusion dishes.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/cafe-litchi/tiramisu.webp"
           },
           {
             "title": "Social Media Photography",
             "desc": "Take bright, summery photos in the Mediterranean-themed corners.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/culinary/cafe-litchi/pizza.webp"
           }
         ],
         "tips": [
           "Wear bright summer clothing for the best photos against the white Santorini walls",
           "Order their refreshing signature Lychee Iced Tea"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.9747,
           "lng": 112.6133
@@ -3572,7 +3782,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "Cafe Litchi brings a piece of Santorini Greece and Bali vibes right into the heart of Malang City.",
-          "The central turquoise pool is surrounded by tropical flora specially curated for photogenic lighting."
+          "The central turquoise pool is surrounded by tropical flora specially curated for photogenic lighting.",
+          "The cafe's unique architecture is inspired by Mediterranean beach clubs, featuring whitewashed plaster walls, a central pool, and lush palm trees."
         ],
         "visitorTips": {
           "bestTime": "Sunny morning between 10:00 and 11:30 WIB for the brightest natural light and pool reflections.",
@@ -3624,7 +3835,6 @@ export const activitiesData: Record<string, Category> = {
           "Buy sealed peanut sauce packs as souvenirs",
           "Add crispy Rempeyek peanut crackers for extra crunch"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.9782,
           "lng": 112.6234
@@ -3645,7 +3855,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "Serving since 1975, Pecel Kawi Hj Musilah is considered the golden benchmark for authentic Malang-style pecel.",
-          "Their peanut sauce recipe uses roasted groundnuts blended with kaffir lime leaves and palm sugar without preservatives."
+          "Their peanut sauce recipe uses roasted groundnuts blended with kaffir lime leaves and palm sugar without preservatives.",
+          "Serving Malang since 1975, the eatery is legendary for its sweet and savory peanut sauce recipe, which is freshly ground daily using local spices."
         ],
         "visitorTips": {
           "bestTime": "Breakfast time between 07:00 and 09:00 WIB for hot fresh rice and peak morning energy.",
@@ -3696,7 +3907,6 @@ export const activitiesData: Record<string, Category> = {
           "Order the legendary soybean powder sticky rice for an authentic 1967 taste",
           "Expect long queues during weekend nights and holidays"
         ],
-        "bestTime": [],
         "location": {
           "lat": -7.8711,
           "lng": 112.5268
@@ -3723,7 +3933,8 @@ export const activitiesData: Record<string, Category> = {
         ],
         "funFacts": [
           "Established in 1967, it is one of the oldest running street dessert stalls in the Batu highlands.",
-          "They use a special variety of high-quality glutinous rice sourced locally to ensure a perfect chewy texture."
+          "They use a special variety of high-quality glutinous rice sourced locally to ensure a perfect chewy texture.",
+          "Starting as a humble street food stall in 1967, the shop is famous for serving traditional sticky rice topped with sweet grated coconut, powdered soybean, and durian."
         ],
         "visitorTips": {
           "bestTime": "Evening between 19:00 and 21:00 WIB to enjoy the bustling night vibes of Batu town square.",
@@ -3754,7 +3965,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Gondanglegi Kulon, Gondanglegi, Kabupaten Malang, Jawa Timur",
           "hours": "07:00 – 17:00 WIB",
-          "price": "Rp 5.000 / orang",
+          "price": "Rp 5.000 / person",
           "rating": "4.5/5",
           "category": "Sumber Mata Air / Kolam Alami"
         },
@@ -3839,7 +4050,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Pagelaran, Kabupaten Malang, Jawa Timur",
           "hours": "07:00 WIB - 17:00 WIB",
-          "price": "Rp 5.000",
+          "price": "Rp 5.000 (Weekday) / Rp 10.000 (Weekend)",
           "rating": "4.6/5",
           "category": "Hidden Gem / Nature / Adventure"
         },
@@ -3888,12 +4099,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Morning Chill",
-            "label": "08:00 WIB - 11:00 WIB",
-            "value": "Clear fresh water",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Morning Calm",
+            "label": "Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Crystal-clear spring water",
+            "color": "#378ADD",
+            "intensity": "70%"
           }
         ],
         "location": {
@@ -3914,7 +4133,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Tajinan, Kabupaten Malang, Jawa Timur",
           "hours": "08:00 WIB - 17:00 WIB",
-          "price": "Rp 5.000",
+          "price": "Rp 10.000 / person",
           "rating": "4.5/5",
           "category": "Hidden Gem / Nature / Snorkeling"
         },
@@ -3962,12 +4181,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Sunlit Pool",
-            "label": "11:00 WIB - 13:00 WIB",
-            "value": "Best blue clarity",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Morning Serenity",
+            "label": "Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Clearest water, safest swimming",
+            "color": "#378ADD",
+            "intensity": "70%"
           }
         ],
         "location": {
@@ -3988,7 +4215,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Pujon, Kabupaten Malang, Jawa Timur",
           "hours": "08:00 WIB - 16:00 WIB",
-          "price": "Rp 15.000",
+          "price": "Rp 5.000 – Rp 10.000 / person",
           "rating": "4.7/5",
           "category": "Hidden Gem / Nature / Hiking"
         },
@@ -4032,12 +4259,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Morning Light",
-            "label": "08:00 WIB - 10:00 WIB",
-            "value": "Fresh clean air",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Mist & Light",
+            "label": "Early Morning",
+            "value": "07:00 – 09:30 WIB",
+            "color": "#EF9F27",
+            "intensity": "90%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – September",
+            "value": "Clear flow, dramatic mist",
+            "color": "#378ADD",
+            "intensity": "70%"
           }
         ],
         "location": {
@@ -4058,7 +4293,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Sitiarjo, Kabupaten Malang, Jawa Timur",
           "hours": "Open 24 Hours",
-          "price": "Rp 10.000",
+          "price": "Rp 10.000 / person",
           "rating": "4.6/5",
           "category": "Hidden Gem / Beach / Canoeing"
         },
@@ -4088,13 +4323,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Sea Canoeing",
             "desc": "Paddle a rented canoe in the calm, wave-free waters around the limestone islets.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/hidden-gem/pantai-gatra/panorama-pesisir.webp"
           },
           {
             "title": "Eco-Audited Beach Camping",
             "desc": "Camp overnight on the clean white sand under a strict zero-plastic-waste regulation.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/hidden-gem/pantai-gatra/pantai-pasir-putih.webp"
           }
         ],
         "visitorTips": {
@@ -4118,12 +4353,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Calm Tide",
-            "label": "06:00 WIB - 09:00 WIB",
-            "value": "Pristine flat sea",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Sunrise View",
+            "label": "Early Morning",
+            "value": "05:30 – 08:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "90%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Calm waves, best snorkeling",
+            "color": "#378ADD",
+            "intensity": "70%"
           }
         ],
         "location": {
@@ -4144,7 +4387,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Singosari, Kabupaten Malang, Jawa Timur",
           "hours": "08:00 WIB - 17:00 WIB",
-          "price": "Rp 5.000",
+          "price": "Rp 5.000 / person",
           "rating": "4.6/5",
           "category": "Hidden Gem / Heritage / Meditation"
         },
@@ -4174,13 +4417,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Pine Forest Trekking",
             "desc": "Trek along the scenic dirt paths through the tall, aromatic pine forest to discover the hidden temple ruins.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/hidden-gem/candi-sumberawan/tampak-atas.webp"
           },
           {
             "title": "Washing in Holy Water",
             "desc": "Drink or wash your face in the cool, sacred spring pool believed to bring health and blessings.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/hidden-gem/candi-sumberawan/sumber-mata-air.webp"
           }
         ],
         "visitorTips": {
@@ -4203,12 +4446,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "sun",
-            "badge": "Tranquil Hour",
-            "label": "15:00 WIB - 17:00 WIB",
-            "value": "Beautiful forest light",
-            "color": "#A3B18A",
-            "intensity": "High"
+            "icon": "sunrise",
+            "badge": "Morning Mist",
+            "label": "Early Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Dry Season",
+            "label": "May – October",
+            "value": "Clear surroundings, less muddy path",
+            "color": "#378ADD",
+            "intensity": "65%"
           }
         ],
         "location": {
@@ -4229,7 +4480,7 @@ export const activitiesData: Record<string, Category> = {
         "basicInfo": {
           "location": "Kepanjen, Kabupaten Malang, Jawa Timur",
           "hours": "08:00 WIB - 17:00 WIB",
-          "price": "Rp 20.000",
+          "price": "Rp 20.000 / person (area access, excludes accommodation)",
           "rating": "4.5/5",
           "category": "Hidden Gem / Nature / Resort"
         },
@@ -4259,13 +4510,13 @@ export const activitiesData: Record<string, Category> = {
             "title": "Strawberry Harvesting",
             "desc": "Pick fresh organic strawberries and vegetables inside the resort's modern hydroponic greenhouses.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1500382017468-9049fee74a62?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/hidden-gem/lembah-indah-malang/panorama-lembah.webp"
           },
           {
             "title": "Petting Farm Feeding",
             "desc": "Feed sheep and goats in the family-friendly petting ranch on the valley pastures.",
             "difficulty": "Easy",
-            "image": "https://images.unsplash.com/photo-1510312305653-8ed496efae75?q=80&w=800&auto=format&fit=crop"
+            "image": "/locations/hidden-gem/lembah-indah-malang/dome-glamping.webp"
           }
         ],
         "visitorTips": {
@@ -4288,12 +4539,20 @@ export const activitiesData: Record<string, Category> = {
         ],
         "bestTime": [
           {
-            "icon": "cloud",
-            "badge": "Misty Valley",
-            "label": "07:00 WIB - 09:00 WIB",
-            "value": "Fresh cool air",
+            "icon": "sunrise",
+            "badge": "Morning Light",
+            "label": "Morning",
+            "value": "07:00 – 10:00 WIB",
+            "color": "#EF9F27",
+            "intensity": "85%"
+          },
+          {
+            "icon": "calendar",
+            "badge": "Weekday",
+            "label": "Mon – Fri",
+            "value": "Empty pools, uncrowded trails",
             "color": "#A3B18A",
-            "intensity": "High"
+            "intensity": "60%"
           }
         ],
         "location": {

@@ -6,27 +6,27 @@ const TOP_5_DESTINATIONS: HeroDestination[] = [
   {
     name: "Mount Bromo",
     category: "Nature",
-    image: "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=450&auto=format&fit=crop",
+    image: "/locations/nature/gunung-bromo/cover.webp",
   },
   {
     name: "Tumpak Sewu",
     category: "Nature",
-    image: "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=450&auto=format&fit=crop",
+    image: "/locations/nature/tumpak-sewu/cover.webp",
   },
   {
     name: "Museum Angkut",
     category: "Attraction",
-    image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=450&auto=format&fit=crop",
+    image: "/locations/fun/museum-angkut/cover.webp",
   },
   {
     name: "Jodipan Village",
     category: "Attraction",
-    image: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=450&auto=format&fit=crop",
+    image: "/locations/fun/kampung-warna-warni/cover.webp",
   },
   {
     name: "Toko Oen",
     category: "Culinary",
-    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=450&auto=format&fit=crop",
+    image: "/locations/culinary/toko-oen/cover.webp",
   },
 ];
 

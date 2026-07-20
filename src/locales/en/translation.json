@@ -1,4 +1,4 @@
-﻿{
+{
     "activity.categories.attraction":  "Attraction",
     "activity.categories.coworking":  "Coworking Space",
     "activity.categories.culinary":  "Culinary",
@@ -392,7 +392,7 @@
                         "openingHours":  "Opening Hours",
                         "ticketPrice":  "Ticket Price",
                         "buyTicket":  "Buy Official Ticket",
-                        "safetyInfo":  "Safety \u0026 Vital Information",
+                        "safetyInfo":  "information",
                         "routeLocation":  "Route \u0026 Location",
                         "liveNavigation":  "Live Navigation",
                         "travelTime":  "Estimated Travel Time",

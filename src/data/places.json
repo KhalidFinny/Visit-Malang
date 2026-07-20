@@ -9,7 +9,7 @@
     "idealTime": [
       "Morning"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=75&w=800&auto=format&fit=crop",
+    "imageUrl": "/locations/nature/gunung-bromo/cover.webp",
     "type": "outdoor",
     "popularity": 0.98
   },
@@ -24,7 +24,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=75&w=800&auto=format&fit=crop",
+    "imageUrl": "/locations/nature/tumpak-sewu/cover.webp",
     "type": "outdoor",
     "popularity": 0.95
   },
@@ -38,7 +38,7 @@
     "idealTime": [
       "Morning"
     ],
-    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG87oZGmu6rHEeZxv1MPs6sd4QpR7QFNjqdD8aLFC9u6RDDYWWOgnYJlCdD7hCzV2ic0jCn4XqPvcy4m0l3XOgo1tJXsHGQnpKa4FUKQBUzPQdeGv4uwxfWoSGJqF9PpGBQcSKY=s1360-w1360-h1020-rw",
+    "imageUrl": "/locations/nature/wonosari-tea-plantation/cover.webp",
     "type": "outdoor",
     "popularity": 0.88
   },
@@ -53,7 +53,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/nature/coban-rondo/cover.webp",
     "type": "outdoor",
     "popularity": 0.9
   },
@@ -67,7 +67,7 @@
     "idealTime": [
       "Morning"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1500382017468-9049fee74a62?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/nature/coban-pelangi/cover.webp",
     "type": "outdoor",
     "popularity": 0.85
   },
@@ -82,7 +82,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/nature/pantai-3-warna/cover.webp",
     "type": "outdoor",
     "popularity": 0.92
   },
@@ -97,7 +97,7 @@
       "Evening",
       "Night"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1528605105345-5344ea20e269?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/alun-alun-malang/cover.webp",
     "type": "outdoor",
     "popularity": 0.94
   },
@@ -126,7 +126,7 @@
       "Afternoon",
       "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/nature/paralayang-batu/cover.webp",
     "type": "outdoor",
     "popularity": 0.91
   },
@@ -141,7 +141,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1501179611942-0c2610dd1dd7?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/hidden-gem/sumber-sirah/cover.webp",
     "type": "outdoor",
     "popularity": 0.84
   },
@@ -156,7 +156,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/nature/selecta/cover.webp",
     "type": "outdoor",
     "popularity": 0.89
   },
@@ -171,7 +171,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/nature/coban-rais/cover.webp",
     "type": "outdoor",
     "popularity": 0.86
   },
@@ -186,7 +186,7 @@
       "Afternoon",
       "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/culinary/toko-oen/cover.webp",
     "type": "indoor",
     "popularity": 0.99,
     "averagePrice": 60000
@@ -201,7 +201,7 @@
     "idealTime": [
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1547928576-a4a33237ecd3?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/culinary/bakso-president/cover.webp",
     "type": "indoor",
     "popularity": 0.97,
     "averagePrice": 20000
@@ -232,7 +232,7 @@
       "Afternoon",
       "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/culinary/java-dancer-coffee/cover.webp",
     "type": "indoor",
     "popularity": 0.93,
     "averagePrice": 55000
@@ -247,7 +247,7 @@
     "idealTime": [
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/culinary/madam-wang-secret-garden/cover.webp",
     "type": "indoor",
     "popularity": 0.9,
     "averagePrice": 120000
@@ -263,7 +263,7 @@
       "Afternoon",
       "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/culinary/taman-indie-resto/cover.webp",
     "type": "outdoor",
     "popularity": 0.92,
     "averagePrice": 70000
@@ -278,7 +278,7 @@
     "idealTime": [
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1463797221720-6b07e6426c24?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/culinary/cafe-litchi/cover.webp",
     "type": "indoor",
     "popularity": 0.88,
     "averagePrice": 50000
@@ -294,7 +294,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/culinary/rawon-nguling/cover.webp",
     "type": "indoor",
     "popularity": 0.94,
     "averagePrice": 25000
@@ -309,7 +309,7 @@
     "idealTime": [
       "Morning"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/culinary/rawon-rampal/cover.webp",
     "type": "indoor",
     "popularity": 0.96,
     "averagePrice": 25000
@@ -365,13 +365,13 @@
     "name": "Museum Angkut",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "Southeast Asia\u2019s first world-class transportation museum. Explore over 300 vintage vehicles through cinematic global zones.",
+    "description": "Southeast Asia’s first world-class transportation museum. Explore over 300 vintage vehicles through cinematic global zones.",
     "idealWeather": "Any",
     "idealTime": [
       "Afternoon",
       "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1551522435-a13afa10f103?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/museum-angkut/cover.webp",
     "type": "indoor",
     "popularity": 0.99
   },
@@ -386,7 +386,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/jatim-park-1/cover.webp",
     "type": "outdoor",
     "popularity": 0.94
   },
@@ -401,7 +401,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1504173010664-32509aaefe4e?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/jatim-park-2/cover.webp",
     "type": "outdoor",
     "popularity": 0.96
   },
@@ -416,7 +416,7 @@
       "Afternoon",
       "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/jatim-park-3/cover.webp",
     "type": "indoor",
     "popularity": 0.93
   },
@@ -425,12 +425,12 @@
     "name": "Batu Night Spectacular",
     "category": "Attraction",
     "semanticCategory": "Attraction",
-    "description": "The city\u2019s evening carnival. Enjoy neon light gardens, family rides, and night markets in the cool mountain air.",
+    "description": "The city’s evening carnival. Enjoy neon light gardens, family rides, and night markets in the cool mountain air.",
     "idealWeather": "Sunny",
     "idealTime": [
       "Night"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/batu-night-spectacular/cover.webp",
     "type": "outdoor",
     "popularity": 0.95
   },
@@ -445,7 +445,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1518151246473-fd677e497d39?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/kampung-warna-warni/cover.webp",
     "type": "outdoor",
     "popularity": 0.97
   },
@@ -473,7 +473,7 @@
     "idealTime": [
       "Night"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1533230301047-9f75ec5d539e?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/malang-night-paradise/cover.webp",
     "type": "outdoor",
     "popularity": 0.9
   },
@@ -488,7 +488,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1444464666168-49d633b867ad?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/jatim-park-3/cover.webp",
     "type": "outdoor",
     "popularity": 0.86
   },
@@ -502,7 +502,7 @@
     "idealTime": [
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/hawai-waterpark/cover.webp",
     "type": "outdoor",
     "popularity": 0.89
   },
@@ -517,7 +517,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/san-terra-del-fonte/cover.webp",
     "type": "outdoor",
     "popularity": 0.91
   },
@@ -531,7 +531,7 @@
     "idealTime": [
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1549240923-93a2e080e653?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/fun/predator-fun-park/cover.webp",
     "type": "outdoor",
     "popularity": 0.84
   },
@@ -576,7 +576,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/museum-music-indonesia/cover.webp",
     "type": "indoor",
     "popularity": 0.85
   },
@@ -590,7 +590,7 @@
     "idealTime": [
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/museum-brawijaya/cover.webp",
     "type": "indoor",
     "popularity": 0.92
   },
@@ -701,7 +701,7 @@
     "name": "Museum Kesehatan Jiwa",
     "category": "Indoor",
     "semanticCategory": "Indoor",
-    "description": "One of Southeast Asia\u2019s only psychiatry museums. A fascinating, sober look into the history of mental healthcare in East Java.",
+    "description": "One of Southeast Asia’s only psychiatry museums. A fascinating, sober look into the history of mental healthcare in East Java.",
     "idealWeather": "Overcast",
     "idealTime": [
       "Morning"
@@ -720,7 +720,7 @@
     "idealTime": [
       "Morning"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/candi-singosari/cover.webp",
     "type": "outdoor",
     "popularity": 0.94
   },
@@ -729,12 +729,12 @@
     "name": "Tugu Malang",
     "category": "Historical",
     "semanticCategory": "Historical",
-    "description": "The symbol of Malang\u2019s independence. A beautiful monument surrounded by a lotus pond and lush, classic Javanese gardens.",
+    "description": "The symbol of Malang’s independence. A beautiful monument surrounded by a lotus pond and lush, classic Javanese gardens.",
     "idealWeather": "Any",
     "idealTime": [
       "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/tugu-malang/cover.webp",
     "type": "outdoor",
     "popularity": 0.97
   },
@@ -748,7 +748,7 @@
     "idealTime": [
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/candi-badut/cover.webp",
     "type": "outdoor",
     "popularity": 0.88
   },
@@ -763,7 +763,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1548705085-101177821188?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/gereja-ijen/cover.webp",
     "type": "indoor",
     "popularity": 0.93
   },
@@ -772,12 +772,12 @@
     "name": "Kayutangan Heritage",
     "category": "Historical",
     "semanticCategory": "Historical",
-    "description": "Malang\u2019s historic corridor. Explore preserved colonial streets, vintage shopfronts, and hidden riverside heritage alleys.",
+    "description": "Malang’s historic corridor. Explore preserved colonial streets, vintage shopfronts, and hidden riverside heritage alleys.",
     "idealWeather": "Any",
     "idealTime": [
       "Evening"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/kayutangan/cover.webp",
     "type": "outdoor",
     "popularity": 0.96
   },
@@ -791,7 +791,7 @@
     "idealTime": [
       "Morning"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1540324155974-722ebb08f029?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/klenteng-eng-an-kiong/cover.webp",
     "type": "indoor",
     "popularity": 0.9
   },
@@ -806,7 +806,7 @@
       "Morning",
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/monumen-juang-45/monument-juang-45.webp",
     "type": "outdoor",
     "popularity": 0.85
   },
@@ -835,7 +835,7 @@
     "idealTime": [
       "Morning"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/candi-kidal/cover.webp",
     "type": "outdoor",
     "popularity": 0.86
   },
@@ -849,7 +849,7 @@
     "idealTime": [
       "Afternoon"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/candi-jago/cover.webp",
     "type": "outdoor",
     "popularity": 0.87
   },
@@ -863,7 +863,7 @@
     "idealTime": [
       "Morning"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1518151246473-fd677e497d39?auto=format&fit=crop&q=80&w=800",
+    "imageUrl": "/locations/heritage/candi-badut/cover.webp",
     "type": "indoor",
     "popularity": 0.89
   },

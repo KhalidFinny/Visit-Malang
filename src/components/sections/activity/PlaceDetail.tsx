@@ -106,36 +106,37 @@ const FALLBACK_SAFETY: Record<string, Omit<PlaceSafetyData, 'contextType'>> = {
 };
 
 const FALLBACK_FEES: Record<string, PlaceFeeData> = {
+  // ── NATURE ──────────────────────────────────────────────────────────────
   "mount-bromo": {
-    domestic_entry: 34000,
+    domestic_entry: 29000,
     foreign_entry: 220000,
     transport_cost: 650000,
     parking_cost: 10000,
-    notes: "Jeep hire is cash-only and mandatory to navigate the sea of sand to the crater. Entrance tickets are also checked at gates.",
-    atm_info: "Last reliable ATMs are located in Sukapura (18km) or Tumpang (22km). No ATMs exist near the crater.",
+    notes: "Jeep hire is mandatory and cash-only to traverse the sea of sand. Weekend domestic rate is Rp 34,500.",
+    atm_info: "Last reliable ATMs are in Sukapura (18km) or Tumpang (22km). No ATMs near the crater.",
   },
   "tumpak-sewu": {
     domestic_entry: 10000,
-    foreign_entry: 50000,
+    foreign_entry: 20000,
     transport_cost: 0,
     parking_cost: 5000,
-    notes: "Descent trail safety guides at the bottom cost approximately IDR 100,000 in cash. Fully optional.",
-    atm_info: "Nearest ATM is at the Pronojiwo local market (3km away).",
+    notes: "Optional trail safety guides at the bottom cost ~IDR 100,000 cash.",
+    atm_info: "Nearest ATM is at Pronojiwo local market (3km away).",
   },
   "pantai-3-warna": {
-    domestic_entry: 10000,
+    domestic_entry: 15000,
     foreign_entry: 100000,
     transport_cost: 150000,
     parking_cost: 10000,
-    notes: "Pre-booking is mandatory. Guide is required for ecological protection of conservation zone.",
-    atm_info: "Nearest ATM is in Sendang Biru village (2.5km away) but it frequently runs out of cash.",
+    notes: "Pre-booking mandatory. Guide fee (Rp 150,000/group) is required for conservation zone access.",
+    atm_info: "Nearest ATM is in Sendang Biru village (2.5km) — frequently runs out of cash.",
   },
   "coban-pelangi": {
-    domestic_entry: 15000,
+    domestic_entry: 10000,
     foreign_entry: 50000,
     transport_cost: 0,
     parking_cost: 5000,
-    notes: "Traditional food and hot drinks stalls near the entrance are cash-only.",
+    notes: "Weekend rate is Rp 15,000. Food and drinks stalls near the entrance are cash-only.",
     atm_info: "Last reliable ATM is at Poncokusumo village center (8km away).",
   },
   "pulau-sempu": {
@@ -143,56 +144,299 @@ const FALLBACK_FEES: Record<string, PlaceFeeData> = {
     foreign_entry: 150000,
     transport_cost: 150000,
     parking_cost: 10000,
-    notes: "Permit must be obtained at the Sendang Biru conservation office. Boat transport is cash-only.",
+    notes: "BKSDA permit required at the Sendang Biru conservation office. Boat transport is cash-only.",
     atm_info: "ATM availability at Sendang Biru is extremely limited. Withdraw cash in Malang or Turen.",
   },
   "budug-asu": {
-    domestic_entry: 15000,
+    domestic_entry: 10000,
     foreign_entry: 50000,
     transport_cost: 200000,
     parking_cost: 5000,
-    notes: "Motorcycle trail access fee is IDR 20,000. Spot is heavily cash-only.",
+    notes: "Motorcycle trail access fee is Rp 20,000. Site is entirely cash-only.",
     atm_info: "Nearest ATMs are at Lawang town center (12km away).",
   },
+  "wonosari-tea-plantation": {
+    domestic_entry: 15000,
+    foreign_entry: 50000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Weekend rate is Rp 20,000. Factory tour and tea tasting may have a small additional fee.",
+    atm_info: "Nearest ATM is in Lawang town center (7km away).",
+  },
+  "coban-rondo-waterfall": {
+    domestic_entry: 35000,
+    foreign_entry: 100000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Ticket includes access to the labyrinth maze, pine forest walk, and several small attractions.",
+    atm_info: "No ATMs at the waterfall. Nearest ATM is in Pujon town (4km).",
+  },
+  "paralayang-batu-omah-kayu": {
+    domestic_entry: 10000,
+    foreign_entry: 30000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Tandem paragliding costs Rp 400,000–500,000 and is booked separately with local operators.",
+    atm_info: "Nearest ATMs are in Batu city center (3km away).",
+  },
+  "selecta-park": {
+    domestic_entry: 50000,
+    foreign_entry: 100000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Ticket includes access to the flower garden, swimming pool, and children's play area.",
+    atm_info: "ATMs available in Selecta village nearby and in Batu city center (8km).",
+  },
+  "coban-rais": {
+    domestic_entry: 10000,
+    foreign_entry: 50000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Access to Batu Flower Garden requires a separate Rp 25,000 ticket. Entrance via Coban Rais gate.",
+    atm_info: "Nearest ATMs are in Batu city center (5km away).",
+  },
+  // ── FUN & ENTERTAINMENT ─────────────────────────────────────────────────
   "jatim-park-1": {
-    domestic_entry: 100000,
-    foreign_entry: 120000,
+    domestic_entry: 115000,
+    foreign_entry: 150000,
     transport_cost: 0,
     parking_cost: 10000,
-    notes: "Cards and electronic payments (QRIS) are accepted at the main ticket counters.",
-    atm_info: "Several major banks have ATM kiosks directly at the main entrance gate.",
+    notes: "Combo tickets with Museum Angkut or Museum Tubuh give better value. QRIS & cards accepted.",
+    atm_info: "Several ATM kiosks are available directly at the main entrance gate.",
   },
   "museum-angkut": {
     domestic_entry: 110000,
-    foreign_entry: 130000,
+    foreign_entry: 150000,
     transport_cost: 0,
     parking_cost: 10000,
-    notes: "QRIS and card payment options are widely available at all ticketing points.",
-    atm_info: "There are ATMs located inside the floating market area and near the ticket boxes.",
+    notes: "Combo tickets with Jatim Park 1 give better value. QRIS and card accepted at all counters.",
+    atm_info: "ATMs are located inside the floating market area and near the ticket booths.",
   },
+  "jatim-park-2-secret-zoo": {
+    domestic_entry: 125000,
+    foreign_entry: 200000,
+    transport_cost: 0,
+    parking_cost: 10000,
+    notes: "Ticket includes access to both Batu Secret Zoo and Museum Satwa. QRIS accepted.",
+    atm_info: "ATMs are available at the entrance gate area.",
+  },
+  "jatim-park-3-dino-park": {
+    domestic_entry: 100000,
+    foreign_entry: 175000,
+    transport_cost: 0,
+    parking_cost: 10000,
+    notes: "Price varies by zone (Rp 100,000–190,000). Combo packages with Legend Stars available.",
+    atm_info: "ATMs located at the main entrance and inside the park near food courts.",
+  },
+  "batu-night-spectacular": {
+    domestic_entry: 35000,
+    foreign_entry: 75000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Weekend entrance is Rp 40,000. All-ride pass (31 rides) costs Rp 110,000–120,000 separately.",
+    atm_info: "ATM kiosks available at the main entrance. QRIS accepted at ticket counters.",
+  },
+  "kampung-warna-warni-jodipan": {
+    domestic_entry: 5000,
+    foreign_entry: 10000,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Small entrance fee supports the local kampung community maintenance fund.",
+    atm_info: "Located in central Malang. Multiple ATMs within a 10-minute walk.",
+  },
+  "malang-night-paradise": {
+    domestic_entry: 75000,
+    foreign_entry: 120000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Weekend rate is Rp 80,000. All-ride pass available from Rp 160,000. QRIS accepted.",
+    atm_info: "ATMs available near the main entrance and in nearby Dinoyo area.",
+  },
+  "hawai-waterpark": {
+    domestic_entry: 85000,
+    foreign_entry: 150000,
+    transport_cost: 0,
+    parking_cost: 10000,
+    notes: "Weekend/high season rate is Rp 120,000. Children under 85cm enter free.",
+    atm_info: "ATM available at the park entrance. BRI and BCA ATMs in the nearby mall.",
+  },
+  "san-terra-del-fonte": {
+    domestic_entry: 25000,
+    foreign_entry: 50000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Weekend rate is Rp 30,000–35,000. Individual ride attractions cost extra (Rp 5,000–30,000 each).",
+    atm_info: "Nearest ATMs are in Batu city center (4km away).",
+  },
+  "predator-fun-park": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Entry is free. Rides and crocodile show attractions are pay-per-ride (approx Rp 10,000–30,000 each).",
+    atm_info: "Nearest ATMs are in Batu city center (3km away).",
+  },
+  // ── HERITAGE ────────────────────────────────────────────────────────────
   "kayutangan-heritage": {
     domestic_entry: 5000,
-    foreign_entry: 15000,
+    foreign_entry: 10000,
     transport_cost: 0,
     parking_cost: 3000,
-    notes: "Kawasan Heritage is open to the public; fee is for the inside residential kampung tour.",
-    atm_info: "Located in Malang city center. Dozens of ATMs are accessible within a 5-minute walk.",
+    notes: "Main street is free to walk. Rp 5,000 fee applies only to the heritage alley kampung area.",
+    atm_info: "Located in Malang city center. Dozens of ATMs within a 5-minute walk.",
   },
+  "alun-alun-malang": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "Completely free public square. Street food and drinks stalls are cash-only.",
+    atm_info: "Central Malang location — ATMs from all major banks within walking distance.",
+  },
+  "candi-singosari": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Free entry. A voluntary donation box is available at the temple grounds for preservation.",
+    atm_info: "Nearest ATMs are in Singosari town center (1.5km away).",
+  },
+  "tugu-malang": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "Outdoor public monument — completely free to visit at any time of day.",
+    atm_info: "Central Malang location — ATMs from all major banks within walking distance.",
+  },
+  "candi-badut": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Free entry. Managed by local community. Donations welcome for site upkeep.",
+    atm_info: "Nearest ATMs are in Dinoyo area (2km away).",
+  },
+  "gereja-ijen": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "Free entry. Respectful dress code required. Avoid visiting during Sunday mass hours.",
+    atm_info: "Located in central Malang. ATMs from all major banks within walking distance.",
+  },
+  "klenteng-eng-an-kiong": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Free entry. Donations welcome. Respectful attire required. Extra busy during Chinese New Year.",
+    atm_info: "Located in Malang Chinatown area. ATMs available within a 5-minute walk.",
+  },
+  "monumen-juang-45": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Outdoor public monument — entirely free to visit. Bring water as there are no facilities.",
+    atm_info: "Located near the Malang city center. ATMs available within a 10-minute walk.",
+  },
+  "candi-kidal": {
+    domestic_entry: 0,
+    foreign_entry: 0,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Free entry. Voluntary donations help maintain this 13th-century heritage site.",
+    atm_info: "Nearest ATMs are in Tumpang town center (4km away).",
+  },
+  "candi-jago": {
+    domestic_entry: 10000,
+    foreign_entry: 50000,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Weekend rate is Rp 15,000. Managed by BPCB (Heritage Conservation Board).",
+    atm_info: "Nearest ATMs are in Tumpang town center (2km away).",
+  },
+  "museum-musik-indonesia": {
+    domestic_entry: 10000,
+    foreign_entry: 30000,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "Ticket includes one complimentary vinyl record play session in the listening room.",
+    atm_info: "Nearest ATMs are in Batu city center (2km away).",
+  },
+  "museum-brawijaya": {
+    domestic_entry: 5000,
+    foreign_entry: 20000,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "Children's rate is Rp 3,000. Open Mon–Thu 08:00–14:30 WIB, Fri until 11:30 WIB.",
+    atm_info: "Located in central Malang. ATMs from all major banks within walking distance.",
+  },
+  // ── HIDDEN GEM ──────────────────────────────────────────────────────────
   "sumber-sirah": {
     domestic_entry: 5000,
     foreign_entry: 15000,
     transport_cost: 0,
     parking_cost: 3000,
-    notes: "River tube rental is IDR 10,000 in cash. Bring plastic bags for wet money.",
-    atm_info: "Nearest ATM is at the Gondanglegi district main road (4.5km away).",
+    notes: "River tube rental is Rp 10,000 in cash. Bring plastic bags to protect your belongings.",
+    atm_info: "Nearest ATM is at the Gondanglegi main road (4.5km away).",
+  },
+  "sumber-maron": {
+    domestic_entry: 5000,
+    foreign_entry: 15000,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "Weekend rate is Rp 10,000. Inner tube rental available for Rp 10,000 cash.",
+    atm_info: "Nearest ATMs are in Kepanjen town center (7km away).",
+  },
+  "sumber-jenon": {
+    domestic_entry: 10000,
+    foreign_entry: 25000,
+    transport_cost: 0,
+    parking_cost: 3000,
+    notes: "Natural spring pool. Entirely cash-only. No food vendors inside — bring your own snacks.",
+    atm_info: "Nearest ATMs are in Tajinan town (5km away).",
+  },
+  "coban-sumber-pitu-pujon": {
+    domestic_entry: 10000,
+    foreign_entry: 30000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Local guide recommended for the full 7-waterfall route (approx Rp 100,000 per group).",
+    atm_info: "Nearest ATMs are in Pujon town center (6km away).",
+  },
+  "pantai-gatra": {
+    domestic_entry: 10000,
+    foreign_entry: 30000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Conservation beach — no littering strictly enforced. Bring all your own food and water.",
+    atm_info: "No ATMs near the beach. Withdraw cash in Malang city before departure.",
+  },
+  "candi-sumberawan": {
+    domestic_entry: 5000,
+    foreign_entry: 15000,
+    transport_cost: 0,
+    parking_cost: 2000,
+    notes: "Set beside a sacred spring. Quiet, off-the-beaten-path site with minimal facilities.",
+    atm_info: "Nearest ATMs are in Singosari town center (3km away).",
+  },
+  "lembah-indah-malang": {
+    domestic_entry: 20000,
+    foreign_entry: 50000,
+    transport_cost: 0,
+    parking_cost: 5000,
+    notes: "Area access only. Accommodation, camping, and extra activities are billed separately.",
+    atm_info: "No ATMs on-site. Withdraw cash in Malang city (15km) before arrival.",
   },
   "nakoa-coffee": {
     domestic_entry: 0,
     foreign_entry: 0,
     transport_cost: 0,
     parking_cost: 2000,
-    notes: "Cafe space. Payment can be fully made via Credit/Debit cards or QRIS.",
-    atm_info: "There is an ATM kiosk at the convenience store right across the street.",
+    notes: "Cafe space. Payment fully via Credit/Debit cards or QRIS.",
+    atm_info: "ATM kiosk at the convenience store right across the street.",
   }
 };
 
@@ -340,34 +584,58 @@ const PlaceDetail = () => {
   };
 
   const getNearbyPlacesList = (): any[] => {
-    if (!data || !data.location || !data.location.lat || !data.location.lng) return [];
+    if (!data || !data.title) return [];
     
-    const allPlaces: any[] = [];
+    // Collect all other places from all categories
+    const allOtherPlaces: any[] = [];
     Object.values(activitiesData).forEach((category: any) => {
       category.places.forEach((p: any) => {
         if (p.title === data.title) return;
-        
-        if (p.location && p.location.lat && p.location.lng) {
-          const dist = calculateDistance(
-            data.location.lat, 
-            data.location.lng, 
-            p.location.lat, 
-            p.location.lng
-          );
-          allPlaces.push({
-            ...p,
-            distanceKm: dist
-          });
-        }
+        allOtherPlaces.push({ ...p });
       });
     });
 
-    const uniquePlaces = allPlaces.filter((item, index, self) =>
+    // Deduplicate by title
+    const uniquePlaces = allOtherPlaces.filter((item, index, self) =>
       self.findIndex(t => t.title === item.title) === index
     );
 
-    uniquePlaces.sort((a, b) => a.distanceKm - b.distanceKm);
-    return uniquePlaces.slice(0, 3);
+    // Attach distances where coordinates exist
+    const hasCoords = data.location && data.location.lat != null && data.location.lng != null;
+    const withDistance = uniquePlaces.map((p: any) => {
+      let distanceKm = Infinity;
+      if (hasCoords && p.location && p.location.lat != null && p.location.lng != null) {
+        distanceKm = calculateDistance(
+          data.location!.lat,
+          data.location!.lng,
+          p.location.lat,
+          p.location.lng
+        );
+        // Clamp to avoid NaN from floating-point edge cases in Haversine
+        if (isNaN(distanceKm)) distanceKm = Infinity;
+      }
+      return { ...p, distanceKm };
+    });
+
+    // Filter out places at the exact same location (distance = 0)
+    const filtered = withDistance.filter((p) => p.distanceKm > 0);
+
+    // Sort: places with real distances first (nearest first), then rest alphabetically
+    filtered.sort((a, b) => {
+      if (a.distanceKm === Infinity && b.distanceKm === Infinity) return a.title.localeCompare(b.title);
+      if (a.distanceKm === Infinity) return 1;
+      if (b.distanceKm === Infinity) return -1;
+      return a.distanceKm - b.distanceKm;
+    });
+
+    // If we filtered out too many, add back from the zero-distance pool (sorted alphabetically)
+    if (filtered.length < 3) {
+      const zeroDistance = withDistance.filter((p) => p.distanceKm <= 0).sort((a, b) => a.title.localeCompare(b.title));
+      filtered.push(...zeroDistance);
+    }
+
+    // Always return exactly 3 (or all available if fewer than 3)
+    return filtered.slice(0, 3);
   };
 
   const nearbyPlacesList = getNearbyPlacesList();
@@ -711,7 +979,7 @@ const PlaceDetail = () => {
                 >
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
-                <p className="text-lg md:text-2xl text-editorial leading-[1.6] text-[#2D221F]/80 font-medium text-balance relative z-10 max-w-4xl border-l-4 border-[#A3B18A] pl-6 py-3">
+                <p className="text-swiss text-lg md:text-xl italic leading-relaxed text-[#2D221F]/80 relative z-10 max-w-4xl border-l-4 border-[#A3B18A] pl-6 py-2">
                   {data.story}
                 </p>
               </div>
@@ -936,9 +1204,6 @@ const PlaceDetail = () => {
                   }}
                 >
                   <div className="w-full md:w-5/12 p-8 md:p-12 flex flex-col justify-center relative z-10">
-                    <div className="inline-block px-3 py-1.5 rounded-full text-[9px] font-black tracking-[0.15em] uppercase mb-4 bg-[#f5f4f0] text-[#A3B18A] w-fit border border-[#2D221F]/5">
-                      {exp.badge}
-                    </div>
                     <h3 className="text-3xl md:text-4xl text-editorial font-black mb-4 leading-tight">
                       {exp.title}
                     </h3>
@@ -1112,8 +1377,12 @@ const PlaceDetail = () => {
       {nearbyPlacesList.length > 0 && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
-            <SectionTitle title={t("placeDetail.nearbyTitle")} />
-            <p className="text-xs md:text-sm leading-relaxed text-[#2D221F]/60 mt-2 max-w-md">
+            <div className="mb-2">
+              <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F]">
+                {t("placeDetail.nearbyTitle")}
+              </h2>
+            </div>
+            <p className="text-[#2D221F]/60 text-xs md:text-sm leading-relaxed max-w-xl">
               {t("placeDetail.nearbyDesc")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
@@ -1131,7 +1400,7 @@ const PlaceDetail = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3 bg-[#A3B18A] text-white text-[9px] font-black tracking-[0.15em] uppercase px-3 py-1.5 rounded-full shadow-sm">
-                      {place.distanceKm < 1 ? `${(place.distanceKm * 1000).toFixed(0)} m` : `± ${place.distanceKm.toFixed(1)} km`}
+                      {place.distanceKm === Infinity ? "—" : place.distanceKm < 1 ? `${(place.distanceKm * 1000).toFixed(0)} m` : `± ${place.distanceKm.toFixed(1)} km`}
                     </div>
                   </div>
 
