@@ -459,9 +459,29 @@ const PlaceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
 
-  const [origin, setOrigin] = useState("");
-  const [calcState, setCalcState] = useState<'idle' | 'loading' | 'done'>('idle');
-  const [calcResult, setCalcResult] = useState({ time: "", dist: "" });
+  // Device location for auto travel-time
+  const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [locationError, setLocationError] = useState<string | null>(null);
+  const [detectingLocation, setDetectingLocation] = useState(true);
+
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      setLocationError("Geolocation not supported");
+      setDetectingLocation(false);
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setUserCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setDetectingLocation(false);
+      },
+      () => {
+        setLocationError("Location access denied");
+        setDetectingLocation(false);
+      },
+      { enableHighAccuracy: false, timeout: 8000, maximumAge: 300000 }
+    );
+  }, []);
 
   const [pageReady, setPageReady] = useState(false);
   useEffect(() => {
@@ -721,7 +741,7 @@ const PlaceDetail = () => {
             className="absolute inset-0 w-full h-full object-cover opacity-80"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#2D221F] via-[#2D221F]/20 to-[#2D221F]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#f5f4f0] from-0% via-[#2D221F]/30 via-35% to-[#2D221F]/40 to-100%" />
 
         <div className="absolute inset-4 md:inset-6 lg:inset-8 border border-white/10 z-10 pointer-events-none rounded-2xl mix-blend-overlay hidden md:block" />
 
@@ -844,33 +864,36 @@ const PlaceDetail = () => {
       {categoryKey !== "culinary" && (safety || fees || altitude || (isMountain && data.location)) && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32">
-            <SectionTitle title={t("placeDetail.safetyInfo")} />
+            {(categoryKey === "nature-seeker" || categoryKey === "hidden-gem") && (
+              <SectionTitle title={t("placeDetail.safetyInfo")} />
+            )}
 
-            {safety && (
+            {/* Safety & Altitude — only for nature categories */}
+            {(categoryKey === "nature-seeker" || categoryKey === "hidden-gem") && safety && (
               <div className="mb-8 bg-white text-[#2D221F] rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-colors duration-300">
                 <PlaceSafetyAdvisory safety={safety} />
               </div>
             )}
 
             <div className="space-y-6 md:space-y-8 mt-8">
-              {/* Row 1: Mountain Sunrise Predictor (Full width if active) */}
-              {isMountain && data.location && (
+              {/* Row 1: Mountain Sunrise Predictor — only for nature + mountains */}
+              {(categoryKey === "nature-seeker" || categoryKey === "hidden-gem") && isMountain && data.location && (
                 <div className="bg-white text-[#2D221F] rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-colors duration-300 w-full">
                   <MountainSunrisePredictor lat={data.location.lat} lng={data.location.lng} />
                 </div>
               )}
 
-              {/* Row 2: Cash & Altitude Advisors (Side-by-side if both active, full-width if only one is active) */}
-              {((fees && slug) || altitude) && (
+              {/* Row 2: Cash & Altitude Advisors */}
+              {((fees && slug) || (altitude && (categoryKey === "nature-seeker" || categoryKey === "hidden-gem"))) && (
                 <div className={`grid grid-cols-1 ${
-                  (fees && slug) && altitude ? "md:grid-cols-2" : "grid-cols-1"
+                  (fees && slug) && (altitude && (categoryKey === "nature-seeker" || categoryKey === "hidden-gem")) ? "md:grid-cols-2" : "grid-cols-1"
                 } gap-6 lg:gap-8`}>
                   {fees && slug && (
                     <div className="bg-white text-[#2D221F] rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-colors duration-300">
                       <PlaceCashAdvisor slug={slug} fees={fees} />
                     </div>
                   )}
-                  {altitude && (
+                  {altitude && (categoryKey === "nature-seeker" || categoryKey === "hidden-gem") && (
                     <div className="bg-white text-[#2D221F] rounded-2xl overflow-hidden border border-[#2D221F]/10 hover:border-[#2D221F]/30 transition-colors duration-300">
                       <PlaceAltitudeAdvisor altitude={altitude} />
                     </div>
@@ -1023,116 +1046,107 @@ const PlaceDetail = () => {
                   </div>
 
                   <div className="relative z-10 w-full mt-auto">
-                    <form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        if (!origin) return;
-                        if (calcState === "done") {
-                          window.open(
-                            `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(
-                              origin
-                            )}&destination=${data.location.lat},${data.location.lng}`,
-                            "_blank"
-                          );
-                          return;
-                        }
-                        setCalcState("loading");
-                        setTimeout(() => {
-                          const o = origin.toLowerCase();
-                          let time = "2 Jam 15 Menit";
-                          let dist = "65 km";
-                          if (o.includes("surabaya")) {
-                            time = "3 Jam 45 Menit";
-                            dist = "120 km";
-                          } else if (o.includes("malang")) {
-                            time = "2 Jam 20 Menit";
-                            dist = "53 km";
-                          } else if (o.includes("batu")) {
-                            time = "3 Jam";
-                            dist = "75 km";
-                          }
-                          setCalcResult({ time, dist });
-                          setCalcState("done");
-                        }, 1200);
-                      }}
-                      className="flex flex-col relative"
-                    >
-                      <div className="relative flex items-center border border-[#2D221F]/10 rounded-xl focus-within:border-[#A3B18A] focus-within:ring-1 focus-within:ring-[#A3B18A]/20 transition-all bg-white z-10">
-                        <div className="w-12 flex flex-col items-center justify-center shrink-0">
+                    {/* Origin: device location (auto-detected) */}
+                    <div className="relative flex items-center border border-[#2D221F]/10 rounded-xl bg-white z-10">
+                      <div className="w-12 flex flex-col items-center justify-center shrink-0">
+                        {detectingLocation ? (
+                          <div className="w-2.5 h-2.5 rounded-full bg-[#A3B18A]/40 animate-pulse" />
+                        ) : (
                           <div className="w-2.5 h-2.5 rounded-full bg-[#A3B18A]" />
-                        </div>
-                        <input
-                          type="text"
-                          placeholder={t("placeDetail.originPlaceholder")}
-                          value={origin}
-                          onChange={(e) => {
-                            setOrigin(e.target.value);
-                            if (calcState === "done") setCalcState("idle");
-                          }}
-                          disabled={calcState === "loading"}
-                          className="w-full py-4 pr-4 bg-transparent text-[#2D221F] placeholder-[#2D221F]/40 focus:outline-none text-sm font-medium disabled:opacity-50"
-                          required
-                        />
-                      </div>
-
-                      <div className="w-px h-6 border-l-2 border-dashed border-[#2D221F]/10 ml-[23px] my-1 relative z-0" />
-
-                      <div className="relative flex items-center border border-[#2D221F]/5 rounded-xl bg-[#f5f4f0] z-10">
-                        <div className="w-12 flex flex-col items-center justify-center shrink-0">
-                          <svg className="text-red-400 w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                          </svg>
-                        </div>
-                        <div className="w-full py-4 pr-4 text-[#2D221F] text-sm font-bold truncate">
-                          {data.title}
-                        </div>
-                      </div>
-
-                      {calcState === "done" && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="mt-6 p-5 rounded-2xl bg-[#A3B18A]/10 border border-[#A3B18A]/20 flex items-center justify-between"
-                        >
-                          <div>
-                            <p className="text-swiss text-[9px] font-black tracking-[0.15em] uppercase text-[#A3B18A] mb-1">
-                              {t("placeDetail.totalJourney")}
-                            </p>
-                            <p className="text-[#2D221F] text-sm font-bold">{calcResult.dist}</p>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-2xl font-black text-editorial text-[#A3B18A] leading-none">
-                              {calcResult.time}
-                            </p>
-                          </div>
-                        </motion.div>
-                      )}
-
-                      <button
-                        type="submit"
-                        disabled={calcState === "loading"}
-                        className="w-full mt-6 py-4 bg-[#2D221F] text-white rounded-xl font-bold tracking-[0.15em] uppercase text-[9px] hover:bg-[#A3B18A] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-                      >
-                        {calcState === "idle" && <span>{t("placeDetail.calculateTime")}</span>}
-                        {calcState === "loading" && <span>{t("placeDetail.calculating")}</span>}
-                        {calcState === "done" && (
-                          <>
-                            <span>{t("placeDetail.openGoogleMaps")}</span>
-                            <svg
-                              width="12"
-                              height="12"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                            >
-                              <path d="M5 12h14"></path>
-                              <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                          </>
                         )}
-                      </button>
-                    </form>
+                      </div>
+                      <div className="w-full py-4 pr-4 text-sm font-medium truncate">
+                        {detectingLocation ? (
+                          <span className="text-[#2D221F]/40">{t("placeDetail.detectingLocation")}</span>
+                        ) : locationError ? (
+                          <span className="text-red-400">{t("placeDetail.locationDenied")}</span>
+                        ) : userCoords ? (
+                          <span className="text-[#2D221F]">
+                            {t("placeDetail.yourLocation")} ({userCoords.lat.toFixed(4)}, {userCoords.lng.toFixed(4)})
+                          </span>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    <div className="w-px h-6 border-l-2 border-dashed border-[#2D221F]/10 ml-[23px] my-1 relative z-0" />
+
+                    <div className="relative flex items-center border border-[#2D221F]/5 rounded-xl bg-[#f5f4f0] z-10">
+                      <div className="w-12 flex flex-col items-center justify-center shrink-0">
+                        <svg className="text-red-400 w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                      </div>
+                      <div className="w-full py-4 pr-4 text-[#2D221F] text-sm font-bold truncate">
+                        {data.title}
+                      </div>
+                    </div>
+
+                    {/* Auto-calculated journey info */}
+                    {userCoords && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mt-6 p-5 rounded-2xl bg-[#A3B18A]/10 border border-[#A3B18A]/20 flex items-center justify-between"
+                      >
+                        <div>
+                          <p className="text-swiss text-[9px] font-black tracking-[0.15em] uppercase text-[#A3B18A] mb-1">
+                            {t("placeDetail.totalJourney")}
+                          </p>
+                          <p className="text-[#2D221F] text-sm font-bold">
+                            {(() => {
+                              const dist = calculateDistance(userCoords.lat, userCoords.lng, data.location.lat, data.location.lng);
+                              return dist < 1 ? `${(dist * 1000).toFixed(0)} m` : `± ${dist.toFixed(1)} km`;
+                            })()}
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-2xl font-black text-editorial text-[#A3B18A] leading-none">
+                            {(() => {
+                              const dist = calculateDistance(userCoords.lat, userCoords.lng, data.location.lat, data.location.lng);
+                              const hours = dist / 40;
+                              if (hours < 1) return `${Math.round(hours * 60)} min`;
+                              const h = Math.floor(hours);
+                              const m = Math.round((hours - h) * 60);
+                              return m > 0 ? `${h} h ${m} min` : `${h} h`;
+                            })()}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* Open in Google Maps */}
+                    <button
+                      onClick={() => {
+                        const origin = userCoords
+                          ? `${userCoords.lat},${userCoords.lng}`
+                          : "";
+                        window.open(
+                          `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${data.location.lat},${data.location.lng}`,
+                          "_blank"
+                        );
+                      }}
+                      disabled={!userCoords}
+                      className="w-full mt-6 py-4 bg-[#2D221F] text-white rounded-xl font-bold tracking-[0.15em] uppercase text-[9px] hover:bg-[#A3B18A] transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                    >
+                      {detectingLocation ? (
+                        <span>{t("placeDetail.detectingLocation")}</span>
+                      ) : (
+                        <>
+                          <span>{t("placeDetail.openGoogleMaps")}</span>
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                          </svg>
+                        </>
+                      )}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1428,37 +1442,6 @@ const PlaceDetail = () => {
         </section>
       )}
 
-      {/* 10. CLOSING CTA */}
-      {data.closingCTA && (
-        <section className="py-24 md:py-32 bg-[#A3B18A] text-[#2D221F]">
-          <div className="max-w-[1400px] mx-auto px-5 sm:px-8 md:px-16 lg:px-32 flex flex-col items-center text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="max-w-3xl mx-auto flex flex-col items-center"
-            >
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="opacity-20 mb-8"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-              <p className="text-swiss text-xl md:text-2xl font-medium leading-relaxed mb-12 text-balance text-center">
-                "{data.closingCTA}"
-              </p>
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="inline-flex items-center gap-4 px-8 py-4 bg-[#2D221F] text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-full hover:bg-white hover:text-[#2D221F] transition-all duration-300"
-              >
-                {t("placeDetail.planTrip")}
-              </button>
-            </motion.div>
-          </div>
-        </section>
-      )}
     </div>
   );
 };
