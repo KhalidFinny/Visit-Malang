@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCompass,
-  faCamera,
   faEnvelope,
   faGlobe,
   faChevronDown,

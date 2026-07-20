@@ -915,69 +915,68 @@ const PlaceDetail = () => {
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
  
  {/* Opening Hours */}
- <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
- <div>
- <div className="text-sm font-black uppercase tracking-wider text-[#A3B18A] mb-1">
- {t("placeDetail.openingHours")}
- </div>
- <h4 className="text-xl font-bold text-[#2D221F] mb-2">
- Hours of Operation
- </h4>
- <p className="text-sm text-[#2D221F]/70">
- {data.basicInfo?.hours || "10:00 - 22:00"}
- </p>
- </div>
- </div>
+              <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
+                <div>
+                  <div className="text-sm font-black uppercase tracking-wider text-[#A3B18A] mb-1">
+                    {t("placeDetail.openingHours")}
+                  </div>
+                  <h4 className="text-xl font-bold text-[#2D221F] mb-2">
+                    Jam Operasional
+                  </h4>
+                  <p className="text-sm text-[#2D221F]/70">
+                    {data.basicInfo?.hours || "10:00 - 22:00"}
+                  </p>
+                </div>
+              </div>
 
- {/* Price Range */}
- <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
- <div>
- <div className="text-sm font-black uppercase tracking-wider text-[#A3B18A] mb-1">
- Price Range
- </div>
- <h4 className="text-xl font-bold text-[#2D221F] mb-2">
- Per Person
- </h4>
- <p className="text-sm text-[#2D221F]/70">
- {data.priceRange || "Rp 25.000 - Rp 60.000"}
- </p>
- </div>
- </div>
+              {/* Price Range */}
+              <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
+                <div>
+                  <div className="text-sm font-black uppercase tracking-wider text-[#A3B18A] mb-1">
+                    Kisaran Harga
+                  </div>
+                  <h4 className="text-xl font-bold text-[#2D221F] mb-2">
+                    Per Orang
+                  </h4>
+                  <p className="text-sm text-[#2D221F]/70">
+                    {data.priceRange || "Rp 25.000 - Rp 60.000"}
+                  </p>
+                </div>
+              </div>
 
- {/* Ambience / Vibe */}
- <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
- <div>
- <div className="text-sm font-black uppercase tracking-wider text-[#A3B18A] mb-1">
- Ambience & Vibe
- </div>
- <h4 className="text-xl font-bold text-[#2D221F] mb-2">
- Atmosphere
- </h4>
- <p className="text-sm text-[#2D221F]/70">
- {data.ambience || "Casual Dining"}
- </p>
- </div>
- </div>
+              {/* Ambience / Vibe */}
+              <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
+                <div>
+                  <div className="text-sm font-black uppercase tracking-wider text-[#A3B18A] mb-1">
+                    Suasana
+                  </div>
+                  <h4 className="text-xl font-bold text-[#2D221F] mb-2">
+                    Atmosfer
+                  </h4>
+                  <p className="text-sm text-[#2D221F]/70">
+                    {data.ambience || "Casual Dining"}
+                  </p>
+                </div>
+              </div>
 
- {/* Payment Options */}
- <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
- <div>
- <div className="text-sm font-black uppercase tracking-wider text-[#A3B18A] mb-1">
- Payment Methods
- </div>
- <h4 className="text-xl font-bold text-[#2D221F] mb-2">
- Accepted Types
- </h4>
- <div className="flex flex-wrap gap-1.5 mt-2">
- {(data.paymentMethods || ["Cash", "QRIS"]).map((pm, i) => (
- <span key={i} className="px-2.5 py-1 bg-[#f5f4f0] border border-[#2D221F]/5 rounded-full text-sm font-semibold text-[#2D221F]/80">
- {pm}
- </span>
- ))}
- </div>
- </div>
- </div>
-
+              {/* Payment Options */}
+              <div className="bg-white p-6 rounded-2xl border border-[#2D221F]/10 flex flex-col justify-between hover:border-[#2D221F]/30 transition-all duration-300">
+                <div>
+                  <div className="text-sm font-black uppercase tracking-wider text-[#A3B18A] mb-1">
+                    Metode Pembayaran
+                  </div>
+                  <h4 className="text-xl font-bold text-[#2D221F] mb-2">
+                    Jenis yang Diterima
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {(data.paymentMethods || ["Cash", "QRIS"]).map((pm, i) => (
+                      <span key={i} className="px-2.5 py-1 bg-[#f5f4f0] border border-[#2D221F]/5 rounded-full text-sm font-semibold text-[#2D221F]/80">
+                        {pm}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
  </div>
  </div>
  </section>
@@ -1156,18 +1155,18 @@ const PlaceDetail = () => {
  <div className="flex flex-col h-full gap-6">
  <div className="bg-white p-6 md:p-8 rounded-2xl border border-[#2D221F]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
  <div className="flex-1 pr-6 sm:border-r border-[#2D221F]/10">
- <h4 className="text-swiss text-sm font-black tracking-[0.15em] uppercase text-[#2D221F]/40 mb-2">
- Location
- </h4>
+                      <h4 className="text-swiss text-sm font-black tracking-[0.15em] uppercase text-[#2D221F]/40 mb-2">
+                        Lokasi
+                      </h4>
  <p className="text-[#2D221F] font-bold text-sm md:text-base leading-snug">
  {data.basicInfo?.location || data.title}
  </p>
  </div>
  {data.basicInfo?.rating && (
  <div className="shrink-0">
- <h4 className="text-swiss text-sm font-black tracking-[0.15em] uppercase text-[#2D221F]/40 mb-2">
- Rating
- </h4>
+                        <h4 className="text-swiss text-sm font-black tracking-[0.15em] uppercase text-[#2D221F]/40 mb-2">
+                          Rating
+                        </h4>
  <div className="flex items-center gap-1.5 text-[#A3B18A] font-black text-xl">
  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -1298,9 +1297,9 @@ const PlaceDetail = () => {
  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
  {/* Do's Column */}
  <div className="flex flex-col">
- <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F] mb-8">
- DO
- </h2>
+                <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F] mb-8">
+                  YANG BOLEH
+                </h2>
  <div className="flex flex-col gap-6">
  {[...data.visitorTips.bring, ...(data.visitorTips.insiderTips || [])]
  .slice(0, 4)
@@ -1330,9 +1329,9 @@ const PlaceDetail = () => {
 
  {/* Don'ts Column */}
  <div className="flex flex-col mt-12 md:mt-0">
- <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F] mb-8">
- DON'T
- </h2>
+                <h2 className="text-editorial text-2xl md:text-3xl uppercase tracking-tighter leading-none text-[#2D221F] mb-8">
+                  YANG DIHINDARI
+                </h2>
  <div className="flex flex-col gap-6">
  {data.visitorTips.avoid.slice(0, 4).map((item, i) => (
  <div
@@ -1367,7 +1366,7 @@ const PlaceDetail = () => {
  {data.funFacts && (
  <section className="py-8 md:py-12">
  <div className="w-full px-4 sm:px-6 md:px-8 xl:px-10 relative">
- <SectionTitle title="Fun Facts" />
+            <SectionTitle title="Fakta Menarik" />
  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
  {data.funFacts.map((fact: string, i: number) => (
  <div key={i} className="border-l-2 border-[#2D221F]/10 pl-6">

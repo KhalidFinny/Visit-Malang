@@ -11,7 +11,6 @@ import {
   faInfoCircle,
   faTimes,
   faMap,
-  faLocationCrosshairs,
 } from '@fortawesome/free-solid-svg-icons';
 import MapCard from './MapCard';
 import RoutePreview from './RoutePreview';
@@ -56,21 +55,17 @@ export default function HeroMap({ category: initialCategory, onClose }: HeroMapP
   const [showControls, setShowControls] = useState(false);
   const [mapReady, setMapReady] = useState(false);
   const [userPos, setUserPos] = useState<{ lat: number; lng: number } | null>(null);
-  const [geoError, setGeoError] = useState<string | null>(null);
 
   // Request user location once on mount
   useEffect(() => {
     if (!navigator.geolocation) {
-      setGeoError('Geolocation not supported');
       return;
     }
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         setUserPos({ lat: pos.coords.latitude, lng: pos.coords.longitude });
       },
-      (err) => {
-        setGeoError(err.message);
-      },
+      () => {},
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 300000 }
     );
   }, []);

@@ -52,6 +52,11 @@ export interface StampPassportModalProps {
   onClose: () => void;
 }
 
+export interface VisualLensModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
 export interface MatchResult {
   title: string;
   category: string;

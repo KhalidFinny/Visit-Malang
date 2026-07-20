@@ -9,6 +9,7 @@ import {
   faTimes,
   faMap,
   faCheck,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTrip } from '../../../../context/TripContext';
@@ -25,6 +26,7 @@ const CATEGORY_ICONS: Record<MapCategory, any> = {
 };
 
 export default function MapCard({ place, onClose, onOpenDirections }: MapCardProps) {
+  const { t } = useTranslation();
 
   const { addToTrip, removeFromTrip, isInTrip } = useTrip();
   const inTrip = place ? isInTrip(place.id) : false;

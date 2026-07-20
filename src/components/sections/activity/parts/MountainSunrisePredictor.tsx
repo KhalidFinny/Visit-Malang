@@ -44,7 +44,7 @@ export default function MountainSunrisePredictor({ lat, lng }: MountainSunrisePr
     <div className="p-5 md:p-7 xl:p-8">
       <div className="flex items-center gap-2 mb-4">
         <FontAwesomeIcon icon={faSun} className="text-sm text-amber-500" />
-        <span className="text-swiss text-sm font-black tracking-[0.08em] uppercase text-[#A3B18A]">Sunrise Clarity Predictor</span>
+        <span className="text-swiss text-sm font-black tracking-[0.08em] uppercase text-[#A3B18A]">Prediksi Kejernihan Sunrise</span>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-[minmax(260px,340px)_1fr] gap-6">
         <div className={`p-5 md:p-6 rounded-xl border ${color}`}>
@@ -54,7 +54,7 @@ export default function MountainSunrisePredictor({ lat, lng }: MountainSunrisePr
             </div>
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.08em] text-[#2D221F]">{label}</p>
-              <p className="text-sm text-[#2D221F]/50 font-semibold">Clarity Score: {score}/100</p>
+              <p className="text-sm text-[#2D221F]/50 font-semibold">Skor Kejernihan: {score}/100</p>
             </div>
           </div>
           <p className="text-sm md:text-base text-[#2D221F]/70 leading-relaxed font-medium text-pretty">{desc}</p>
@@ -63,28 +63,28 @@ export default function MountainSunrisePredictor({ lat, lng }: MountainSunrisePr
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
             <div className="p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0]">
               <FontAwesomeIcon icon={faSun} className="text-amber-500 text-lg mb-2" />
-              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Temperature</p>
+              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Suhu</p>
               <p className="text-lg font-bold text-[#2D221F] mt-1">{Math.round(temp)}°C</p>
             </div>
             <div className="p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0]">
               <FontAwesomeIcon icon={faCloud} className="text-sky-500 text-lg mb-2" />
-              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Humidity</p>
+              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Kelembapan</p>
               <p className="text-lg font-bold text-[#2D221F] mt-1">{Math.round(humidity)}%</p>
             </div>
             <div className="p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0] sm:col-span-2 xl:col-span-1">
               <FontAwesomeIcon icon={faWind} className="text-sky-500 text-lg mb-2" />
-              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Wind Speed</p>
+              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Kecepatan Angin</p>
               <p className="text-lg font-bold text-[#2D221F] mt-1">{Math.round(windSpeed)} km/h</p>
             </div>
           </div>
           <button onClick={() => setIsSimulated(!isSimulated)} className="text-sm font-medium text-[#A3B18A] hover:text-[#8a9e75] underline underline-offset-4 transition-all cursor-pointer">
-            {isSimulated ? "Use Live Weather Data" : "Simulate Conditions"}
+            {isSimulated ? "Gunakan Data Cuaca Langsung" : "Simulasikan Kondisi"}
           </button>
           {isSimulated && (
             <div className="p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0] space-y-3">
-              {[{ label: "Humidity", v: simHumidity, s: setSimHumidity, min: 30, max: 100, icon: faCloud },
-                { label: "Wind Speed", v: simWind, s: setSimWind, min: 0, max: 50, icon: faWind },
-                { label: "Temperature", v: simTemp, s: setSimTemp, min: -5, max: 30, icon: faSun },
+              {[{ label: "Kelembapan", v: simHumidity, s: setSimHumidity, min: 30, max: 100, icon: faCloud },
+                { label: "Kecepatan Angin", v: simWind, s: setSimWind, min: 0, max: 50, icon: faWind },
+                { label: "Suhu", v: simTemp, s: setSimTemp, min: -5, max: 30, icon: faSun },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="flex items-center justify-between gap-4 mb-1.5">

@@ -45,7 +45,7 @@ const FlightBackground = memo(function FlightBackground({
                   alt=""
                   width={1920}
                   height={1080}
-                  fetchpriority="high"
+                  fetchPriority="high"
                   loading="eager"
                   className="absolute top-0 right-0 h-full w-[200%] max-w-none object-cover"
                 />
@@ -57,7 +57,7 @@ const FlightBackground = memo(function FlightBackground({
                   alt=""
                   width={1920}
                   height={1080}
-                  fetchpriority="high"
+                  fetchPriority="high"
                   loading="eager"
                   className="absolute top-0 -left-px h-full w-[200%] max-w-none object-cover"
                   style={{ transform: "scaleX(-1) translateZ(0)" }}
