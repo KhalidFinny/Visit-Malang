@@ -63,9 +63,9 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
 
             {/* Bottom: bigger text + arrow */}
             <div className="flex items-end justify-between w-full">
-              <h3 className={`text-sm font-bold tracking-tight leading-tight md:text-2xl lg:text-3xl ${THEME_BROWN}`}>
+              <h2 className={`text-sm font-bold tracking-tight leading-tight md:text-2xl lg:text-3xl ${THEME_BROWN}`}>
                 {t(CATEGORY_LOCALE_KEY[cat])}
-              </h3>
+              </h2>
               <div className={`w-8 h-8 md:w-14 md:h-14 rounded-full bg-transparent border ${BORDER_BROWN} flex items-center justify-center group-hover:bg-[#2D221F]/10 transition-all duration-200 shrink-0 ml-3`}>
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}

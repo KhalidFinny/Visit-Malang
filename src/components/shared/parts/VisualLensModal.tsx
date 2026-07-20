@@ -4,7 +4,7 @@ import { useScrollLock } from "../../hooks/useScrollLock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera, faSpinner, faMapLocationDot, faEye } from "@fortawesome/free-solid-svg-icons";
 import type { VisualLensModalProps } from "../types";
-import { zeroShotClassify, type MLMatchResult } from "../utils/lensML";
+import { preloadModel, zeroShotClassify, type MLMatchResult } from "../utils/lensML";
 import CloseButton from "./CloseButton";
 
 export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProps) {
@@ -19,6 +19,9 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
     if (!isOpen) {
       setImageSrc(null); setScanning(false); setResult(null);
       setCandidates([]); setIsUnknown(false);
+    } else {
+      // Start loading the ML model when user opens the modal
+      preloadModel();
     }
   }, [isOpen]);
 

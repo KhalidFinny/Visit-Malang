@@ -61,14 +61,16 @@ export default function CultureCard({ entry }: Props) {
           {entry.teaser}
         </p>
 
-        {/* Read more */}
-        <div
-          className="mt-4 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-colors duration-200"
-          style={{ color: palette.primary }}
+        {/* Read more — styled like a button, whole card is already clickable */}
+        <span
+          className="mt-4 inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider"
+          style={{
+            backgroundColor: palette.primary,
+            color: "#fff",
+          }}
         >
-          <span>{t("culture.readStory")}</span>
-          <span className="text-base leading-none transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-        </div>
+          {t("culture.readStory")}
+        </span>
       </div>
     </button>
   );

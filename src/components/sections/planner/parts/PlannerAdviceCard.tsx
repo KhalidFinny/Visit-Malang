@@ -72,7 +72,7 @@ export default function PlannerAdviceCard({ advice, origin }: PlannerAdviceCardP
                   target="_blank"
                   rel="noopener noreferrer"
                   className="shrink-0 p-2 text-black/30 hover:text-[#7a9e64] transition-colors"
-                  aria-label="Map Link"
+                  aria-label={`Open ${p.name} in Google Maps`}
                 >
                   <svg className="w-[18px] h-[18px]" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 10L10 2M10 2H5M10 2V7" />

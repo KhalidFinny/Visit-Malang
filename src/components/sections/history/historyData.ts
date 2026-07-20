@@ -60,7 +60,7 @@ export const HISTORY_STORIES: HistoryStory[] = [
       "Candi Badut is the monument most closely tied to that early chapter. As the oldest surviving Hindu temple in East Java, it shows that Malang was already a ritual center long before boulevards, railways, or municipal planning arrived. The temple is important not simply because it is old, but because it proves that the region had entered a world of formal religion, political patronage, and architectural production far earlier than the colonial cityscape suggests.",
       "Taken together, the inscription and the temple show that Malang’s beginnings are rooted in sacred geography, organized kingship, and written memory. The city’s story begins not as a resort town or student hub, but as one of East Java’s earliest recorded centers of sacred and political power."
     ],
-    imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Candi_Badut_Malang.jpg",
+    imageUrl: "/locations/candi-badut.webp",
     accent: "sage",
   },
   {
@@ -76,7 +76,7 @@ export const HISTORY_STORIES: HistoryStory[] = [
       "What makes this chapter important is not only the personalities involved. It marks the moment when the Malang region moves from being a documented district into being a producer of dynastic history. The area is no longer just governed from elsewhere. It becomes the ground from which a new line of power emerges. That is why the name Tumapel matters so much in the city’s deep historical memory.",
       "Even where the later chronicles blur history with political myth, the broader fact remains: the Malang highlands were a decisive arena in the fall of one order and the birth of another. Tumapel is where Malang begins to shape the destiny of East Java instead of only receiving it."
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/Candi_Kidal_A.JPG",
+    imageUrl: "/locations/Kenarok.webp",
     accent: "sage",
   },
   {
@@ -92,7 +92,7 @@ export const HISTORY_STORIES: HistoryStory[] = [
       "This matters because the temples preserve more than decorative stonework. They preserve how power was imagined. Kidal’s associations with Anusapati, Jago’s link to Wisnuwardhana, and Singhasari’s relation to Kertanegara reveal a region where kingship was commemorated through sacred building. Malang was therefore not simply adjacent to the Singhasari story; it was one of the principal landscapes through which that story was performed and remembered.",
       "The medieval weight of Malang comes from this density. Few regions can still point to so many surviving monuments tied to one royal tradition. The result is that Singhasari remains one of the strongest reasons Malang can be read as a historical territory, not just a modern city."
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/15/Candi_Singosari_B.JPG",
+    imageUrl: "/locations/candi_singosari.webp",
     accent: "sage",
   },
   {
@@ -108,7 +108,7 @@ export const HISTORY_STORIES: HistoryStory[] = [
       "The opening of the railway in 1879 accelerated Malang’s growth dramatically. Trade moved faster, people moved faster, and the city became more legible to colonial administration as a place worth investing in. By 1914 Malang was formally designated a gemeente. That shift marks the transition from settlement growth into organized municipal development. The city was now being planned, financed, and governed through a modern civic structure.",
       "This chapter matters because it explains how Malang’s later elegance became possible. The boulevards, civic parks, and architectural identity of the early twentieth century were built on the back of this earlier infrastructure revolution."
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/84/Balai_Kota_Malang_2018.jpg",
+    imageUrl: "/locations/kereta.webp",
     accent: "blush",
   },
   {
@@ -124,7 +124,7 @@ export const HISTORY_STORIES: HistoryStory[] = [
       "This period is why Malang still feels distinct from many inland cities in Java. Its colonial layer survived not only in isolated monuments, but in whole urban relationships — sightlines, streets, parks, and formal institutions. The city center was staged to be memorable, and that staging still shapes how residents and visitors read Malang today.",
       "When people talk about Malang’s elegance or calm, they are often responding to this chapter. The city’s visual language was not accidental. It was built."
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Tugu_Malang.jpg",
+    imageUrl: "/locations/ijen.webp",
     accent: "blush",
   },
   {
@@ -140,7 +140,7 @@ export const HISTORY_STORIES: HistoryStory[] = [
       "Monuments such as Tugu Malang and the memorial spaces around the civic center matter because they hold that memory in public form. They make the city’s central spaces more than picturesque landmarks. They mark sacrifice, uncertainty, and return. The story of independence in Malang is not only national; it is urban, local, and embedded in the landscape people still walk through every day.",
       "That is why the city center feels historical in more than one sense. It is not only colonial. It is also republican ground."
     ],
-    imageUrl: "/tugu.webp",
+    imageUrl: "/locations/tugu.webp",
     accent: "stone",
   },
   {
@@ -156,7 +156,7 @@ export const HISTORY_STORIES: HistoryStory[] = [
       "At the same time, modern Malang is not defined by campus life alone. Great Mosque courtyards, Chinese temples, neo-gothic churches, Kayutangan’s revived shopfronts, and routes toward Bromo all coexist inside one cultural field. What makes the city compelling today is that these layers remain legible together rather than being flattened into one single image of place.",
       "Modern Malang works because history is not sealed away in museums. It survives in prayer spaces, student districts, old corridors, and the everyday geography of the city itself."
     ],
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Front_Of_Great_Mosque_Jami_%27Malang.jpg",
+    imageUrl: "/locations/kampus.webp",
     accent: "stone",
   },
 ];

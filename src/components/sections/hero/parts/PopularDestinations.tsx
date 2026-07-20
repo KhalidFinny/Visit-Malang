@@ -6,27 +6,27 @@ const TOP_5_DESTINATIONS: HeroDestination[] = [
   {
     name: "Mount Bromo",
     category: "Nature",
-    image: "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1602154663343-89fe0bf541ab?q=80&w=450&auto=format&fit=crop",
   },
   {
     name: "Tumpak Sewu",
     category: "Nature",
-    image: "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1593901138884-02ee723a96f7?q=80&w=450&auto=format&fit=crop",
   },
   {
     name: "Museum Angkut",
     category: "Attraction",
-    image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=450&auto=format&fit=crop",
   },
   {
     name: "Jodipan Village",
     category: "Attraction",
-    image: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?q=80&w=450&auto=format&fit=crop",
   },
   {
     name: "Toko Oen",
     category: "Culinary",
-    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=450&auto=format&fit=crop",
   },
 ];
 
@@ -58,13 +58,15 @@ export default function PopularDestinations() {
         {TRACK.map((dest, idx) => (
           <div
             key={`${dest.name}-${idx}`}
-            className="group flex flex-col shrink-0 cursor-pointer relative overflow-hidden rounded-2xl border border-premium-black/10 hover:border-premium-black/30 transition-all duration-300 w-[280px] h-[280px] sm:w-[450px] sm:h-[290px]"
+            className="group flex flex-col shrink-0 cursor-pointer relative overflow-hidden rounded-2xl border border-premium-black/10 hover:border-premium-black/30 transition-all duration-300 w-[280px] h-[280px] sm:w-[450px] sm:h-[290px] aspect-[1/1] sm:aspect-[450/290]"
           >
             {/* Full Card Cover Image (Landscape ratio) */}
             <div className="absolute inset-0 w-full h-full overflow-hidden">
               <img
                 src={dest.image}
                 alt={dest.name}
+                width={450}
+                height={290}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 loading="lazy"
               />
