@@ -771,51 +771,64 @@ const PlaceDetail = () => {
       )}
 
       {/* 6. WAKTU TERBAIK KUNJUNGAN */}
-      {categoryKey !== "culinary" && data.bestTime && data.bestTime.length > 0 && (
+      {categoryKey !== "culinary" && (
+        (data.bestTime && data.bestTime.length > 0) || data.visitorTips?.bestTime
+      ) && (
         <section className="py-8 md:py-12">
           <div className="max-w-[1400px] xl:max-w-[1700px] mx-auto px-5 sm:px-8 md:px-16 lg:px-20">
             <SectionTitle title={t("placeDetail.bestTime")} />
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-8">
-              {data.bestTime.map((bt: any, i: number) => (
-                <div
-                  key={i}
-                  className="flex flex-col sm:flex-row gap-6 p-8 bg-white border border-[#2D221F]/10 rounded-2xl group hover:border-[#2D221F]/30 transition-all duration-300"
-                >
+            
+            {data.bestTime && data.bestTime.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                {data.bestTime.map((bt: any, i: number) => (
                   <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 border border-[#2D221F]/10 bg-[#f5f4f0] transition-colors"
-                    style={{ color: bt.color || "#A3B18A" }}
+                    key={i}
+                    className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-white border border-[#2D221F]/10 rounded-2xl group hover:border-[#2D221F]/30 transition-all duration-300 h-full"
                   >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
+                    <div
+                      className="w-14 h-14 rounded-full flex items-center justify-center shrink-0 border border-[#2D221F]/10 bg-[#f5f4f0] transition-colors"
+                      style={{ color: bt.color || "#A3B18A" }}
                     >
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <h3 className="text-xl md:text-2xl font-black text-editorial text-[#2D221F]">
-                        {bt.label}
-                      </h3>
-                      <span
-                        className="px-3 py-1 rounded-full text-[9px] font-black tracking-widest uppercase bg-[#f5f4f0] border border-[#2D221F]/5"
-                        style={{ color: bt.color || "#A3B18A" }}
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
                       >
-                        {bt.badge}
-                      </span>
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
                     </div>
-                    <p className="text-sm md:text-base text-[#2D221F]/70 leading-relaxed font-medium">
-                      {bt.value}
-                    </p>
+                    <div className="flex flex-col justify-center">
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <h3 className="text-xl md:text-2xl font-black text-editorial text-[#2D221F]">
+                          {bt.label}
+                        </h3>
+                        {bt.badge && (
+                          <span
+                            className="px-3 py-1 rounded-full text-[9px] font-black tracking-widest uppercase bg-[#f5f4f0] border border-[#2D221F]/5"
+                            style={{ color: bt.color || "#A3B18A" }}
+                          >
+                            {bt.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm md:text-base text-[#2D221F]/70 leading-relaxed font-medium">
+                        {bt.value}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : data.visitorTips?.bestTime ? (
+              <div className="mt-8 p-6 sm:p-8 bg-white border border-[#2D221F]/10 rounded-2xl">
+                <p className="text-base sm:text-lg text-[#2D221F]/80 font-medium leading-relaxed">
+                  {data.visitorTips.bestTime}
+                </p>
+              </div>
+            ) : null}
           </div>
         </section>
       )}

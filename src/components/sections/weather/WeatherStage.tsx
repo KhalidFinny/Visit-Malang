@@ -316,7 +316,7 @@ export default function WeatherStage() {
           {/* ════════════════════════════════════════════════════════════
               LEFT PANEL — Weather Info
           ════════════════════════════════════════════════════════════ */}
-          <div className="lg:w-[380px] shrink-0 flex flex-col py-8 lg:py-12 lg:pr-8">
+          <div className="lg:w-[320px] xl:w-[380px] shrink-0 flex flex-col py-8 lg:py-12 lg:pr-6 xl:pr-8">
             {/* Label */}
             <span className="text-[14px] font-black tracking-[0.3em] text-[#1a1a1a]/30 uppercase mb-6">
               {t('weather.recommendation')}
@@ -409,7 +409,7 @@ export default function WeatherStage() {
           {/* ════════════════════════════════════════════════════════════
               RIGHT PANEL — Featured Card + Info Bar
           ════════════════════════════════════════════════════════════ */}
-          <div className="flex-1 flex flex-col py-8 lg:py-12 lg:pl-8">
+          <div className="flex-1 min-w-0 flex flex-col py-8 lg:py-12 lg:pl-6 xl:pl-8">
             {/* Image Card */}
             <div className="relative flex-1 min-h-[340px] lg:h-[380px] xl:h-[460px] rounded-[32px] overflow-hidden">
               {loading ? (
@@ -496,23 +496,23 @@ export default function WeatherStage() {
               ) : null}
             </div>
 
-            {/* Info Bar — Outside the card, single row, no distance */}
+            {/* Info Bar — Outside the card, single row, responsive wrapping */}
             {!loading && rec && (
-              <div className="mt-4 sm:mt-6 flex items-center gap-4 md:gap-6 lg:gap-10">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <FontAwesomeIcon icon={faClock} className="text-[#1a1a1a]/25 text-xs sm:text-sm lg:text-base" />
-                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-black uppercase tracking-[0.1em] sm:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.timeToGo')}</span>
-                  <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-bold text-[#1a1a1a] whitespace-nowrap">{rec.idealTime.map((time: string) => t('weather.time.' + time.toLowerCase())).join(" / ")}</span>
+              <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-x-4 md:gap-x-6 xl:gap-x-10 gap-y-2 justify-between">
+                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                  <FontAwesomeIcon icon={faClock} className="text-[#1a1a1a]/25 text-xs xl:text-base shrink-0" />
+                  <span className="text-[10px] sm:text-[11px] xl:text-[13px] font-black uppercase tracking-[0.1em] xl:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.timeToGo')}</span>
+                  <span className="text-[11px] sm:text-[13px] xl:text-[15px] font-bold text-[#1a1a1a] whitespace-nowrap">{rec.idealTime.map((time: string) => t('weather.time.' + time.toLowerCase())).join(" / ")}</span>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <FontAwesomeIcon icon={faCloudSun} className="text-[#1a1a1a]/25 text-xs sm:text-sm lg:text-base" />
-                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-black uppercase tracking-[0.1em] sm:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.bestFor')}</span>
-                  <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-bold text-[#1a1a1a] whitespace-nowrap">{t('weather.condition.' + displayWeather(rec.idealWeather).toLowerCase())}</span>
+                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                  <FontAwesomeIcon icon={faCloudSun} className="text-[#1a1a1a]/25 text-xs xl:text-base shrink-0" />
+                  <span className="text-[10px] sm:text-[11px] xl:text-[13px] font-black uppercase tracking-[0.1em] xl:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.bestFor')}</span>
+                  <span className="text-[11px] sm:text-[13px] xl:text-[15px] font-bold text-[#1a1a1a] whitespace-nowrap">{t('weather.condition.' + displayWeather(rec.idealWeather).toLowerCase())}</span>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <FontAwesomeIcon icon={faUsers} className="text-[#1a1a1a]/25 text-xs sm:text-sm lg:text-base" />
-                  <span className="text-[10px] sm:text-[12px] lg:text-[14px] font-black uppercase tracking-[0.1em] sm:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.crowdLevel')}</span>
-                  <span className="text-[12px] sm:text-[14px] lg:text-[16px] font-bold text-[#1a1a1a] whitespace-nowrap">
+                <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                  <FontAwesomeIcon icon={faUsers} className="text-[#1a1a1a]/25 text-xs xl:text-base shrink-0" />
+                  <span className="text-[10px] sm:text-[11px] xl:text-[13px] font-black uppercase tracking-[0.1em] xl:tracking-[0.15em] text-[#1a1a1a]/40 whitespace-nowrap">{t('weather.crowdLevel')}</span>
+                  <span className="text-[11px] sm:text-[13px] xl:text-[15px] font-bold text-[#1a1a1a] whitespace-nowrap">
                     {rec.popularity > 0.9 ? t('weather.high') : rec.popularity > 0.8 ? t('weather.medium') : t('weather.low')}
                   </span>
                 </div>

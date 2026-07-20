@@ -65,7 +65,7 @@ export type Place = {
   gallery: any[]; // Supports both string[] and {src: string, desc: string}[]
   story: string;
   keyAttractions?: { title: string; desc: string; image?: string }[];
-  thingsToDo: Activity[];
+  thingsToDo?: Activity[];
   visitorTips?: VisitorTips;
   tips: string[];
   bestTime?: BestTime[];
