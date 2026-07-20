@@ -51,14 +51,28 @@ body {
 }
 
 .swiss-container {
-  max-width: 1600px;
+  width: min(92%, 1440px);
   margin: 0 auto;
-  padding: 0 var(--spacing-swiss-sm);
+  padding: 0 clamp(1rem, 2.5vw, 4rem);
 }
 
-@media (min-width: 768px) {
-  .swiss-container {
-    padding: 0 var(--spacing-swiss-md);
+/* ── Fluid section padding ─────────────────────────────────── */
+/* Sections with py-32 (8rem) / py-44 (11rem) eat 30%+ of vertical
+   space on short viewports. Clamp scales them with viewport height. */
+@media (max-height: 900px) and (min-width: 768px) {
+  section[class*="min-h-"] {
+    padding-top: clamp(2rem, 6vh, 8rem) !important;
+    padding-bottom: clamp(2rem, 6vh, 8rem) !important;
+  }
+}
+
+/* ── Tighten section padding on medium-height viewports ── */
+/* Sections with py-32 (8rem) / py-44 (11rem) eat 30%+ of vertical
+   space on a 768px-tall laptop screen. Scale down gracefully. */
+@media (max-height: 900px) and (min-width: 768px) {
+  section[class*="min-h-"] {
+    padding-top: max(4rem, 5vh) !important;
+    padding-bottom: max(4rem, 5vh) !important;
   }
 }
 
@@ -86,7 +100,7 @@ body {
 
 .experience-root {
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background: #000;
 }

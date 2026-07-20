@@ -53,7 +53,7 @@ export default function PlannerInputs({
       <div className="flex flex-wrap items-center gap-3">
         {/* Month chip */}
         <div className="flex items-center gap-2 bg-transparent border border-black/[0.08] px-3.5 py-1.5 rounded-full select-none">
-          <span className="text-xs font-semibold text-black/50 uppercase tracking-wider">
+          <span className="text-sm font-semibold text-black/50 uppercase tracking-wider">
             {t('planner.input.month')}
           </span>
           <span className="text-sm font-bold text-black">
@@ -73,7 +73,7 @@ export default function PlannerInputs({
             <button
               key={tier}
               onClick={() => setBudget(tier)}
-              className={`px-3.5 py-1.5 text-xs font-bold rounded-full border transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 text-sm font-bold rounded-full border transition-all cursor-pointer ${
                 budget === tier
                   ? "bg-transparent border-black text-black border-2"
                   : "bg-transparent text-black/40 border-black/10 hover:border-black/25"
@@ -95,7 +95,7 @@ export default function PlannerInputs({
       {step === 1 && (
         <div className="flex flex-col gap-5 text-center max-w-2xl mx-auto w-full px-4">
           <div className="flex flex-col gap-1">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#7a9e64]">Step 1 of 3</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">Step 1 of 3</span>
             <h3 className="text-xl font-bold text-black uppercase tracking-tight">{t('planner.input.month')}</h3>
             <p className="text-sm text-black/40 font-medium">When do you plan to explore Malang?</p>
           </div>
@@ -121,7 +121,7 @@ export default function PlannerInputs({
       {step === 2 && (
         <div className="flex flex-col gap-5 text-center max-w-3xl mx-auto w-full px-4">
           <div className="flex flex-col gap-1">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#7a9e64]">Step 2 of 3</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">Step 2 of 3</span>
             <h3 className="text-xl font-bold text-black uppercase tracking-tight">{t('planner.input.travelStyle')}</h3>
             <p className="text-sm text-black/40 font-medium">Choose a style that matches your budget and comfort preference.</p>
           </div>
@@ -145,7 +145,7 @@ export default function PlannerInputs({
                   </div>
                   <div className="flex flex-col gap-1">
                     <span className="text-base font-bold uppercase tracking-tight">{t('planner.tier.' + tier)}</span>
-                    <span className="text-xs font-medium opacity-70">
+                    <span className="text-sm font-medium opacity-70">
                       {t('planner.tier.' + tier + 'Sub')}
                     </span>
                   </div>
@@ -165,7 +165,7 @@ export default function PlannerInputs({
       {step === 3 && (
         <div className="flex flex-col gap-5 text-center max-w-2xl mx-auto w-full px-4">
           <div className="flex flex-col gap-1">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#7a9e64]">Step 3 of 3</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-[#7a9e64]">Step 3 of 3</span>
             <h3 className="text-xl font-bold text-black uppercase tracking-tight">{t('planner.input.currency')}</h3>
             <p className="text-sm text-black/45 font-medium">{t('planner.input.estimatesAdapt')}</p>
           </div>

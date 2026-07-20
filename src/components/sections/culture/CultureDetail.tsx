@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,15 +16,16 @@ const fade = (d: number) => ({
 export default function CultureDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const entry = CULTURE_ENTRIES.find((e) => e.slug === slug);
 
   if (!entry) {
     return (
       <div className="min-h-screen bg-[#f5f4f0] flex items-center justify-center">
         <div className="text-center">
-          <p className="text-lg font-bold text-[#1a1a1a]/60">Not found</p>
+          <p className="text-lg font-bold text-[#1a1a1a]/60">{t("culture.notFound")}</p>
           <button onClick={() => navigate("/culture")} className="mt-4 text-sm text-[#A3B18A] hover:underline cursor-pointer">
-            Back to culture
+            {t("culture.backToCultures")}
           </button>
         </div>
       </div>
@@ -84,8 +86,8 @@ export default function CultureDetail() {
             <div className="w-10 h-0.5 my-10 sm:my-14" style={{ backgroundColor: palette.primary + "40" }} />
 
             <motion.div {...fade(0.25)}>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#A3B18A] mb-5">
-                Where to experience
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-[#A3B18A] mb-5">
+                {t("culture.whereToExperience")}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {entry.whereToExperience.map((place, i) => (
@@ -104,7 +106,7 @@ export default function CultureDetail() {
             <div className="w-10 h-0.5 my-10 sm:my-14" style={{ backgroundColor: palette.primary + "40" }} />
 
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#1a1a1a]/40 mb-6">Continue Reading</h3>
+              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#1a1a1a]/40 mb-6">{t("culture.continueReading")}</h3>
               <div className="flex flex-col gap-6">
                 {siblings.map((s) => (
                   <button key={s.slug} onClick={() => navigate(`/culture/${s.slug}`)} className="flex items-center gap-4 text-left group">

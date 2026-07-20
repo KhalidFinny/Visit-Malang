@@ -62,7 +62,7 @@ export default function HeroStage() {
     <section className="relative w-full bg-[#f5f4f0] flex flex-col overflow-visible min-h-[600px]">
 
       {/* ── Banner ─────────────────────────────────────────── */}
-      <div className="relative w-full h-[58vh] min-h-[500px] md:h-[70vh] md:min-h-[560px] flex-shrink-0 overflow-visible">
+      <div className="relative w-full h-[55vh] min-h-[420px] md:h-[58vh] md:min-h-[460px] lg:min-h-[500px] xl:h-[65vh] xl:min-h-[560px] flex-shrink-0 overflow-visible">
         {/* Video + overlay */}
         <div className="absolute inset-0 rounded-b-[2rem] md:rounded-b-[3.5rem] overflow-hidden">
           <video
@@ -84,16 +84,16 @@ export default function HeroStage() {
         </div>
 
         {/* Live Weather + Time Widget in top-left banner */}
-        <div className="absolute left-4 top-24 sm:left-6 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-[11px] sm:text-sm tracking-wider select-none">
+        <div className="absolute left-4 top-24 sm:left-6 sm:top-6 md:left-12 lg:left-16 z-20 flex items-center gap-2.5 sm:gap-4 text-white/95 font-mono text-sm sm:text-sm tracking-wider select-none">
           <div className="flex flex-col">
-            <span className="text-[9px] sm:text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
-            <span className="font-semibold text-white mt-1 text-[10px] sm:text-xs md:text-sm">{currentTime || "--:--:--"} WIB</span>
+            <span className="text-sm sm:text-sm text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.localTime")}</span>
+            <span className="font-semibold text-white mt-1 text-sm sm:text-sm md:text-sm">{currentTime || "--:--:--"} WIB</span>
           </div>
           <div className="h-5 sm:h-6 w-px bg-white/20" />
           {weatherData && (
             <div className="flex flex-col">
-              <span className="text-[9px] sm:text-xs text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.malangWeather")}</span>
-              <span className="font-semibold text-white mt-1 text-[10px] sm:text-xs md:text-sm">
+              <span className="text-sm sm:text-sm text-white/50 font-bold uppercase tracking-widest leading-none">{t("hero.custom.malangWeather")}</span>
+              <span className="font-semibold text-white mt-1 text-sm sm:text-sm md:text-sm">
                 {Math.round(weatherData.temp)}°C · {getWeatherFromCode(weatherData.weatherCode)}
               </span>
             </div>
@@ -103,12 +103,12 @@ export default function HeroStage() {
         {/* Title block — centered vertically in the banner */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white gap-0">
           {/* Eyebrow */}
-          <span className="text-xs md:text-sm font-bold tracking-[0.65em] text-white/60 uppercase mb-4">
+          <span className="text-sm md:text-sm font-bold tracking-[0.65em] text-white/60 uppercase mb-4">
             {t("hero.custom.discover")}
           </span>
 
           {/* MALANG — inline split: MA outlined, LANG solid */}
-          <h1 className="text-editorial text-[clamp(6.5rem,15vw,14rem)] leading-none tracking-wide uppercase select-none relative font-black">
+          <h1 className="text-editorial text-[clamp(4.5rem,12vw,11rem)] xl:text-[clamp(6.5rem,15vw,14rem)] leading-none tracking-wide uppercase select-none relative font-black">
             <span
               className="text-transparent"
               style={{ WebkitTextStroke: "clamp(2px, 0.25vw, 4px) white" }}
@@ -117,14 +117,14 @@ export default function HeroStage() {
             </span>
             <span className="text-white">lang</span>
             {/* Script accent — overlapping slightly for classic Swiss editorial look */}
-            <span className="font-script text-[clamp(3.5rem,7.5vw,6.5rem)] text-[#D88A6E] absolute bottom-[-0.15em] right-[8%] -rotate-6 select-none pointer-events-none z-20 normal-case tracking-normal">
+            <span className="font-script text-[clamp(2.5rem,5vw,4.5rem)] xl:text-[clamp(3.5rem,7.5vw,6.5rem)] text-[#D88A6E] absolute bottom-[-0.15em] right-[8%] -rotate-6 select-none pointer-events-none z-20 normal-case tracking-normal">
               timeless
             </span>
           </h1>
 
           {/* Divider + slogan */}
           <div className="w-10 h-px bg-white/30 my-4" />
-          <p className="text-[clamp(13px,1.4vw,18px)] text-white/80 font-light tracking-[0.32em] uppercase">
+          <p className="text-[clamp(11px,1.2vw,15px)] xl:text-[clamp(13px,1.4vw,18px)] text-white/80 font-light tracking-[0.32em] uppercase">
             {t("hero.custom.slogan")}
           </p>
         </div>

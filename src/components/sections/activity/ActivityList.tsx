@@ -53,7 +53,7 @@ const ActivityList = () => {
             </h2>
 
             <div className="flex items-center gap-2 group-hover:text-[#A3B18A] transition-colors duration-300">
-              <span className="text-swiss text-[9px] sm:text-xs uppercase tracking-[0.25em] opacity-70 group-hover:opacity-100 shrink-0 whitespace-nowrap hidden sm:inline">
+              <span className="text-swiss text-sm sm:text-sm uppercase tracking-[0.25em] opacity-70 group-hover:opacity-100 shrink-0 whitespace-nowrap hidden sm:inline">
                 {t('activityList.viewMore')}
               </span>
               <svg 

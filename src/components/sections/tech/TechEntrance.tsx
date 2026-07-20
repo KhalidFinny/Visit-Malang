@@ -39,7 +39,7 @@ const TechEntrance: React.FC = () => {
           >
             <div className="relative group cursor-pointer" onClick={() => navigate("/tech")}>
               <div className="absolute inset-0 bg-[#A3B18A] blur-3xl opacity-20 group-hover:opacity-40 transition-opacity" />
-              <button className="relative px-12 py-6 bg-[#2D221F] text-white text-xs font-black uppercase tracking-[0.4em] rounded-full hover:bg-[#4A5759] transition-all duration-500 whitespace-nowrap">
+              <button className="relative px-12 py-6 bg-[#2D221F] text-white text-sm font-black uppercase tracking-[0.4em] rounded-full hover:bg-[#4A5759] transition-all duration-500 whitespace-nowrap">
                 {t("techModern.entrance.cta")}
               </button>
             </div>

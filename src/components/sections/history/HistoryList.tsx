@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useMemo, type ReactNode } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { faMountain, faTrain, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
@@ -23,6 +24,7 @@ const ERA: Record<HistoryPeriodKey, { bg: string; accent: string; decoImage: str
 export default function HistoryList() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const { t } = useTranslation();
   const periodKey = (searchParams.get("period") as HistoryPeriodKey | null) ?? "kingdoms";
   const activePeriod = HISTORY_PERIODS.find((p) => p.key === periodKey) ?? HISTORY_PERIODS[0];
   const vibe = ERA[activePeriod.key];
@@ -41,7 +43,7 @@ export default function HistoryList() {
             const theme = HISTORY_ACCENTS[period.accent];
             return (
               <button key={period.key} onClick={() => setSearchParams({ period: period.key }, { replace: true })}
-                className={`rounded-full border px-4 py-1.5 text-xs font-black uppercase tracking-[0.18em] transition-all cursor-pointer ${active ? `bg-white shadow-sm ${theme.chip}` : 'bg-white/50 border-black/10 text-black/55 hover:border-black/20 hover:bg-white/70'}`}>
+                className={`rounded-full border px-4 py-1.5 text-sm font-black uppercase tracking-[0.18em] transition-all cursor-pointer ${active ? `bg-white shadow-sm ${theme.chip}` : 'bg-white/50 border-black/10 text-black/55 hover:border-black/20 hover:bg-white/70'}`}>
                 {period.label}
               </button>
             );
@@ -62,9 +64,9 @@ export default function HistoryList() {
                   </div>
                   <div className="flex-1 min-w-0 flex flex-col justify-center gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-black uppercase tracking-[0.22em]" style={{ color: vibe.accent + "88" }}>{story.year}</span>
+                      <span className="text-sm font-black uppercase tracking-[0.22em]" style={{ color: vibe.accent + "88" }}>{story.year}</span>
                       <span className="text-[#1a1a1a]/20">·</span>
-                      <span className="text-xs font-medium" style={{ color: vibe.accent + "aa" }}>{story.place}</span>
+                      <span className="text-sm font-medium" style={{ color: vibe.accent + "aa" }}>{story.place}</span>
                     </div>
                     <h2 className="text-[24px] sm:text-[28px] lg:text-[32px] font-bold leading-[1.04] tracking-tight text-[#1a1a1a] group-hover:opacity-70 transition-opacity">{story.title}</h2>
                     <p className="text-base text-[#1a1a1a]/55 font-medium leading-relaxed">{story.hook}</p>
@@ -72,7 +74,7 @@ export default function HistoryList() {
                 </div>
                 <div className="mt-4 flex items-center gap-2 text-sm font-bold" style={{ color: vibe.accent + "bb" }}>
                   <span className="w-6 h-px bg-[#1a1a1a]/25 group-hover:w-8 transition-all" />
-                  Read story
+                  {t('history.readStory')}
                 </div>
               </button>
             );

@@ -7,7 +7,7 @@ import {
   faUtensils,
   faCompass,
   faTimes,
-  faPlus,
+  faMap,
   faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,10 +24,9 @@ const CATEGORY_ICONS: Record<MapCategory, any> = {
   Attraction: faCompass,
 };
 
-export default function MapCard({ place, onClose }: MapCardProps) {
-  const { t } = useTranslation();
-  const { addToTrip, removeFromTrip, isInTrip } = useTrip();
+export default function MapCard({ place, onClose, onOpenDirections }: MapCardProps) {
 
+  const { addToTrip, removeFromTrip, isInTrip } = useTrip();
   const inTrip = place ? isInTrip(place.id) : false;
 
   function handleTrip() {
@@ -93,10 +92,10 @@ export default function MapCard({ place, onClose }: MapCardProps) {
 
               {/* Category label */}
               <div
-                className="absolute bottom-4 left-4 flex items-center gap-2 px-4 py-2 rounded-full text-white text-[11px] font-bold uppercase tracking-widest z-20"
+                className="absolute bottom-4 left-4 flex items-center gap-2 px-4 py-2 rounded-full text-white text-sm font-bold uppercase tracking-widest z-20"
                 style={{ backgroundColor: CATEGORY_META[place.category].color + 'dd' }}
               >
-                <FontAwesomeIcon icon={CATEGORY_ICONS[place.category]} className="text-[11px]" />
+                <FontAwesomeIcon icon={CATEGORY_ICONS[place.category]} className="text-sm" />
                 <span>{t('hero.categories.' + place.category.toLowerCase())}</span>
               </div>
             </div>
@@ -106,7 +105,7 @@ export default function MapCard({ place, onClose }: MapCardProps) {
               {/* Close button for desktop layout */}
               <button
                 onClick={onClose}
-                className="hidden md:flex absolute top-5 right-5 w-8 h-8 rounded-full border border-premium-black/10 text-premium-black/60 hover:text-premium-black hover:border-premium-black/30 items-center justify-center text-xs transition-colors cursor-pointer"
+                className="hidden md:flex absolute top-5 right-5 w-8 h-8 rounded-full border border-premium-black/10 text-premium-black/60 hover:text-premium-black hover:border-premium-black/30 items-center justify-center text-sm transition-colors cursor-pointer"
               >
                 <FontAwesomeIcon icon={faTimes} />
               </button>
@@ -115,12 +114,12 @@ export default function MapCard({ place, onClose }: MapCardProps) {
                 <h3 className="text-xl md:text-2xl font-black text-premium-black uppercase tracking-tight leading-tight mb-2 pr-8">
                   {t("hero.places." + place.id + ".name", place.name)}
                 </h3>
-                <p className="text-xs md:text-sm text-premium-black/65 font-medium leading-relaxed mb-4 line-clamp-2 md:line-clamp-none">
+                <p className="text-sm md:text-sm text-premium-black/65 font-medium leading-relaxed mb-4 line-clamp-2 md:line-clamp-none">
                   {t("hero.places." + place.id + ".hook", place.hook)}
                 </p>
 
                 {/* Swiss Editorial Metadata Grid */}
-                <div className="grid grid-cols-3 gap-3 border-t border-b border-premium-black/10 py-3 select-none font-mono text-[10px] uppercase tracking-wider text-premium-black/75">
+                <div className="grid grid-cols-3 gap-3 border-t border-b border-premium-black/10 py-3 select-none font-mono text-sm uppercase tracking-wider text-premium-black/75">
                   <div>
                     <span className="block text-premium-black/40 mb-0.5">{t('hero.map.meta.location')}</span>
                     <span className="font-extrabold text-premium-black">Malang, ID</span>
@@ -139,18 +138,25 @@ export default function MapCard({ place, onClose }: MapCardProps) {
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                <button
+                  onClick={onOpenDirections}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 px-5 text-sm md:text-sm font-bold uppercase tracking-widest bg-[#3e5355] text-white hover:bg-[#2d4042] rounded-xl transition-all cursor-pointer"
+                >
+                  <FontAwesomeIcon icon={faMapLocationDot} className="text-sm" />
+                  {t('hero.map.directions')}
+                </button>
                 <a
                   href={mapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 py-3 px-5 text-[11px] md:text-xs font-bold uppercase tracking-widest border border-premium-black/15 text-premium-black/65 hover:text-premium-black hover:border-premium-black/35 rounded-xl transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 py-3 px-5 text-sm md:text-sm font-bold uppercase tracking-widest border border-premium-black/15 text-premium-black/65 hover:text-premium-black hover:border-premium-black/35 rounded-xl transition-all"
                 >
-                  <FontAwesomeIcon icon={faMapLocationDot} className="text-xs" />
+                  <FontAwesomeIcon icon={faMap} className="text-sm" />
                   {t('weather.googleMaps')}
                 </a>
                 <button
                   onClick={handleTrip}
-                  className={`flex-1 flex items-center justify-center gap-1.5 py-3 px-5 text-[11px] md:text-xs font-bold uppercase tracking-widest rounded-xl transition-all cursor-pointer ${
+                  className={`flex-1 flex items-center justify-center gap-1.5 py-3 px-5 text-sm md:text-sm font-bold uppercase tracking-widest rounded-xl transition-all cursor-pointer ${
                     inTrip
                       ? 'bg-[#3e5355] text-white border border-[#3e5355]'
                       : 'bg-transparent text-[#3e5355] border border-[#3e5355] hover:bg-[#3e5355] hover:text-white'

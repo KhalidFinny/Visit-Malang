@@ -15,7 +15,7 @@ export default function BackButton({ to, className = "" }: BackButtonProps) {
       onClick={() => (to ? navigate(to) : navigate(-1))}
       className={`flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/90 backdrop-blur-sm text-[#1a1a1a]/70 hover:text-[#1a1a1a] transition-all text-sm font-semibold fixed top-5 left-5 z-50 shadow-lg border border-black/[0.08] ${className}`}
     >
-      <FontAwesomeIcon icon={faArrowLeft} className="text-xs" />
+      <FontAwesomeIcon icon={faArrowLeft} className="text-sm" />
       <span className="hidden sm:inline">Back</span>
     </button>
   );

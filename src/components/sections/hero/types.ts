@@ -33,6 +33,7 @@ export interface HeroMapProps {
 export interface MapCardProps {
   place: MapPlace | null;
   onClose: () => void;
+  onOpenDirections: () => void;
 }
 
 export interface HeroDestination {

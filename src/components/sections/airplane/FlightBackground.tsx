@@ -13,7 +13,7 @@ const FlightBackground = memo(function FlightBackground({
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
       <motion.div
         className="absolute inset-0 flex h-full"
-        style={{ x: bgX, y: bgY, scale: 2.35, willChange: "transform" }}
+        style={{ x: bgX, y: bgY, scale: 2.8, willChange: "transform" }}
       >
         <motion.div
           className="flex h-full"
@@ -43,17 +43,24 @@ const FlightBackground = memo(function FlightBackground({
                 <img
                   src={bgGolden}
                   alt=""
+                  width={1920}
+                  height={1080}
+                  fetchpriority="high"
+                  loading="eager"
                   className="absolute top-0 right-0 h-full w-[200%] max-w-none object-cover"
                 />
               </div>
-
-              {/* Right Side: Mirrored Right-Half of the Image */}
-              <div className="w-1/2 h-full relative overflow-hidden">
+              {/* Right Side: Mirrored Right-Half of the Image (overlaps 1px to hide subpixel seam) */}
+              <div className="w-[calc(50%+1px)] h-full relative overflow-hidden">
                 <img
                   src={bgGolden}
                   alt=""
-                  className="absolute top-0 left-0 h-full w-[200%] max-w-none object-cover"
-                  style={{ transform: "scaleX(-1)" }}
+                  width={1920}
+                  height={1080}
+                  fetchpriority="high"
+                  loading="eager"
+                  className="absolute top-0 -left-px h-full w-[200%] max-w-none object-cover"
+                  style={{ transform: "scaleX(-1) translateZ(0)" }}
                 />
               </div>
             </div>

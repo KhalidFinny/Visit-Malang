@@ -13,7 +13,7 @@ export default function CultureList() {
         <div className="border-b border-black/[0.08] pb-8 sm:pb-10 mb-10 sm:mb-12">
           <div className="flex items-center gap-4 mb-6">
             <BackButton to="/" />
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A3B18A]">
+            <span className="text-sm font-black uppercase tracking-[0.2em] text-[#A3B18A]">
               {t("culture.section")}
             </span>
           </div>

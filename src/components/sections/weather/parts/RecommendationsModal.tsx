@@ -87,7 +87,7 @@ export default function RecommendationsModal({
                   {t('weather.allRecommendations')}
                 </h2>
                 <p className={`text-premium-black/40 font-medium mt-1 ${
-                  isPhone ? 'text-xs' : 'text-sm'
+                  isPhone ? 'text-sm' : 'text-sm'
                 }`}>
                   {recommendations.length} {t('weather.placesMatched')}
                 </p>
@@ -132,7 +132,7 @@ export default function RecommendationsModal({
                                 />
                               </div>
                               <div className="min-w-0 flex-1">
-                                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#A3B18A]">
+                                <p className="text-sm font-black uppercase tracking-[0.18em] text-[#A3B18A]">
                                   {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
                                 </p>
                                 <h3 className="mt-1.5 text-[16px] font-bold leading-tight text-[#1a1a1a]">
@@ -154,7 +154,7 @@ export default function RecommendationsModal({
                               href={getGoogleMapsSearchUrl(rec.name)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="mt-3 flex w-full items-center justify-center gap-2.5 rounded-[16px] border border-[#A3B18A]/40 bg-white px-4 py-3.5 text-[13px] font-black uppercase tracking-[0.16em] text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10 active:bg-[#A3B18A]/20"
+                              className="mt-3 flex w-full items-center justify-center gap-2.5 rounded-[16px] border border-[#A3B18A]/40 bg-white px-4 py-3.5 text-sm font-black uppercase tracking-[0.16em] text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10 active:bg-[#A3B18A]/20"
                             >
                               <FontAwesomeIcon icon={faMapLocationDot} className="text-[14px]" />
                               {t('weather.googleMaps')}
@@ -175,27 +175,27 @@ export default function RecommendationsModal({
                               <div className="flex-1 min-w-0 flex flex-col justify-between">
                                 <div>
                                   <div className="flex items-center gap-2 mb-1 flex-wrap">
-                                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-premium-black/30">
+                                    <span className="text-sm font-black uppercase tracking-[0.3em] text-premium-black/30">
                                       {t('activity.categories.' + rec.category.toLowerCase().replace(/\s+/g, '').replace(/&/g, ''))}
                                     </span>
                                     {altData && (
                                       <>
-                                        <span className="text-[10px] text-premium-black/20">•</span>
-                                        <span className="text-[10px] font-extrabold text-[#7a9e64] uppercase tracking-wider flex items-center gap-1">
-                                          <FontAwesomeIcon icon={faMountain} className="text-[9px]" />
+                                        <span className="text-sm text-premium-black/20">•</span>
+                                        <span className="text-sm font-extrabold text-[#7a9e64] uppercase tracking-wider flex items-center gap-1">
+                                          <FontAwesomeIcon icon={faMountain} className="text-sm" />
                                           <span>{altData.altitude}m</span>
                                         </span>
                                       </>
                                     )}
-                                    <span className="text-[10px] text-premium-black/20">•</span>
-                                    <span className="text-[10px] font-bold text-premium-black/30">
+                                    <span className="text-sm text-premium-black/20">•</span>
+                                    <span className="text-sm font-bold text-premium-black/30">
                                       {rec.idealWeather === 'Any' ? t('weather.any') : t('weather.condition.' + rec.idealWeather.toLowerCase())}
                                     </span>
                                   </div>
                                   <h3 className="font-black text-premium-black uppercase tracking-tight leading-tight mb-1 truncate text-sm">
                                     {rec.name}
                                   </h3>
-                                  <p className="text-premium-black/50 font-medium leading-relaxed line-clamp-2 text-xs">
+                                  <p className="text-premium-black/50 font-medium leading-relaxed line-clamp-2 text-sm">
                                     {rec.description}
                                   </p>
                                 </div>
@@ -203,16 +203,16 @@ export default function RecommendationsModal({
                                   href={getGoogleMapsSearchUrl(rec.name)}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1.5 mt-2 text-[10px] font-black uppercase tracking-[0.2em] text-premium-black/40 hover:text-premium-black transition-colors"
+                                  className="inline-flex items-center gap-1.5 mt-2 text-sm font-black uppercase tracking-[0.2em] text-premium-black/40 hover:text-premium-black transition-colors"
                                 >
-                                  <FontAwesomeIcon icon={faMapLocationDot} className="text-[10px]" />
+                                  <FontAwesomeIcon icon={faMapLocationDot} className="text-sm" />
                                   {t('weather.googleMaps')}
                                 </a>
                               </div>
                             </div>
                             {altData && altData.altitude > 1000 && (
-                              <div className="mt-3 p-2.5 rounded-xl bg-amber-500/[0.04] border border-amber-500/15 text-[10px] leading-relaxed text-amber-700 font-medium flex items-start gap-2">
-                                <span className="shrink-0 text-xs">❄️</span>
+                              <div className="mt-3 p-2.5 rounded-xl bg-amber-500/[0.04] border border-amber-500/15 text-sm leading-relaxed text-amber-700 font-medium flex items-start gap-2">
+                                <span className="shrink-0 text-sm">❄️</span>
                                 <div>
                                   <span className="font-extrabold uppercase tracking-wider text-amber-800">Altitude Weather Warning: </span>
                                   Temp drops to {altData.temp_range}. Dress warm! Recommended gear: {altData.packing_list}.

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ImageWithSkeleton } from "../../shared/Skeleton";
@@ -19,12 +20,13 @@ const ERA_BG: Record<string, string> = {
 export default function HistoryDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const story = HISTORY_STORIES.find((s) => s.slug === slug);
 
   if (!story) {
     return (
       <div className="min-h-screen bg-[#f5f4f0] flex items-center justify-center">
-        Story not found
+        {t('history.notFound')}
       </div>
     );
   }
@@ -85,7 +87,7 @@ export default function HistoryDetail() {
 
         {siblings.length > 0 && (
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#1a1a1a]/40 mb-6">Continue Reading</h3>
+            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#1a1a1a]/40 mb-6">{t('history.continueReading')}</h3>
             <div className="flex flex-col gap-6">
               {siblings.map((s) => (
                 <button key={s.slug} onClick={() => navigate(`/history/${s.slug}`)} className="flex items-center gap-4 text-left group">

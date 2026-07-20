@@ -70,13 +70,13 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
                 {t('news.sectionTitle')}
               </h2>
             </div>
-            <p className="text-[#2D221F]/60 text-xs md:text-sm leading-relaxed max-w-xl">
+            <p className="text-[#2D221F]/60 text-sm md:text-sm leading-relaxed max-w-xl">
               {t('news.sectionSubtitle', { place: query })}
             </p>
           </div>
           <button 
             onClick={() => navigate(`/news?q=${encodeURIComponent(query)}`)}
-            className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border border-[#2D221F]/20 text-[#2D221F] text-[10px] font-black uppercase tracking-wider rounded-full hover:bg-[#2D221F] hover:text-white hover:border-[#2D221F] transition-all duration-300 whitespace-nowrap self-start md:self-auto cursor-pointer"
+            className="inline-flex items-center gap-3 px-6 py-3 bg-transparent border border-[#2D221F]/20 text-[#2D221F] text-sm font-black uppercase tracking-wider rounded-full hover:bg-[#2D221F] hover:text-white hover:border-[#2D221F] transition-all duration-300 whitespace-nowrap self-start md:self-auto cursor-pointer"
           >
             {t('news.viewAll')}
           </button>
@@ -102,7 +102,7 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
                 >
                   <div className="p-6 md:p-8 flex flex-col h-full justify-between">
                     <div>
-                      <div className="text-swiss text-[9px] font-black tracking-[0.15em] uppercase text-[#A3B18A] mb-4">
+                      <div className="text-swiss text-sm font-black tracking-[0.15em] uppercase text-[#A3B18A] mb-4">
                         {source}
                       </div>
                       <h3 className="text-editorial text-lg md:text-xl font-bold leading-tight tracking-tight text-[#2D221F] group-hover:text-[#A3B18A] transition-colors line-clamp-3">
@@ -110,8 +110,8 @@ const NewsEntrance: React.FC<NewsEntranceProps> = ({ query = "Malang" }) => {
                       </h3>
                     </div>
                     <div className="mt-8 flex items-center justify-between border-t border-[#2D221F]/5 pt-4">
-                      <span className="text-swiss text-[10px] font-bold uppercase tracking-wider text-[#2D221F]/40">{formatDate(article.pubDate)}</span>
-                      <span className="text-swiss text-[9px] font-black tracking-wider bg-[#f5f4f0] text-[#2D221F]/80 px-3.5 py-1.5 rounded-full border border-[#2D221F]/5 group-hover:bg-[#A3B18A] group-hover:text-white group-hover:border-[#A3B18A] transition-all duration-300">
+                      <span className="text-swiss text-sm font-bold uppercase tracking-wider text-[#2D221F]/40">{formatDate(article.pubDate)}</span>
+                      <span className="text-swiss text-sm font-black tracking-wider bg-[#f5f4f0] text-[#2D221F]/80 px-3.5 py-1.5 rounded-full border border-[#2D221F]/5 group-hover:bg-[#A3B18A] group-hover:text-white group-hover:border-[#A3B18A] transition-all duration-300">
                         {t('news.read')}
                       </span>
                     </div>

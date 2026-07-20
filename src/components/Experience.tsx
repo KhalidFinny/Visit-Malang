@@ -5,7 +5,6 @@ import FlightStage from "./sections/airplane/FlightStage";
 import HeaderMenu from "./shared/parts/HeaderMenu";
 import StampPassportModal from "./shared/parts/StampPassportModal";
 import PostcardModal from "./shared/parts/PostcardModal";
-const VisualLensModal = lazy(() => import("./shared/parts/VisualLensModal"));
 import { useExperienceState } from "./hooks/useExperienceState";
 
 // ── Lazy-loaded sections (below the fold) ────────────────────────
@@ -43,7 +42,6 @@ export default function Experience() {
   const { phase, skipLandingAnim, handleDescend, handleMouseMove, springX, springY, pOrigin } =
     useExperienceState();
   const [passportOpen, setPassportOpen] = useState(false);
-  const [lensOpen, setLensOpen] = useState(false);
   const [postcardOpen, setPostcardOpen] = useState(false);
 
   // Preload section chunks & critical media once on mount (during airplane splash or page load).
@@ -80,12 +78,13 @@ export default function Experience() {
           <motion.div
             key="flight"
             onMouseMove={handleMouseMove}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, y: "-120vh" }}
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-150vh", scale: 0.96 }}
             transition={{
-              opacity: { duration: 0.8, ease: "easeIn" },
-              y: { duration: 1.4, ease: [0.32, 0, 0.67, 0] },
+              opacity: { duration: 0.45, ease: "easeIn" },
+              y: { duration: 1, ease: [0.32, 0, 0.67, 0] },
+              scale: { duration: 1, ease: "easeIn" },
             }}
             style={
               {
@@ -109,14 +108,16 @@ export default function Experience() {
           <motion.div
             key="landing"
             className="w-full relative z-0 bg-[#f5f4f0] min-h-screen"
-            initial={skipLandingAnim ? false : { opacity: 0, y: 60 }}
+            initial={skipLandingAnim ? false : { opacity: 0, y: 180 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            transition={{
+              opacity: { duration: 0.5, ease: "easeOut", delay: 0.65 },
+              y: { duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.65 },
+            }}
           >
             {/* Unified Top Header Menu (Tools & Language) */}
             <HeaderMenu
               onOpenPassport={() => setPassportOpen(true)}
-              onOpenLens={() => setLensOpen(true)}
               onOpenPostcard={() => setPostcardOpen(true)}
             />
 
@@ -156,13 +157,6 @@ export default function Experience() {
               onClose={() => setPassportOpen(false)}
             />
 
-            {/* Photo Finder Lens Modal */}
-            <Suspense fallback={null}>
-              <VisualLensModal
-                isOpen={lensOpen}
-                onClose={() => setLensOpen(false)}
-              />
-            </Suspense>
 
             {/* Postcard Maker Modal */}
             <PostcardModal

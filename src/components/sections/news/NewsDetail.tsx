@@ -60,7 +60,7 @@ const NewsDetail: React.FC = () => {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mx-auto"
         >
-          <div className="text-swiss text-[11px] font-black tracking-[0.2em] uppercase text-[#A3B18A] mb-4 md:mb-8">
+          <div className="text-swiss text-sm font-black tracking-[0.2em] uppercase text-[#A3B18A] mb-4 md:mb-8">
             {article.author || t('news.fallbackSource')} • {formatDate(article.pubDate)}
           </div>
           <h1 className="text-editorial text-3xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-2 md:mb-12 text-balance mx-auto text-[#2D221F]">
@@ -93,14 +93,14 @@ const NewsDetail: React.FC = () => {
             </div>
 
             <div className="flex flex-col items-center justify-center pt-8 border-t border-[#2D221F]/5 mt-12">
-              <p className="text-swiss text-xs font-semibold opacity-60 mb-6 text-center text-balance max-w-lg leading-relaxed">
+              <p className="text-swiss text-sm font-semibold opacity-60 mb-6 text-center text-balance max-w-lg leading-relaxed">
                 {t('news.autoFetched')}
               </p>
               <a 
                 href={article.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-4 px-8 py-4 bg-[#2D221F] text-white text-[10px] font-black uppercase tracking-[0.25em] rounded-full hover:bg-[#A3B18A] transition-all duration-300 cursor-pointer shadow-md"
+                className="inline-flex items-center gap-4 px-8 py-4 bg-[#2D221F] text-white text-sm font-black uppercase tracking-[0.25em] rounded-full hover:bg-[#A3B18A] transition-all duration-300 cursor-pointer shadow-md"
               >
                 {t('news.readFull', { source: article.author || t('news.fallbackSource') })}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>

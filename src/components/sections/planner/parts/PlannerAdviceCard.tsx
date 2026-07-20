@@ -35,12 +35,12 @@ export default function PlannerAdviceCard({ advice, origin }: PlannerAdviceCardP
       <div className="px-4 sm:px-8 py-4 bg-[#7a9e64]/5 border-b border-black/[0.06] flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-6">
           <div className="flex flex-col">
-            <span className="text-xs font-semibold uppercase tracking-wider text-black/40">{t('planner.advice.perDay')}</span>
+            <span className="text-sm font-semibold uppercase tracking-wider text-black/40">{t('planner.advice.perDay')}</span>
             <span className="text-xl sm:text-2xl font-bold text-[#4e6b38]">{budgetEstimation.dailyEstimate}</span>
           </div>
           <div className="w-px h-8 bg-black/10" />
           <div className="flex flex-col">
-            <span className="text-xs font-semibold uppercase tracking-wider text-black/40">{t('planner.advice.dayTotal')}</span>
+            <span className="text-sm font-semibold uppercase tracking-wider text-black/40">{t('planner.advice.dayTotal')}</span>
             <span className="text-xl sm:text-2xl font-bold text-black">{budgetEstimation.totalEstimate}</span>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function PlannerAdviceCard({ advice, origin }: PlannerAdviceCardP
                   <span className="text-sm font-bold text-[#7a9e64] shrink-0">{String(i + 1).padStart(2, '0')}</span>
                   <div className="flex flex-col min-w-0">
                     <span className="text-base font-bold text-black truncate">{p.name}</span>
-                    <span className="text-xs font-semibold text-black/35 uppercase tracking-wider">{p.category}</span>
+                    <span className="text-sm font-semibold text-black/35 uppercase tracking-wider">{p.category}</span>
                   </div>
                 </div>
                 <a

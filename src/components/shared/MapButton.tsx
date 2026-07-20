@@ -12,7 +12,7 @@ export default function MapButton({
 }: MapButtonProps) {
   const base = [
     'inline-flex items-center gap-2',
-    'text-[13px] font-black uppercase tracking-widest',
+    'text-sm font-black uppercase tracking-widest',
     'border',
     'transition-colors duration-150',
     'active:bg-black/5',

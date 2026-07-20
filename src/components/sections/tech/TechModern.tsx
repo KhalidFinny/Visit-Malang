@@ -82,7 +82,7 @@ const TechModern: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-swiss text-[12px] md:text-[14px] font-black tracking-[0.8em] text-[#2D221F]/40 uppercase mb-8 block"
+            className="text-swiss text-sm md:text-[14px] font-black tracking-[0.8em] text-[#2D221F]/40 uppercase mb-8 block"
           >
             {t("techModern.hero.label")}
           </motion.span>
@@ -121,7 +121,7 @@ const TechModern: React.FC = () => {
               >
                 <div className="text-editorial text-5xl text-[#2D221F] mb-4">{s.value}</div>
                 <h3 className="text-swiss text-sm font-bold uppercase tracking-widest text-[#4A5759] mb-3">{s.label}</h3>
-                <p className="text-swiss text-xs text-[#2D221F]/60 leading-relaxed">{s.desc}</p>
+                <p className="text-swiss text-sm text-[#2D221F]/60 leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -196,7 +196,7 @@ const TechModern: React.FC = () => {
                     <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
                       <div className="flex items-center gap-3 mb-2 group-hover:text-[#A3B18A] transition-colors">
                         <h4 className="text-lg font-black">{s.name}</h4>
-                        <span className="text-[10px] uppercase tracking-wider px-2 py-1 bg-white/10 text-white rounded-full">{s.sector}</span>
+                        <span className="text-sm uppercase tracking-wider px-2 py-1 bg-white/10 text-white rounded-full">{s.sector}</span>
                       </div>
                       <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">{s.desc}</p>
                     </motion.div>
@@ -214,7 +214,7 @@ const TechModern: React.FC = () => {
                     <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
                       <div className="flex items-center gap-3 mb-2 group-hover:text-[#A3B18A] transition-colors">
                         <h4 className="text-lg font-black">{c.name}</h4>
-                        <span className="text-[10px] uppercase tracking-wider px-2 py-1 bg-[#4A5759]/50 text-white rounded-full">{c.type}</span>
+                        <span className="text-sm uppercase tracking-wider px-2 py-1 bg-[#4A5759]/50 text-white rounded-full">{c.type}</span>
                       </div>
                       <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">{c.desc}</p>
                     </motion.div>
@@ -242,7 +242,7 @@ const TechModern: React.FC = () => {
             </p>
             <button
               onClick={() => navigate("/")}
-              className="inline-flex items-center gap-4 px-8 py-4 bg-[#2D221F] text-white text-[10px] font-black uppercase tracking-[0.3em] rounded-full hover:bg-white hover:text-[#2D221F] transition-all duration-300"
+              className="inline-flex items-center gap-4 px-8 py-4 bg-[#2D221F] text-white text-sm font-black uppercase tracking-[0.3em] rounded-full hover:bg-white hover:text-[#2D221F] transition-all duration-300"
             >
               {t("techModern.closing.back")}
             </button>

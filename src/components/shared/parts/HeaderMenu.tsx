@@ -28,7 +28,6 @@ const LANGUAGES = [
 
 export default function HeaderMenu({
   onOpenPassport,
-  onOpenLens,
   onOpenPostcard,
 }: HeaderMenuProps) {
   const { i18n } = useTranslation();
@@ -85,19 +84,19 @@ export default function HeaderMenu({
             setIsToolsOpen((prev) => !prev);
             setIsLangOpen(false);
           }}
-          className={`px-3.5 py-2.5 sm:px-4 sm:py-2.5 backdrop-blur-md border rounded-full shadow-lg flex items-center gap-2 transition-all cursor-pointer select-none text-xs font-bold uppercase tracking-wider ${
+          className={`px-3.5 py-2.5 sm:px-4 sm:py-2.5 backdrop-blur-md border rounded-full shadow-lg flex items-center gap-2 transition-all cursor-pointer select-none text-sm font-bold uppercase tracking-wider ${
             isToolsOpen
               ? 'bg-black text-white border-black'
               : 'bg-white/90 hover:bg-white text-black border-black/12'
           }`}
           aria-expanded={isToolsOpen}
         >
-          <FontAwesomeIcon icon={faSliders} className="text-xs text-[#7a9e64]" />
+          <FontAwesomeIcon icon={faSliders} className="text-sm text-[#7a9e64]" />
           <span className="hidden sm:inline">Exploration Tools</span>
           <span className="sm:hidden">Tools</span>
           <FontAwesomeIcon
             icon={faChevronDown}
-            className={`text-[9px] opacity-60 transition-transform duration-300 ${
+            className={`text-sm opacity-60 transition-transform duration-300 ${
               isToolsOpen ? 'rotate-180' : ''
             }`}
           />
@@ -114,7 +113,7 @@ export default function HeaderMenu({
               className="absolute left-0 sm:right-0 sm:left-auto top-full mt-2 w-[290px] sm:w-[320px] bg-white border border-black/12 rounded-3xl p-4 shadow-2xl text-black select-none overflow-y-auto max-h-[70vh] [overscroll-behavior:contain] scrollbar-none"
             >
               <div className="mb-3">
-                <span className="text-[10px] font-black uppercase tracking-widest text-black/45">
+                <span className="text-sm font-black uppercase tracking-widest text-black/45">
                   Interactive Features
                 </span>
               </div>
@@ -128,41 +127,20 @@ export default function HeaderMenu({
                   className="w-full p-3 rounded-2xl bg-black/[0.03] hover:bg-black/10 border border-black/5 flex items-center justify-between text-left transition-all cursor-pointer group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-[#7a9e64]/15 text-[#7a9e64] flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-[#7a9e64]/15 text-[#7a9e64] flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
                       <FontAwesomeIcon icon={faCompass} />
                     </div>
                     <div>
-                      <span className="text-xs font-black uppercase tracking-wider block leading-tight text-black">
+                      <span className="text-sm font-black uppercase tracking-wider block leading-tight text-black">
                         Stamp Passport
                       </span>
-                      <span className="text-[10px] text-black/45 font-medium block mt-0.5">
+                      <span className="text-sm text-black/45 font-medium block mt-0.5">
                         GPS & Photo Landmark Stamps
                       </span>
                     </div>
                   </div>
                 </button>
 
-                <button
-                  onClick={() => {
-                    setIsToolsOpen(false);
-                    onOpenLens();
-                  }}
-                  className="w-full p-3 rounded-2xl bg-black/[0.03] hover:bg-black/10 border border-black/5 flex items-center justify-between text-left transition-all cursor-pointer group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-sky-500/15 text-sky-600 flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
-                      <FontAwesomeIcon icon={faCamera} />
-                    </div>
-                    <div>
-                      <span className="text-xs font-black uppercase tracking-wider block leading-tight text-black">
-                        Visual Lens
-                      </span>
-                      <span className="text-[10px] text-black/45 font-medium block mt-0.5">
-                        Photo Location Finder
-                      </span>
-                    </div>
-                  </div>
-                </button>
 
                 <button
                   onClick={() => {
@@ -172,14 +150,14 @@ export default function HeaderMenu({
                   className="w-full p-3 rounded-2xl bg-black/[0.03] hover:bg-black/10 border border-black/5 flex items-center justify-between text-left transition-all cursor-pointer group"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 text-amber-600 flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/15 text-amber-600 flex items-center justify-center text-sm group-hover:scale-110 transition-transform">
                       <FontAwesomeIcon icon={faEnvelope} />
                     </div>
                     <div>
-                      <span className="text-xs font-black uppercase tracking-wider block leading-tight text-black">
+                      <span className="text-sm font-black uppercase tracking-wider block leading-tight text-black">
                         Postcard Maker
                       </span>
-                      <span className="text-[10px] text-black/45 font-medium block mt-0.5">
+                      <span className="text-sm text-black/45 font-medium block mt-0.5">
                         Custom Visual Souvenirs
                       </span>
                     </div>
@@ -200,18 +178,18 @@ export default function HeaderMenu({
             setIsLangOpen((prev) => !prev);
             setIsToolsOpen(false);
           }}
-          className={`px-3.5 py-2.5 sm:px-4 sm:py-2.5 backdrop-blur-md border rounded-full shadow-lg flex items-center gap-2 transition-all cursor-pointer select-none text-xs font-bold uppercase tracking-wider ${
+          className={`px-3.5 py-2.5 sm:px-4 sm:py-2.5 backdrop-blur-md border rounded-full shadow-lg flex items-center gap-2 transition-all cursor-pointer select-none text-sm font-bold uppercase tracking-wider ${
             isLangOpen
               ? 'bg-black text-white border-black'
               : 'bg-white/90 hover:bg-white text-black border-black/12'
           }`}
           aria-expanded={isLangOpen}
         >
-          <FontAwesomeIcon icon={faGlobe} className="text-xs text-[#7a9e64]" />
-          <span className="font-mono font-black text-[11px]">{currentLang.abbr}</span>
+          <FontAwesomeIcon icon={faGlobe} className="text-sm text-[#7a9e64]" />
+          <span className="font-mono font-black text-sm">{currentLang.abbr}</span>
           <FontAwesomeIcon
             icon={faChevronDown}
-            className={`text-[9px] opacity-60 transition-transform duration-300 ${
+            className={`text-sm opacity-60 transition-transform duration-300 ${
               isLangOpen ? 'rotate-180' : ''
             }`}
           />
@@ -228,14 +206,14 @@ export default function HeaderMenu({
               className="absolute right-0 top-full mt-2 w-[280px] sm:w-[310px] bg-white border border-black/12 rounded-3xl p-4 shadow-2xl text-black select-none overflow-y-auto max-h-[70vh] [overscroll-behavior:contain] scrollbar-none"
             >
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#7a9e64]">
+                <span className="text-sm font-black uppercase tracking-widest text-[#7a9e64]">
                   🌐 Guide Language
                 </span>
-                <span className="text-[10px] font-mono font-bold text-black/50">
+                <span className="text-sm font-mono font-bold text-black/50">
                   {currentLang.label}
                 </span>
               </div>
-              <p className="text-[10px] text-black/45 font-medium leading-normal mb-3">
+              <p className="text-sm text-black/45 font-medium leading-normal mb-3">
                 Translate all maps, history timelines, and travel advisor details instantly.
               </p>
 
@@ -246,7 +224,7 @@ export default function HeaderMenu({
                     <button
                       key={lang.code}
                       onClick={() => changeLanguage(lang.code)}
-                      className={`px-3 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-between transition-all cursor-pointer ${
+                      className={`px-3 py-2.5 rounded-xl text-sm font-semibold flex items-center justify-between transition-all cursor-pointer ${
                         isSelected
                           ? 'bg-black text-white font-bold'
                           : 'bg-black/[0.02] border border-black/5 text-black/75 hover:bg-black/8 hover:text-black'
@@ -254,7 +232,7 @@ export default function HeaderMenu({
                     >
                       <span className="truncate">{lang.label}</span>
                       {isSelected && (
-                        <FontAwesomeIcon icon={faCheck} className="text-[10px] text-[#7a9e64]" />
+                        <FontAwesomeIcon icon={faCheck} className="text-sm text-[#7a9e64]" />
                       )}
                     </button>
                   );

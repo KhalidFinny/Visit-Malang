@@ -191,7 +191,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                 </div>
                 <div>
                   <h2 className="text-base sm:text-xl font-bold text-[#0A0A0A] tracking-tight">Malang Passport</h2>
-                  <p className="text-xs sm:text-sm text-black/50">{unlocked.length} places collected</p>
+                  <p className="text-sm sm:text-sm text-black/50">{unlocked.length} places collected</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -206,12 +206,12 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
             {/* Tabs */}
             <div className="px-4 sm:px-8 pt-3 sm:pt-4 pb-2 flex gap-1 shrink-0">
               <button onClick={() => setTab("daily")}
-                className={`flex-1 sm:px-5 py-2.5 sm:py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 ${tab === "daily" ? "bg-[#0A0A0A] text-white" : "bg-white border border-black/10 text-black/60 hover:text-black"}`}>
+                className={`flex-1 sm:px-5 py-2.5 sm:py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 ${tab === "daily" ? "bg-[#0A0A0A] text-white" : "bg-white border border-black/10 text-black/60 hover:text-black"}`}>
                 <FontAwesomeIcon icon={faShuffle} />
                 Today's Spots ({dailyPlaces.length})
               </button>
               <button onClick={() => setTab("collection")}
-                className={`flex-1 sm:px-5 py-2.5 sm:py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 ${tab === "collection" ? "bg-[#0A0A0A] text-white" : "bg-white border border-black/10 text-black/60 hover:text-black"}`}>
+                className={`flex-1 sm:px-5 py-2.5 sm:py-2.5 rounded-xl text-sm font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-2 ${tab === "collection" ? "bg-[#0A0A0A] text-white" : "bg-white border border-black/10 text-black/60 hover:text-black"}`}>
                 <FontAwesomeIcon icon={faTrophy} />
                 Collection ({unlocked.length})
               </button>
@@ -242,7 +242,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                   className="flex-1 overflow-y-auto px-4 sm:px-8 py-3 sm:py-5 space-y-3 sm:space-y-3 [overscroll-behavior:contain]" data-lenis-prevent="true"
                 >
                 <div className="flex items-center justify-between mb-1">
-                  <p className="text-xs text-black/40">New spots appear daily. Visit, snap, collect.</p>
+                  <p className="text-sm text-black/40">New spots appear daily. Visit, snap, collect.</p>
                 </div>
                 {dailyPlaces.map(pl => {
                   const unlocked2 = unlocked.includes(pl.slug);
@@ -267,7 +267,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                           )}
                           {unlocked2 && (
                             <div className="absolute top-1 right-1 w-6 h-6 rounded-full bg-[#A3B18A]/20 border border-[#A3B18A]/40 flex items-center justify-center">
-                              <FontAwesomeIcon icon={faCheck} className="text-[9px] text-[#4a5e3a]" />
+                              <FontAwesomeIcon icon={faCheck} className="text-sm text-[#4a5e3a]" />
                             </div>
                           )}
                         </div>
@@ -275,13 +275,13 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                         {/* Info */}
                         <div className="flex-1 min-w-0">
                           <h3 className="text-base sm:text-lg font-bold text-[#0A0A0A] leading-snug">{pl.name}</h3>
-                          <p className="hidden sm:block text-xs text-black/50 mt-0.5 mb-2">{pl.desc}</p>
+                          <p className="hidden sm:block text-sm text-black/50 mt-0.5 mb-2">{pl.desc}</p>
                           <div className="flex flex-wrap items-center gap-1.5 mt-1">
-                            <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold border ${d !== null && d <= 2.0 ? 'bg-[#A3B18A]/10 text-[#4a5e3a] border-[#A3B18A]/20' : 'bg-black/[0.03] text-black/40 border-black/[0.08]'}`}>
+                            <span className={`px-2.5 py-1 rounded-lg text-sm font-bold border ${d !== null && d <= 2.0 ? 'bg-[#A3B18A]/10 text-[#4a5e3a] border-[#A3B18A]/20' : 'bg-black/[0.03] text-black/40 border-black/[0.08]'}`}>
                               {d !== null ? `${d < 1 ? Math.round(d * 1000) + 'm' : d.toFixed(1) + 'km'}` : 'GPS...'}
                             </span>
                             {v && (
-                              <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold border ${v.isVerified ? 'bg-[#A3B18A]/10 text-[#4a5e3a] border-[#A3B18A]/20' : 'bg-rose-500/10 text-rose-600 border-rose-500/20'}`}>
+                              <span className={`px-2.5 py-1 rounded-lg text-sm font-bold border ${v.isVerified ? 'bg-[#A3B18A]/10 text-[#4a5e3a] border-[#A3B18A]/20' : 'bg-rose-500/10 text-rose-600 border-rose-500/20'}`}>
                                 {v.isVerified ? `${Math.round(v.confidence)}%` : 'No match'}
                               </span>
                             )}
@@ -318,7 +318,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                             </button>
                           </>
                         ) : unlocked2 ? (
-                          <div className="flex-1 text-center py-3 text-xs font-bold text-[#4a5e3a] bg-[#A3B18A]/10 border border-[#A3B18A]/20 rounded-xl uppercase tracking-wider">
+                          <div className="flex-1 text-center py-3 text-sm font-bold text-[#4a5e3a] bg-[#A3B18A]/10 border border-[#A3B18A]/20 rounded-xl uppercase tracking-wider">
                             ✓ Collected
                           </div>
                         ) : null}
@@ -328,19 +328,19 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                       <div className="hidden sm:flex sm:flex-col gap-1.5 shrink-0">
                         {!hasPhoto ? (
                           <button onClick={() => { uploadSlugRef.current = pl.slug; fileRef.current?.click(); }}
-                            className="sm:px-4 sm:py-2.5 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm text-xs font-bold uppercase tracking-wider">
-                            <FontAwesomeIcon icon={faUpload} className="text-[#A3B18A] text-[10px]" />
+                            className="sm:px-4 sm:py-2.5 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm text-sm font-bold uppercase tracking-wider">
+                            <FontAwesomeIcon icon={faUpload} className="text-[#A3B18A] text-sm" />
                             Photo
                           </button>
                         ) : (
                           <>
                             <button onClick={() => delPhoto(pl.slug)} className="sm:w-8 sm:h-8 bg-white border border-rose-500/15 hover:border-rose-500/30 text-rose-400 rounded-xl flex items-center justify-center transition-all cursor-pointer shadow-sm" title="Delete photo">
-                              <FontAwesomeIcon icon={faTrash} className="text-[10px]" />
+                              <FontAwesomeIcon icon={faTrash} className="text-sm" />
                             </button>
                             {!unlocked2 && (
                               <button onClick={() => collect(pl.slug)} disabled={!can}
-                                className={`sm:px-4 sm:py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer text-xs font-bold uppercase tracking-wider ${can ? 'bg-[#A3B18A] hover:bg-[#8a9e75] text-white shadow-sm' : 'bg-white border border-black/10 text-black/30 cursor-not-allowed'}`}>
-                                <FontAwesomeIcon icon={faCheck} className="sm:text-xs" />
+                                className={`sm:px-4 sm:py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all cursor-pointer text-sm font-bold uppercase tracking-wider ${can ? 'bg-[#A3B18A] hover:bg-[#8a9e75] text-white shadow-sm' : 'bg-white border border-black/10 text-black/30 cursor-not-allowed'}`}>
+                                <FontAwesomeIcon icon={faCheck} className="sm:text-sm" />
                                 <span>{uploading === pl.slug ? '...' : 'Collect'}</span>
                               </button>
                             )}
@@ -370,7 +370,7 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                   <div className="text-center py-16 text-black/30">
                     <FontAwesomeIcon icon={faTrophy} className="text-4xl mb-3 opacity-40" />
                     <p className="text-sm font-medium">No places collected yet</p>
-                    <p className="text-xs mt-1">Visit a spot, upload your photo, and collect your stamp!</p>
+                    <p className="text-sm mt-1">Visit a spot, upload your photo, and collect your stamp!</p>
                   </div>
                 )}
                 {ALL_PLACES.filter(p => unlocked.includes(p.slug)).map(pl => {
@@ -387,17 +387,17 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="text-sm sm:text-base font-bold text-[#0A0A0A]">{pl.name}</h4>
-                        <p className="text-xs text-black/50">{pl.desc}</p>
-                        {v && <span className="text-[11px] text-[#4a5e3a] font-semibold block mt-0.5">Verified {Math.round(v.confidence)}%</span>}
+                        <p className="text-sm text-black/50">{pl.desc}</p>
+                        {v && <span className="text-sm text-[#4a5e3a] font-semibold block mt-0.5">Verified {Math.round(v.confidence)}%</span>}
                       </div>
                       <button onClick={() => delPhoto(pl.slug)} className="w-8 h-8 bg-white border border-rose-500/15 hover:border-rose-500/30 text-rose-400 rounded-lg flex items-center justify-center transition-all cursor-pointer shrink-0" title="Remove">
-                        <FontAwesomeIcon icon={faTrash} className="text-[10px]" />
+                        <FontAwesomeIcon icon={faTrash} className="text-sm" />
                       </button>
                     </div>
                   );
                 })}
                 {unlocked.length > 0 && (
-                  <button onClick={resetAll} className="w-full py-3 text-xs font-bold text-rose-500/60 hover:text-rose-500 uppercase tracking-wider transition-all cursor-pointer">
+                  <button onClick={resetAll} className="w-full py-3 text-sm font-bold text-rose-500/60 hover:text-rose-500 uppercase tracking-wider transition-all cursor-pointer">
                     Clear all progress
                   </button>
                 )}
@@ -415,8 +415,8 @@ export default function StampPassportModal({ isOpen, onClose }: StampPassportMod
                     transition={{ duration: 0.15 }} className="bg-[#f5f4f0] rounded-2xl p-6 max-w-sm w-full shadow-xl border border-black/10 text-center">
                     <p className="text-sm text-black/80 leading-relaxed mb-5">{confirm.msg}</p>
                     <div className="flex items-center justify-center gap-3">
-                      <button onClick={() => setConfirm(null)} className="px-5 py-2.5 bg-white border border-black/10 hover:border-black/20 text-black/70 text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer">Cancel</button>
-                      <button onClick={confirm.fn} className="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-sm">Confirm</button>
+                      <button onClick={() => setConfirm(null)} className="px-5 py-2.5 bg-white border border-black/10 hover:border-black/20 text-black/70 text-sm font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer">Cancel</button>
+                      <button onClick={confirm.fn} className="px-5 py-2.5 bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-sm">Confirm</button>
                     </div>
                   </motion.div>
                 </motion.div>

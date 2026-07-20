@@ -20,6 +20,19 @@ export function getGoogleMapsUrl(lat: number, lng: number): string {
   return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 }
 
+/**
+ * Google Maps directions URL from origin to destination, with optional travel mode.
+ */
+export function getGoogleMapsDirectionsUrl(
+  originLat: number, originLng: number,
+  destLat: number, destLng: number,
+  mode?: 'driving' | 'walking' | 'transit' | 'bicycling',
+): string {
+  let url = `https://www.google.com/maps/dir/${originLat},${originLng}/${destLat},${destLng}`;
+  if (mode) url += `?travelmode=${mode}`;
+  return url;
+}
+
 export const MAP_PLACES: MapPlace[] = [
   // ═══════════════════════════════════════════════════════════════════════
   // NATURE (10)

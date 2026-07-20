@@ -77,7 +77,7 @@ export default function PopularDestinations() {
 
             {/* Floating Text Info */}
             <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 z-20 flex flex-col justify-end text-left select-none">
-              <p className="text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] text-white/70 mb-1.5">
+              <p className="text-sm md:text-sm font-bold uppercase tracking-[0.2em] text-white/70 mb-1.5">
                 {t("hero.custom.cat." + dest.category)}
               </p>
               <h4 className="text-xl md:text-2xl font-black text-white leading-tight">

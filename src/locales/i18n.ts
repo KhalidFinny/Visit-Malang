@@ -54,10 +54,10 @@ i18n
     resources: {
       en: { translation: en },
     },
-    fallbackLng: 'en',
+    fallbackLng: 'id',
     partialBundledLanguages: true,
     detection: {
-      order: ['navigator', 'localStorage', 'htmlTag'],
+      order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
     interpolation: {

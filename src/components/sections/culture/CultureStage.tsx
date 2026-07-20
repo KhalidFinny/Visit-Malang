@@ -60,7 +60,7 @@ export default function CultureStage() {
             {/* Text — 3/5 on desktop, full width on mobile */}
             <div className="lg:col-span-3">
               <span
-                className="inline-block text-xs font-black uppercase tracking-[0.25em] mb-4 px-3 py-1.5 rounded-full"
+                className="inline-block text-sm font-black uppercase tracking-[0.25em] mb-4 px-3 py-1.5 rounded-full"
                 style={{
                   color: palette.primary,
                   backgroundColor: `${palette.primary}10`,
@@ -85,7 +85,7 @@ export default function CultureStage() {
                   onClick={() => navigate("/culture")}
                   style={{ backgroundColor: palette.primary, color: "#fff" }}
                 >
-                  Explore Malang Culture
+                  {t("culture.exploreMalang")}
                 </Button>
               </div>
             </div>

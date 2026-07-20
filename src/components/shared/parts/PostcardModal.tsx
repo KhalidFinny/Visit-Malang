@@ -188,18 +188,18 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                 
                 {/* Destination - free text */}
                 <div>
-                  <label className="text-[10px] font-bold text-black/40 uppercase tracking-widest block mb-1.5">Destination</label>
+                  <label className="text-sm font-bold text-black/40 uppercase tracking-widest block mb-1.5">Destination</label>
                   <input type="text" value={dest} onChange={(e) => setDest(e.target.value)} placeholder="e.g. Kayutangan Heritage"
                     className="w-full px-3.5 py-2.5 bg-white border border-black/10 rounded-xl text-sm text-[#0A0A0A] focus:outline-none shadow-sm placeholder:text-black/30" />
                 </div>
 
                 {/* Layout selector */}
                 <div>
-                  <label className="text-[10px] font-bold text-black/40 uppercase tracking-widest block mb-1.5">Design</label>
+                  <label className="text-sm font-bold text-black/40 uppercase tracking-widest block mb-1.5">Design</label>
                   <div className="flex gap-1.5">
                     {LAYOUTS.map((l) => (
                       <button key={l.key} onClick={() => setLayout(l.key)}
-                        className={`flex-1 px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                        className={`flex-1 px-3 py-2 rounded-xl text-sm font-bold uppercase tracking-wider transition-all cursor-pointer ${
                           layout === l.key ? 'bg-[#0A0A0A] text-white' : 'bg-white border border-black/10 text-black/60 hover:text-black'
                         }`}>
                         {l.label}
@@ -210,9 +210,9 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
 
                 {/* Upload photo */}
                 <div>
-                  <label className="text-[10px] font-bold text-black/40 uppercase tracking-widest block mb-1.5">Photo</label>
+                  <label className="text-sm font-bold text-black/40 uppercase tracking-widest block mb-1.5">Photo</label>
                   <button onClick={() => fileRef.current?.click()}
-                    className="w-full px-3.5 py-2.5 bg-white border border-dashed border-black/15 hover:border-[#A3B18A]/40 text-black/60 hover:text-black text-xs font-semibold rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm">
+                    className="w-full px-3.5 py-2.5 bg-white border border-dashed border-black/15 hover:border-[#A3B18A]/40 text-black/60 hover:text-black text-sm font-semibold rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm">
                     <FontAwesomeIcon icon={faUpload} className="text-[#A3B18A]" />
                     {imageSrc ? "Replace Photo" : "Upload Your Photo"}
                   </button>
@@ -221,16 +221,16 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
 
                 {/* Caption */}
                 <div>
-                  <label className="text-[10px] font-bold text-black/40 uppercase tracking-widest block mb-1.5">Caption</label>
+                  <label className="text-sm font-bold text-black/40 uppercase tracking-widest block mb-1.5">Caption</label>
                   <textarea value={msg} onChange={(e) => setMsg(e.target.value.slice(0, 120))} rows={2}
                     className="w-full px-3.5 py-2.5 bg-white border border-black/10 rounded-xl text-sm text-[#0A0A0A] leading-relaxed resize-none focus:outline-none shadow-sm"
                     placeholder="Write something..." />
-                  <span className="text-[10px] text-black/30 mt-1 block text-right">{msg.length}/120</span>
+                  <span className="text-sm text-black/30 mt-1 block text-right">{msg.length}/120</span>
                 </div>
 
 
                 <button onClick={generateDownload} disabled={downloading || !imageSrc}
-                  className="w-full px-4 py-3 bg-[#A3B18A] hover:bg-[#8a9e75] text-white text-xs font-bold uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-60">
+                  className="w-full px-4 py-3 bg-[#A3B18A] hover:bg-[#8a9e75] text-white text-sm font-bold uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-60">
                   <FontAwesomeIcon icon={faDownload} className="text-sm" />
                   {downloading ? "Generating..." : "Download Postcard"}
                 </button>
@@ -246,7 +246,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                           <img src={imageSrc} alt="" className="absolute inset-0 w-full h-full object-cover" />
                           <div className="absolute inset-0 bg-gradient-to-r from-[#f5f4f0]/95 via-[#f5f4f0]/50 to-transparent" />
                           <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-12">
-                            <span className="text-[10px] font-bold text-[#A3B18A] uppercase tracking-[0.3em] mb-2">Malang · East Java</span>
+                            <span className="text-sm font-bold text-[#A3B18A] uppercase tracking-[0.3em] mb-2">Malang · East Java</span>
                             <h3 className="text-2xl md:text-3xl font-black text-[#0A0A0A] uppercase tracking-tight leading-tight max-w-[220px]">{dest || "Your Destination"}</h3>
                             <p className="text-sm text-black/70 mt-3 max-w-[220px] leading-relaxed italic">&ldquo;{msg}&rdquo;</p>
                           </div>
@@ -262,7 +262,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                           <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 px-6 text-center">
                             <h3 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tight leading-tight">{dest || "Your Destination"}</h3>
-                            <span className="text-xs font-bold text-[#A3B18A] uppercase tracking-[0.3em] mt-2 mb-3">Malang · East Java</span>
+                            <span className="text-sm font-bold text-[#A3B18A] uppercase tracking-[0.3em] mt-2 mb-3">Malang · East Java</span>
                             <p className="text-sm text-white/80 max-w-md leading-relaxed italic">&ldquo;{msg}&rdquo;</p>
                           </div>
                           <div className="absolute top-4 left-4 flex gap-1">
@@ -278,7 +278,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                             </div>
                             <div className="px-1 mt-2 text-center">
                               <h3 className="text-sm font-bold text-[#0A0A0A] truncate">{dest || "Your Destination"}</h3>
-                              <p className="text-[10px] text-black/50 mt-0.5 italic leading-tight line-clamp-2">{msg}</p>
+                              <p className="text-sm text-black/50 mt-0.5 italic leading-tight line-clamp-2">{msg}</p>
                             </div>
                           </div>
                           <div className="absolute bottom-4 right-4 flex gap-1">
@@ -296,7 +296,7 @@ export default function PostcardModal({ isOpen, onClose }: PostcardModalProps) {
                           <FontAwesomeIcon icon={faImage} className="text-2xl" />
                         </div>
                         <p className="text-sm font-semibold text-black/40">Upload your photo</p>
-                        <p className="text-xs text-black/25 mt-1">to create a custom postcard</p>
+                        <p className="text-sm text-black/25 mt-1">to create a custom postcard</p>
                       </div>
                     </div>
                   )}

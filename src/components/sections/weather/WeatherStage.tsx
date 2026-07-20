@@ -94,17 +94,17 @@ export default function WeatherStage() {
 
               <div className="mt-5 flex items-stretch border-y border-[#1a1a1a]/10">
                 <div className="flex-1 min-w-0 py-4 pr-3 text-center">
-                  <FontAwesomeIcon icon={faWind} className="mb-2 text-[12px] text-[#1a1a1a]/32" />
+                  <FontAwesomeIcon icon={faWind} className="mb-2 text-sm text-[#1a1a1a]/32" />
                   <div className="text-[16px] font-black text-[#1a1a1a]/82">{todayWeather.windSpeed} m/s</div>
                   <div className="mt-1 text-sm font-black uppercase tracking-[0.18em] text-[#1a1a1a]/34">{t('weather.wind')}</div>
                 </div>
                 <div className="flex-1 min-w-0 border-l border-[#1a1a1a]/10 px-3 py-4 text-center">
-                  <FontAwesomeIcon icon={faDroplet} className="mb-2 text-[12px] text-[#1a1a1a]/32" />
+                  <FontAwesomeIcon icon={faDroplet} className="mb-2 text-sm text-[#1a1a1a]/32" />
                   <div className="text-[16px] font-black text-[#1a1a1a]/82">{todayWeather.humidity}%</div>
                   <div className="mt-1 text-sm font-black uppercase tracking-[0.18em] text-[#1a1a1a]/34">{t('weather.humidity')}</div>
                 </div>
                 <div className="flex-1 min-w-0 border-l border-[#1a1a1a]/10 pl-3 py-4 text-center">
-                  <FontAwesomeIcon icon={faTemperatureHalf} className="mb-2 text-[12px] text-[#1a1a1a]/32" />
+                  <FontAwesomeIcon icon={faTemperatureHalf} className="mb-2 text-sm text-[#1a1a1a]/32" />
                   <div className="text-[16px] font-black text-[#1a1a1a]/82">{todayWeather.temp - 1}°</div>
                   <div className="mt-1 text-sm font-black uppercase tracking-[0.18em] text-[#1a1a1a]/34">{t('weather.feelsLike')}</div>
                 </div>
@@ -114,7 +114,7 @@ export default function WeatherStage() {
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#eef1e2] text-[#788056]">
                   <FontAwesomeIcon icon={currentInfo.icon} className="text-[18px]" />
                 </div>
-                <p className="text-[13px] font-medium leading-relaxed text-[#1a1a1a]/68">
+                <p className="text-sm font-medium leading-relaxed text-[#1a1a1a]/68">
                   {t('weather.prediction.' + currentCondition.toLowerCase() + '0' + (new Date().getDate() % 3 + 1))}
                 </p>
               </div>
@@ -188,7 +188,7 @@ export default function WeatherStage() {
                         {Math.round(mobileFeatured.popularity * 100)}%
                       </div>
 
-                      <p className="mt-4 text-[13px] font-medium leading-relaxed text-[#4a5e3a]/78">
+                      <p className="mt-4 text-sm font-medium leading-relaxed text-[#4a5e3a]/78">
                         {displayWeather(mobileFeatured.idealWeather) === 'Sunny'
                           ? 'Clear weather • Low rain risk • Great visibility'
                           : displayWeather(mobileFeatured.idealWeather) === 'Rainy'
@@ -203,7 +203,7 @@ export default function WeatherStage() {
                         className="mt-auto ml-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#A3B18A]/28 bg-[#f5f4f0] text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10"
                           aria-label={`Open ${mobileFeatured.name} in Google Maps`}
                       >
-                        <FontAwesomeIcon icon={faArrowRight} className="text-[13px]" />
+                        <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
                       </a>
                     </div>
                   </div>
@@ -246,7 +246,7 @@ export default function WeatherStage() {
                           {rec.name}
                         </h3>
                         <div className="mt-2 flex items-center gap-1.5 text-sm font-medium text-[#4a5e3a]/78">
-                          <span className="text-[13px]">
+                          <span className="text-sm">
                             {displayWeather(rec.idealWeather) === 'Sunny'
                               ? '☀️'
                               : displayWeather(rec.idealWeather) === 'Rainy'
@@ -268,7 +268,7 @@ export default function WeatherStage() {
                           className="flex h-10 w-10 items-center justify-center rounded-full border border-[#A3B18A]/25 text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10"
                           aria-label={`Open ${rec.name} in Google Maps`}
                         >
-                          <FontAwesomeIcon icon={faArrowRight} className="text-[12px]" />
+                          <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
                         </a>
                       </div>
                     </div>
@@ -285,7 +285,7 @@ export default function WeatherStage() {
                   className="flex w-full items-center justify-center gap-3 rounded-[18px] border border-[#A3B18A]/45 bg-[#f5f4f0] px-5 py-4 text-sm font-black uppercase tracking-[0.22em] text-[#4a5e3a] transition-colors hover:bg-[#A3B18A]/10"
                 >
                   {t('weather.allRecommendations')}
-                  <FontAwesomeIcon icon={faArrowRight} className="text-[12px]" />
+                  <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
                 </button>
               </div>
             )}
@@ -398,7 +398,7 @@ export default function WeatherStage() {
               {t('weather.seeAll')}
               <FontAwesomeIcon
                 icon={faArrowRight}
-                className="text-[12px] group-hover:translate-x-1 transition-transform"
+                className="text-sm group-hover:translate-x-1 transition-transform"
               />
             </button>
           </div>
@@ -489,7 +489,7 @@ export default function WeatherStage() {
                           className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#1a1a1a] text-[14px] font-black uppercase tracking-[0.15em] rounded-full hover:bg-white/90 transition-all"
                         >
                           {t('weather.viewDetails')}
-                          <FontAwesomeIcon icon={faArrowRight} className="text-[12px]" />
+                          <FontAwesomeIcon icon={faArrowRight} className="text-sm" />
                         </a>
                         <a
                           href={getGoogleMapsSearchUrl(rec.name)}

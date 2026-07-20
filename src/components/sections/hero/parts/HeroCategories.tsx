@@ -69,7 +69,7 @@ export default function HeroCategories({ onSelect }: HeroCategoriesProps) {
               <div className={`w-8 h-8 md:w-14 md:h-14 rounded-full bg-transparent border ${BORDER_BROWN} flex items-center justify-center group-hover:bg-[#2D221F]/10 transition-all duration-200 shrink-0 ml-3`}>
                 <FontAwesomeIcon
                   icon={faArrowUpRightFromSquare}
-                  className={`text-xs md:text-lg ${THEME_BROWN} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200`}
+                  className={`text-sm md:text-lg ${THEME_BROWN} group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200`}
                 />
               </div>
             </div>

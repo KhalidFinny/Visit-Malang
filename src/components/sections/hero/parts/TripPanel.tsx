@@ -18,10 +18,10 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
       <div>
         <button
           onClick={() => setExpanded((v) => !v)}
-          className="w-full flex items-center justify-between py-2 text-xs font-black uppercase tracking-widest text-premium-black/50 hover:text-premium-black transition-colors"
+          className="w-full flex items-center justify-between py-2 text-sm font-black uppercase tracking-widest text-premium-black/50 hover:text-premium-black transition-colors"
         >
           <span className="flex items-center gap-2">
-            <span className="w-4 h-4 rounded-full bg-heritage-sage text-white text-[9px] font-black flex items-center justify-center">
+            <span className="w-4 h-4 rounded-full bg-heritage-sage text-white text-sm font-black flex items-center justify-center">
               {tripPlaces.length}
             </span>
             {t('hero.trip.yourTrip')}
@@ -41,10 +41,10 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
               <div className="pt-2 flex flex-col gap-1.5">
                 {tripPlaces.map((p) => (
                   <div key={p.id} className="flex items-center justify-between">
-                    <span className="text-xs text-premium-black/70 font-semibold truncate pr-2">{p.name}</span>
+                    <span className="text-sm text-premium-black/70 font-semibold truncate pr-2">{p.name}</span>
                     <button
                       onClick={() => removeFromTrip(p.id)}
-                      className="text-black/20 hover:text-red-500 text-xs shrink-0 transition-colors"
+                      className="text-black/20 hover:text-red-500 text-sm shrink-0 transition-colors"
                     >
                       ✕
                     </button>
@@ -54,7 +54,7 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
                   href={directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 block w-full text-center py-2 bg-heritage-sage text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-heritage-sage/80 transition-colors"
+                  className="mt-2 block w-full text-center py-2 bg-heritage-sage text-white text-sm font-black uppercase tracking-widest rounded-lg hover:bg-heritage-sage/80 transition-colors"
                 >
                   {t('hero.trip.openMaps')}
                 </a>
@@ -77,9 +77,9 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
       {!expanded && (
         <button
           onClick={() => setExpanded(true)}
-          className="flex items-center gap-2.5 bg-white border border-black/10 text-premium-black px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest hover:border-heritage-sage/50 transition-all shadow-md"
+          className="flex items-center gap-2.5 bg-white border border-black/10 text-premium-black px-4 py-2.5 rounded-xl text-sm font-bold uppercase tracking-widest hover:border-heritage-sage/50 transition-all shadow-md"
         >
-          <span className="w-5 h-5 rounded-full bg-heritage-sage text-white text-[10px] font-black flex items-center justify-center">
+          <span className="w-5 h-5 rounded-full bg-heritage-sage text-white text-sm font-black flex items-center justify-center">
             {tripPlaces.length}
           </span>
           Your Trip
@@ -97,7 +97,7 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
             className="bg-white border border-black/10 rounded-2xl shadow-xl w-64 overflow-hidden"
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-black/6">
-              <span className="text-xs font-black uppercase tracking-widest text-premium-black">
+              <span className="text-sm font-black uppercase tracking-widest text-premium-black">
                 {t('hero.trip.yourTrip')} ({tripPlaces.length})
               </span>
               <button onClick={() => setExpanded(false)} className="text-premium-black/40 hover:text-premium-black text-sm transition-colors">
@@ -107,8 +107,8 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
             <div className="max-h-48 overflow-y-auto">
               {tripPlaces.map((p) => (
                 <div key={p.id} className="flex items-center justify-between px-4 py-2.5 border-b border-black/5">
-                  <span className="text-xs font-semibold text-premium-black/80 truncate pr-2">{p.name}</span>
-                  <button onClick={() => removeFromTrip(p.id)} className="text-black/20 hover:text-red-500 text-xs shrink-0 transition-colors">✕</button>
+                  <span className="text-sm font-semibold text-premium-black/80 truncate pr-2">{p.name}</span>
+                  <button onClick={() => removeFromTrip(p.id)} className="text-black/20 hover:text-red-500 text-sm shrink-0 transition-colors">✕</button>
                 </div>
               ))}
             </div>
@@ -117,7 +117,7 @@ export default function TripPanel({ inline = false }: TripPanelProps) {
                 href={directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center py-2.5 bg-heritage-sage text-white text-xs font-black uppercase tracking-widest rounded-lg hover:bg-heritage-sage/80 transition-colors"
+                className="block w-full text-center py-2.5 bg-heritage-sage text-white text-sm font-black uppercase tracking-widest rounded-lg hover:bg-heritage-sage/80 transition-colors"
               >
                 {t('hero.trip.openMaps')}
               </a>

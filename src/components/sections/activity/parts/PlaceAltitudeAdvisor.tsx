@@ -4,39 +4,45 @@ import type { PlaceAltitudeAdvisorProps } from "../types";
 
 export default function PlaceAltitudeAdvisor({ altitude }: PlaceAltitudeAdvisorProps) {
   return (
-    <div className="p-4 sm:p-6 lg:p-8 font-sans">
+    <div className="p-5 md:p-7 xl:p-8 font-sans">
       <div className="flex items-center gap-2 mb-4">
         <FontAwesomeIcon icon={faMountain} className="text-sm text-[#A3B18A]" />
-        <span className="text-swiss text-[10px] font-black tracking-[0.15em] uppercase text-[#A3B18A]">Altitude & Packing</span>
+        <span className="text-swiss text-sm font-black tracking-[0.08em] uppercase text-[#A3B18A]">Altitude & Packing</span>
       </div>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#2D221F]/10">
-        <h4 className="text-xl md:text-2xl font-black text-editorial text-[#2D221F] uppercase tracking-tight">Altitude & Packing Checklist</h4>
-        <div className="px-3.5 py-1.5 rounded-lg bg-[#A3B18A]/10 border border-[#A3B18A]/20 text-[#A3B18A] text-swiss text-[9px] font-black tracking-[0.15em] uppercase self-start sm:self-auto flex items-center gap-2">
-          <FontAwesomeIcon icon={faMountain} className="text-xs" />
-          <span>{altitude.altitude.toLocaleString()}m Altitude</span>
+      <div className="flex flex-col gap-4 pb-5 border-b border-[#2D221F]/10">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+          <h4 className="text-xl md:text-2xl font-black text-editorial text-[#2D221F] uppercase tracking-tight leading-[0.95] text-balance max-w-[16ch]">
+            Altitude & Packing Checklist
+          </h4>
+          <div className="px-3.5 py-2 rounded-lg bg-[#A3B18A]/10 border border-[#A3B18A]/20 text-[#A3B18A] text-swiss text-sm font-black tracking-[0.08em] uppercase self-start flex items-center gap-2">
+            <FontAwesomeIcon icon={faMountain} className="text-sm" />
+            <span>{altitude.altitude.toLocaleString()}m Altitude</span>
+          </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-6">
-        <div className="bg-[#f5f4f0] border border-[#2D221F]/10 p-5 rounded-xl flex flex-col justify-center">
-          <span className="text-swiss text-[9px] font-black tracking-[0.15em] uppercase text-[#2D221F]/40 block mb-1">Expected Temperature</span>
-          <span className="text-3xl font-black text-editorial text-[#A3B18A] tracking-tight leading-none my-1.5">{altitude.temp_range}</span>
-          <span className="text-[9px] text-[#2D221F]/40 font-bold uppercase tracking-wider block mt-1">Colder than Malang city</span>
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(200px,240px)_1fr] gap-6 py-6 items-start">
+        <div className="bg-[#f5f4f0] border border-[#2D221F]/10 p-5 md:p-6 rounded-xl flex flex-col justify-center">
+          <span className="text-swiss text-sm font-black tracking-[0.08em] uppercase text-[#2D221F]/40 block mb-2">Expected Temperature</span>
+          <span className="text-3xl md:text-4xl font-black text-editorial text-[#A3B18A] tracking-tight leading-none my-1.5 text-balance">{altitude.temp_range}</span>
+          <span className="text-sm text-[#2D221F]/45 font-bold uppercase tracking-[0.06em] block mt-1">Colder than Malang city</span>
         </div>
-        <div className="md:col-span-2">
-          <h5 className="text-swiss text-[10px] font-black tracking-[0.15em] uppercase text-[#2D221F]/40 mb-3">Recommended Packing Gear</h5>
-          <div className="flex flex-wrap gap-2">
+        <div>
+          <h5 className="text-swiss text-sm font-black tracking-[0.08em] uppercase text-[#2D221F]/40 mb-3">Recommended Packing Gear</h5>
+          <div className="flex flex-wrap gap-3">
             {altitude.packing_list.split(",").map((item: string, i: number) => (
-              <span key={i} className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold bg-[#f5f4f0] border border-[#2D221F]/10 rounded-xl text-[#2D221F]">
-                <FontAwesomeIcon icon={faCheck} className="text-[#A3B18A] text-[10px]" />
+              <span key={i} className="inline-flex items-center gap-2 px-4 py-3 text-sm font-bold bg-[#f5f4f0] border border-[#2D221F]/10 rounded-xl text-[#2D221F]">
+                <FontAwesomeIcon icon={faCheck} className="text-[#A3B18A] text-sm" />
                 {item.trim()}
               </span>
             ))}
           </div>
           {altitude.altitude > 1500 && (
-            <p className="text-xs text-amber-600 leading-relaxed font-bold mt-4 flex items-center gap-2 uppercase tracking-wide font-swiss">
-              <FontAwesomeIcon icon={faTriangleExclamation} />
-              <span>High elevation area. Warm layers recommended for early sunrise viewing.</span>
-            </p>
+            <div className="mt-5 rounded-xl border border-amber-500/20 bg-amber-500/[0.05] px-4 py-3">
+              <p className="text-sm md:text-base text-amber-700 leading-relaxed font-semibold flex items-start gap-2 text-pretty">
+                <FontAwesomeIcon icon={faTriangleExclamation} className="mt-0.5 shrink-0" />
+                <span>High elevation area. Warm layers recommended for early sunrise viewing.</span>
+              </p>
+            </div>
           )}
         </div>
       </div>

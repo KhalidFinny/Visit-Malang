@@ -83,7 +83,7 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
                     <FontAwesomeIcon icon={faCamera} className="text-xl" />
                   </div>
                   <h5 className="text-sm font-bold text-[#0A0A0A] uppercase tracking-wider mb-1">Tap to Upload</h5>
-                  <p className="text-xs text-black/50 max-w-[180px] leading-relaxed">Upload a photo to discover its Malang location</p>
+                  <p className="text-sm text-black/50 max-w-[180px] leading-relaxed">Upload a photo to discover its Malang location</p>
                 </div>
               )}
               <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" className="hidden" />
@@ -93,7 +93,7 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#A3B18A]" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#A3B18A]">Malang Photo Finder</span>
+                  <span className="text-sm font-black uppercase tracking-widest text-[#A3B18A]">Malang Photo Finder</span>
                 </div>
                 {scanning && (
                   <div className="space-y-3 py-4">
@@ -101,7 +101,7 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
                       <FontAwesomeIcon icon={faSpinner} className="animate-spin text-[#A3B18A]" />
                       <span>Identifying location...</span>
                     </div>
-                    <div className="bg-white border border-black/[0.06] p-4 rounded-xl text-xs text-black/50">Comparing your photo against known Malang landmarks...</div>
+                    <div className="bg-white border border-black/[0.06] p-4 rounded-xl text-sm text-black/50">Comparing your photo against known Malang landmarks...</div>
                   </div>
                 )}
                 {!scanning && isUnknown && (
@@ -114,21 +114,21 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
                   <div className="space-y-4">
                     <div>
                       <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className="text-xs bg-[#A3B18A]/15 border border-[#A3B18A]/25 px-2.5 py-1 rounded text-[#4a5e3a] font-bold">{result.confidence}% match</span>
-                        <span className="text-xs text-black/40 font-bold uppercase">{result.category}</span>
+                        <span className="text-sm bg-[#A3B18A]/15 border border-[#A3B18A]/25 px-2.5 py-1 rounded text-[#4a5e3a] font-bold">{result.confidence}% match</span>
+                        <span className="text-sm text-black/40 font-bold uppercase">{result.category}</span>
                       </div>
                       <h4 className="text-xl font-bold text-[#0A0A0A] tracking-tight mb-0.5">{result.name}</h4>
-                      <p className="text-xs text-black/40 italic">{result.matchReason}</p>
+                      <p className="text-sm text-black/40 italic">{result.matchReason}</p>
                     </div>
                     <p className="text-sm text-black/70">{result.description}</p>
                     {candidates.length > 0 && (
                       <div className="pt-2 border-t border-black/[0.06]">
-                        <span className="block text-[10px] font-bold text-black/40 uppercase mb-2">Other possibilities</span>
+                        <span className="block text-sm font-bold text-black/40 uppercase mb-2">Other possibilities</span>
                         {candidates.map((cand) => (
                           <button key={cand.slug} onClick={() => setResult(cand)}
                             className="flex items-center justify-between w-full p-2.5 rounded-xl bg-white hover:bg-black/[0.02] border border-black/[0.06] text-left transition-all cursor-pointer mb-1.5">
                             <span className="text-sm font-semibold text-[#0A0A0A] truncate">{cand.name}</span>
-                            <span className="text-xs text-black/40 shrink-0 ml-2">{cand.confidence}%</span>
+                            <span className="text-sm text-black/40 shrink-0 ml-2">{cand.confidence}%</span>
                           </button>
                         ))}
                       </div>
@@ -139,12 +139,12 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
               {!scanning && result && !isUnknown && (
                 <div className="space-y-2 pt-4 border-t border-black/[0.06] mt-4">
                   <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(result.name + ' Malang Indonesia')}`} target="_blank" rel="noopener noreferrer"
-                    className="w-full px-4 py-3 bg-[#A3B18A] hover:bg-[#8a9e75] text-white text-xs font-bold uppercase rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
+                    className="w-full px-4 py-3 bg-[#A3B18A] hover:bg-[#8a9e75] text-white text-sm font-bold uppercase rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
                     <FontAwesomeIcon icon={faMapLocationDot} />
                     <span>Navigate in Google Maps</span>
                   </a>
                   <a href={`/place/${result.slug}`} onClick={onClose}
-                    className="w-full px-4 py-3 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black text-xs font-bold uppercase rounded-xl flex items-center justify-center gap-2 transition-all">
+                    className="w-full px-4 py-3 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black text-sm font-bold uppercase rounded-xl flex items-center justify-center gap-2 transition-all">
                     <FontAwesomeIcon icon={faEye} />
                     <span>Explore Details</span>
                   </a>
@@ -152,7 +152,7 @@ export default function VisualLensModal({ isOpen, onClose }: VisualLensModalProp
               )}
               {!scanning && !result && !isUnknown && (
                 <button onClick={() => fileInputRef.current?.click()}
-                  className="w-full px-4 py-3 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black text-xs font-bold uppercase rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
+                  className="w-full px-4 py-3 bg-white border border-black/10 hover:border-black/20 text-black/70 hover:text-black text-sm font-bold uppercase rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all">
                   <FontAwesomeIcon icon={faCamera} className="text-[#A3B18A]" />
                   <span>Select Image</span>
                 </button>

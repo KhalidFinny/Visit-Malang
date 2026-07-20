@@ -120,7 +120,7 @@ const NewsList: React.FC = () => {
                 >
                   <div className="p-6 md:p-8 flex flex-col h-full justify-between">
                     <div>
-                      <div className="text-swiss text-[9px] font-black tracking-[0.15em] uppercase text-[#A3B18A] mb-4">
+                      <div className="text-swiss text-sm font-black tracking-[0.15em] uppercase text-[#A3B18A] mb-4">
                         {source}
                       </div>
                       <h3 className="text-editorial text-lg md:text-xl font-bold leading-tight tracking-tight text-[#2D221F] group-hover:text-[#A3B18A] transition-colors line-clamp-3">
@@ -128,8 +128,8 @@ const NewsList: React.FC = () => {
                       </h3>
                     </div>
                     <div className="mt-8 flex items-center justify-between border-t border-[#2D221F]/5 pt-4">
-                      <span className="text-swiss text-[10px] font-bold uppercase tracking-wider text-[#2D221F]/40">{formatDate(article.pubDate)}</span>
-                      <span className="text-swiss text-[9px] font-black tracking-wider bg-[#f5f4f0] text-[#2D221F]/80 px-3.5 py-1.5 rounded-full border border-[#2D221F]/5 group-hover:bg-[#A3B18A] group-hover:text-white group-hover:border-[#A3B18A] transition-all duration-300">
+                      <span className="text-swiss text-sm font-bold uppercase tracking-wider text-[#2D221F]/40">{formatDate(article.pubDate)}</span>
+                      <span className="text-swiss text-sm font-black tracking-wider bg-[#f5f4f0] text-[#2D221F]/80 px-3.5 py-1.5 rounded-full border border-[#2D221F]/5 group-hover:bg-[#A3B18A] group-hover:text-white group-hover:border-[#A3B18A] transition-all duration-300">
                         {t('news.read')}
                       </span>
                     </div>

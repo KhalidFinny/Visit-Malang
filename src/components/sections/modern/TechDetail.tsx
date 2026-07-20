@@ -84,7 +84,7 @@ const TechDetail: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-swiss text-[12px] md:text-[14px] font-black tracking-[0.8em] text-[#0A0A0A]/40 uppercase mb-8 block"
+            className="text-swiss text-sm md:text-[14px] font-black tracking-[0.8em] text-[#0A0A0A]/40 uppercase mb-8 block"
           >
             {t('tech.hero.label')}
           </motion.span>
@@ -100,7 +100,7 @@ const TechDetail: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-swiss text-[12px] md:text-base text-[#0A0A0A]/50 tracking-[0.5em] uppercase max-w-2xl mx-auto mb-14 font-medium"
+            className="text-swiss text-sm md:text-base text-[#0A0A0A]/50 tracking-[0.5em] uppercase max-w-2xl mx-auto mb-14 font-medium"
           >
             {t('tech.hero.subtitle')}
           </motion.p>
@@ -114,7 +114,7 @@ const TechDetail: React.FC = () => {
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-swiss text-[10px] font-black tracking-[0.5em] text-[#4A5759] uppercase mb-4 block"
+              className="text-swiss text-sm font-black tracking-[0.5em] text-[#4A5759] uppercase mb-4 block"
             >
               {t('tech.creative.label')}
             </motion.span>
@@ -135,7 +135,7 @@ const TechDetail: React.FC = () => {
                   {f.icon}
                 </div>
                 <h3 className="text-swiss text-lg font-bold uppercase mb-3 text-[#0A0A0A] text-balance">{f.title}</h3>
-                <p className="text-swiss text-xs text-[#0A0A0A]/50 leading-relaxed">{f.desc}</p>
+                <p className="text-swiss text-sm text-[#0A0A0A]/50 leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -147,7 +147,7 @@ const TechDetail: React.FC = () => {
         <div className="swiss-container">
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
             <h2 className="text-editorial text-5xl md:text-7xl uppercase tracking-tighter leading-none text-[#0A0A0A] text-balance">{t('tech.timeline.titleLine1')} <br /> {t('tech.timeline.titleLine2')}</h2>
-            <p className="text-swiss text-[#0A0A0A]/30 text-[10px] md:text-xs max-w-[200px] text-right uppercase tracking-[0.3em] font-black leading-relaxed">{t('tech.timeline.subtitle')}</p>
+            <p className="text-swiss text-[#0A0A0A]/30 text-sm md:text-sm max-w-[200px] text-right uppercase tracking-[0.3em] font-black leading-relaxed">{t('tech.timeline.subtitle')}</p>
           </div>
 
           <div className="relative px-8 md:px-0">
@@ -170,7 +170,7 @@ const TechDetail: React.FC = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                       >
                         <h3 className="text-swiss text-xl font-black uppercase mb-2 text-[#0A0A0A] text-balance">{item.event}</h3>
-                        <p className="text-[#0A0A0A]/50 text-xs max-w-xs ml-auto mr-auto md:mr-0 leading-relaxed">{item.desc}</p>
+                        <p className="text-[#0A0A0A]/50 text-sm max-w-xs ml-auto mr-auto md:mr-0 leading-relaxed">{item.desc}</p>
                       </motion.div>
                     ) : <div className="hidden md:block" />}
                   </div>
@@ -190,7 +190,7 @@ const TechDetail: React.FC = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                       >
                         <h3 className="text-swiss text-xl font-black uppercase mb-2 text-[#0A0A0A] text-balance">{item.event}</h3>
-                        <p className="text-[#0A0A0A]/50 text-xs max-w-xs ml-auto mr-auto md:ml-0 leading-relaxed">{item.desc}</p>
+                        <p className="text-[#0A0A0A]/50 text-sm max-w-xs ml-auto mr-auto md:ml-0 leading-relaxed">{item.desc}</p>
                       </motion.div>
                     ) : <div className="hidden md:block" />}
                   </div>
@@ -209,7 +209,7 @@ const TechDetail: React.FC = () => {
               <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-swiss text-[10px] font-black tracking-[0.5em] text-[#A3B18A] uppercase mb-6 block"
+                className="text-swiss text-sm font-black tracking-[0.5em] text-[#A3B18A] uppercase mb-6 block"
               >
                 {t('tech.future.label')}
               </motion.span>
@@ -262,7 +262,7 @@ const TechDetail: React.FC = () => {
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
             </div>
-            <span className="text-swiss text-[10px] font-black uppercase tracking-[0.5em] text-[#0A0A0A]/30 group-hover:text-[#0A0A0A] transition-colors">{t('tech.closing.cta')}</span>
+            <span className="text-swiss text-sm font-black uppercase tracking-[0.5em] text-[#0A0A0A]/30 group-hover:text-[#0A0A0A] transition-colors">{t('tech.closing.cta')}</span>
           </button>
         </div>
       </section>

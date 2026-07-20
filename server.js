@@ -390,9 +390,9 @@ app.get("/api/altitudes", async (req, res) => {
 // POST /api/safety/update
 app.post("/api/safety/update", (req, res) => {
   const { auth_token, slug, status, details } = req.body;
-  const ADMIN_TOKEN = process.env.ADMIN_TOKEN || "malang2026";
+  const ADMIN_TOKEN = process.env.ADMIN_TOKEN;
 
-  if (auth_token !== ADMIN_TOKEN) {
+  if (!ADMIN_TOKEN || auth_token !== ADMIN_TOKEN) {
     res.status(401).json({ error: "Unauthorized access token" });
     return;
   }
