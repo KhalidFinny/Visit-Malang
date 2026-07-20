@@ -91,9 +91,9 @@ export default function HistoryStage() {
                           </div>
                         </div>
                         <div className={`w-12 h-1 rounded-full mb-4 ${deco.markerBar}`} />
-                        <h3 className={`text-[26px] font-black leading-tight mb-3 ${deco.accentText}`}>{period.label}</h3>
-                        <p className={`text-sm leading-relaxed mb-4 ${deco.accentText} opacity-70 font-medium`}>{period.summary}</p>
-                        <p className={`text-sm font-medium ${deco.accentText} opacity-50`}>{meta.landmarks.join(" • ")}</p>
+                        <h3 className={`text-[26px] font-black leading-tight mb-3 ${deco.accentText}`}>{t(`history.periods.${period.key}.label`)}</h3>
+                        <p className={`text-sm leading-relaxed mb-4 ${deco.accentText} opacity-70 font-medium`}>{t(`history.periods.${period.key}.summary`)}</p>
+                        <p className={`text-sm font-medium ${deco.accentText} opacity-50`}>{t(`history.periods.${period.key}.landmarks`)}</p>
                       </div>
                     </div>
                   </button>
@@ -126,9 +126,9 @@ export default function HistoryStage() {
                     </div>
                   </div>
                   <div className={`w-10 h-1 rounded-full mb-3 ${deco.markerBar}`} />
-                  <h3 className={`text-[24px] font-black leading-tight mb-2 ${deco.accentText}`}>{period.label}</h3>
-                  <p className={`text-sm leading-relaxed mb-3 ${deco.accentText} opacity-70 font-medium`}>{period.summary}</p>
-                  <p className={`text-sm font-medium ${deco.accentText} opacity-50`}>{meta.landmarks.join(" • ")}</p>
+                  <h3 className={`text-[24px] font-black leading-tight mb-2 ${deco.accentText}`}>{t(`history.periods.${period.key}.label`)}</h3>
+                  <p className={`text-sm leading-relaxed mb-3 ${deco.accentText} opacity-70 font-medium`}>{t(`history.periods.${period.key}.summary`)}</p>
+                  <p className={`text-sm font-medium ${deco.accentText} opacity-50`}>{t(`history.periods.${period.key}.landmarks`)}</p>
                 </div>
               </button>
             );

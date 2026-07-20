@@ -31,11 +31,11 @@ function PageFallback() {
 function PageTransition({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, zIndex: 0 }}
-      animate={{ opacity: 1, zIndex: 0 }}
-      exit={{ opacity: 0, zIndex: 1 }}
-      transition={{ duration: 0.32, ease: "easeInOut" }}
-      className="w-full relative bg-[#f5f4f0]"
+      initial={{ opacity: 0, zIndex: 2 }}
+      animate={{ opacity: 1, zIndex: 2 }}
+      exit={{ opacity: 1, zIndex: 1 }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="w-full relative"
     >
       {children}
     </motion.div>

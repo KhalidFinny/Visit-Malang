@@ -70,15 +70,15 @@ export default function CultureStage() {
               </span>
 
               <h2 className="text-editorial text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.92] tracking-tight mb-3 text-premium-black">
-                {entry.title}
+                {t(`culture.entries.${entry.slug}.title`, entry.title)}
               </h2>
 
               <p className="text-swiss text-lg sm:text-xl font-bold leading-snug mb-4 text-premium-black/60">
-                {entry.subtitle}
+                {t(`culture.entries.${entry.slug}.subtitle`, entry.subtitle)}
               </p>
 
               <p className="text-swiss text-base sm:text-lg leading-relaxed mb-8 max-w-xl text-premium-black/65">
-                {entry.teaser}
+                {t(`culture.entries.${entry.slug}.teaser`, entry.teaser)}
               </p>
               <div className="flex flex-wrap items-center gap-3 mt-6">
                 <Button
@@ -100,7 +100,7 @@ export default function CultureStage() {
                 >
                   <img
                     src={entry.imageUrl}
-                    alt={entry.title}
+                    alt={t(`culture.entries.${entry.slug}.title`, entry.title)}
                     className="w-full h-full object-cover pointer-events-none select-none"
                   />
                   <div

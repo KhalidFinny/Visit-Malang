@@ -102,11 +102,11 @@ export default function HistoryList() {
                   </div>
 
                   <h2 className="text-[22px] sm:text-[28px] lg:text-[34px] font-bold leading-[1.06] tracking-tight text-[#1a1a1a] group-hover:opacity-75 transition-opacity">
-                    {story.title}
+                    {t(`history.stories.${story.slug}.title`, story.title)}
                   </h2>
 
                   <p className="text-sm sm:text-base text-[#1a1a1a]/60 font-medium leading-relaxed max-w-4xl">
-                    {story.hook}
+                    {t(`history.stories.${story.slug}.hook`, story.hook)}
                   </p>
 
                   <div className="mt-3 flex items-center gap-2 text-xs sm:text-sm font-bold" style={{ color: vibe.accent + "bb" }}>

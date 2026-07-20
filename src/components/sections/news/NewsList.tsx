@@ -16,9 +16,34 @@ export interface NewsArticle {
 }
 
 export const fetchMalangNews = async (query: string = "Malang"): Promise<NewsArticle[]> => {
-  const response = await fetch(`/api/news?q=${encodeURIComponent(query)}`);
-  if (!response.ok) return [];
-  return response.json();
+  const googleNewsLink = `https://news.google.com/search?q=${encodeURIComponent(query)}&hl=id&gl=ID&ceid=ID:id`;
+  const fallback = [{
+    title: `Latest ${query} updates on Google News`,
+    pubDate: new Date().toISOString(),
+    link: googleNewsLink,
+    guid: `google-news-${query.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+    author: "Google News",
+    thumbnail: "",
+    description: `Open Google News to view the latest live coverage for ${query}.`,
+    content: `Open Google News to view the latest live coverage for ${query}.`,
+  }];
+
+  if (typeof window !== "undefined") {
+    const host = window.location.hostname;
+    const canUseLocalNewsApi = host === "localhost" || host === "127.0.0.1";
+    if (!canUseLocalNewsApi) {
+      return fallback;
+    }
+  }
+
+  try {
+    const response = await fetch(`/api/news?q=${encodeURIComponent(query)}`);
+    if (!response.ok) return fallback;
+    const articles = await response.json();
+    return Array.isArray(articles) && articles.length > 0 ? articles : fallback;
+  } catch {
+    return fallback;
+  }
 };
 
 const NewsList: React.FC = () => {
