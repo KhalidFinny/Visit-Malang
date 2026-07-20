@@ -53,12 +53,12 @@ const ActivityDetail = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full min-h-screen bg-[#f5f4f0] text-[#2D221F] flex flex-col"
+      className="w-full h-screen bg-[#f5f4f0] text-[#2D221F] flex flex-col overflow-hidden"
     >
       <BackButton to="/" />
 
       {/* ================= HERO ================= */}
-      <div className="relative w-full min-h-[50vh] md:min-h-[60vh]">
+      <div className="relative w-full flex-1 min-h-0">
         <ImageWithSkeleton
           src={currentPlace.heroImage}
           alt={currentPlace.title}
@@ -72,18 +72,18 @@ const ActivityDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#2D221F]/50 via-transparent to-transparent pointer-events-none z-10" />
 
         {/* TEXT */}
-        <div className="absolute inset-0 flex flex-col justify-end px-6 pb-14 sm:px-12 sm:pb-16 md:px-16 md:pb-18 max-w-full z-20">
+        <div className="absolute inset-0 flex flex-col justify-end px-6 pb-14 sm:px-12 sm:pb-16 md:px-16 md:pb-18 max-w-full sm:max-w-[70%] z-20">
           <h1 className="text-[clamp(28px,6vw,64px)] text-editorial font-black leading-tight sm:leading-none tracking-tight mb-3 uppercase text-white">
             {currentPlace.title}
           </h1>
 
-          <p className="text-white/80 text-sm leading-relaxed mb-4 sm:mb-6 font-sans">
+          <p className="text-white/80 text-xs sm:text-[14px] leading-relaxed mb-4 sm:mb-6 max-w-[420px] font-sans">
             {currentPlace.description}
           </p>
 
           <button
             onClick={handleExplore}
-            className="flex items-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-[#2D221F] text-sm font-black uppercase tracking-widest rounded-full hover:bg-[#A3B18A] hover:text-white transition-all w-fit cursor-pointer shadow-md"
+            className="flex items-center gap-2 px-6 py-2.5 sm:px-8 sm:py-3 bg-white text-[#2D221F] text-xs font-black uppercase tracking-widest rounded-full hover:bg-[#A3B18A] hover:text-white transition-all w-fit cursor-pointer shadow-md"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
@@ -94,9 +94,9 @@ const ActivityDetail = () => {
       </div>
 
       {/* ================= DESTINASI ================= */}
-      <div className="w-full bg-[#f5f4f0] px-4 sm:px-10 flex-shrink-0 rounded-t-[2rem] sm:rounded-t-[2.5rem] border-t border-[#2D221F]/5 z-20 relative -mt-6 sm:-mt-8 pt-4 sm:pt-6 pb-4">
+      <div className="w-full bg-[#f5f4f0] px-4 sm:px-10 h-[200px] sm:h-[220px] flex-shrink-0 overflow-hidden rounded-t-[2rem] sm:rounded-t-[2.5rem] border-t border-[#2D221F]/5 z-20 relative -mt-6 sm:-mt-8 pt-4 sm:pt-6">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="text-editorial text-sm sm:text-sm font-bold uppercase tracking-wide text-[#2D221F]">
+          <h2 className="text-editorial text-xs sm:text-sm font-bold uppercase tracking-wide text-[#2D221F]">
             {t('activityDetail.otherDestinations')}
           </h2>
 
@@ -148,10 +148,10 @@ const ActivityDetail = () => {
 
                 {/* text */}
                 <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4">
-                  <h3 className="text-white font-bold text-sm sm:text-sm uppercase font-sans">
+                  <h3 className="text-white font-bold text-xs sm:text-sm truncate uppercase font-sans">
                     {place.title}
                   </h3>
-                  <p className="text-white/70 text-sm sm:text-sm font-sans">
+                  <p className="text-white/70 text-[9px] sm:text-[10px] truncate font-sans">
                     {place.tagline || place.basicInfo?.location || ""}
                   </p>
                 </div>

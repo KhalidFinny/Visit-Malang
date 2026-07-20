@@ -41,10 +41,10 @@ export default function PlaceSafetyAdvisory({ safety }: PlaceSafetyAdvisoryProps
           <span className={`text-xl font-black text-editorial uppercase tracking-tight ${
             isOpen ? 'text-[#A3B18A]' : isCaution ? 'text-amber-600' : 'text-rose-600'
           }`}>{statusText}</span>
-          <span className="text-swiss text-sm font-black tracking-[0.15em] uppercase text-[#2D221F]/30">&middot; {new Date(safety.last_updated).toLocaleDateString()}</span>
+          <span className="text-swiss text-[9px] font-black tracking-[0.15em] uppercase text-[#2D221F]/30">&middot; {new Date(safety.last_updated).toLocaleDateString()}</span>
         </div>
         <p className="text-sm md:text-base text-[#2D221F]/80 leading-relaxed font-medium">{safety.details}</p>
-        <span className="mt-3 text-sm font-black tracking-[0.1em] uppercase text-[#2D221F]/40 border-l-2 border-[#A3B18A] pl-3 py-0.5 block max-w-xl font-swiss">
+        <span className="mt-3 text-[10px] font-black tracking-[0.1em] uppercase text-[#2D221F]/40 border-l-2 border-[#A3B18A] pl-3 py-0.5 block max-w-xl font-swiss">
           {CONTEXT_NOTES[ctx] || CONTEXT_NOTES.urban}
         </span>
       </div>

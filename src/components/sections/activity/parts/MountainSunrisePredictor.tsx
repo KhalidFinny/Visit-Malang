@@ -41,55 +41,55 @@ export default function MountainSunrisePredictor({ lat, lng }: MountainSunrisePr
   }, [weather]);
 
   return (
-    <div className="p-5 md:p-7 xl:p-8">
+    <div className="p-4 sm:p-6 lg:p-8">
       <div className="flex items-center gap-2 mb-4">
         <FontAwesomeIcon icon={faSun} className="text-sm text-amber-500" />
-        <span className="text-swiss text-sm font-black tracking-[0.08em] uppercase text-[#A3B18A]">Prediksi Kejernihan Sunrise</span>
+        <span className="text-swiss text-[10px] font-black tracking-[0.15em] uppercase text-[#A3B18A]">Sunrise Clarity Predictor</span>
       </div>
-      <div className="grid grid-cols-1 xl:grid-cols-[minmax(260px,340px)_1fr] gap-6">
-        <div className={`p-5 md:p-6 rounded-xl border ${color}`}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-[#2D221F]/5 border border-[#2D221F]/10 flex items-center justify-center text-xl text-[#2D221F] shrink-0">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className={`p-5 rounded-xl border ${color}`}>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl bg-[#2D221F]/5 border border-[#2D221F]/10 flex items-center justify-center text-xl text-[#2D221F]">
               <FontAwesomeIcon icon={icon} />
             </div>
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.08em] text-[#2D221F]">{label}</p>
-              <p className="text-sm text-[#2D221F]/50 font-semibold">Skor Kejernihan: {score}/100</p>
+              <p className="text-sm font-bold uppercase tracking-wider text-[#2D221F]">{label}</p>
+              <p className="text-sm text-[#2D221F]/50 font-semibold">Clarity Score: {score}/100</p>
             </div>
           </div>
-          <p className="text-sm md:text-base text-[#2D221F]/70 leading-relaxed font-medium text-pretty">{desc}</p>
+          <p className="text-sm text-[#2D221F]/70 leading-relaxed font-semibold">{desc}</p>
         </div>
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
-            <div className="p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0]">
-              <FontAwesomeIcon icon={faSun} className="text-amber-500 text-lg mb-2" />
-              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Suhu</p>
-              <p className="text-lg font-bold text-[#2D221F] mt-1">{Math.round(temp)}°C</p>
+        <div className="space-y-3">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
+            <div className="p-2.5 sm:p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0] overflow-hidden">
+              <FontAwesomeIcon icon={faSun} className="text-amber-500 text-base sm:text-lg mb-1" />
+              <p className="text-[9px] sm:text-xs text-[#2D221F]/50 uppercase tracking-tight sm:tracking-wider font-bold truncate">Temperature</p>
+              <p className="text-base sm:text-lg font-bold text-[#2D221F]">{Math.round(temp)}°C</p>
             </div>
-            <div className="p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0]">
-              <FontAwesomeIcon icon={faCloud} className="text-sky-500 text-lg mb-2" />
-              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Kelembapan</p>
-              <p className="text-lg font-bold text-[#2D221F] mt-1">{Math.round(humidity)}%</p>
+            <div className="p-2.5 sm:p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0] overflow-hidden">
+              <FontAwesomeIcon icon={faCloud} className="text-sky-500 text-base sm:text-lg mb-1" />
+              <p className="text-[9px] sm:text-xs text-[#2D221F]/50 uppercase tracking-tight sm:tracking-wider font-bold truncate">Humidity</p>
+              <p className="text-base sm:text-lg font-bold text-[#2D221F]">{Math.round(humidity)}%</p>
             </div>
-            <div className="p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0] sm:col-span-2 xl:col-span-1">
-              <FontAwesomeIcon icon={faWind} className="text-sky-500 text-lg mb-2" />
-              <p className="text-sm text-[#2D221F]/50 uppercase tracking-[0.06em] font-bold">Kecepatan Angin</p>
-              <p className="text-lg font-bold text-[#2D221F] mt-1">{Math.round(windSpeed)} km/h</p>
+            <div className="p-2.5 sm:p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0] overflow-hidden">
+              <FontAwesomeIcon icon={faWind} className="text-sky-500 text-base sm:text-lg mb-1" />
+              <p className="text-[9px] sm:text-xs text-[#2D221F]/50 uppercase tracking-tight sm:tracking-wider font-bold truncate">Wind Speed</p>
+              <p className="text-base sm:text-lg font-bold text-[#2D221F]">{Math.round(windSpeed)} km/h</p>
             </div>
           </div>
-          <button onClick={() => setIsSimulated(!isSimulated)} className="text-sm font-medium text-[#A3B18A] hover:text-[#8a9e75] underline underline-offset-4 transition-all cursor-pointer">
-            {isSimulated ? "Gunakan Data Cuaca Langsung" : "Simulasikan Kondisi"}
+          <button onClick={() => setIsSimulated(!isSimulated)} className="text-sm font-medium text-[#A3B18A] hover:text-[#8a9e75] underline transition-all cursor-pointer">
+            {isSimulated ? "Use Live Weather Data" : "Simulate Conditions"}
           </button>
           {isSimulated && (
             <div className="p-4 rounded-xl border border-[#2D221F]/10 bg-[#f5f4f0] space-y-3">
-              {[{ label: "Kelembapan", v: simHumidity, s: setSimHumidity, min: 30, max: 100, icon: faCloud },
-                { label: "Kecepatan Angin", v: simWind, s: setSimWind, min: 0, max: 50, icon: faWind },
-                { label: "Suhu", v: simTemp, s: setSimTemp, min: -5, max: 30, icon: faSun },
+              {[{ label: "Humidity", v: simHumidity, s: setSimHumidity, min: 30, max: 100, icon: faCloud },
+                { label: "Wind Speed", v: simWind, s: setSimWind, min: 0, max: 50, icon: faWind },
+                { label: "Temperature", v: simTemp, s: setSimTemp, min: -5, max: 30, icon: faSun },
               ].map((s, i) => (
                 <div key={i}>
-                  <div className="flex items-center justify-between gap-4 mb-1.5">
-                    <span className="text-sm text-[#2D221F]/60 font-semibold"><FontAwesomeIcon icon={s.icon} className="mr-1.5 text-sm" />{s.label}</span>
-                    <span className="text-sm font-bold text-[#2D221F] whitespace-nowrap">{s.v}{s.label === "Humidity" ? "%" : s.label === "Wind Speed" ? " km/h" : "°C"}</span>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-sm text-[#2D221F]/60 font-semibold"><FontAwesomeIcon icon={s.icon} className="mr-1.5 text-[10px]" />{s.label}</span>
+                    <span className="text-sm font-bold text-[#2D221F]">{s.v}{s.label === "Humidity" ? "%" : s.label === "Wind Speed" ? " km/h" : "°C"}</span>
                   </div>
                   <input type="range" min={s.min} max={s.max} value={s.v} onChange={e => s.s(Number(e.target.value))} className="w-full h-1.5 bg-[#2D221F]/10 rounded-full appearance-none cursor-pointer accent-[#A3B18A]" />
                 </div>
